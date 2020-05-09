@@ -1,0 +1,6 @@
+E:\MyProject\Conforyon\Lib\ConforyonLibrary\ConforyonLibrary\bin\Release\ConforyonLibrary.dll
+E:\MyProject\Conforyon\Lib\ConforyonLibrary\ConforyonLibrary\bin\Release\ConforyonLibrary.pdb
+E:\MyProject\Conforyon\Lib\ConforyonLibrary\ConforyonLibrary\obj\Release\ConforyonLibrary.csproj.CoreCompileInputs.cache
+E:\MyProject\Conforyon\Lib\ConforyonLibrary\ConforyonLibrary\obj\Release\ConforyonLibrary.dll
+E:\MyProject\Conforyon\Lib\ConforyonLibrary\ConforyonLibrary\obj\Release\ConforyonLibrary.pdb
+E:\MyProject\Conforyon\Lib\ConforyonLibrary\ConforyonLibrary\obj\Release\ConforyonLibrary.csprojAssemblyReference.cache
