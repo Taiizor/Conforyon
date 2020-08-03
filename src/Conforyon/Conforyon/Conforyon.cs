@@ -24,13 +24,26 @@ namespace Conforyon
     public static class Conforyon
     {
         #region Variables
+        /// <summary>
+        /// 
+        /// </summary>
+        private const string ErrorTitle = " (CN-LY";
 
-        private const string ErrorTitle = " (CN-CL";
+        /// <summary>
+        /// 
+        /// </summary>
         private const string ErrorMessage = "Error!";
-        private const int VariableLength = 15;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        private const int VariableLength = 15;
         #endregion
 
+        #region Enums
+        /// <summary>
+        /// 
+        /// </summary>
         private static readonly string[] SizeTypes = {
             "Bit",
             "Byte",
@@ -44,23 +57,44 @@ namespace Conforyon
             "YB"
         };
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static readonly string[] SymbolsMath = {
             "-",
             "+"
         };
 
+        /// <summary>
+        /// 
+        /// </summary>
         private static readonly string[] SymbolsCalc = {
             "E",
             "B",
             "+",
             "-"
         };
+        #endregion
 
-        public static string OtoVeriÇevir(string GelenVeri, string GelenTür, bool TürYazı = false, bool Ondalık = false, bool Virgül = false, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        #region Functions
+
+        #region Publics
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="GelenTür"></param>
+        /// <param name="TürYazı"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string OtoVariableÇevir(string InputVariable, string GelenTür, bool TürYazı = false, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (GelenVeri.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && VirgülSonrası >= 0 && VirgülSonrası <= 99 && !Regex.IsMatch(GelenVeri, "[^0-9]") && !GelenVeri.StartsWith("0") && Kontrol(GelenVeri) && Kontrol(GelenTür))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(GelenTür))
                 {
                     string Tür = null;
                     if (GelenTür == SizeTypes[SizeTypes.Length - 1])
@@ -69,7 +103,7 @@ namespace Conforyon
                     {
                         for (int i = Array.IndexOf(SizeTypes, GelenTür); i < SizeTypes.Length; i++)
                         {
-                            if (VeriÇevir(GelenVeri, GelenTür, SizeTypes[i], false, false, 0, Hata) == "0")
+                            if (VariableÇevir(InputVariable, GelenTür, SizeTypes[i], false, false, 0, Error) == "0")
                             {
                                 Tür = SizeTypes[i - 1];
                                 break;
@@ -82,13 +116,13 @@ namespace Conforyon
                         }
                     }
                     if (string.IsNullOrEmpty(Tür))
-                        return Hata;
+                        return Error;
                     else
                     {
                         if (GelenTür != Tür)
                         {
-                            string Sonuç = VeriÇevir(GelenVeri, GelenTür, Tür, Ondalık, Virgül, VirgülSonrası, Hata);
-                            if (TürYazı == false || Sonuç == Hata)
+                            string Sonuç = VariableÇevir(InputVariable, GelenTür, Tür, Decimal, Comma, CommaSonrası, Error);
+                            if (TürYazı == false || Sonuç == Error)
                                 return Sonuç;
                             else
                                 return Sonuç + " " + Tür;
@@ -96,16 +130,16 @@ namespace Conforyon
                         else
                         {
                             string Sonuç = null;
-                            if (Ondalık == false && Virgül == false)
-                                Sonuç = GelenVeri;
+                            if (Decimal == false && Comma == false)
+                                Sonuç = InputVariable;
                             else
                             {
-                                if (Ondalık == true && Virgül == false)
-                                    Sonuç = Conforyon.Ondalık(GelenVeri);
-                                else if (Ondalık == false && Virgül == true)
-                                    Sonuç = Conforyon.Virgül(GelenVeri, VirgülSonrası);
+                                if (Decimal == true && Comma == false)
+                                    Sonuç = Conforyon.Decimal(InputVariable);
+                                else if (Decimal == false && Comma == true)
+                                    Sonuç = Conforyon.Comma(InputVariable, CommaSonrası);
                                 else
-                                    Sonuç = OndalıkVirgül(GelenVeri, VirgülSonrası);
+                                    Sonuç = DecimalComma(InputVariable, CommaSonrası);
                             }
                             if (TürYazı == false)
                                 return Sonuç;
@@ -115,825 +149,854 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1O!)";
+                return Error + ErrorTitle + "1O!)";
             }
         }
 
-        public static string VeriÇevir(string GelenVeri, string GelenTür, string DönüştürülecekTür, bool Ondalık = false, bool Virgül = false, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="GelenTür"></param>
+        /// <param name="DönüştürülecekTür"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string VariableÇevir(string InputVariable, string GelenTür, string DönüştürülecekTür, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                string Veri;
-                if (GelenVeri.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && Array.IndexOf(SizeTypes, DönüştürülecekTür) >= 0 && VirgülSonrası >= 0 && VirgülSonrası <= 99 && !Regex.IsMatch(GelenVeri, "[^0-9]") && !GelenVeri.StartsWith("0") && Kontrol(GelenVeri) && Kontrol(GelenTür) && Kontrol(DönüştürülecekTür))
+                string Variable;
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && Array.IndexOf(SizeTypes, DönüştürülecekTür) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(GelenTür) && Check(DönüştürülecekTür))
                 {
                     if (GelenTür == "Bit")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8192", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8192", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8388608", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8388608", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8589934592", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8589934592", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8796093022208", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "9007199254740992", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, (8796093022208 * 2048).ToString(), Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, (8796093022208 * 2048).ToString(), Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, (8796093022208 * 3072).ToString(), Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, (8796093022208 * 3072).ToString(), Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, (8796093022208 * 4096).ToString(), Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, (8796093022208 * 4096).ToString(), Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "Byte")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1152921504606846976", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, (1125899906842624 * 2048).ToString(), Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, (1125899906842624 * 3072).ToString(), Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, (1125899906842624 * 3072).ToString(), Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "KB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8192", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8192", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1152921504606846976", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, (1125899906842624 * 2048).ToString(), Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "MB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8388608", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8388608", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1152921504606847000", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1152921504606847000", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "GB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8589934592", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8589934592", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "TB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "8796093022208", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "PB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "9007199254740992", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "EB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "9223372036854775808", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "9223372036854775808", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1152921504606846976", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "ZB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "9444732965739290427392", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "9444732965739290427392", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1180591620717411303424", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1152921504606846976", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "YB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata, false, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else if (GelenTür == "YB")
                     {
                         if (DönüştürülecekTür == GelenTür)
-                            return SonKontrol(GelenVeri, Ondalık, Virgül, VirgülSonrası, Hata);
+                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
                             if (DönüştürülecekTür == "Bit")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "9671406556917033397649408", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "9671406556917033397649408", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "Byte")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1208925819614629174706176", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1208925819614629174706176", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "KB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1180591620717411303424", Virgül, Hata, true);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "MB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1152921504606846976", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "GB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1125899906842624", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "TB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1099511627776", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "PB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1073741824", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "EB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1048576", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else if (DönüştürülecekTür == "ZB")
                             {
-                                if (SayıKontrol(GelenVeri) == true)
-                                    Veri = VeriFormat(GelenVeri, "1024", Virgül, Hata);
+                                if (NumberCheck(InputVariable) == true)
+                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
-                                    return Hata;
+                                    return Error;
                             }
                             else
-                                return Hata;
-                            return SonKontrol(Veri, Ondalık, Virgül, VirgülSonrası, Hata);
+                                return Error;
+                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
                     else
-                        return Hata;
+                        return Error;
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1V!)";
+                return Error + ErrorTitle + "1V!)";
             }
         }
 
-        public static string IsıÇevir(string Veri, string Mod, bool Ondalık, bool Virgül, int VirgülSonrası = 0, bool Yazı = true, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Yazı"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string IsıÇevir(string Variable, string Mod, bool Decimal, bool Comma, int CommaSonrası = 0, bool Yazı = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri) && Kontrol(Mod))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable) && Check(Mod))
                 {
                     if (Mod == "C=>F" || Mod == "F=>C")
                     {
                         if (Mod == "C=>F")
                         {
                             if (Yazı == false)
-                                return SonKontrol2((Convert.ToDouble(Veri) * 9 / 5 + 32).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                                return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, CommaSonrası, Error);
                             else
-                                return SonKontrol2((Convert.ToDouble(Veri) * 9 / 5 + 32).ToString(), Ondalık, Virgül, VirgülSonrası, Hata) + " F";
+                                return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, CommaSonrası, Error) + " F";
                         }
                         else
                         {
-                            if (Convert.ToInt64(Veri) >= 32)
+                            if (Convert.ToInt64(Variable) >= 32)
                             {
                                 if (Yazı == false)
-                                    return SonKontrol2(((Convert.ToDouble(Veri) - 32) * 5 / 9).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                                    return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, CommaSonrası, Error);
                                 else
-                                    return SonKontrol2(((Convert.ToDouble(Veri) - 32) * 5 / 9).ToString(), Ondalık, Virgül, VirgülSonrası, Hata) + " C";
+                                    return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, CommaSonrası, Error) + " C";
                             }
                             else
                             {
                                 if (Yazı == false)
-                                    return SonKontrol2("0", Ondalık, Virgül, VirgülSonrası, Hata);
+                                    return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
                                 else
-                                    return SonKontrol2("0", Ondalık, Virgül, VirgülSonrası, Hata) + " C";
+                                    return LastCheck2("0", Decimal, Comma, CommaSonrası, Error) + " C";
                             }
                         }
                     }
                     else
-                        return Hata;
+                        return Error;
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1I!)";
+                return Error + ErrorTitle + "1I!)";
             }
         }
 
-        public static string HEXtoRGB(string Veri, int Mod = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string HEXtoRGB(string Variable, int Mod = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length == 6 && Mod >= 0 && Mod <= 10 && Kontrol(Veri))
+                if (Variable.Length == 6 && Mod >= 0 && Mod <= 10 && Check(Variable))
                 {
-                    Color HexColor = ColorTranslator.FromHtml("#" + Veri);
+                    Color HexColor = ColorTranslator.FromHtml("#" + Variable);
                     if (Mod == 0)
                         return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;
                     else if (Mod == 1)
@@ -957,25 +1020,34 @@ namespace Conforyon
                     else if (Mod == 10)
                         return HexColor.B.ToString();
                     else
-                        return Veri;
+                        return Variable;
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1H!)";
+                return Error + ErrorTitle + "1H!)";
             }
         }
 
-        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
-                if (R.Length <= 3 && R.Length >= 1 && G.Length <= 3 && G.Length >= 1 && B.Length <= 3 && B.Length >= 1 && SayıKontrol(R, true) && SayıKontrol(G, true) && SayıKontrol(B, true))
+                if (R.Length <= 3 && R.Length >= 1 && G.Length <= 3 && G.Length >= 1 && B.Length <= 3 && B.Length >= 1 && NumberCheck(R, true) && NumberCheck(G, true) && NumberCheck(B, true))
                 {
                     if ((R.Length >= 2 && R.StartsWith("0")) == true || (G.Length >= 2 && G.StartsWith("0")) == true || (B.Length >= 2 && B.StartsWith("0")) == true)
-                        return Hata;
+                        return Error;
                     else
                     {
                         if (Convert.ToInt32(R) >= 0 && Convert.ToInt32(R) <= 255 && Convert.ToInt32(G) >= 0 && Convert.ToInt32(G) <= 255 && Convert.ToInt32(B) >= 0 && Convert.ToInt32(B) <= 255)
@@ -987,114 +1059,138 @@ namespace Conforyon
                                 return RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
                         }
                         else
-                            return Hata;
+                            return Error;
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1R!)";
+                return Error + ErrorTitle + "1R!)";
             }
         }
 
-        public static string TEXTtoASCII(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string TEXTtoASCII(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
+                if (Variable.Length <= 32767 && Check(Variable, true))
                 {
                     string Sonuç = "";
-                    byte[] HarfByte;
-                    for (int i = 0; i < Veri.Length; i++)
+                    byte[] LetterByte;
+                    for (int i = 0; i < Variable.Length; i++)
                     {
-                        HarfByte = UTF8Encoding.UTF8.GetBytes(Veri.Substring(i, 1)); //Encoding.ASCII
-                        if (i < Veri.Length - 1)
-                            Sonuç += HarfByte[0] + ",";
+                        LetterByte = UTF8Encoding.UTF8.GetBytes(Variable.Substring(i, 1)); //Encoding.ASCII
+                        if (i < Variable.Length - 1)
+                            Sonuç += LetterByte[0] + ",";
                         else
-                            Sonuç += HarfByte[0].ToString();
+                            Sonuç += LetterByte[0].ToString();
                     }
                     return Sonuç;
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1T!)";
+                return Error + ErrorTitle + "1T!)";
             }
         }
 
-        public static string ASCIItoTEXT(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ASCIItoTEXT(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri))
+                if (Variable.Length <= 32767 && Check(Variable))
                 {
                     string Sonuç = "";
                     char[] Ayraçlar = { ',' };
-                    string[] Harfler = Veri.Split(Ayraçlar);
-                    for (int i = 0; i < Harfler.Length; i++)
+                    string[] Letterler = Variable.Split(Ayraçlar);
+                    for (int i = 0; i < Letterler.Length; i++)
                     {
-                        if (SayıKontrol(Harfler[i], true) == true && Harfler[i].Length >= 1 && Harfler[i].Length <= 3 && Convert.ToInt32(Harfler[i]) >= 0 && Convert.ToInt32(Harfler[i]) <= 255)
-                            Sonuç += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Harfler[i]) }); //Encoding.ASCII
+                        if (NumberCheck(Letterler[i], true) == true && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
+                            Sonuç += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letterler[i]) }); //Encoding.ASCII
                         else
-                            return Hata;
+                            return Error;
                     }
                     return Sonuç;
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1A!)";
+                return Error + ErrorTitle + "1A!)";
             }
         }
 
-        public static string CHARtoBASE64(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CHARtoBASE64(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
-                    return Convert.ToBase64String(Encoding.UTF8.GetBytes(Veri));
+                if (Variable.Length <= 32767 && Check(Variable, true))
+                    return Convert.ToBase64String(Encoding.UTF8.GetBytes(Variable));
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C!)";
+                return Error + ErrorTitle + "1C!)";
             }
         }
 
-        public static string BASE64toCHAR(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string BASE64toCHAR(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri))
+                if (Variable.Length <= 32767 && Check(Variable))
                 {
-                    if (Veri.EndsWith("="))
+                    if (Variable.EndsWith("="))
                     {
                         try
                         {
-                            return Encoding.UTF8.GetString(Convert.FromBase64String(Veri));
+                            return Encoding.UTF8.GetString(Convert.FromBase64String(Variable));
                         }
                         catch
                         {
                             try
                             {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Veri + "="));
+                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "="));
                             }
                             catch
                             {
                                 try
                                 {
-                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Veri.Remove(Veri.Length - 1)));
+                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Variable.Remove(Variable.Length - 1)));
                                 }
                                 catch
                                 {
-                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Veri.Remove(Veri.Length - 2)));
+                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Variable.Remove(Variable.Length - 2)));
                                 }
                             }
                         }
@@ -1103,39 +1199,45 @@ namespace Conforyon
                     {
                         try
                         {
-                            return Encoding.UTF8.GetString(Convert.FromBase64String(Veri));
+                            return Encoding.UTF8.GetString(Convert.FromBase64String(Variable));
                         }
                         catch
                         {
                             try
                             {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Veri + "="));
+                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "="));
                             }
                             catch
                             {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Veri + "=="));
+                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "=="));
                             }
                         }
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1B!)";
+                return Error + ErrorTitle + "1B!)";
             }
         }
 
-        public static string CHARtoMD5(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CHARtoMD5(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
+                if (Variable.Length <= 32767 && Check(Variable, true))
                 {
                     using (MD5 MD5 = MD5.Create())
                     {
-                        MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Veri));
+                        MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         byte[] Sonuç = MD5.Hash;
                         StringBuilder Yapı = new StringBuilder();
                         for (int i = 0; i < Sonuç.Length; i++)
@@ -1144,15 +1246,22 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C2!)";
+                return Error + ErrorTitle + "1C2!)";
             }
         }
 
-        public static string FILEtoMD5(string Yol, bool Mod = false, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Yol"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string FILEtoMD5(string Yol, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -1168,23 +1277,29 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1F1!)";
+                return Error + ErrorTitle + "1F1!)";
             }
         }
 
-        public static string CHARtoSHA1(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CHARtoSHA1(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
+                if (Variable.Length <= 32767 && Check(Variable, true))
                 {
                     using (SHA1 SHA1 = SHA1.Create())
                     {
-                        byte[] Sonuç = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Veri));
+                        byte[] Sonuç = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Yapı = new StringBuilder();
                         for (int i = 0; i < Sonuç.Length; i++)
                             Yapı.Append(Sonuç[i].ToString("x2"));
@@ -1192,15 +1307,22 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C3!)";
+                return Error + ErrorTitle + "1C3!)";
             }
         }
 
-        public static string FILEtoSHA1(string Yol, bool Mod = false, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Yol"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string FILEtoSHA1(string Yol, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -1216,23 +1338,29 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1F2!)";
+                return Error + ErrorTitle + "1F2!)";
             }
         }
 
-        public static string CHARtoSHA256(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CHARtoSHA256(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
+                if (Variable.Length <= 32767 && Check(Variable, true))
                 {
                     using (SHA256 SHA256 = SHA256.Create())
                     {
-                        byte[] Sonuç = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Veri));
+                        byte[] Sonuç = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Yapı = new StringBuilder();
                         for (int i = 0; i < Sonuç.Length; i++)
                             Yapı.Append(Sonuç[i].ToString("x2"));
@@ -1240,15 +1368,22 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C4!)";
+                return Error + ErrorTitle + "1C4!)";
             }
         }
 
-        public static string FILEtoSHA256(string Yol, bool Mod = false, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Yol"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string FILEtoSHA256(string Yol, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -1264,23 +1399,29 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1F3!)";
+                return Error + ErrorTitle + "1F3!)";
             }
         }
 
-        public static string CHARtoSHA384(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CHARtoSHA384(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
+                if (Variable.Length <= 32767 && Check(Variable, true))
                 {
                     using (SHA384 SHA384 = SHA384.Create())
                     {
-                        byte[] Sonuç = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Veri));
+                        byte[] Sonuç = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Yapı = new StringBuilder();
                         for (int i = 0; i < Sonuç.Length; i++)
                             Yapı.Append(Sonuç[i].ToString("x2"));
@@ -1288,15 +1429,22 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C5!)";
+                return Error + ErrorTitle + "1C5!)";
             }
         }
 
-        public static string FILEtoSHA384(string Yol, bool Mod = false, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Yol"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string FILEtoSHA384(string Yol, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -1312,23 +1460,29 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1F4!)";
+                return Error + ErrorTitle + "1F4!)";
             }
         }
 
-        public static string CHARtoSHA512(string Veri, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CHARtoSHA512(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= 32767 && Kontrol(Veri, true))
+                if (Variable.Length <= 32767 && Check(Variable, true))
                 {
                     using (SHA512 SHA512 = SHA512.Create())
                     {
-                        byte[] Sonuç = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Veri));
+                        byte[] Sonuç = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Yapı = new StringBuilder();
                         for (int i = 0; i < Sonuç.Length; i++)
                             Yapı.Append(Sonuç[i].ToString("x2"));
@@ -1336,15 +1490,22 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C6!)";
+                return Error + ErrorTitle + "1C6!)";
             }
         }
 
-        public static string FILEtoSHA512(string Yol, bool Mod = false, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Yol"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string FILEtoSHA512(string Yol, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -1360,126 +1521,188 @@ namespace Conforyon
                     }
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1F5!)";
+                return Error + ErrorTitle + "1F5!)";
             }
         }
 
-        public static string INCHtoCM(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string INCHtoCM(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
-                    return SonKontrol2((Convert.ToInt64(Veri) * 2.54).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
+                    return LastCheck2((Convert.ToInt64(Variable) * 2.54).ToString(), Decimal, Comma, CommaSonrası, Error);
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1I2!)";
+                return Error + ErrorTitle + "1I2!)";
             }
         }
 
-        public static string INCHtoPX(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string INCHtoPX(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
                 {
-                    string Sonuç = (Convert.ToInt64(Veri) * 2.54 * 37.79527559055118).ToString();
-                    return SonKontrol2(Sonuç, Ondalık, Virgül, VirgülSonrası, Hata);
+                    string Sonuç = (Convert.ToInt64(Variable) * 2.54 * 37.79527559055118).ToString();
+                    return LastCheck2(Sonuç, Decimal, Comma, CommaSonrası, Error);
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1I3!)";
+                return Error + ErrorTitle + "1I3!)";
             }
         }
-        public static string CMtoINCH(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CMtoINCH(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
                 {
-                    if (Convert.ToInt64(Veri) >= 3)
-                        return SonKontrol2((Convert.ToInt64(Veri) / 2.54).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                    if (Convert.ToInt64(Variable) >= 3)
+                        return LastCheck2((Convert.ToInt64(Variable) / 2.54).ToString(), Decimal, Comma, CommaSonrası, Error);
                     else
-                        return SonKontrol2("0", Ondalık, Virgül, VirgülSonrası, Hata);
+                        return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C7!)";
+                return Error + ErrorTitle + "1C7!)";
             }
         }
 
-        public static string CMtoPX(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string CMtoPX(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
-                    return SonKontrol2((Convert.ToInt64(Veri) * 37.79527559055118).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
+                    return LastCheck2((Convert.ToInt64(Variable) * 37.79527559055118).ToString(), Decimal, Comma, CommaSonrası, Error);
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1C8!)";
+                return Error + ErrorTitle + "1C8!)";
             }
         }
 
-        public static string PXtoCM(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string PXtoCM(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
                 {
-                    if (Convert.ToInt64(Veri) >= 38)
-                        return SonKontrol2((Convert.ToInt64(Veri) / 37.79527559055118).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                    if (Convert.ToInt64(Variable) >= 38)
+                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118).ToString(), Decimal, Comma, CommaSonrası, Error);
                     else
-                        return SonKontrol2("0", Ondalık, Virgül, VirgülSonrası, Hata);
+                        return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1P!)";
+                return Error + ErrorTitle + "1P!)";
             }
         }
 
-        public static string PXtoINCH(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string PXtoINCH(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
                 {
-                    if (Convert.ToInt64(Veri) >= 96)
-                        return SonKontrol2((Convert.ToInt64(Veri) / 37.79527559055118 / 2.54).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
+                    if (Convert.ToInt64(Variable) >= 96)
+                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118 / 2.54).ToString(), Decimal, Comma, CommaSonrası, Error);
                     else
-                        return SonKontrol2("0", Ondalık, Virgül, VirgülSonrası, Hata);
+                        return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1P2!)";
+                return Error + ErrorTitle + "1P2!)";
             }
         }
 
-        public static bool SayıKontrol(string Veri, bool Mod = false, bool Mod2 = false)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <returns></returns>
+        public static bool NumberCheck(string Variable, bool Mod = false, bool Mod2 = false)
         {
             try
             {
-                if (Regex.IsMatch(Veri, "[^0-9]"))
+                if (Regex.IsMatch(Variable, "[^0-9]"))
                     return false;
                 else
                 {
@@ -1487,12 +1710,12 @@ namespace Conforyon
                     {
                         if (Mod == false)
                         {
-                            Convert.ToInt64(Veri);
+                            Convert.ToInt64(Variable);
                             return true;
                         }
                         else
                         {
-                            Convert.ToInt32(Veri);
+                            Convert.ToInt32(Variable);
                             return true;
                         }
                     }
@@ -1505,213 +1728,243 @@ namespace Conforyon
                 return false;
             }
         }
+        #endregion
 
-        private static string Arama(string Veri1, string[] Veri2, int Mod = 1, string Hata = ErrorMessage)
+        #region Privates
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable1"></param>
+        /// <param name="Variable2"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        private static string Arama(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
         {
             try
             {
                 if (Mod >= 1 && Mod <= 3)
                 {
-                    string Durum = "N";
+                    string Status = "N";
                     if (Mod == 1)
                     {
-                        if (Veri2.Length > 1)
+                        if (Variable2.Length > 1)
                         {
-                            foreach (string Harf in Veri2)
+                            foreach (string Letter in Variable2)
                             {
-                                if (Veri1.Contains(Harf))
+                                if (Variable1.Contains(Letter))
                                 {
-                                    Durum = "Y";
+                                    Status = "Y";
                                     break;
                                 }
                             }
                         }
-                        else if (Veri1.Contains(Veri2[0]))
-                            Durum = "Y";
+                        else if (Variable1.Contains(Variable2[0]))
+                            Status = "Y";
                     }
                     else if (Mod == 2)
                     {
-                        if (Veri2.Length > 1)
+                        if (Variable2.Length > 1)
                         {
-                            foreach (string Harf in Veri2)
+                            foreach (string Letter in Variable2)
                             {
-                                if (Veri1.StartsWith(Harf))
+                                if (Variable1.StartsWith(Letter))
                                 {
-                                    Durum = "Y";
+                                    Status = "Y";
                                     break;
                                 }
                             }
                         }
-                        else if (Veri1.StartsWith(Veri2[0]))
-                            Durum = "Y";
+                        else if (Variable1.StartsWith(Variable2[0]))
+                            Status = "Y";
                     }
                     else if (Mod == 3)
                     {
-                        if (Veri2.Length > 1)
+                        if (Variable2.Length > 1)
                         {
-                            foreach (string Harf in Veri2)
+                            foreach (string Letter in Variable2)
                             {
-                                if (Veri1.EndsWith(Harf))
+                                if (Variable1.EndsWith(Letter))
                                 {
-                                    Durum = "Y";
+                                    Status = "Y";
                                     break;
                                 }
                             }
                         }
-                        else if (Veri1.EndsWith(Veri2[0]))
-                            Durum = "Y";
+                        else if (Variable1.EndsWith(Variable2[0]))
+                            Status = "Y";
                     }
-                    if (Durum == "N")
+                    if (Status == "N")
                         return "N";
                     else
                         return "Y";
                 }
                 else
-                    return Hata;
+                    return Error;
             }
             catch
             {
-                return Hata + ErrorTitle + "1A2!)";
+                return Error + ErrorTitle + "1A2!)";
             }
         }
 
-        private static string VeriFormat(string GelenVeri, string KatSayı, bool Virgül, string Hata = ErrorMessage, bool Mod = false, bool Mod2 = false)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Comma"></param>
+        /// <param name="Error"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <returns></returns>
+        private static string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
         {
             try
             {
                 if (Mod == false)
                 {
-                    if (SayıKontrol(KatSayı.ToString()) == true)
+                    if (NumberCheck(Coefficient.ToString()) == true)
                     {
-                        string Veri1, Veri2, Veri3;
-                        if (Virgül == true)
+                        string Variable1, Variable2, Variable3;
+                        if (Comma == true)
                         {
                             if (Mod2 == false)
                             {
-                                Veri2 = (Convert.ToInt64(GelenVeri) * Convert.ToDouble(KatSayı)).ToString();
-                                Veri3 = (Convert.ToInt64(GelenVeri) * Convert.ToInt64(KatSayı)).ToString();
+                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
                             }
                             else
                             {
-                                Veri2 = (Convert.ToInt64(GelenVeri) / Convert.ToDouble(KatSayı)).ToString();
-                                Veri3 = (Convert.ToInt64(GelenVeri) / Convert.ToInt64(KatSayı)).ToString();
+                                Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
+                                Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Arama(Veri2, SymbolsCalc, 1, Hata) == "Y")
+                            if (Arama(Variable2, SymbolsCalc, 1, Error) == "Y")
                             {
-                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
-                                    Veri1 = Veri2;
+                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                    Variable1 = Variable2;
                                 else
-                                    Veri1 = Veri3;
+                                    Variable1 = Variable3;
                             }
-                            else if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
-                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
-                                    Veri1 = Veri2;
+                            else if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                    Variable1 = Variable2;
                                 else
-                                    Veri1 = Veri3;
+                                    Variable1 = Variable3;
                             else
-                                Veri1 = Veri2;
+                                Variable1 = Variable2;
                         }
                         else
                         {
                             if (Mod2 == false)
                             {
-                                Veri2 = (Convert.ToInt64(GelenVeri) * Convert.ToDouble(KatSayı)).ToString();
-                                Veri3 = (Convert.ToInt64(GelenVeri) * Convert.ToInt64(KatSayı)).ToString();
+                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
                             }
                             else
                             {
-                                Veri2 = (Convert.ToInt64(GelenVeri) / Convert.ToDouble(KatSayı)).ToString();
-                                Veri3 = (Convert.ToInt64(GelenVeri) / Convert.ToInt64(KatSayı)).ToString();
+                                Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
+                                Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Arama(Veri2, SymbolsCalc, 1, Hata) == "Y")
+                            if (Arama(Variable2, SymbolsCalc, 1, Error) == "Y")
                             {
-                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
-                                    Veri1 = Veri2;
+                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                    Variable1 = Variable2;
                                 else
-                                    Veri1 = Veri3;
+                                    Variable1 = Variable3;
                             }
-                            else if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
-                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
-                                    Veri1 = Veri2;
+                            else if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                    Variable1 = Variable2;
                                 else
-                                    Veri1 = Veri3;
+                                    Variable1 = Variable3;
                             else
-                                Veri1 = Veri3;
+                                Variable1 = Variable3;
                         }
-                        if (string.IsNullOrEmpty(Veri1))
-                            return Hata;
+                        if (string.IsNullOrEmpty(Variable1))
+                            return Error;
                         else
-                            return Veri1;
+                            return Variable1;
                     }
                     else
-                        return Hata;
+                        return Error;
                 }
                 else
                 {
                     if (Mod2 == false)
-                        return (Convert.ToInt64(GelenVeri) * Convert.ToDouble(KatSayı)).ToString();
+                        return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
                     else
-                        return (Convert.ToInt64(GelenVeri) / Convert.ToDouble(KatSayı)).ToString();
+                        return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                 }
             }
             catch
             {
-                return Hata + ErrorTitle + "1V2!)";
+                return Error + ErrorTitle + "1V2!)";
             }
         }
 
-        private static string Ondalık(string Veri)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <returns></returns>
+        private static string Decimal(string Variable)
         {
             try
             {
-                if (Veri.Contains("E") || Veri.Contains("B") || Veri.Contains("+") || Veri.Contains("-"))
-                    return Veri;
+                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                    return Variable;
                 else
                 {
-                    if (Veri.Contains(","))
+                    if (Variable.Contains(","))
                     {
                         char[] Ayraçlar = { ',', '.' };
-                        string[] Veriler = Veri.Split(Ayraçlar);
-                        string Sonuç = string.Format("{0:0,0}", Convert.ToInt64(Veriler[0]));
+                        string[] Variableler = Variable.Split(Ayraçlar);
+                        string Sonuç = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
                         if (Sonuç.Length == 2 && Sonuç == "00")
                             Sonuç = "0";
                         else if (Sonuç.Length == 2 && Sonuç.StartsWith("0") && !Sonuç.EndsWith("0"))
                             Sonuç.Replace("0", "");
-                        return Sonuç + "," + Veriler[1];
+                        return Sonuç + "," + Variableler[1];
                     }
                     else
                     {
-                        if (Veri.Length > 2)
+                        if (Variable.Length > 2)
                         {
-                            if (SayıKontrol(Veri) == true)
-                                return string.Format("{0:0,0}", Convert.ToInt64(Veri));
+                            if (NumberCheck(Variable) == true)
+                                return string.Format("{0:0,0}", Convert.ToInt64(Variable));
                             else
-                                return string.Format("{0:0,0}", Veri);
+                                return string.Format("{0:0,0}", Variable);
                         }
                         else
-                            return Veri;
+                            return Variable;
                     }
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Error)
             {
-                return Hata + ErrorTitle + "1O2!)";
+                return Error + ErrorTitle + "1O2!)";
             }
         }
 
-        private static string Ondalık2(string Veri)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <returns></returns>
+        private static string Decimal2(string Variable)
         {
             try
             {
-                if (Veri.Contains("E") || Veri.Contains("B") || Veri.Contains("+") || Veri.Contains("-"))
-                    return Veri;
+                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                    return Variable;
                 else
                 {
-                    if (Veri.Contains(","))
+                    if (Variable.Contains(","))
                     {
                         char[] Ayraçlar = { ',' };
-                        string[] Veriler = Veri.Split(Ayraçlar);
-                        string Sonuç = string.Format("{0:0,0}", Convert.ToInt64(Veriler[0]));
+                        string[] Variableler = Variable.Split(Ayraçlar);
+                        string Sonuç = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
                         if (Sonuç.Length == 2 && Sonuç == "00")
                             return "0";
                         else if (Sonuç.Length == 2 && Sonuç.StartsWith("0") && !Sonuç.EndsWith("0"))
@@ -1721,42 +1974,48 @@ namespace Conforyon
                     }
                     else
                     {
-                        if (Veri.Length > 2)
+                        if (Variable.Length > 2)
                         {
-                            if (SayıKontrol(Veri) == true)
-                                return string.Format("{0:0,0}", Convert.ToInt64(Veri));
+                            if (NumberCheck(Variable) == true)
+                                return string.Format("{0:0,0}", Convert.ToInt64(Variable));
                             else
-                                return string.Format("{0:0,0}", Veri);
+                                return string.Format("{0:0,0}", Variable);
                         }
                         else
-                            return Veri;
+                            return Variable;
                     }
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Error)
             {
-                return Hata + ErrorTitle + "1O3!)";
+                return Error + ErrorTitle + "1O3!)";
             }
         }
 
-        private static string Virgül(string Veri, int VirgülSonrası = 0)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <returns></returns>
+        private static string Comma(string Variable, int CommaSonrası = 0)
         {
             try
             {
-                if (Veri.Contains("E") || Veri.Contains("B") || Veri.Contains("+") || Veri.Contains("-"))
-                    return Veri;
+                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                    return Variable;
                 else
                 {
-                    if (Veri.Contains(",") && VirgülSonrası != 0)
+                    if (Variable.Contains(",") && CommaSonrası != 0)
                     {
                         char[] Ayraçlar = { ',' };
-                        string[] Veriler = Veri.Split(Ayraçlar);
-                        if (VirgülSonrası <= Veriler[1].Length)
-                            return Veriler[0] + "," + Veriler[1].Substring(0, VirgülSonrası);
+                        string[] Variableler = Variable.Split(Ayraçlar);
+                        if (CommaSonrası <= Variableler[1].Length)
+                            return Variableler[0] + "," + Variableler[1].Substring(0, CommaSonrası);
                         else
                         {
-                            string Işlem = Veriler[0] + "," + Veriler[1].Substring(0, Veriler[1].Length);
-                            int Işlem2 = VirgülSonrası - Veriler[1].Length;
+                            string Işlem = Variableler[0] + "," + Variableler[1].Substring(0, Variableler[1].Length);
+                            int Işlem2 = CommaSonrası - Variableler[1].Length;
                             for (int i = 0; i < Işlem2; i++)
                                 Işlem += "0";
                             return Işlem;
@@ -1764,46 +2023,52 @@ namespace Conforyon
                     }
                     else
                     {
-                        if (VirgülSonrası == 0)
+                        if (CommaSonrası == 0)
                         {
                             char[] Ayraçlar = { ',' };
-                            string[] Veriler = Veri.Split(Ayraçlar);
-                            return Veriler[0];
+                            string[] Variableler = Variable.Split(Ayraçlar);
+                            return Variableler[0];
                         }
                         else
                         {
                             string Işlem = ",";
-                            for (int i = 0; i < VirgülSonrası; i++)
+                            for (int i = 0; i < CommaSonrası; i++)
                                 Işlem += "0";
-                            return Veri + Işlem;
+                            return Variable + Işlem;
                         }
                     }
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Error)
             {
-                return Hata + ErrorTitle + "1V3!)";
+                return Error + ErrorTitle + "1V3!)";
             }
         }
 
-        private static string Virgül2(string Veri, int VirgülSonrası = 0)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <returns></returns>
+        private static string Comma2(string Variable, int CommaSonrası = 0)
         {
             try
             {
-                if (Veri.Contains("E") || Veri.Contains("B") || Veri.Contains("+") || Veri.Contains("-"))
-                    return Veri;
+                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                    return Variable;
                 else
                 {
-                    if (VirgülSonrası <= Veri.Length)
-                        if (Veri == ",")
-                            return Veri.Substring(0, VirgülSonrası) + "0";
+                    if (CommaSonrası <= Variable.Length)
+                        if (Variable == ",")
+                            return Variable.Substring(0, CommaSonrası) + "0";
                         else
-                            return Veri.Substring(0, VirgülSonrası);
+                            return Variable.Substring(0, CommaSonrası);
                     else
                     {
-                        string Işlem = Veri.Substring(0, Veri.Length);
-                        int Işlem2 = VirgülSonrası - Veri.Length;
-                        if (Veri == ",")
+                        string Işlem = Variable.Substring(0, Variable.Length);
+                        int Işlem2 = CommaSonrası - Variable.Length;
+                        if (Variable == ",")
                         {
                             for (int i = 0; i <= Işlem2; i++)
                                 Işlem += "0";
@@ -1817,109 +2082,139 @@ namespace Conforyon
                     }
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Error)
             {
-                return Hata + ErrorTitle + "1v4!)";
+                return Error + ErrorTitle + "1v4!)";
             }
         }
 
-        private static string OndalıkVirgül(string Veri, int VirgülSonrası = 0)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <returns></returns>
+        private static string DecimalComma(string Variable, int CommaSonrası = 0)
         {
             try
             {
-                if (Veri.Contains("E") || Veri.Contains("B") || Veri.Contains("+") || Veri.Contains("-"))
-                    return Veri;
+                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                    return Variable;
                 else
                 {
-                    if (VirgülSonrası == 0)
-                        return Ondalık2(Veri);
+                    if (CommaSonrası == 0)
+                        return Decimal2(Variable);
                     else
                     {
-                        if (Veri.Contains(","))
+                        if (Variable.Contains(","))
                         {
                             char[] Ayraçlar = { ',' };
-                            string[] Veriler = Veri.Split(Ayraçlar);
-                            return Ondalık2(Veriler[0]) + "," + Virgül2(Veriler[1], VirgülSonrası);
+                            string[] Variableler = Variable.Split(Ayraçlar);
+                            return Decimal2(Variableler[0]) + "," + Comma2(Variableler[1], CommaSonrası);
                         }
                         else
-                            return Ondalık2(Veri) + Virgül2(",", VirgülSonrası);
+                            return Decimal2(Variable) + Comma2(",", CommaSonrası);
                     }
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Error)
             {
-                return Hata + ErrorTitle + "1O4!)";
+                return Error + ErrorTitle + "1O4!)";
             }
         }
 
-        private static string SonKontrol(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        private static string LastCheck(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Ondalık == false && Virgül == false)
+                if (Decimal == false && Comma == false)
                 {
-                    if (string.IsNullOrEmpty(Veri))
-                        return Hata;
+                    if (string.IsNullOrEmpty(Variable))
+                        return Error;
                     else
-                        return Veri;
+                        return Variable;
                 }
                 else
                 {
-                    if (Ondalık == true && Virgül == false)
-                        return Conforyon.Ondalık(Veri);
-                    else if (Ondalık == false && Virgül == true)
-                        return Conforyon.Virgül(Veri, VirgülSonrası);
+                    if (Decimal == true && Comma == false)
+                        return Conforyon.Decimal(Variable);
+                    else if (Decimal == false && Comma == true)
+                        return Conforyon.Comma(Variable, CommaSonrası);
                     else
-                        return OndalıkVirgül(Veri, VirgülSonrası);
+                        return DecimalComma(Variable, CommaSonrası);
                 }
             }
             catch
             {
-                return Hata + ErrorTitle + "1S!)";
+                return Error + ErrorTitle + "1S!)";
             }
         }
 
-        private static string SonKontrol2(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="CommaSonrası"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        private static string LastCheck2(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Ondalık == false && Virgül == false)
+                if (Decimal == false && Comma == false)
                 {
-                    if (string.IsNullOrEmpty(Veri))
-                        return Hata;
+                    if (string.IsNullOrEmpty(Variable))
+                        return Error;
                     else
-                        return SonKontrol(Veri, false, true, 0, Hata);
+                        return LastCheck(Variable, false, true, 0, Error);
                 }
                 else
                 {
-                    if (Ondalık == true && Virgül == false)
-                        return SonKontrol(Veri, true, true, 0, Hata);
-                    else if (Ondalık == false && Virgül == true)
-                        return SonKontrol(Veri, false, true, VirgülSonrası, Hata);
+                    if (Decimal == true && Comma == false)
+                        return LastCheck(Variable, true, true, 0, Error);
+                    else if (Decimal == false && Comma == true)
+                        return LastCheck(Variable, false, true, CommaSonrası, Error);
                     else
-                        return OndalıkVirgül(Veri, VirgülSonrası);
+                        return DecimalComma(Variable, CommaSonrası);
                 }
             }
             catch
             {
-                return Hata + ErrorTitle + "1S2!)";
+                return Error + ErrorTitle + "1S2!)";
             }
         }
 
-        private static bool Kontrol(string Veri, bool Mod = false)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Variable"></param>
+        /// <param name="Mod"></param>
+        /// <returns></returns>
+        private static bool Check(string Variable, bool Mod = false)
         {
             try
             {
                 if (Mod == false)
                 {
-                    if (Veri != "" && !string.IsNullOrEmpty(Veri) && !string.IsNullOrWhiteSpace(Veri) && !Veri.Contains(" "))
+                    if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable) && !Variable.Contains(" "))
                         return true;
                     else
                         return false;
                 }
                 else
                 {
-                    if (Veri != "" && !string.IsNullOrEmpty(Veri) && !string.IsNullOrWhiteSpace(Veri))
+                    if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable))
                         return true;
                     else
                         return false;
@@ -1930,5 +2225,8 @@ namespace Conforyon
                 return false;
             }
         }
+        #endregion
+
+        #endregion
     }
 }
