@@ -113,9 +113,9 @@ namespace Conforyon.UX.Properties {
         /// <summary>
         ///   (Simge) öğesine benzeyen System.Drawing.Icon türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Icon INPUT1 {
+        internal static System.Drawing.Icon ICO {
             get {
-                object obj = ResourceManager.GetObject("INPUT1", resourceCulture);
+                object obj = ResourceManager.GetObject("ICO", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Conforyon.UX.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap INPUT2 {
+        internal static System.Drawing.Bitmap INPUT {
             get {
-                object obj = ResourceManager.GetObject("INPUT2", resourceCulture);
+                object obj = ResourceManager.GetObject("INPUT", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

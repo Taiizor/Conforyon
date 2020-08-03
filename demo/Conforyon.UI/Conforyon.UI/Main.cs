@@ -1,5 +1,4 @@
 ﻿using System;
-using Conforyon;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 

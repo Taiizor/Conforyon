@@ -36,7 +36,7 @@
     <StartupObject>Conforyon.UX.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\INPUT1.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Conforyon, Version=1.2.4.7, Culture=neutral, processorArchitecture=MSIL">
@@ -74,19 +74,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -102,8 +102,8 @@
     <Content Include="Resources\arrow-sync-synchronize-way-direction-reload-refresh-15728.png" />
     <Content Include="Resources\copy-to-clipboard-4019.png" />
     <Content Include="Resources\copy.png" />
-    <Content Include="Resources\INPUT1.ico" />
-    <Content Include="Resources\INPUT2.png" />
+    <None Include="Resources\ICO.ico" />
+    <None Include="Resources\INPUT.png" />
     <Content Include="Resources\refresh-icon-256.png" />
     <Content Include="Resources\Refresh-icon.png" />
     <Content Include="Resources\refresh.png" />

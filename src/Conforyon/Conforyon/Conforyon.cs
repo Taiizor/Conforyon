@@ -7,13 +7,13 @@ using System.Text.RegularExpressions;
 
 namespace Conforyon
 {
-    public class Conforyon
+    public static class Conforyon
     {
-        private const string HataTitle = " (CN-CL";
-        private const string HataMesaj = "Hata!";
-        private const int VeriUzunluk = 15;
+        private const string ErrorTitle = " (CN-CL";
+        private const string ErrorMessage = "Hata!";
+        private const int VariableLength = 15;
 
-        private readonly static string[] Türler = {
+        private static readonly string[] SizeTypes = {
             "Bit",
             "Byte",
             "KB",
@@ -26,40 +26,40 @@ namespace Conforyon
             "YB"
         };
 
-        private readonly static string[] Semboller1 = {
+        private static readonly string[] SymbolsMath = {
             "-",
             "+"
         };
 
-        private readonly static string[] Semboller2 = {
+        private static readonly string[] SymbolsCalc = {
             "E",
             "B",
             "+",
             "-"
         };
 
-        public static string OtoVeriÇevir(string GelenVeri, string GelenTür, bool TürYazı = false, bool Ondalık = false, bool Virgül = false, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string OtoVeriÇevir(string GelenVeri, string GelenTür, bool TürYazı = false, bool Ondalık = false, bool Virgül = false, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (GelenVeri.Length <= VeriUzunluk && Array.IndexOf(Türler, GelenTür) >= 0 && VirgülSonrası >= 0 && VirgülSonrası <= 99 && !Regex.IsMatch(GelenVeri, "[^0-9]") && !GelenVeri.StartsWith("0") && Kontrol(GelenVeri) && Kontrol(GelenTür))
+                if (GelenVeri.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && VirgülSonrası >= 0 && VirgülSonrası <= 99 && !Regex.IsMatch(GelenVeri, "[^0-9]") && !GelenVeri.StartsWith("0") && Kontrol(GelenVeri) && Kontrol(GelenTür))
                 {
                     string Tür = null;
-                    if (GelenTür == Türler[Türler.Length - 1])
-                        Tür = Türler[Türler.Length - 1];
+                    if (GelenTür == SizeTypes[SizeTypes.Length - 1])
+                        Tür = SizeTypes[SizeTypes.Length - 1];
                     else
                     {
-                        for (int i = Array.IndexOf(Türler, GelenTür); i < Türler.Length; i++)
+                        for (int i = Array.IndexOf(SizeTypes, GelenTür); i < SizeTypes.Length; i++)
                         {
-                            if (VeriÇevir(GelenVeri, GelenTür, Türler[i], false, false, 0, Hata) == "0")
+                            if (VeriÇevir(GelenVeri, GelenTür, SizeTypes[i], false, false, 0, Hata) == "0")
                             {
-                                Tür = Türler[i - 1];
+                                Tür = SizeTypes[i - 1];
                                 break;
                             }
                             else
                             {
-                                if (Türler[i] == Türler[Türler.Length - 1])
-                                    Tür = Türler[i];
+                                if (SizeTypes[i] == SizeTypes[SizeTypes.Length - 1])
+                                    Tür = SizeTypes[i];
                             }
                         }
                     }
@@ -101,16 +101,16 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1O!)";
+                return Hata + ErrorTitle + "1O!)";
             }
         }
 
-        public static string VeriÇevir(string GelenVeri, string GelenTür, string DönüştürülecekTür, bool Ondalık = false, bool Virgül = false, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string VeriÇevir(string GelenVeri, string GelenTür, string DönüştürülecekTür, bool Ondalık = false, bool Virgül = false, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
                 string Veri;
-                if (GelenVeri.Length <= VeriUzunluk && Array.IndexOf(Türler, GelenTür) >= 0 && Array.IndexOf(Türler, DönüştürülecekTür) >= 0 && VirgülSonrası >= 0 && VirgülSonrası <= 99 && !Regex.IsMatch(GelenVeri, "[^0-9]") && !GelenVeri.StartsWith("0") && Kontrol(GelenVeri) && Kontrol(GelenTür) && Kontrol(DönüştürülecekTür))
+                if (GelenVeri.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && Array.IndexOf(SizeTypes, DönüştürülecekTür) >= 0 && VirgülSonrası >= 0 && VirgülSonrası <= 99 && !Regex.IsMatch(GelenVeri, "[^0-9]") && !GelenVeri.StartsWith("0") && Kontrol(GelenVeri) && Kontrol(GelenTür) && Kontrol(DönüştürülecekTür))
                 {
                     if (GelenTür == "Bit")
                     {
@@ -860,15 +860,15 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1V!)";
+                return Hata + ErrorTitle + "1V!)";
             }
         }
 
-        public static string IsıÇevir(string Veri, string Mod, bool Ondalık, bool Virgül, int VirgülSonrası = 0, bool Yazı = true, string Hata = HataMesaj)
+        public static string IsıÇevir(string Veri, string Mod, bool Ondalık, bool Virgül, int VirgülSonrası = 0, bool Yazı = true, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri) && Kontrol(Mod))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri) && Kontrol(Mod))
                 {
                     if (Mod == "C=>F" || Mod == "F=>C")
                     {
@@ -905,11 +905,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1I!)";
+                return Hata + ErrorTitle + "1I!)";
             }
         }
 
-        public static string HEXtoRGB(string Veri, int Mod = 0, string Hata = HataMesaj)
+        public static string HEXtoRGB(string Veri, int Mod = 0, string Hata = ErrorMessage)
         {
             try
             {
@@ -946,11 +946,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1H!)";
+                return Hata + ErrorTitle + "1H!)";
             }
         }
 
-        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Hata = HataMesaj)
+        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Hata = ErrorMessage)
         {
             try
             {
@@ -977,11 +977,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1R!)";
+                return Hata + ErrorTitle + "1R!)";
             }
         }
 
-        public static string TEXTtoASCII(string Veri, string Hata = HataMesaj)
+        public static string TEXTtoASCII(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1004,11 +1004,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1T!)";
+                return Hata + ErrorTitle + "1T!)";
             }
         }
 
-        public static string ASCIItoTEXT(string Veri, string Hata = HataMesaj)
+        public static string ASCIItoTEXT(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1031,11 +1031,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1A!)";
+                return Hata + ErrorTitle + "1A!)";
             }
         }
 
-        public static string CHARtoBASE64(string Veri, string Hata = HataMesaj)
+        public static string CHARtoBASE64(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1046,11 +1046,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C!)";
+                return Hata + ErrorTitle + "1C!)";
             }
         }
 
-        public static string BASE64toCHAR(string Veri, string Hata = HataMesaj)
+        public static string BASE64toCHAR(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1105,11 +1105,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1B!)";
+                return Hata + ErrorTitle + "1B!)";
             }
         }
 
-        public static string CHARtoMD5(string Veri, string Hata = HataMesaj)
+        public static string CHARtoMD5(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1130,11 +1130,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C2!)";
+                return Hata + ErrorTitle + "1C2!)";
             }
         }
 
-        public static string FILEtoMD5(string Yol, bool Mod = false, string Hata = HataMesaj)
+        public static string FILEtoMD5(string Yol, bool Mod = false, string Hata = ErrorMessage)
         {
             try
             {
@@ -1154,11 +1154,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1F1!)";
+                return Hata + ErrorTitle + "1F1!)";
             }
         }
 
-        public static string CHARtoSHA1(string Veri, string Hata = HataMesaj)
+        public static string CHARtoSHA1(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1178,11 +1178,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C3!)";
+                return Hata + ErrorTitle + "1C3!)";
             }
         }
 
-        public static string FILEtoSHA1(string Yol, bool Mod = false, string Hata = HataMesaj)
+        public static string FILEtoSHA1(string Yol, bool Mod = false, string Hata = ErrorMessage)
         {
             try
             {
@@ -1202,11 +1202,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1F2!)";
+                return Hata + ErrorTitle + "1F2!)";
             }
         }
 
-        public static string CHARtoSHA256(string Veri, string Hata = HataMesaj)
+        public static string CHARtoSHA256(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1226,11 +1226,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C4!)";
+                return Hata + ErrorTitle + "1C4!)";
             }
         }
 
-        public static string FILEtoSHA256(string Yol, bool Mod = false, string Hata = HataMesaj)
+        public static string FILEtoSHA256(string Yol, bool Mod = false, string Hata = ErrorMessage)
         {
             try
             {
@@ -1250,11 +1250,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1F3!)";
+                return Hata + ErrorTitle + "1F3!)";
             }
         }
 
-        public static string CHARtoSHA384(string Veri, string Hata = HataMesaj)
+        public static string CHARtoSHA384(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1274,11 +1274,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C5!)";
+                return Hata + ErrorTitle + "1C5!)";
             }
         }
 
-        public static string FILEtoSHA384(string Yol, bool Mod = false, string Hata = HataMesaj)
+        public static string FILEtoSHA384(string Yol, bool Mod = false, string Hata = ErrorMessage)
         {
             try
             {
@@ -1298,11 +1298,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1F4!)";
+                return Hata + ErrorTitle + "1F4!)";
             }
         }
 
-        public static string CHARtoSHA512(string Veri, string Hata = HataMesaj)
+        public static string CHARtoSHA512(string Veri, string Hata = ErrorMessage)
         {
             try
             {
@@ -1322,11 +1322,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C6!)";
+                return Hata + ErrorTitle + "1C6!)";
             }
         }
 
-        public static string FILEtoSHA512(string Yol, bool Mod = false, string Hata = HataMesaj)
+        public static string FILEtoSHA512(string Yol, bool Mod = false, string Hata = ErrorMessage)
         {
             try
             {
@@ -1346,30 +1346,30 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1F5!)";
+                return Hata + ErrorTitle + "1F5!)";
             }
         }
 
-        public static string INCHtoCM(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string INCHtoCM(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
                     return SonKontrol2((Convert.ToInt64(Veri) * 2.54).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
                 else
                     return Hata;
             }
             catch
             {
-                return Hata + HataTitle + "1I2!)";
+                return Hata + ErrorTitle + "1I2!)";
             }
         }
 
-        public static string INCHtoPX(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string INCHtoPX(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
                 {
                     string Sonuç = (Convert.ToInt64(Veri) * 2.54 * 37.79527559055118).ToString();
                     return SonKontrol2(Sonuç, Ondalık, Virgül, VirgülSonrası, Hata);
@@ -1379,14 +1379,14 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1I3!)";
+                return Hata + ErrorTitle + "1I3!)";
             }
         }
-        public static string CMtoINCH(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string CMtoINCH(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
                 {
                     if (Convert.ToInt64(Veri) >= 3)
                         return SonKontrol2((Convert.ToInt64(Veri) / 2.54).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
@@ -1398,30 +1398,30 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1C7!)";
+                return Hata + ErrorTitle + "1C7!)";
             }
         }
 
-        public static string CMtoPX(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string CMtoPX(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
                     return SonKontrol2((Convert.ToInt64(Veri) * 37.79527559055118).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
                 else
                     return Hata;
             }
             catch
             {
-                return Hata + HataTitle + "1C8!)";
+                return Hata + ErrorTitle + "1C8!)";
             }
         }
 
-        public static string PXtoCM(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string PXtoCM(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
                 {
                     if (Convert.ToInt64(Veri) >= 38)
                         return SonKontrol2((Convert.ToInt64(Veri) / 37.79527559055118).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
@@ -1433,15 +1433,15 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1P!)";
+                return Hata + ErrorTitle + "1P!)";
             }
         }
 
-        public static string PXtoINCH(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        public static string PXtoINCH(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
-                if (Veri.Length <= VeriUzunluk && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
+                if (Veri.Length <= VariableLength && SayıKontrol(Veri) == true && !Veri.StartsWith("0") && VirgülSonrası >= 0 && VirgülSonrası <= 99 && Kontrol(Veri))
                 {
                     if (Convert.ToInt64(Veri) >= 96)
                         return SonKontrol2((Convert.ToInt64(Veri) / 37.79527559055118 / 2.54).ToString(), Ondalık, Virgül, VirgülSonrası, Hata);
@@ -1453,7 +1453,7 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1P2!)";
+                return Hata + ErrorTitle + "1P2!)";
             }
         }
 
@@ -1488,7 +1488,7 @@ namespace Conforyon
             }
         }
 
-        private static string Arama(string Veri1, string[] Veri2, int Mod = 1, string Hata = HataMesaj)
+        private static string Arama(string Veri1, string[] Veri2, int Mod = 1, string Hata = ErrorMessage)
         {
             try
             {
@@ -1553,11 +1553,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1A2!)";
+                return Hata + ErrorTitle + "1A2!)";
             }
         }
 
-        private static string VeriFormat(string GelenVeri, string KatSayı, bool Virgül, string Hata = HataMesaj, bool Mod = false, bool Mod2 = false)
+        private static string VeriFormat(string GelenVeri, string KatSayı, bool Virgül, string Hata = ErrorMessage, bool Mod = false, bool Mod2 = false)
         {
             try
             {
@@ -1578,15 +1578,15 @@ namespace Conforyon
                                 Veri2 = (Convert.ToInt64(GelenVeri) / Convert.ToDouble(KatSayı)).ToString();
                                 Veri3 = (Convert.ToInt64(GelenVeri) / Convert.ToInt64(KatSayı)).ToString();
                             }
-                            if (Arama(Veri2, Semboller2, 1, Hata) == "Y")
+                            if (Arama(Veri2, SymbolsCalc, 1, Hata) == "Y")
                             {
-                                if (Arama(Veri3, Semboller1, 2, Hata) == "Y")
+                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
                                     Veri1 = Veri2;
                                 else
                                     Veri1 = Veri3;
                             }
-                            else if (Arama(Veri3, Semboller1, 2, Hata) == "Y")
-                                if (Arama(Veri3, Semboller1, 2, Hata) == "Y")
+                            else if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
+                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
                                     Veri1 = Veri2;
                                 else
                                     Veri1 = Veri3;
@@ -1605,15 +1605,15 @@ namespace Conforyon
                                 Veri2 = (Convert.ToInt64(GelenVeri) / Convert.ToDouble(KatSayı)).ToString();
                                 Veri3 = (Convert.ToInt64(GelenVeri) / Convert.ToInt64(KatSayı)).ToString();
                             }
-                            if (Arama(Veri2, Semboller2, 1, Hata) == "Y")
+                            if (Arama(Veri2, SymbolsCalc, 1, Hata) == "Y")
                             {
-                                if (Arama(Veri3, Semboller1, 2, Hata) == "Y")
+                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
                                     Veri1 = Veri2;
                                 else
                                     Veri1 = Veri3;
                             }
-                            else if (Arama(Veri3, Semboller1, 2, Hata) == "Y")
-                                if (Arama(Veri3, Semboller1, 2, Hata) == "Y")
+                            else if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
+                                if (Arama(Veri3, SymbolsMath, 2, Hata) == "Y")
                                     Veri1 = Veri2;
                                 else
                                     Veri1 = Veri3;
@@ -1638,7 +1638,7 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1V2!)";
+                return Hata + ErrorTitle + "1V2!)";
             }
         }
 
@@ -1677,7 +1677,7 @@ namespace Conforyon
             }
             catch (Exception Hata)
             {
-                return Hata + HataTitle + "1O2!)";
+                return Hata + ErrorTitle + "1O2!)";
             }
         }
 
@@ -1717,7 +1717,7 @@ namespace Conforyon
             }
             catch (Exception Hata)
             {
-                return Hata + HataTitle + "1O3!)";
+                return Hata + ErrorTitle + "1O3!)";
             }
         }
 
@@ -1764,7 +1764,7 @@ namespace Conforyon
             }
             catch (Exception Hata)
             {
-                return Hata + HataTitle + "1V3!)";
+                return Hata + ErrorTitle + "1V3!)";
             }
         }
 
@@ -1801,7 +1801,7 @@ namespace Conforyon
             }
             catch (Exception Hata)
             {
-                return Hata + HataTitle + "1v4!)";
+                return Hata + ErrorTitle + "1v4!)";
             }
         }
 
@@ -1830,11 +1830,11 @@ namespace Conforyon
             }
             catch (Exception Hata)
             {
-                return Hata + HataTitle + "1O4!)";
+                return Hata + ErrorTitle + "1O4!)";
             }
         }
 
-        private static string SonKontrol(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        private static string SonKontrol(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
@@ -1857,11 +1857,11 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1S!)";
+                return Hata + ErrorTitle + "1S!)";
             }
         }
 
-        private static string SonKontrol2(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = HataMesaj)
+        private static string SonKontrol2(string Veri, bool Ondalık, bool Virgül, int VirgülSonrası = 0, string Hata = ErrorMessage)
         {
             try
             {
@@ -1884,7 +1884,7 @@ namespace Conforyon
             }
             catch
             {
-                return Hata + HataTitle + "1S2!)";
+                return Hata + ErrorTitle + "1S2!)";
             }
         }
 
