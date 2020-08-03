@@ -5,15 +5,15 @@ using System.Drawing;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
-namespace ConforyonLibrary
+namespace Conforyon
 {
-    public class ConforyonLibrary
+    public class Conforyon
     {
         private const string HataTitle = " (CN-CL";
         private const string HataMesaj = "Hata!";
         private const int VeriUzunluk = 15;
 
-        readonly private static string[] Türler = {
+        private readonly static string[] Türler = {
             "Bit",
             "Byte",
             "KB",
@@ -26,12 +26,12 @@ namespace ConforyonLibrary
             "YB"
         };
 
-        readonly private static string[] Semboller1 = {
+        private readonly static string[] Semboller1 = {
             "-",
             "+"
         };
 
-        readonly private static string[] Semboller2 = {
+        private readonly static string[] Semboller2 = {
             "E",
             "B",
             "+",
@@ -83,9 +83,9 @@ namespace ConforyonLibrary
                             else
                             {
                                 if (Ondalık == true && Virgül == false)
-                                    Sonuç = ConforyonLibrary.Ondalık(GelenVeri);
+                                    Sonuç = Conforyon.Ondalık(GelenVeri);
                                 else if (Ondalık == false && Virgül == true)
-                                    Sonuç = ConforyonLibrary.Virgül(GelenVeri, VirgülSonrası);
+                                    Sonuç = Conforyon.Virgül(GelenVeri, VirgülSonrası);
                                 else
                                     Sonuç = OndalıkVirgül(GelenVeri, VirgülSonrası);
                             }
@@ -1848,9 +1848,9 @@ namespace ConforyonLibrary
                 else
                 {
                     if (Ondalık == true && Virgül == false)
-                        return ConforyonLibrary.Ondalık(Veri);
+                        return Conforyon.Ondalık(Veri);
                     else if (Ondalık == false && Virgül == true)
-                        return ConforyonLibrary.Virgül(Veri, VirgülSonrası);
+                        return Conforyon.Virgül(Veri, VirgülSonrası);
                     else
                         return OndalıkVirgül(Veri, VirgülSonrası);
                 }

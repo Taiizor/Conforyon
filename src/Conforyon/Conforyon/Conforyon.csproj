@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netcoreapp2.1;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
+    <!--<ApplicationIcon>Resources\Taiizor.ico</ApplicationIcon>-->
+    <Version>1.0.0.1</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>Conforyon</Title>
+    <Authors>Taiizor</Authors>
+    <Copyright>Copyright © 2020 Taiizor Inc.</Copyright>
+    <Description>Converter For Everyone - Conforyon</Description>
+    <PackageLicenseFile></PackageLicenseFile>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageReleaseNotes>Creating Project.
+Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
+    <PackageTags>Conforyon Taiizor C# CSharp DotNet Converter</PackageTags>
+    <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
+    <!--<PackageIcon>Taiizor.png</PackageIcon>-->
+    <Company>Taiizor</Company>
+    <Owners>Taiizor</Owners>
+    <NeutralLanguage>en</NeutralLanguage>
+    <FileVersion>$(Version)</FileVersion>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.0-beta-20204-02" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Drawing.Common">
+      <Version>5.0.0-preview.7.20364.11</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <PackageReference Include="System.Drawing.Common">
+      <Version>5.0.0-preview.7.20364.11</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
+    <PackageReference Include="System.Drawing.Common">
+      <Version>5.0.0-preview.7.20364.11</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>
