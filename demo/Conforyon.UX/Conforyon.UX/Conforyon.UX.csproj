@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Conforyon.UX.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\INPUT1.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ReaLTaiizor, Version=3.7.7.4, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ReaLTaiizor.3.7.7.4\lib\net48\ReaLTaiizor.dll</HintPath>
@@ -93,6 +99,8 @@
     <Content Include="Resources\arrow-sync-synchronize-way-direction-reload-refresh-15728.png" />
     <Content Include="Resources\copy-to-clipboard-4019.png" />
     <Content Include="Resources\copy.png" />
+    <Content Include="Resources\INPUT1.ico" />
+    <Content Include="Resources\INPUT2.png" />
     <Content Include="Resources\refresh-icon-256.png" />
     <Content Include="Resources\Refresh-icon.png" />
     <Content Include="Resources\refresh.png" />

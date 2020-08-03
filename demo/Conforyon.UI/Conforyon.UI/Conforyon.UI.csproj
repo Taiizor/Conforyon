@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\INPUT1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Conforyon.UI.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConforyonLibrary">
       <HintPath>..\..\..\..\ConforyonLibrary\ConforyonLibrary\bin\Release\ConforyonLibrary.dll</HintPath>
@@ -83,6 +89,8 @@
     <Content Include="Resources\arrow-sync-synchronize-way-direction-reload-refresh-15728.png" />
     <Content Include="Resources\copy-to-clipboard-4019.png" />
     <Content Include="Resources\copy.png" />
+    <Content Include="Resources\INPUT1.ico" />
+    <Content Include="Resources\INPUT2.png" />
     <Content Include="Resources\refresh-icon-256.png" />
     <Content Include="Resources\Refresh-icon.png" />
     <Content Include="Resources\refresh.png" />
