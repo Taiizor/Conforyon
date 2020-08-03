@@ -194,7 +194,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = Conforyon.VeriÇevir(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = Conforyon.VariableÇevir(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -210,7 +210,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = Conforyon.OtoVeriÇevir(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = Conforyon.OtoVariableÇevir(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
