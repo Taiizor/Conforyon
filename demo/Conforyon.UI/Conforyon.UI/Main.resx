@@ -1932,10 +1932,10 @@
     <value>21</value>
   </data>
   <data name="comboBox11.Items" xml:space="preserve">
-    <value>Text =&gt; ASCII</value>
+    <value>Char =&gt; ASCII</value>
   </data>
   <data name="comboBox11.Items1" xml:space="preserve">
-    <value>ASCII =&gt; Text</value>
+    <value>ASCII =&gt; Char</value>
   </data>
   <data name="comboBox11.Location" type="System.Drawing.Point, System.Drawing">
     <value>436, 217</value>

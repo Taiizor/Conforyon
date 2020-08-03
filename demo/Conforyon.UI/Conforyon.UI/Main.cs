@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
-using static Conforyon.Hash.Hash;
-using static Conforyon.Color.Color;
-using static Conforyon.Crypto.Crypto;
+using static Conforyon.Hash;
+using static Conforyon.Color;
+using static Conforyon.Crypto;
 using System.Text.RegularExpressions;
-using static Conforyon.Unicode.Unicode;
-using static Conforyon.Storage.DataStorage;
-using static Conforyon.Typography.Typography;
-using static Conforyon.Temperature.Temperature;
+using static Conforyon.Unicode;
+using static Conforyon.Storage;
+using static Conforyon.Typography;
+using static Conforyon.Temperature;
 
 namespace Conforyon.UI
 {
@@ -422,9 +422,9 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim11 == true)
-                    textBox12.Text = TEXTtoASCII(textBox11.Text, "Hata!");
+                    textBox12.Text = CHARtoASCII(textBox11.Text, "Hata!");
                 else
-                    textBox11.Text = ASCIItoTEXT(textBox12.Text, "Hata!");
+                    textBox11.Text = ASCIItoCHAR(textBox12.Text, "Hata!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
@@ -559,7 +559,7 @@ namespace Conforyon.UI
                 comboBox8.SelectedIndex = comboBox8.Items.IndexOf("Küsürat Açık");
                 comboBox9.SelectedIndex = comboBox9.Items.IndexOf("Ondalık Açık");
                 comboBox10.SelectedIndex = comboBox10.Items.IndexOf("RGB => HEX");
-                comboBox11.SelectedIndex = comboBox11.Items.IndexOf("Text => ASCII");
+                comboBox11.SelectedIndex = comboBox11.Items.IndexOf("Char => ASCII");
                 comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Text => Base64");
                 comboBox13.SelectedIndex = comboBox13.Items.IndexOf("CM");
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
