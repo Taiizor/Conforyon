@@ -87,14 +87,14 @@ namespace Conforyon
         /// <param name="TypeText"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string OtoVariableÇevir(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string OtoVariableÇevir(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, InputType) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, InputType) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType))
                 {
                     string Tür = null;
                     if (InputType == SizeTypes[SizeTypes.Length - 1])
@@ -121,7 +121,7 @@ namespace Conforyon
                     {
                         if (InputType != Tür)
                         {
-                            string Sonuç = VariableÇevir(InputVariable, InputType, Tür, Decimal, Comma, CommaSonrası, Error);
+                            string Sonuç = VariableÇevir(InputVariable, InputType, Tür, Decimal, Comma, PostComma, Error);
                             if (TypeText == false || Sonuç == Error)
                                 return Sonuç;
                             else
@@ -137,9 +137,9 @@ namespace Conforyon
                                 if (Decimal == true && Comma == false)
                                     Sonuç = Conforyon.Decimal(InputVariable);
                                 else if (Decimal == false && Comma == true)
-                                    Sonuç = Conforyon.Comma(InputVariable, CommaSonrası);
+                                    Sonuç = Conforyon.Comma(InputVariable, PostComma);
                                 else
-                                    Sonuç = DecimalComma(InputVariable, CommaSonrası);
+                                    Sonuç = DecimalComma(InputVariable, PostComma);
                             }
                             if (TypeText == false)
                                 return Sonuç;
@@ -165,20 +165,20 @@ namespace Conforyon
         /// <param name="TypeConvert"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string VariableÇevir(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string VariableÇevir(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, InputType) >= 0 && Array.IndexOf(SizeTypes, TypeConvert) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType) && Check(TypeConvert))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, InputType) >= 0 && Array.IndexOf(SizeTypes, TypeConvert) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType) && Check(TypeConvert))
                 {
                     if (InputType == "Bit")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Byte")
@@ -246,13 +246,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "Byte")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -320,13 +320,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "KB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -394,13 +394,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "MB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -468,13 +468,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "GB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -542,13 +542,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "TB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -616,13 +616,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "PB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -690,13 +690,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "EB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -764,13 +764,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "ZB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -838,13 +838,13 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else if (InputType == "YB")
                     {
                         if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                         else
                         {
                             if (TypeConvert == "Bit")
@@ -912,7 +912,7 @@ namespace Conforyon
                             }
                             else
                                 return Error;
-                            return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
+                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                         }
                     }
                     else
@@ -934,40 +934,40 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string IsıÇevir(string Variable, string Mod, bool Decimal, bool Comma, int CommaSonrası = 0, bool Text = true, string Error = ErrorMessage)
+        public static string IsıÇevir(string Variable, string Mod, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable) && Check(Mod))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable) && Check(Mod))
                 {
                     if (Mod == "C=>F" || Mod == "F=>C")
                     {
                         if (Mod == "C=>F")
                         {
                             if (Text == false)
-                                return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, CommaSonrası, Error);
+                                return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
                             else
-                                return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, CommaSonrası, Error) + " F";
+                                return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error) + " F";
                         }
                         else
                         {
                             if (Convert.ToInt64(Variable) >= 32)
                             {
                                 if (Text == false)
-                                    return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, CommaSonrası, Error);
+                                    return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error);
                                 else
-                                    return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, CommaSonrası, Error) + " C";
+                                    return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error) + " C";
                             }
                             else
                             {
                                 if (Text == false)
-                                    return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
+                                    return LastCheck2("0", Decimal, Comma, PostComma, Error);
                                 else
-                                    return LastCheck2("0", Decimal, Comma, CommaSonrası, Error) + " C";
+                                    return LastCheck2("0", Decimal, Comma, PostComma, Error) + " C";
                             }
                         }
                     }
@@ -1535,15 +1535,15 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string INCHtoCM(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string INCHtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
-                    return LastCheck2((Convert.ToInt64(Variable) * 2.54).ToString(), Decimal, Comma, CommaSonrası, Error);
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
+                    return LastCheck2((Convert.ToInt64(Variable) * 2.54).ToString(), Decimal, Comma, PostComma, Error);
                 else
                     return Error;
             }
@@ -1559,17 +1559,17 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string INCHtoPX(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string INCHtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
                 {
                     string Sonuç = (Convert.ToInt64(Variable) * 2.54 * 37.79527559055118).ToString();
-                    return LastCheck2(Sonuç, Decimal, Comma, CommaSonrası, Error);
+                    return LastCheck2(Sonuç, Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -1586,19 +1586,19 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CMtoINCH(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string CMtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 3)
-                        return LastCheck2((Convert.ToInt64(Variable) / 2.54).ToString(), Decimal, Comma, CommaSonrası, Error);
+                        return LastCheck2((Convert.ToInt64(Variable) / 2.54).ToString(), Decimal, Comma, PostComma, Error);
                     else
-                        return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
+                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -1615,15 +1615,15 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CMtoPX(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string CMtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
-                    return LastCheck2((Convert.ToInt64(Variable) * 37.79527559055118).ToString(), Decimal, Comma, CommaSonrası, Error);
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
+                    return LastCheck2((Convert.ToInt64(Variable) * 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
                 else
                     return Error;
             }
@@ -1639,19 +1639,19 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string PXtoCM(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string PXtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 38)
-                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118).ToString(), Decimal, Comma, CommaSonrası, Error);
+                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
                     else
-                        return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
+                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -1668,19 +1668,19 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string PXtoINCH(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string PXtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && CommaSonrası >= 0 && CommaSonrası <= 99 && Check(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 96)
-                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118 / 2.54).ToString(), Decimal, Comma, CommaSonrası, Error);
+                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118 / 2.54).ToString(), Decimal, Comma, PostComma, Error);
                     else
-                        return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
+                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -1996,9 +1996,9 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <returns></returns>
-        private static string Comma(string Variable, int CommaSonrası = 0)
+        private static string Comma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -2006,16 +2006,16 @@ namespace Conforyon
                     return Variable;
                 else
                 {
-                    if (Variable.Contains(",") && CommaSonrası != 0)
+                    if (Variable.Contains(",") && PostComma != 0)
                     {
                         char[] Ayraçlar = { ',' };
                         string[] Variableler = Variable.Split(Ayraçlar);
-                        if (CommaSonrası <= Variableler[1].Length)
-                            return Variableler[0] + "," + Variableler[1].Substring(0, CommaSonrası);
+                        if (PostComma <= Variableler[1].Length)
+                            return Variableler[0] + "," + Variableler[1].Substring(0, PostComma);
                         else
                         {
                             string Işlem = Variableler[0] + "," + Variableler[1].Substring(0, Variableler[1].Length);
-                            int Işlem2 = CommaSonrası - Variableler[1].Length;
+                            int Işlem2 = PostComma - Variableler[1].Length;
                             for (int i = 0; i < Işlem2; i++)
                                 Işlem += "0";
                             return Işlem;
@@ -2023,7 +2023,7 @@ namespace Conforyon
                     }
                     else
                     {
-                        if (CommaSonrası == 0)
+                        if (PostComma == 0)
                         {
                             char[] Ayraçlar = { ',' };
                             string[] Variableler = Variable.Split(Ayraçlar);
@@ -2032,7 +2032,7 @@ namespace Conforyon
                         else
                         {
                             string Işlem = ",";
-                            for (int i = 0; i < CommaSonrası; i++)
+                            for (int i = 0; i < PostComma; i++)
                                 Işlem += "0";
                             return Variable + Işlem;
                         }
@@ -2049,9 +2049,9 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <returns></returns>
-        private static string Comma2(string Variable, int CommaSonrası = 0)
+        private static string Comma2(string Variable, int PostComma = 0)
         {
             try
             {
@@ -2059,15 +2059,15 @@ namespace Conforyon
                     return Variable;
                 else
                 {
-                    if (CommaSonrası <= Variable.Length)
+                    if (PostComma <= Variable.Length)
                         if (Variable == ",")
-                            return Variable.Substring(0, CommaSonrası) + "0";
+                            return Variable.Substring(0, PostComma) + "0";
                         else
-                            return Variable.Substring(0, CommaSonrası);
+                            return Variable.Substring(0, PostComma);
                     else
                     {
                         string Işlem = Variable.Substring(0, Variable.Length);
-                        int Işlem2 = CommaSonrası - Variable.Length;
+                        int Işlem2 = PostComma - Variable.Length;
                         if (Variable == ",")
                         {
                             for (int i = 0; i <= Işlem2; i++)
@@ -2092,9 +2092,9 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <returns></returns>
-        private static string DecimalComma(string Variable, int CommaSonrası = 0)
+        private static string DecimalComma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -2102,7 +2102,7 @@ namespace Conforyon
                     return Variable;
                 else
                 {
-                    if (CommaSonrası == 0)
+                    if (PostComma == 0)
                         return Decimal2(Variable);
                     else
                     {
@@ -2110,10 +2110,10 @@ namespace Conforyon
                         {
                             char[] Ayraçlar = { ',' };
                             string[] Variableler = Variable.Split(Ayraçlar);
-                            return Decimal2(Variableler[0]) + "," + Comma2(Variableler[1], CommaSonrası);
+                            return Decimal2(Variableler[0]) + "," + Comma2(Variableler[1], PostComma);
                         }
                         else
-                            return Decimal2(Variable) + Comma2(",", CommaSonrası);
+                            return Decimal2(Variable) + Comma2(",", PostComma);
                     }
                 }
             }
@@ -2129,10 +2129,10 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        private static string LastCheck(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        private static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -2148,9 +2148,9 @@ namespace Conforyon
                     if (Decimal == true && Comma == false)
                         return Conforyon.Decimal(Variable);
                     else if (Decimal == false && Comma == true)
-                        return Conforyon.Comma(Variable, CommaSonrası);
+                        return Conforyon.Comma(Variable, PostComma);
                     else
-                        return DecimalComma(Variable, CommaSonrası);
+                        return DecimalComma(Variable, PostComma);
                 }
             }
             catch
@@ -2165,10 +2165,10 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
-        /// <param name="CommaSonrası"></param>
+        /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        private static string LastCheck2(string Variable, bool Decimal, bool Comma, int CommaSonrası = 0, string Error = ErrorMessage)
+        private static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -2184,9 +2184,9 @@ namespace Conforyon
                     if (Decimal == true && Comma == false)
                         return LastCheck(Variable, true, true, 0, Error);
                     else if (Decimal == false && Comma == true)
-                        return LastCheck(Variable, false, true, CommaSonrası, Error);
+                        return LastCheck(Variable, false, true, PostComma, Error);
                     else
-                        return DecimalComma(Variable, CommaSonrası);
+                        return DecimalComma(Variable, PostComma);
                 }
             }
             catch
