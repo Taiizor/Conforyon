@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Conforyon.Temperature
 {
-    public static class Temperature
+    public static class Typography
     {
     }
 }

@@ -27,17 +27,17 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        private const string ErrorTitle = " (CN-LY";
+        public const string ErrorTitle = " (CN-LY";
 
         /// <summary>
         /// 
         /// </summary>
-        private const string ErrorMessage = "Error!";
+        public const string ErrorMessage = "Error!";
 
         /// <summary>
         /// 
         /// </summary>
-        private const int VariableLength = 15;
+        public const int VariableLength = 15;
         #endregion
 
         #region Enums
@@ -1533,168 +1533,6 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string INCHtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
-                    return LastCheck2((Convert.ToInt64(Variable) * 2.54).ToString(), Decimal, Comma, PostComma, Error);
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1I2!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string INCHtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
-                {
-                    string Sonuç = (Convert.ToInt64(Variable) * 2.54 * 37.79527559055118).ToString();
-                    return LastCheck2(Sonuç, Decimal, Comma, PostComma, Error);
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1I3!)";
-            }
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CMtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
-                {
-                    if (Convert.ToInt64(Variable) >= 3)
-                        return LastCheck2((Convert.ToInt64(Variable) / 2.54).ToString(), Decimal, Comma, PostComma, Error);
-                    else
-                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C7!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CMtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
-                    return LastCheck2((Convert.ToInt64(Variable) * 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C8!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string PXtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
-                {
-                    if (Convert.ToInt64(Variable) >= 38)
-                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
-                    else
-                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1P!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string PXtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
-                {
-                    if (Convert.ToInt64(Variable) >= 96)
-                        return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118 / 2.54).ToString(), Decimal, Comma, PostComma, Error);
-                    else
-                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1P2!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
@@ -1739,7 +1577,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        private static string Arama(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
+        public static string Arama(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
         {
             try
             {
@@ -1818,7 +1656,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
-        private static string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
+        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
         {
             try
             {
@@ -1908,7 +1746,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        private static string Decimal(string Variable)
+        public static string Decimal(string Variable)
         {
             try
             {
@@ -1952,7 +1790,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        private static string Decimal2(string Variable)
+        public static string Decimal2(string Variable)
         {
             try
             {
@@ -1998,7 +1836,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        private static string Comma(string Variable, int PostComma = 0)
+        public static string Comma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -2051,7 +1889,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        private static string Comma2(string Variable, int PostComma = 0)
+        public static string Comma2(string Variable, int PostComma = 0)
         {
             try
             {
@@ -2094,7 +1932,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        private static string DecimalComma(string Variable, int PostComma = 0)
+        public static string DecimalComma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -2132,7 +1970,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        private static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -2168,7 +2006,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        private static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -2201,7 +2039,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Mod"></param>
         /// <returns></returns>
-        private static bool Check(string Variable, bool Mod = false)
+        public static bool Check(string Variable, bool Mod = false)
         {
             try
             {
