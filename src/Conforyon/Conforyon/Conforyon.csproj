@@ -8,13 +8,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Conforyon</Title>
     <Authors>Taiizor</Authors>
-    <Copyright>Copyright © 2020 Taiizor Inc.</Copyright>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
     <Description>Converter For Everyone - Conforyon</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Creating Project.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
-    <PackageTags>Conforyon Taiizor C# CSharp DotNet Converter</PackageTags>
+    <PackageTags>Conforyon Taiizor C# CSharp DotNet Convert Converter</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
