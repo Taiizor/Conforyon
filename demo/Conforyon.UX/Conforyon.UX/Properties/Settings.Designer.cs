@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _53X.Properties
+namespace Conforyon.UX.Properties
 {
 
 

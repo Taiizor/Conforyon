@@ -2,11 +2,11 @@
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace _53X
+namespace Conforyon.UI
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -349,7 +349,7 @@ namespace _53X
             {
                 ComboBox();
                 if (Seçim10 == true)
-                    textBox8.Text = ConforyonLibrary.ConforyonLibrary.RGBtoHEX(textBox6.Text, textBox9.Text , textBox10.Text, false, "Hata!");
+                    textBox8.Text = ConforyonLibrary.ConforyonLibrary.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
                 else
                 {
                     textBox6.Text = ConforyonLibrary.ConforyonLibrary.HEXtoRGB(textBox8.Text, 8, "Hata!");
@@ -508,7 +508,7 @@ namespace _53X
                     else
                         textBox16.Text = "Hata!";
                 }
-                else  if (Seçim13 == "CM")
+                else if (Seçim13 == "CM")
                 {
                     if (Seçim14 == "INCH")
                         textBox16.Text = ConforyonLibrary.ConforyonLibrary.CMtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
@@ -534,7 +534,7 @@ namespace _53X
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Main_Load(object sender, EventArgs e)
         {
             try
             {
