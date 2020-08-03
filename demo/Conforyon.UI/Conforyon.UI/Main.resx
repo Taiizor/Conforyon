@@ -2519,25 +2519,25 @@
     <value>14</value>
   </data>
   <data name="comboBox12.Items" xml:space="preserve">
-    <value>Char =&gt; Base64</value>
+    <value>Text =&gt; Base64</value>
   </data>
   <data name="comboBox12.Items1" xml:space="preserve">
-    <value>Char =&gt; MD5</value>
+    <value>Text =&gt; MD5</value>
   </data>
   <data name="comboBox12.Items2" xml:space="preserve">
-    <value>Char =&gt; SHA1</value>
+    <value>Text =&gt; SHA1</value>
   </data>
   <data name="comboBox12.Items3" xml:space="preserve">
-    <value>Char =&gt; SHA256</value>
+    <value>Text =&gt; SHA256</value>
   </data>
   <data name="comboBox12.Items4" xml:space="preserve">
-    <value>Char =&gt; SHA384</value>
+    <value>Text =&gt; SHA384</value>
   </data>
   <data name="comboBox12.Items5" xml:space="preserve">
-    <value>Char =&gt; SHA512</value>
+    <value>Text =&gt; SHA512</value>
   </data>
   <data name="comboBox12.Items6" xml:space="preserve">
-    <value>Base64 =&gt; Char</value>
+    <value>Base64 =&gt; Text</value>
   </data>
   <data name="comboBox12.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 217</value>

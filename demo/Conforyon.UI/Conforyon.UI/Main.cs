@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using static Conforyon.Hash.Hash;
+using static Conforyon.Color.Color;
+using static Conforyon.Crypto.Crypto;
 using System.Text.RegularExpressions;
+using static Conforyon.Unicode.Unicode;
+using static Conforyon.Storage.DataStorage;
+using static Conforyon.Typography.Typography;
+using static Conforyon.Temperature.Temperature;
 
 namespace Conforyon.UI
 {
@@ -95,19 +102,19 @@ namespace Conforyon.UI
                 else
                     Seçim11 = false;
                 if (comboBox12.SelectedIndex == 0)
-                    Seçim12 = "Char=>Base64";
+                    Seçim12 = "Text=>Base64";
                 else if (comboBox12.SelectedIndex == 1)
-                    Seçim12 = "Char=>MD5";
+                    Seçim12 = "Text=>MD5";
                 else if (comboBox12.SelectedIndex == 2)
-                    Seçim12 = "Char=>SHA1";
+                    Seçim12 = "Text=>SHA1";
                 else if (comboBox12.SelectedIndex == 3)
-                    Seçim12 = "Char=>SHA256";
+                    Seçim12 = "Text=>SHA256";
                 else if (comboBox12.SelectedIndex == 4)
-                    Seçim12 = "Char=>SHA384";
+                    Seçim12 = "Text=>SHA384";
                 else if (comboBox12.SelectedIndex == 5)
-                    Seçim12 = "Char=>SHA512";
+                    Seçim12 = "Text=>SHA512";
                 else if (comboBox12.SelectedIndex == 6)
-                    Seçim12 = "Base64=>Char";
+                    Seçim12 = "Base64=>Text";
                 if (comboBox17.SelectedIndex == 0)
                     Seçim13 = "INCH";
                 else if (comboBox17.SelectedIndex == 1)
@@ -194,7 +201,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = Conforyon.VariableÇevir(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = Convert(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, System.Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -210,7 +217,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = Conforyon.OtoVariableÇevir(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = AutoConvert(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, System.Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -257,7 +264,10 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox5.Text))
                     textBox5.Text = "1";
-                textBox2.Text = Conforyon.IsıÇevir(textBox1.Text, Seçim6, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                if (Seçim6 == "C=>F")
+                    textBox2.Text = CtoF(textBox1.Text, Seçim9, Seçim8, System.Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                else
+                    textBox2.Text = FtoC(textBox1.Text, Seçim9, Seçim8, System.Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
                 button6.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -349,12 +359,12 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim10 == true)
-                    textBox8.Text = Conforyon.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
+                    textBox8.Text = RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
                 else
                 {
-                    textBox6.Text = Conforyon.HEXtoRGB(textBox8.Text, 8, "Hata!");
-                    textBox9.Text = Conforyon.HEXtoRGB(textBox8.Text, 9, "Hata!");
-                    textBox10.Text = Conforyon.HEXtoRGB(textBox8.Text, 10, "Hata!");
+                    textBox6.Text = HEXtoRGB(textBox8.Text, 8, "Hata!");
+                    textBox9.Text = HEXtoRGB(textBox8.Text, 9, "Hata!");
+                    textBox10.Text = HEXtoRGB(textBox8.Text, 10, "Hata!");
                 }
 
                 button9.Cursor = Cursors.Hand;
@@ -412,9 +422,9 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim11 == true)
-                    textBox12.Text = Conforyon.TEXTtoASCII(textBox11.Text, "Hata!");
+                    textBox12.Text = TEXTtoASCII(textBox11.Text, "Hata!");
                 else
-                    textBox11.Text = Conforyon.ASCIItoTEXT(textBox12.Text, "Hata!");
+                    textBox11.Text = ASCIItoTEXT(textBox12.Text, "Hata!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
@@ -429,20 +439,20 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Seçim12 == "Char=>Base64")
-                    textBox13.Text = Conforyon.CHARtoBASE64(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Char=>MD5")
-                    textBox13.Text = Conforyon.CHARtoMD5(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Char=>SHA1")
-                    textBox13.Text = Conforyon.CHARtoSHA1(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Char=>SHA256")
-                    textBox13.Text = Conforyon.CHARtoSHA256(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Char=>SHA384")
-                    textBox13.Text = Conforyon.CHARtoSHA384(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Char=>SHA512")
-                    textBox13.Text = Conforyon.CHARtoSHA512(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Base64=>Char")
-                    textBox13.Text = Conforyon.BASE64toCHAR(textBox14.Text, "Hata!");
+                if (Seçim12 == "Text=>Base64")
+                    textBox13.Text = TEXTtoBASE64(textBox14.Text, "Hata!");
+                else if (Seçim12 == "Text=>MD5")
+                    textBox13.Text = TEXTtoMD5(textBox14.Text, "Hata!");
+                else if (Seçim12 == "Textar=>SHA1")
+                    textBox13.Text = TEXTtoSHA1(textBox14.Text, "Hata!");
+                else if (Seçim12 == "Text=>SHA256")
+                    textBox13.Text = TEXTtoSHA256(textBox14.Text, "Hata!");
+                else if (Seçim12 == "Text=>SHA384")
+                    textBox13.Text = TEXTtoSHA384(textBox14.Text, "Hata!");
+                else if (Seçim12 == "Text=>SHA512")
+                    textBox13.Text = TEXTtoSHA512(textBox14.Text, "Hata!");
+                else if (Seçim12 == "Base64=>Text")
+                    textBox13.Text = BASE64toTEXT(textBox14.Text, "Hata!");
                 button17.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -502,27 +512,27 @@ namespace Conforyon.UI
                 if (Seçim13 == "INCH")
                 {
                     if (Seçim14 == "CM")
-                        textBox16.Text = Conforyon.INCHtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = INCHtoCM(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "PX")
-                        textBox16.Text = Conforyon.INCHtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = INCHtoPX(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
                 else if (Seçim13 == "CM")
                 {
                     if (Seçim14 == "INCH")
-                        textBox16.Text = Conforyon.CMtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = CMtoINCH(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "PX")
-                        textBox16.Text = Conforyon.CMtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = CMtoPX(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
                 else if (Seçim13 == "PX")
                 {
                     if (Seçim14 == "INCH")
-                        textBox16.Text = Conforyon.PXtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = PXtoINCH(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "CM")
-                        textBox16.Text = Conforyon.PXtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = PXtoCM(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
@@ -550,7 +560,7 @@ namespace Conforyon.UI
                 comboBox9.SelectedIndex = comboBox9.Items.IndexOf("Ondalık Açık");
                 comboBox10.SelectedIndex = comboBox10.Items.IndexOf("RGB => HEX");
                 comboBox11.SelectedIndex = comboBox11.Items.IndexOf("Text => ASCII");
-                comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Char => Base64");
+                comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Text => Base64");
                 comboBox13.SelectedIndex = comboBox13.Items.IndexOf("CM");
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
                 comboBox15.SelectedIndex = comboBox4.Items.IndexOf("Küsürat Açık");
