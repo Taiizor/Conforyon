@@ -15,7 +15,7 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 03.Aug.2020
-//     Version: 1.3.9.6
+//     Version: 1.4.1.3
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -90,7 +90,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string OtoVariableÇevir(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string AutoVariableConvert(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace Conforyon
                     {
                         for (int i = Array.IndexOf(SizeTypes, InputType); i < SizeTypes.Length; i++)
                         {
-                            if (VariableÇevir(InputVariable, InputType, SizeTypes[i], false, false, 0, Error) == "0")
+                            if (VariableConvert(InputVariable, InputType, SizeTypes[i], false, false, 0, Error) == "0")
                             {
                                 Tür = SizeTypes[i - 1];
                                 break;
@@ -121,7 +121,7 @@ namespace Conforyon
                     {
                         if (InputType != Tür)
                         {
-                            string Sonuç = VariableÇevir(InputVariable, InputType, Tür, Decimal, Comma, PostComma, Error);
+                            string Sonuç = VariableConvert(InputVariable, InputType, Tür, Decimal, Comma, PostComma, Error);
                             if (TypeText == false || Sonuç == Error)
                                 return Sonuç;
                             else
@@ -168,7 +168,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string VariableÇevir(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string VariableConvert(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -996,7 +996,7 @@ namespace Conforyon
             {
                 if (Variable.Length == 6 && Mod >= 0 && Mod <= 10 && Check(Variable))
                 {
-                    Color HexColor = ColorTranslator.FromHtml("#" + Variable);
+                    System.Drawing.Color HexColor = ColorTranslator.FromHtml("#" + Variable);
                     if (Mod == 0)
                         return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;
                     else if (Mod == 1)
@@ -1052,7 +1052,7 @@ namespace Conforyon
                     {
                         if (Convert.ToInt32(R) >= 0 && Convert.ToInt32(R) <= 255 && Convert.ToInt32(G) >= 0 && Convert.ToInt32(G) <= 255 && Convert.ToInt32(B) >= 0 && Convert.ToInt32(B) <= 255)
                         {
-                            Color RGBColor = Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
+                            System.Drawing.Color RGBColor = System.Drawing.Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
                             if (Mod == true)
                                 return "#" + RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
                             else
