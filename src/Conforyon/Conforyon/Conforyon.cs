@@ -1,17 +1,35 @@
-﻿using System;
+﻿#region Imports
+
+using System;
 using System.IO;
 using System.Text;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
+#endregion
+
+// |---------DO-NOT-REMOVE---------|
+//
+//     Creator: Taiizor
+//     Site   : www.Taiizor.com
+//     Created: 04.Jul.2019
+//     Changed: 03.Aug.2020
+//     Version: 1.3.8.9
+//
+// |---------DO-NOT-REMOVE---------|
+
 namespace Conforyon
 {
     public static class Conforyon
     {
+        #region Variables
+
         private const string ErrorTitle = " (CN-CL";
-        private const string ErrorMessage = "Hata!";
+        private const string ErrorMessage = "Error!";
         private const int VariableLength = 15;
+
+        #endregion
 
         private static readonly string[] SizeTypes = {
             "Bit",
