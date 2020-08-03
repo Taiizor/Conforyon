@@ -5,7 +5,7 @@ using static Conforyon.Conforyon;
 
 #endregion
 
-namespace Conforyon.Typography
+namespace Conforyon
 {
     public static class Typography
     {

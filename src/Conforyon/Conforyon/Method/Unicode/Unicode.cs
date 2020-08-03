@@ -6,7 +6,7 @@ using static Conforyon.Conforyon;
 
 #endregion
 
-namespace Conforyon.Unicode
+namespace Conforyon
 {
     public static class Unicode
     {
@@ -16,7 +16,7 @@ namespace Conforyon.Unicode
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoASCII(string Variable, string Error = ErrorMessage)
+        public static string CHARtoASCII(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Conforyon.Unicode
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ASCIItoTEXT(string Variable, string Error = ErrorMessage)
+        public static string ASCIItoCHAR(string Variable, string Error = ErrorMessage)
         {
             try
             {

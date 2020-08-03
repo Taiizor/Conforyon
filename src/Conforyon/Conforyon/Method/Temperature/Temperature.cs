@@ -5,7 +5,7 @@ using static Conforyon.Conforyon;
 
 #endregion
 
-namespace Conforyon.Temperature
+namespace Conforyon
 {
     public static class Temperature
     {

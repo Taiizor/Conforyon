@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 #endregion
 
-namespace Conforyon.Hash
+namespace Conforyon
 {
     public static class Hash
     {

@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 #endregion
 
-namespace Conforyon.Crypto
+namespace Conforyon
 {
     public static class Crypto
     {

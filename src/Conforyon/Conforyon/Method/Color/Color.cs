@@ -6,7 +6,7 @@ using static Conforyon.Conforyon;
 
 #endregion
 
-namespace Conforyon.Color
+namespace Conforyon
 {
     public static class Color
     {

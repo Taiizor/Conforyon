@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 #endregion
 
-namespace Conforyon.Storage
+namespace Conforyon
 {
     public static class DataStorage
     {
@@ -34,7 +34,7 @@ namespace Conforyon.Storage
                     {
                         for (int i = Array.IndexOf(StorageTypes, InputType); i < StorageTypes.Length; i++)
                         {
-                            if (Convert(InputVariable, InputType, StorageTypes[i], false, false, 0, Error) == "0")
+                            if (FlatConvert(InputVariable, InputType, StorageTypes[i], false, false, 0, Error) == "0")
                             {
                                 Type = StorageTypes[i - 1];
                                 break;
@@ -52,7 +52,7 @@ namespace Conforyon.Storage
                     {
                         if (InputType != Type)
                         {
-                            string Sonuç = Convert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
+                            string Sonuç = FlatConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
                             if (TypeText == false || Sonuç == Error)
                                 return Sonuç;
                             else
@@ -99,7 +99,7 @@ namespace Conforyon.Storage
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Convert(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string FlatConvert(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
