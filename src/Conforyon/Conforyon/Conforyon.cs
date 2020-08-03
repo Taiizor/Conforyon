@@ -44,7 +44,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        private static readonly string[] SizeTypes = {
+        public static readonly string[] SizeTypes = {
             "Bit",
             "Byte",
             "KB",
@@ -60,7 +60,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        private static readonly string[] SymbolsMath = {
+        public static readonly string[] SymbolsMath = {
             "-",
             "+"
         };
@@ -68,7 +68,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        private static readonly string[] SymbolsCalc = {
+        public static readonly string[] SymbolsCalc = {
             "E",
             "B",
             "+",
@@ -83,27 +83,27 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="InputVariable"></param>
-        /// <param name="GelenTür"></param>
-        /// <param name="TürYazı"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeText"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="CommaSonrası"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string OtoVariableÇevir(string InputVariable, string GelenTür, bool TürYazı = false, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string OtoVariableÇevir(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(GelenTür))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, InputType) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType))
                 {
                     string Tür = null;
-                    if (GelenTür == SizeTypes[SizeTypes.Length - 1])
+                    if (InputType == SizeTypes[SizeTypes.Length - 1])
                         Tür = SizeTypes[SizeTypes.Length - 1];
                     else
                     {
-                        for (int i = Array.IndexOf(SizeTypes, GelenTür); i < SizeTypes.Length; i++)
+                        for (int i = Array.IndexOf(SizeTypes, InputType); i < SizeTypes.Length; i++)
                         {
-                            if (VariableÇevir(InputVariable, GelenTür, SizeTypes[i], false, false, 0, Error) == "0")
+                            if (VariableÇevir(InputVariable, InputType, SizeTypes[i], false, false, 0, Error) == "0")
                             {
                                 Tür = SizeTypes[i - 1];
                                 break;
@@ -119,10 +119,10 @@ namespace Conforyon
                         return Error;
                     else
                     {
-                        if (GelenTür != Tür)
+                        if (InputType != Tür)
                         {
-                            string Sonuç = VariableÇevir(InputVariable, GelenTür, Tür, Decimal, Comma, CommaSonrası, Error);
-                            if (TürYazı == false || Sonuç == Error)
+                            string Sonuç = VariableÇevir(InputVariable, InputType, Tür, Decimal, Comma, CommaSonrası, Error);
+                            if (TypeText == false || Sonuç == Error)
                                 return Sonuç;
                             else
                                 return Sonuç + " " + Tür;
@@ -141,7 +141,7 @@ namespace Conforyon
                                 else
                                     Sonuç = DecimalComma(InputVariable, CommaSonrası);
                             }
-                            if (TürYazı == false)
+                            if (TypeText == false)
                                 return Sonuç;
                             else
                                 return Sonuç + " " + Tür;
@@ -161,83 +161,83 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="InputVariable"></param>
-        /// <param name="GelenTür"></param>
-        /// <param name="DönüştürülecekTür"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeConvert"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="CommaSonrası"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string VariableÇevir(string InputVariable, string GelenTür, string DönüştürülecekTür, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
+        public static string VariableÇevir(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int CommaSonrası = 0, string Error = ErrorMessage)
         {
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, GelenTür) >= 0 && Array.IndexOf(SizeTypes, DönüştürülecekTür) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(GelenTür) && Check(DönüştürülecekTür))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(SizeTypes, InputType) >= 0 && Array.IndexOf(SizeTypes, TypeConvert) >= 0 && CommaSonrası >= 0 && CommaSonrası <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType) && Check(TypeConvert))
                 {
-                    if (GelenTür == "Bit")
+                    if (InputType == "Bit")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Byte")
+                            if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8192", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8388608", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8589934592", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, (8796093022208 * 2048).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, (8796093022208 * 3072).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, (8796093022208 * 4096).ToString(), Comma, Error, false, true);
@@ -249,69 +249,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "Byte")
+                    else if (InputType == "Byte")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, (1125899906842624 * 3072).ToString(), Comma, Error, false, true);
@@ -323,69 +323,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "KB")
+                    else if (InputType == "KB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8192", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
@@ -397,69 +397,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "MB")
+                    else if (InputType == "MB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8388608", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1152921504606847000", Comma, Error, false, true);
@@ -471,69 +471,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "GB")
+                    else if (InputType == "GB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8589934592", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
@@ -545,69 +545,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "TB")
+                    else if (InputType == "TB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
@@ -619,69 +619,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "PB")
+                    else if (InputType == "PB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
@@ -693,69 +693,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "EB")
+                    else if (InputType == "EB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "9223372036854775808", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
@@ -767,69 +767,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "ZB")
+                    else if (InputType == "ZB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "9444732965739290427392", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "YB")
+                            else if (TypeConvert == "YB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
@@ -841,69 +841,69 @@ namespace Conforyon
                             return LastCheck(Variable, Decimal, Comma, CommaSonrası, Error);
                         }
                     }
-                    else if (GelenTür == "YB")
+                    else if (InputType == "YB")
                     {
-                        if (DönüştürülecekTür == GelenTür)
+                        if (TypeConvert == InputType)
                             return LastCheck(InputVariable, Decimal, Comma, CommaSonrası, Error);
                         else
                         {
-                            if (DönüştürülecekTür == "Bit")
+                            if (TypeConvert == "Bit")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "9671406556917033397649408", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "Byte")
+                            else if (TypeConvert == "Byte")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1208925819614629174706176", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "KB")
+                            else if (TypeConvert == "KB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "MB")
+                            else if (TypeConvert == "MB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "GB")
+                            else if (TypeConvert == "GB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "TB")
+                            else if (TypeConvert == "TB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "PB")
+                            else if (TypeConvert == "PB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "EB")
+                            else if (TypeConvert == "EB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
-                            else if (DönüştürülecekTür == "ZB")
+                            else if (TypeConvert == "ZB")
                             {
                                 if (NumberCheck(InputVariable) == true)
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
@@ -935,10 +935,10 @@ namespace Conforyon
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="CommaSonrası"></param>
-        /// <param name="Yazı"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string IsıÇevir(string Variable, string Mod, bool Decimal, bool Comma, int CommaSonrası = 0, bool Yazı = true, string Error = ErrorMessage)
+        public static string IsıÇevir(string Variable, string Mod, bool Decimal, bool Comma, int CommaSonrası = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
@@ -948,7 +948,7 @@ namespace Conforyon
                     {
                         if (Mod == "C=>F")
                         {
-                            if (Yazı == false)
+                            if (Text == false)
                                 return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, CommaSonrası, Error);
                             else
                                 return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, CommaSonrası, Error) + " F";
@@ -957,14 +957,14 @@ namespace Conforyon
                         {
                             if (Convert.ToInt64(Variable) >= 32)
                             {
-                                if (Yazı == false)
+                                if (Text == false)
                                     return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, CommaSonrası, Error);
                                 else
                                     return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, CommaSonrası, Error) + " C";
                             }
                             else
                             {
-                                if (Yazı == false)
+                                if (Text == false)
                                     return LastCheck2("0", Decimal, Comma, CommaSonrası, Error);
                                 else
                                     return LastCheck2("0", Decimal, Comma, CommaSonrası, Error) + " C";
@@ -1257,19 +1257,19 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Yol"></param>
+        /// <param name="Path"></param>
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoMD5(string Yol, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoMD5(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
-                if (File.Exists(Yol))
+                if (File.Exists(Path))
                 {
                     using (MD5 MD5 = new MD5CryptoServiceProvider())
                     {
-                        using (var Stream = File.OpenRead(Yol))
+                        using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = MD5.ComputeHash(Stream);
                             return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
@@ -1318,19 +1318,19 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Yol"></param>
+        /// <param name="Path"></param>
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA1(string Yol, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA1(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
-                if (File.Exists(Yol))
+                if (File.Exists(Path))
                 {
                     using (SHA1 SHA1 = new SHA1CryptoServiceProvider())
                     {
-                        using (var Stream = File.OpenRead(Yol))
+                        using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA1.ComputeHash(Stream);
                             return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
@@ -1379,19 +1379,19 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Yol"></param>
+        /// <param name="Path"></param>
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA256(string Yol, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA256(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
-                if (File.Exists(Yol))
+                if (File.Exists(Path))
                 {
                     using (SHA256 SHA256 = new SHA256CryptoServiceProvider())
                     {
-                        using (var Stream = File.OpenRead(Yol))
+                        using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA256.ComputeHash(Stream);
                             return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
@@ -1440,19 +1440,19 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Yol"></param>
+        /// <param name="Path"></param>
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA384(string Yol, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA384(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
-                if (File.Exists(Yol))
+                if (File.Exists(Path))
                 {
                     using (SHA384 SHA384 = new SHA384CryptoServiceProvider())
                     {
-                        using (var Stream = File.OpenRead(Yol))
+                        using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA384.ComputeHash(Stream);
                             return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
@@ -1501,19 +1501,19 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Yol"></param>
+        /// <param name="Path"></param>
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA512(string Yol, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA512(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
-                if (File.Exists(Yol))
+                if (File.Exists(Path))
                 {
                     using (SHA512 SHA512 = new SHA512CryptoServiceProvider())
                     {
-                        using (var Stream = File.OpenRead(Yol))
+                        using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA512.ComputeHash(Stream);
                             return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
