@@ -1,4 +1,5 @@
 ﻿using System;
+using Conforyon;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -194,7 +195,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = ConforyonLibrary.ConforyonLibrary.VeriÇevir(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = Conforyon.VeriÇevir(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -210,7 +211,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = ConforyonLibrary.ConforyonLibrary.OtoVeriÇevir(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = Conforyon.OtoVeriÇevir(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -257,7 +258,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox5.Text))
                     textBox5.Text = "1";
-                textBox2.Text = ConforyonLibrary.ConforyonLibrary.IsıÇevir(textBox1.Text, Seçim6, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                textBox2.Text = Conforyon.IsıÇevir(textBox1.Text, Seçim6, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
                 button6.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -349,12 +350,12 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim10 == true)
-                    textBox8.Text = ConforyonLibrary.ConforyonLibrary.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
+                    textBox8.Text = Conforyon.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
                 else
                 {
-                    textBox6.Text = ConforyonLibrary.ConforyonLibrary.HEXtoRGB(textBox8.Text, 8, "Hata!");
-                    textBox9.Text = ConforyonLibrary.ConforyonLibrary.HEXtoRGB(textBox8.Text, 9, "Hata!");
-                    textBox10.Text = ConforyonLibrary.ConforyonLibrary.HEXtoRGB(textBox8.Text, 10, "Hata!");
+                    textBox6.Text = Conforyon.HEXtoRGB(textBox8.Text, 8, "Hata!");
+                    textBox9.Text = Conforyon.HEXtoRGB(textBox8.Text, 9, "Hata!");
+                    textBox10.Text = Conforyon.HEXtoRGB(textBox8.Text, 10, "Hata!");
                 }
 
                 button9.Cursor = Cursors.Hand;
@@ -412,9 +413,9 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim11 == true)
-                    textBox12.Text = ConforyonLibrary.ConforyonLibrary.TEXTtoASCII(textBox11.Text, "Hata!");
+                    textBox12.Text = Conforyon.TEXTtoASCII(textBox11.Text, "Hata!");
                 else
-                    textBox11.Text = ConforyonLibrary.ConforyonLibrary.ASCIItoTEXT(textBox12.Text, "Hata!");
+                    textBox11.Text = Conforyon.ASCIItoTEXT(textBox12.Text, "Hata!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
@@ -430,19 +431,19 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim12 == "Char=>Base64")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.CHARtoBASE64(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.CHARtoBASE64(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Char=>MD5")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.CHARtoMD5(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.CHARtoMD5(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Char=>SHA1")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.CHARtoSHA1(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.CHARtoSHA1(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Char=>SHA256")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.CHARtoSHA256(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.CHARtoSHA256(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Char=>SHA384")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.CHARtoSHA384(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.CHARtoSHA384(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Char=>SHA512")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.CHARtoSHA512(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.CHARtoSHA512(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Base64=>Char")
-                    textBox13.Text = ConforyonLibrary.ConforyonLibrary.BASE64toCHAR(textBox14.Text, "Hata!");
+                    textBox13.Text = Conforyon.BASE64toCHAR(textBox14.Text, "Hata!");
                 button17.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -502,27 +503,27 @@ namespace Conforyon.UI
                 if (Seçim13 == "INCH")
                 {
                     if (Seçim14 == "CM")
-                        textBox16.Text = ConforyonLibrary.ConforyonLibrary.INCHtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Conforyon.INCHtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "PX")
-                        textBox16.Text = ConforyonLibrary.ConforyonLibrary.INCHtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Conforyon.INCHtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
                 else if (Seçim13 == "CM")
                 {
                     if (Seçim14 == "INCH")
-                        textBox16.Text = ConforyonLibrary.ConforyonLibrary.CMtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Conforyon.CMtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "PX")
-                        textBox16.Text = ConforyonLibrary.ConforyonLibrary.CMtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Conforyon.CMtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
                 else if (Seçim13 == "PX")
                 {
                     if (Seçim14 == "INCH")
-                        textBox16.Text = ConforyonLibrary.ConforyonLibrary.PXtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Conforyon.PXtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "CM")
-                        textBox16.Text = ConforyonLibrary.ConforyonLibrary.PXtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Conforyon.PXtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }

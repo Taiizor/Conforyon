@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netcoreapp2.1;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
-    <ApplicationIcon>Resources\INPUT1.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
     <Version>1.3.8.7</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -18,7 +18,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
-    <PackageIcon>INPUT2.png</PackageIcon>
+    <PackageIcon>INPUT.png</PackageIcon>
     <Company>Taiizor</Company>
     <Owners>Taiizor</Owners>
     <NeutralLanguage>en</NeutralLanguage>
@@ -66,10 +66,10 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Resources\INPUT2.png">
+    <Content Include="Resources\INPUT.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
-    </None>
+    </Content>
   </ItemGroup>
 
 </Project>
