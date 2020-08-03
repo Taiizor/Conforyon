@@ -3,18 +3,18 @@
   <PropertyGroup>
     <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netcoreapp2.1;netcoreapp3.1;netstandard2.0;netstandard2.1</TargetFrameworks>
     <ApplicationIcon>Resources\INPUT1.ico</ApplicationIcon>
-    <Version>1.2.4.7</Version>
+    <Version>1.3.8.7</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Conforyon</Title>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
-    <Description>Converter For Everyone - Conforyon</Description>
+    <Description>C# Converter For Everyone - Conforyon</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Creating Project.
+    <PackageReleaseNotes>The first version was prepared in Turkish language.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
-    <PackageTags>Conforyon Taiizor C# CSharp DotNet Convert Converter</PackageTags>
+    <PackageTags>Conforyon Taiizor C# CSharp DotNet Convert Converts Converter Converters Converting Convertion</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
