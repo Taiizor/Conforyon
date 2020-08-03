@@ -3819,6 +3819,9 @@
         BjqFtxx001egBVL2KfdYN3W3QHcLfCVb4P8B4bHbbfGVZLEAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>53X Converter</value>
   </data>
