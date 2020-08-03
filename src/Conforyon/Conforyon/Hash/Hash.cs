@@ -1,11 +1,18 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Collections.Generic;
+﻿#region Imports
 
-namespace Conforyon.Crypto
+using System;
+using System.IO;
+using System.Text;
+using static Conforyon.Conforyon;
+using System.Security.Cryptography;
+using System.Text.RegularExpressions;
+
+#endregion
+
+namespace Conforyon.Hash
 {
     public static class Hash
     {
+
     }
 }

@@ -3,7 +3,6 @@
 using System;
 using System.IO;
 using System.Text;
-using System.Drawing;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
@@ -983,276 +982,7 @@ namespace Conforyon
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Mod"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string HEXtoRGB(string Variable, int Mod = 0, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length == 6 && Mod >= 0 && Mod <= 10 && Check(Variable))
-                {
-                    System.Drawing.Color HexColor = ColorTranslator.FromHtml("#" + Variable);
-                    if (Mod == 0)
-                        return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;
-                    else if (Mod == 1)
-                        return HexColor.R + " " + HexColor.G + " " + HexColor.B;
-                    else if (Mod == 2)
-                        return HexColor.R + " - " + HexColor.G + " - " + HexColor.B;
-                    else if (Mod == 3)
-                        return "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B;
-                    else if (Mod == 4)
-                        return "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B;
-                    else if (Mod == 5)
-                        return "R: " + HexColor.R;
-                    else if (Mod == 6)
-                        return "G: " + HexColor.G;
-                    else if (Mod == 7)
-                        return "B: " + HexColor.B;
-                    else if (Mod == 8)
-                        return HexColor.R.ToString();
-                    else if (Mod == 9)
-                        return HexColor.G.ToString();
-                    else if (Mod == 10)
-                        return HexColor.B.ToString();
-                    else
-                        return Variable;
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1H!)";
-            }
-        }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="R"></param>
-        /// <param name="G"></param>
-        /// <param name="B"></param>
-        /// <param name="Mod"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (R.Length <= 3 && R.Length >= 1 && G.Length <= 3 && G.Length >= 1 && B.Length <= 3 && B.Length >= 1 && NumberCheck(R, true) && NumberCheck(G, true) && NumberCheck(B, true))
-                {
-                    if ((R.Length >= 2 && R.StartsWith("0")) == true || (G.Length >= 2 && G.StartsWith("0")) == true || (B.Length >= 2 && B.StartsWith("0")) == true)
-                        return Error;
-                    else
-                    {
-                        if (Convert.ToInt32(R) >= 0 && Convert.ToInt32(R) <= 255 && Convert.ToInt32(G) >= 0 && Convert.ToInt32(G) <= 255 && Convert.ToInt32(B) >= 0 && Convert.ToInt32(B) <= 255)
-                        {
-                            System.Drawing.Color RGBColor = System.Drawing.Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
-                            if (Mod == true)
-                                return "#" + RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
-                            else
-                                return RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
-                        }
-                        else
-                            return Error;
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1R!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string TEXTtoASCII(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                {
-                    string Sonuç = "";
-                    byte[] LetterByte;
-                    for (int i = 0; i < Variable.Length; i++)
-                    {
-                        LetterByte = UTF8Encoding.UTF8.GetBytes(Variable.Substring(i, 1)); //Encoding.ASCII
-                        if (i < Variable.Length - 1)
-                            Sonuç += LetterByte[0] + ",";
-                        else
-                            Sonuç += LetterByte[0].ToString();
-                    }
-                    return Sonuç;
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1T!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string ASCIItoTEXT(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable))
-                {
-                    string Sonuç = "";
-                    char[] Ayraçlar = { ',' };
-                    string[] Letterler = Variable.Split(Ayraçlar);
-                    for (int i = 0; i < Letterler.Length; i++)
-                    {
-                        if (NumberCheck(Letterler[i], true) == true && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
-                            Sonuç += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letterler[i]) }); //Encoding.ASCII
-                        else
-                            return Error;
-                    }
-                    return Sonuç;
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1A!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CHARtoBASE64(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                    return Convert.ToBase64String(Encoding.UTF8.GetBytes(Variable));
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string BASE64toCHAR(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable))
-                {
-                    if (Variable.EndsWith("="))
-                    {
-                        try
-                        {
-                            return Encoding.UTF8.GetString(Convert.FromBase64String(Variable));
-                        }
-                        catch
-                        {
-                            try
-                            {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "="));
-                            }
-                            catch
-                            {
-                                try
-                                {
-                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Variable.Remove(Variable.Length - 1)));
-                                }
-                                catch
-                                {
-                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Variable.Remove(Variable.Length - 2)));
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        try
-                        {
-                            return Encoding.UTF8.GetString(Convert.FromBase64String(Variable));
-                        }
-                        catch
-                        {
-                            try
-                            {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "="));
-                            }
-                            catch
-                            {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "=="));
-                            }
-                        }
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1B!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CHARtoMD5(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                {
-                    using (MD5 MD5 = MD5.Create())
-                    {
-                        MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
-                        byte[] Sonuç = MD5.Hash;
-                        StringBuilder Yapı = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Yapı.Append(Sonuç[i].ToString("x2"));
-                        return Yapı.ToString();
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C2!)";
-            }
-        }
 
         /// <summary>
         /// 
@@ -1285,35 +1015,7 @@ namespace Conforyon
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CHARtoSHA1(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                {
-                    using (SHA1 SHA1 = SHA1.Create())
-                    {
-                        byte[] Sonuç = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
-                        StringBuilder Yapı = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Yapı.Append(Sonuç[i].ToString("x2"));
-                        return Yapı.ToString();
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C3!)";
-            }
-        }
+
 
         /// <summary>
         /// 
@@ -1346,35 +1048,6 @@ namespace Conforyon
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CHARtoSHA256(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                {
-                    using (SHA256 SHA256 = SHA256.Create())
-                    {
-                        byte[] Sonuç = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
-                        StringBuilder Yapı = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Yapı.Append(Sonuç[i].ToString("x2"));
-                        return Yapı.ToString();
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C4!)";
-            }
-        }
 
         /// <summary>
         /// 
@@ -1404,36 +1077,6 @@ namespace Conforyon
             catch
             {
                 return Error + ErrorTitle + "1F3!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CHARtoSHA384(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                {
-                    using (SHA384 SHA384 = SHA384.Create())
-                    {
-                        byte[] Sonuç = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
-                        StringBuilder Yapı = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Yapı.Append(Sonuç[i].ToString("x2"));
-                        return Yapı.ToString();
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C5!)";
             }
         }
 
@@ -1471,36 +1114,6 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string CHARtoSHA512(string Variable, string Error = ErrorMessage)
-        {
-            try
-            {
-                if (Variable.Length <= 32767 && Check(Variable, true))
-                {
-                    using (SHA512 SHA512 = SHA512.Create())
-                    {
-                        byte[] Sonuç = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
-                        StringBuilder Yapı = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Yapı.Append(Sonuç[i].ToString("x2"));
-                        return Yapı.ToString();
-                    }
-                }
-                else
-                    return Error;
-            }
-            catch
-            {
-                return Error + ErrorTitle + "1C6!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="Path"></param>
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
@@ -1529,6 +1142,9 @@ namespace Conforyon
             }
         }
 
+        #endregion
+
+        #region Cores
         /// <summary>
         /// 
         /// </summary>
@@ -1566,9 +1182,7 @@ namespace Conforyon
                 return false;
             }
         }
-        #endregion
 
-        #region Privates
         /// <summary>
         /// 
         /// </summary>
