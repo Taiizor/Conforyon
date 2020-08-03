@@ -2,14 +2,13 @@
 
 using System;
 using System.Text;
-using static Conforyon.Conforyon;
 using System.Security.Cryptography;
 
 #endregion
 
 namespace Conforyon
 {
-    public static class Crypto
+    public class Crypto : Conforyon
     {
         /// <summary>
         /// 
@@ -17,11 +16,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string BASE64toTEXT(string Variable, string Error = ErrorMessage)
+        public string BASE64toTEXT(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable))
+                if (Variable.Length <= 32767 && UseCheck(Variable))
                 {
                     if (Variable.EndsWith("="))
                     {
@@ -82,11 +81,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoBASE64(string Variable, string Error = ErrorMessage)
+        public string TEXTtoBASE64(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                     return Convert.ToBase64String(Encoding.UTF8.GetBytes(Variable));
                 else
                     return Error;
@@ -103,11 +102,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoMD5(string Variable, string Error = ErrorMessage)
+        public string TEXTtoMD5(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                 {
                     using (MD5 MD5 = MD5.Create())
                     {
@@ -134,11 +133,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA1(string Variable, string Error = ErrorMessage)
+        public string TEXTtoSHA1(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                 {
                     using (SHA1 SHA1 = SHA1.Create())
                     {
@@ -164,11 +163,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA256(string Variable, string Error = ErrorMessage)
+        public string TEXTtoSHA256(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                 {
                     using (SHA256 SHA256 = SHA256.Create())
                     {
@@ -194,11 +193,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA384(string Variable, string Error = ErrorMessage)
+        public string TEXTtoSHA384(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                 {
                     using (SHA384 SHA384 = SHA384.Create())
                     {
@@ -224,11 +223,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA512(string Variable, string Error = ErrorMessage)
+        public string TEXTtoSHA512(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                 {
                     using (SHA512 SHA512 = SHA512.Create())
                     {

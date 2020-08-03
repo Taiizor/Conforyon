@@ -1,13 +1,12 @@
 ﻿#region Imports
 
 using System;
-using static Conforyon.Conforyon;
 
 #endregion
 
 namespace Conforyon
 {
-    public static class Temperature
+    public class Temperature : Conforyon
     {
         /// <summary>
         /// 
@@ -19,11 +18,11 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public string CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
                 {
                     if (Text == false)
                         return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
@@ -49,11 +48,11 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public string FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && Check(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 32)
                     {

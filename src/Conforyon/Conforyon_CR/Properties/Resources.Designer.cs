@@ -13,7 +13,7 @@ namespace Conforyon_CR.Properties {
     
     
     /// <summary>
-    ///   Yerelleştirilmiş dizeleri aramak gibi işlemler için, türü kesin olarak belirtilmiş kaynak sınıfı.
+    ///   Yerelleştirilmiş dizeleri Searchingk gibi işlemler için, türü kesin olarak belirtilmiş kaynak sınıfı.
     /// </summary>
     // Bu sınıf ResGen veya Visual Studio gibi bir araç kullanılarak StronglyTypedResourceBuilder
     // sınıfı tarafından otomatik olarak oluşturuldu.
@@ -48,7 +48,7 @@ namespace Conforyon_CR.Properties {
         
         /// <summary>
         ///   Tümü için geçerli iş parçacığının CurrentUICulture özelliğini geçersiz kular
-        ///   CurrentUICulture özelliğini tüm kaynak aramaları için geçersiz kılar.
+        ///   CurrentUICulture özelliğini tüm kaynak Searchingları için geçersiz kılar.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {

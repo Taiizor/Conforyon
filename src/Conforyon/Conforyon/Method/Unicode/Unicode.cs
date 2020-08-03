@@ -2,13 +2,12 @@
 
 using System;
 using System.Text;
-using static Conforyon.Conforyon;
 
 #endregion
 
 namespace Conforyon
 {
-    public static class Unicode
+    public class Unicode : Conforyon
     {
         /// <summary>
         /// 
@@ -16,11 +15,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CHARtoASCII(string Variable, string Error = ErrorMessage)
+        public string CHARtoASCII(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable, true))
+                if (Variable.Length <= 32767 && UseCheck(Variable, true))
                 {
                     string Sonuç = "";
                     byte[] LetterByte;
@@ -49,11 +48,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ASCIItoCHAR(string Variable, string Error = ErrorMessage)
+        public string ASCIItoCHAR(string Variable, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= 32767 && Check(Variable))
+                if (Variable.Length <= 32767 && UseCheck(Variable))
                 {
                     string Sonuç = "";
                     char[] Ayraçlar = { ',' };

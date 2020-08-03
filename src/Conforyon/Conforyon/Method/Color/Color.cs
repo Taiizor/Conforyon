@@ -2,13 +2,12 @@
 
 using System;
 using System.Drawing;
-using static Conforyon.Conforyon;
 
 #endregion
 
 namespace Conforyon
 {
-    public static class Color
+    public class Color : Conforyon
     {
         /// <summary>
         /// 
@@ -17,11 +16,11 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string HEXtoRGB(string Variable, int Mod = 0, string Error = ErrorMessage)
+        public string HEXtoRGB(string Variable, int Mod = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length == 6 && Mod >= 0 && Mod <= 10 && Check(Variable))
+                if (Variable.Length == 6 && Mod >= 0 && Mod <= 10 && UseCheck(Variable))
                 {
                     System.Drawing.Color HexColor = ColorTranslator.FromHtml("#" + Variable);
                     if (Mod == 0)
@@ -67,7 +66,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Error = ErrorMessage)
+        public string RGBtoHEX(string R, string G, string B, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {

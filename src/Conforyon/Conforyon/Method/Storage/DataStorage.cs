@@ -1,14 +1,13 @@
 ﻿#region Imports
 
 using System;
-using static Conforyon.Conforyon;
 using System.Text.RegularExpressions;
 
 #endregion
 
 namespace Conforyon
 {
-    public static class DataStorage
+    public class DataStorage : Conforyon
     {
         /// <summary>
         /// 
@@ -21,11 +20,11 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string AutoConvert(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public string AutoDataConvert(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(StorageTypes, InputType) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(StorageTypes, InputType) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable) && UseCheck(InputType))
                 {
                     string Type = null;
                     if (InputType == StorageTypes[StorageTypes.Length - 1])
@@ -34,7 +33,7 @@ namespace Conforyon
                     {
                         for (int i = Array.IndexOf(StorageTypes, InputType); i < StorageTypes.Length; i++)
                         {
-                            if (FlatConvert(InputVariable, InputType, StorageTypes[i], false, false, 0, Error) == "0")
+                            if (DataConvert(InputVariable, InputType, StorageTypes[i], false, false, 0, Error) == "0")
                             {
                                 Type = StorageTypes[i - 1];
                                 break;
@@ -52,7 +51,7 @@ namespace Conforyon
                     {
                         if (InputType != Type)
                         {
-                            string Sonuç = FlatConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
+                            string Sonuç = DataConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
                             if (TypeText == false || Sonuç == Error)
                                 return Sonuç;
                             else
@@ -66,9 +65,9 @@ namespace Conforyon
                             else
                             {
                                 if (Decimal == true && Comma == false)
-                                    Sonuç = Conforyon.Decimal(InputVariable);
+                                    Sonuç = UseDecimal(InputVariable);
                                 else if (Decimal == false && Comma == true)
-                                    Sonuç = Conforyon.Comma(InputVariable, PostComma);
+                                    Sonuç = UseComma(InputVariable, PostComma);
                                 else
                                     Sonuç = DecimalComma(InputVariable, PostComma);
                             }
@@ -99,12 +98,12 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FlatConvert(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public string DataConvert(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(StorageTypes, InputType) >= 0 && Array.IndexOf(StorageTypes, TypeConvert) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Check(InputVariable) && Check(InputType) && Check(TypeConvert))
+                if (InputVariable.Length <= VariableLength && Array.IndexOf(StorageTypes, InputType) >= 0 && Array.IndexOf(StorageTypes, TypeConvert) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable) && UseCheck(InputType) && UseCheck(TypeConvert))
                 {
                     if (InputType == "Bit")
                     {

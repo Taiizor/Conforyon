@@ -11,13 +11,13 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 04.Aug.2020
-//     Version: 1.4.5.9
+//     Version: 1.4.6.2
 //
 // |---------DO-NOT-REMOVE---------|
 
 namespace Conforyon
 {
-    public static class Conforyon
+    public class Conforyon
     {
         #region Variables
         /// <summary>
@@ -56,7 +56,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string[] StorageTypes = {
+        public readonly string[] StorageTypes = {
             "Bit",
             "Byte",
             "KB",
@@ -72,7 +72,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string[] SymbolsMath = {
+        public readonly string[] SymbolsMath = {
             "-",
             "+"
         };
@@ -80,7 +80,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public static readonly string[] SymbolsCalc = {
+        public readonly string[] SymbolsCalc = {
             "E",
             "B",
             "+",
@@ -96,7 +96,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
-        public static bool NumberCheck(string Variable, bool Mod = false, bool Mod2 = false)
+        public bool NumberCheck(string Variable, bool Mod = false, bool Mod2 = false)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Arama(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
+        public string Searching(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
         {
             try
             {
@@ -214,7 +214,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
-        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
+        public string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
         {
             try
             {
@@ -235,15 +235,15 @@ namespace Conforyon
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Arama(Variable2, SymbolsCalc, 1, Error) == "Y")
+                            if (Searching(Variable2, SymbolsCalc, 1, Error) == "Y")
                             {
-                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             }
-                            else if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
-                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                            else if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
@@ -262,15 +262,15 @@ namespace Conforyon
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Arama(Variable2, SymbolsCalc, 1, Error) == "Y")
+                            if (Searching(Variable2, SymbolsCalc, 1, Error) == "Y")
                             {
-                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             }
-                            else if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
-                                if (Arama(Variable3, SymbolsMath, 2, Error) == "Y")
+                            else if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
@@ -304,7 +304,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        public static string Decimal(string Variable)
+        public string UseDecimal(string Variable)
         {
             try
             {
@@ -348,7 +348,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        public static string Decimal2(string Variable)
+        public string UseDecimal2(string Variable)
         {
             try
             {
@@ -394,7 +394,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public static string Comma(string Variable, int PostComma = 0)
+        public string UseComma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -447,7 +447,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public static string Comma2(string Variable, int PostComma = 0)
+        public string UseComma2(string Variable, int PostComma = 0)
         {
             try
             {
@@ -490,7 +490,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public static string DecimalComma(string Variable, int PostComma = 0)
+        public string DecimalComma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -499,17 +499,17 @@ namespace Conforyon
                 else
                 {
                     if (PostComma == 0)
-                        return Decimal2(Variable);
+                        return UseDecimal2(Variable);
                     else
                     {
                         if (Variable.Contains(","))
                         {
                             char[] Ayraçlar = { ',' };
                             string[] Variableler = Variable.Split(Ayraçlar);
-                            return Decimal2(Variableler[0]) + "," + Comma2(Variableler[1], PostComma);
+                            return UseDecimal2(Variableler[0]) + "," + UseComma2(Variableler[1], PostComma);
                         }
                         else
-                            return Decimal2(Variable) + Comma2(",", PostComma);
+                            return UseDecimal2(Variable) + UseComma2(",", PostComma);
                     }
                 }
             }
@@ -528,7 +528,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -542,9 +542,9 @@ namespace Conforyon
                 else
                 {
                     if (Decimal == true && Comma == false)
-                        return Conforyon.Decimal(Variable);
+                        return UseDecimal(Variable);
                     else if (Decimal == false && Comma == true)
-                        return Conforyon.Comma(Variable, PostComma);
+                        return UseComma(Variable, PostComma);
                     else
                         return DecimalComma(Variable, PostComma);
                 }
@@ -564,7 +564,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -597,7 +597,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Mod"></param>
         /// <returns></returns>
-        public static bool Check(string Variable, bool Mod = false)
+        public bool UseCheck(string Variable, bool Mod = false)
         {
             try
             {
