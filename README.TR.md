@@ -86,11 +86,18 @@ CopyText("Conforyon");
 PasteText(true, "Boş!", "Hata!");
 ```
 
+```XML
+<FunctionResult>
+	<ReturnType>string</ReturnType>
+	<ReturnValue>Conforyon</ReturnValue>
+</FunctionResult>
+```
+
 #### Ses
 
 ```CS
 /* CopyAudio(byte[] Bytes) */
-CopyAudio(byte[] Bytes);
+CopyAudio(File.ReadAllBytes(FilePath));
 ```
 
 ```CS
@@ -98,16 +105,9 @@ CopyAudio(byte[] Bytes);
 PasteAudio(true);
 ```
 
-#### Örnek
-
-```CS
-/* CopyAudio(byte[] Bytes) */
-CopyAudio(byte[] Bytes);
-```
-
 ```XML
-<Result>
-	<ReturnType>string</ReturnType>
-	<ReturnValue></ReturnValue>
-</Result>
+<FunctionResult>
+	<ReturnType>System.IO.Stream</ReturnType>
+	<ReturnValue>WaveAudio</ReturnValue>
+</FunctionResult>
 ```
