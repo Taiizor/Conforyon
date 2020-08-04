@@ -9,7 +9,7 @@
 [![nuget](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/packages/Conforyon)
 
 # Conforyon'a Hoşgeldiniz
-Conforyon bir Birim Dönüştürücü kütüphanesidir. Sunduğu çeşitli birim dönüşümlerini dönüştürmenize olanak sağlar.
+Conforyon bir Birim Dönüştürücü kütüphanesidir. Sunduğu çeşitli birim dönüşümlerin dönüştürülmesine olanak sağlar.
 
 ## Katkıda Bulunanlar
 
@@ -78,14 +78,13 @@ Step 2：Dönüşümlerin tadını çıkarın
 
 ```CS
 /* CopyText(string Text, bool Copy = true) */
-CopyText("Conforyon");
+CopyText("Conforyon", false);
 ```
 
 ```CS
 /* PasteText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
 PasteText(true, "Boş!", "Hata!");
 ```
-
 ```XML
 <FunctionResult>
 	<ReturnType>string</ReturnType>
@@ -104,7 +103,6 @@ CopyAudio(File.ReadAllBytes(FilePath));
 /* PasteAudio(bool Clear = false) */
 PasteAudio(true);
 ```
-
 ```XML
 <FunctionResult>
 	<ReturnType>System.IO.Stream</ReturnType>
