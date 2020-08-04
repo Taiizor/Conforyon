@@ -69,3 +69,49 @@ Step 2：Dönüşümlerin tadını çıkarın
 ### Conforyon UX
 
 ![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/04/XxXx.png)
+
+## Ayrıntılı Kullanım
+
+### Pano
+
+#### Metin
+
+```CS
+/* CopyText(string Text, bool Copy = true) */
+CopyText("Conforyon");
+```
+
+```CS
+/* PasteText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
+PasteText(true, "Boş!");
+```
+
+#### Ses
+
+```CS
+/* CopyAudio(byte[] Bytes) */
+CopyAudio(byte[] Bytes);
+```
+
+```CS
+/* PasteAudio(bool Clear = false) */
+PasteAudio(true);
+```
+
+#### Örnek
+
+```CS
+/* CopyAudio(byte[] Bytes) */
+CopyAudio(byte[] Bytes);
+```
+
+```XML
+<Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+</Application.Resources>
+```
