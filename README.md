@@ -87,7 +87,7 @@ PasteText(true, "Empty!", "Error!");
 ```
 ```XML
 <FunctionResult>
-	<ReturnType>string</ReturnType>
+	<ReturnType>System.String</ReturnType>
 	<ReturnValue>Conforyon</ReturnValue>
 </FunctionResult>
 ```
@@ -106,6 +106,6 @@ PasteAudio(true);
 ```XML
 <FunctionResult>
 	<ReturnType>System.IO.Stream</ReturnType>
-	<ReturnValue>WaveAudio</ReturnValue>
+	<ReturnValue>DataFormats.WaveAudio</ReturnValue>
 </FunctionResult>
 ```

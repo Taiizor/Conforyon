@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 04.Aug.2020
-//     Version: 1.4.6.4
+//     Version: 1.4.6.5
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -42,6 +42,9 @@ namespace Conforyon
         #endregion
 
         #region Enums
+        /// <summary>
+        /// 
+        /// </summary>
         public enum StorageType
         {
             Bit,
@@ -54,6 +57,19 @@ namespace Conforyon
             EB,
             ZB,
             YB
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum IntType
+        {
+            Int16,
+            Int32,
+            Int64,
+            UInt16,
+            UInt32,
+            UInt64
         }
         #endregion
 
@@ -98,10 +114,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="Mod"></param>
-        /// <param name="Mod2"></param>
+        /// <param name="Type"></param>
+        /// <param name="ByPass"></param>
         /// <returns></returns>
-        public static bool NumberCheck(string Variable, bool Mod = false, bool Mod2 = false)
+        public static bool NumberCheck(string Variable, IntType Type = IntType.Int64, bool ByPass = false)
         {
             try
             {
@@ -109,21 +125,33 @@ namespace Conforyon
                     return false;
                 else
                 {
-                    if (Mod2 == false)
-                    {
-                        if (Mod == false)
-                        {
-                            Convert.ToInt64(Variable);
-                            return true;
-                        }
-                        else
-                        {
-                            Convert.ToInt32(Variable);
-                            return true;
-                        }
-                    }
-                    else
+                    if (ByPass)
                         return true;
+                    else
+                    {
+                        switch (Type)
+                        {
+                            case IntType.Int16:
+                                Convert.ToInt16(Variable);
+                                break;
+                            case IntType.Int32:
+                                Convert.ToInt32(Variable);
+                                break;
+                            case IntType.Int64:
+                                Convert.ToInt64(Variable);
+                                break;
+                            case IntType.UInt16:
+                                Convert.ToUInt16(Variable);
+                                break;
+                            case IntType.UInt32:
+                                Convert.ToUInt32(Variable);
+                                break;
+                            case IntType.UInt64:
+                                Convert.ToUInt64(Variable);
+                                break;
+                        }
+                        return true;
+                    }
                 }
             }
             catch
