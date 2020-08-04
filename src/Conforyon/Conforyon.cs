@@ -33,6 +33,11 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
+        public const string EmptyMessage = "Empty!";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int VariableLength = 15;
         #endregion
 

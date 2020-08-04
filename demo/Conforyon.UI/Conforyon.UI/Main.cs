@@ -241,7 +241,7 @@ namespace Conforyon.UI
                 if (button4.Cursor == Cursors.Hand)
                 {
                     button4.Cursor = Cursors.No;
-                    Clipboard.SetDataObject(textBox4.Text, false);
+                    ClipBoard.CopyText(textBox4.Text, false);
                 }
             }
             catch (Exception Hata)
@@ -276,7 +276,7 @@ namespace Conforyon.UI
                 if (button6.Cursor == Cursors.Hand)
                 {
                     button6.Cursor = Cursors.No;
-                    Clipboard.SetDataObject(textBox2.Text, false);
+                    ClipBoard.CopyText(textBox2.Text, false);
                 }
             }
             catch (Exception Hata)
@@ -322,7 +322,7 @@ namespace Conforyon.UI
                 if (button9.Cursor == Cursors.Hand)
                 {
                     button9.Cursor = Cursors.No;
-                    Clipboard.SetDataObject(textBox8.Text, false);
+                    ClipBoard.CopyText(textBox8.Text, false);
                 }
             }
             catch (Exception Hata)
@@ -338,7 +338,7 @@ namespace Conforyon.UI
                 if (button10.Cursor == Cursors.Hand)
                 {
                     button10.Cursor = Cursors.No;
-                    Clipboard.SetDataObject(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text, false);
+                    ClipBoard.CopyText(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text, false);
                 }
             }
             catch (Exception Hata)
@@ -384,7 +384,7 @@ namespace Conforyon.UI
                 if (button13.Cursor == Cursors.Hand)
                 {
                     button13.Cursor = Cursors.No;
-                    Clipboard.SetDataObject(textBox11.Text, false);
+                    ClipBoard.CopyText(textBox11.Text, false);
                 }
             }
             catch (Exception Hata)
@@ -400,7 +400,7 @@ namespace Conforyon.UI
                 if (button14.Cursor == Cursors.Hand)
                 {
                     button14.Cursor = Cursors.No;
-                    Clipboard.SetDataObject(textBox12.Text, false);
+                    ClipBoard.CopyText(textBox12.Text, false);
                 }
             }
             catch (Exception Hata)
@@ -459,7 +459,7 @@ namespace Conforyon.UI
             if (button17.Cursor == Cursors.Hand)
             {
                 button17.Cursor = Cursors.No;
-                Clipboard.SetDataObject(textBox13.Text, false);
+                ClipBoard.CopyText(textBox13.Text, false);
             }
         }
 
@@ -468,7 +468,7 @@ namespace Conforyon.UI
             if (button18.Cursor == Cursors.Hand)
             {
                 button18.Cursor = Cursors.No;
-                Clipboard.SetDataObject(textBox16.Text, false);
+                ClipBoard.CopyText(textBox16.Text, false);
             }
         }
 
