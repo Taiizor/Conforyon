@@ -60,7 +60,7 @@ Step 1：Referans olarak Conforyon'u ekleyin veya NuGet üzerinden Conforyon'u a
 
 Step 2：Dönüşümlerin tadını çıkarın
 
-## Örnekler
+## Demolar
 
 ### Conforyon UI
 
