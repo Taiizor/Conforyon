@@ -59,3 +59,53 @@ Step 1：Agregue una referencia a Conforyon o busque Conforyon en el NuGet;
 ```Install-Package Conforyon```
 
 Step 2：Disfruta de las conversiones
+
+## Demos
+
+### Conforyon UI
+
+![ConforyonUIDemo](https://www.photo.herominyum.com/resimler/2020/08/04/1xQU.png)
+
+### Conforyon UX
+
+![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/04/XxXx.png)
+
+## Utilizar detallado
+
+### Portapapeles
+
+#### Texto
+
+```CS
+/* CopyText(string Text, bool Copy = true) */
+CopyText("Conforyon", false);
+```
+
+```CS
+/* PasteText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
+PasteText(true, "¡Vacío!", "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>string</ReturnType>
+	<ReturnValue>Conforyon</ReturnValue>
+</FunctionResult>
+```
+
+#### Audio
+
+```CS
+/* CopyAudio(byte[] Bytes) */
+CopyAudio(File.ReadAllBytes(FilePath));
+```
+
+```CS
+/* PasteAudio(bool Clear = false) */
+PasteAudio(true);
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.IO.Stream</ReturnType>
+	<ReturnValue>WaveAudio</ReturnValue>
+</FunctionResult>
+```
