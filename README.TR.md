@@ -26,7 +26,7 @@ Bu harika insanlara teşekkürler ([emoji anahtarı](https://allcontributors.org
 			</sub>
 		</a>
 		<br/>
-		<a href="https://github.com/Taiizor/ReaLTaiizor/commits?author=Taiizor" title="Kodlama">💻</a>
+		<a href="https://github.com/Taiizor/Conforyon/commits?author=Taiizor" title="Kodlama">💻</a>
 		<a href="https://www.taiizor.com" title="Fikirler & Planlama, Geri Bildirim">🤔</a>
 	</td>
   </tr>
@@ -51,3 +51,21 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 	</td>
   </tr>
 </table>
+
+## Kullanım
+
+Step 1：Referans olarak Conforyon'u ekleyin veya NuGet üzerinden Conforyon'u aratın;
+
+```Install-Package Conforyon```
+
+Step 2：Dönüşümlerin tadını çıkarın
+
+## Örnekler
+
+### Conforyon UI
+
+![ConforyonUIDemo](https://www.photo.herominyum.com/resimler/2020/08/04/1xQU.png)
+
+### Conforyon UX
+
+![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/04/XxXx.png)
