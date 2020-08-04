@@ -71,7 +71,7 @@ namespace Conforyon
         {
             try
             {
-                if (R.Length <= 3 && R.Length >= 1 && G.Length <= 3 && G.Length >= 1 && B.Length <= 3 && B.Length >= 1 && NumberCheck(R, true) && NumberCheck(G, true) && NumberCheck(B, true))
+                if (R.Length <= 3 && R.Length >= 1 && G.Length <= 3 && G.Length >= 1 && B.Length <= 3 && B.Length >= 1 && NumberCheck(R, IntType.Int32) && NumberCheck(G, IntType.Int32) && NumberCheck(B, IntType.Int32))
                 {
                     if ((R.Length >= 2 && R.StartsWith("0")) == true || (G.Length >= 2 && G.StartsWith("0")) == true || (B.Length >= 2 && B.StartsWith("0")) == true)
                         return Error;

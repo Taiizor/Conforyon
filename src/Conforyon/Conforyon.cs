@@ -71,6 +71,16 @@ namespace Conforyon
             UInt32,
             UInt64
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum SearchType
+        {
+            Starts,
+            Contains,
+            Ends
+        }
         #endregion
 
         #region Arrays
@@ -165,34 +175,17 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable1"></param>
         /// <param name="Variable2"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Type"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Searching(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
+        public static string Searching(string Variable1, string[] Variable2, SearchType Type = SearchType.Contains, string Error = ErrorMessage)
         {
             try
             {
-                if (Mod >= 1 && Mod <= 3)
+                string Status = "N";
+                switch (Type)
                 {
-                    string Status = "N";
-                    if (Mod == 1)
-                    {
-                        if (Variable2.Length > 1)
-                        {
-                            foreach (string Letter in Variable2)
-                            {
-                                if (Variable1.Contains(Letter))
-                                {
-                                    Status = "Y";
-                                    break;
-                                }
-                            }
-                        }
-                        else if (Variable1.Contains(Variable2[0]))
-                            Status = "Y";
-                    }
-                    else if (Mod == 2)
-                    {
+                    case SearchType.Starts:
                         if (Variable2.Length > 1)
                         {
                             foreach (string Letter in Variable2)
@@ -206,9 +199,23 @@ namespace Conforyon
                         }
                         else if (Variable1.StartsWith(Variable2[0]))
                             Status = "Y";
-                    }
-                    else if (Mod == 3)
-                    {
+                        break;
+                    case SearchType.Contains:
+                        if (Variable2.Length > 1)
+                        {
+                            foreach (string Letter in Variable2)
+                            {
+                                if (Variable1.Contains(Letter))
+                                {
+                                    Status = "Y";
+                                    break;
+                                }
+                            }
+                        }
+                        else if (Variable1.Contains(Variable2[0]))
+                            Status = "Y";
+                        break;
+                    case SearchType.Ends:
                         if (Variable2.Length > 1)
                         {
                             foreach (string Letter in Variable2)
@@ -222,14 +229,12 @@ namespace Conforyon
                         }
                         else if (Variable1.EndsWith(Variable2[0]))
                             Status = "Y";
-                    }
-                    if (Status == "N")
-                        return "N";
-                    else
-                        return "Y";
+                        break;
                 }
+                if (Status == "N")
+                    return "N";
                 else
-                    return Error;
+                    return "Y";
             }
             catch
             {
@@ -268,15 +273,15 @@ namespace Conforyon
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Searching(Variable2, SymbolsCalc, 1, Error) == "Y")
+                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains, Error) == "Y")
                             {
-                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             }
-                            else if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
-                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
+                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
@@ -295,15 +300,15 @@ namespace Conforyon
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Searching(Variable2, SymbolsCalc, 1, Error) == "Y")
+                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains, Error) == "Y")
                             {
-                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             }
-                            else if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
-                                if (Searching(Variable3, SymbolsMath, 2, Error) == "Y")
+                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;

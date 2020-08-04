@@ -1,4 +1,4 @@
-﻿using Conforyon;
+﻿//using Conforyon;
 using System.Windows.Forms;
 
 namespace Conforyon_CR
