@@ -2,12 +2,13 @@
 
 using System;
 using System.Text;
+using static Conforyon.Conforyon;
 
 #endregion
 
 namespace Conforyon
 {
-    public class Unicode : Conforyon
+    public static class Unicode
     {
         /// <summary>
         /// 
@@ -15,7 +16,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string CHARtoASCII(string Variable, string Error = ErrorMessage)
+        public static string CHARtoASCII(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -48,7 +49,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string ASCIItoCHAR(string Variable, string Error = ErrorMessage)
+        public static string ASCIItoCHAR(string Variable, string Error = ErrorMessage)
         {
             try
             {

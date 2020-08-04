@@ -2,13 +2,14 @@
 
 using System;
 using System.Text;
+using static Conforyon.Conforyon;
 using System.Security.Cryptography;
 
 #endregion
 
 namespace Conforyon
 {
-    public class Crypto : Conforyon
+    public static class Crypto
     {
         /// <summary>
         /// 
@@ -16,7 +17,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string BASE64toTEXT(string Variable, string Error = ErrorMessage)
+        public static string BASE64toTEXT(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -81,7 +82,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string TEXTtoBASE64(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoBASE64(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -102,7 +103,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string TEXTtoMD5(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoMD5(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -133,7 +134,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string TEXTtoSHA1(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA1(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -163,7 +164,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string TEXTtoSHA256(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA256(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -193,7 +194,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string TEXTtoSHA384(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA384(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -223,7 +224,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string TEXTtoSHA512(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA512(string Variable, string Error = ErrorMessage)
         {
             try
             {

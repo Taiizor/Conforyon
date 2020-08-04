@@ -39,7 +39,8 @@
     <ApplicationIcon>Resources\Fork1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Conforyon">
+    <Reference Include="Conforyon, Version=1.4.6.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Conforyon\bin\Release\net48\Conforyon.dll</HintPath>
     </Reference>
     <Reference Include="System" />

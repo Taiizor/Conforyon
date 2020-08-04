@@ -1,12 +1,13 @@
 ﻿#region Imports
 
 using System;
+using static Conforyon.Conforyon;
 
 #endregion
 
 namespace Conforyon
 {
-    public class Temperature : Conforyon
+    public static class Temperature
     {
         /// <summary>
         /// 
@@ -18,7 +19,7 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
@@ -48,7 +49,7 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {

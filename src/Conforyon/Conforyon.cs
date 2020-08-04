@@ -11,13 +11,13 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 04.Aug.2020
-//     Version: 1.4.6.2
+//     Version: 1.4.6.3
 //
 // |---------DO-NOT-REMOVE---------|
 
 namespace Conforyon
 {
-    public class Conforyon
+    public static class Conforyon
     {
         #region Variables
         /// <summary>
@@ -56,7 +56,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public readonly string[] StorageTypes = {
+        public static readonly string[] StorageTypes = {
             "Bit",
             "Byte",
             "KB",
@@ -72,7 +72,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public readonly string[] SymbolsMath = {
+        public static readonly string[] SymbolsMath = {
             "-",
             "+"
         };
@@ -80,7 +80,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public readonly string[] SymbolsCalc = {
+        public static readonly string[] SymbolsCalc = {
             "E",
             "B",
             "+",
@@ -96,7 +96,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
-        public bool NumberCheck(string Variable, bool Mod = false, bool Mod2 = false)
+        public static bool NumberCheck(string Variable, bool Mod = false, bool Mod2 = false)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string Searching(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
+        public static string Searching(string Variable1, string[] Variable2, int Mod = 1, string Error = ErrorMessage)
         {
             try
             {
@@ -214,7 +214,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
-        public string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
+        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
         {
             try
             {
@@ -304,7 +304,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        public string UseDecimal(string Variable)
+        public static string UseDecimal(string Variable)
         {
             try
             {
@@ -348,7 +348,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        public string UseDecimal2(string Variable)
+        public static string UseDecimal2(string Variable)
         {
             try
             {
@@ -394,7 +394,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public string UseComma(string Variable, int PostComma = 0)
+        public static string UseComma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -447,7 +447,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public string UseComma2(string Variable, int PostComma = 0)
+        public static string UseComma2(string Variable, int PostComma = 0)
         {
             try
             {
@@ -490,7 +490,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public string DecimalComma(string Variable, int PostComma = 0)
+        public static string DecimalComma(string Variable, int PostComma = 0)
         {
             try
             {
@@ -528,7 +528,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -564,7 +564,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -597,7 +597,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Mod"></param>
         /// <returns></returns>
-        public bool UseCheck(string Variable, bool Mod = false)
+        public static bool UseCheck(string Variable, bool Mod = false)
         {
             try
             {

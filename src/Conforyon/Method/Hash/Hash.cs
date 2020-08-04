@@ -2,13 +2,14 @@
 
 using System;
 using System.IO;
+using static Conforyon.Conforyon;
 using System.Security.Cryptography;
 
 #endregion
 
 namespace Conforyon
 {
-    public class Hash : Conforyon
+    public static class Hash
     {
         /// <summary>
         /// 
@@ -17,7 +18,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string FILEtoMD5(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoMD5(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -48,7 +49,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string FILEtoSHA1(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA1(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -79,7 +80,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string FILEtoSHA256(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA256(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -110,7 +111,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string FILEtoSHA384(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA384(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {
@@ -141,7 +142,7 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public string FILEtoSHA512(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA512(string Path, bool Mod = false, string Error = ErrorMessage)
         {
             try
             {

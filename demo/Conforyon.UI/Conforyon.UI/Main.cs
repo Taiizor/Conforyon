@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using static Conforyon.Hash;
-using static Conforyon.Color;
-using static Conforyon.Crypto;
 using System.Text.RegularExpressions;
-using static Conforyon.Unicode;
-using static Conforyon.Storage;
-using static Conforyon.Typography;
-using static Conforyon.Temperature;
 
 namespace Conforyon.UI
 {
@@ -201,7 +194,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = Convert(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, System.Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = DataStorage.DataConvert(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -217,7 +210,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = AutoConvert(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, System.Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = DataStorage.AutoDataConvert(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -265,9 +258,9 @@ namespace Conforyon.UI
                 if (string.IsNullOrEmpty(textBox5.Text))
                     textBox5.Text = "1";
                 if (Seçim6 == "C=>F")
-                    textBox2.Text = CtoF(textBox1.Text, Seçim9, Seçim8, System.Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                    textBox2.Text = Temperature.CtoF(textBox1.Text, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
                 else
-                    textBox2.Text = FtoC(textBox1.Text, Seçim9, Seçim8, System.Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                    textBox2.Text = Temperature.FtoC(textBox1.Text, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
                 button6.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -359,12 +352,12 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim10 == true)
-                    textBox8.Text = RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
+                    textBox8.Text = Color.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
                 else
                 {
-                    textBox6.Text = HEXtoRGB(textBox8.Text, 8, "Hata!");
-                    textBox9.Text = HEXtoRGB(textBox8.Text, 9, "Hata!");
-                    textBox10.Text = HEXtoRGB(textBox8.Text, 10, "Hata!");
+                    textBox6.Text = Color.HEXtoRGB(textBox8.Text, 8, "Hata!");
+                    textBox9.Text = Color.HEXtoRGB(textBox8.Text, 9, "Hata!");
+                    textBox10.Text = Color.HEXtoRGB(textBox8.Text, 10, "Hata!");
                 }
 
                 button9.Cursor = Cursors.Hand;
@@ -422,9 +415,9 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim11 == true)
-                    textBox12.Text = CHARtoASCII(textBox11.Text, "Hata!");
+                    textBox12.Text = Unicode.CHARtoASCII(textBox11.Text, "Hata!");
                 else
-                    textBox11.Text = ASCIItoCHAR(textBox12.Text, "Hata!");
+                    textBox11.Text = Unicode.ASCIItoCHAR(textBox12.Text, "Hata!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
@@ -440,19 +433,19 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Seçim12 == "Text=>Base64")
-                    textBox13.Text = TEXTtoBASE64(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.TEXTtoBASE64(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Text=>MD5")
-                    textBox13.Text = TEXTtoMD5(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.TEXTtoMD5(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Textar=>SHA1")
-                    textBox13.Text = TEXTtoSHA1(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.TEXTtoSHA1(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Text=>SHA256")
-                    textBox13.Text = TEXTtoSHA256(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.TEXTtoSHA256(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Text=>SHA384")
-                    textBox13.Text = TEXTtoSHA384(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.TEXTtoSHA384(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Text=>SHA512")
-                    textBox13.Text = TEXTtoSHA512(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.TEXTtoSHA512(textBox14.Text, "Hata!");
                 else if (Seçim12 == "Base64=>Text")
-                    textBox13.Text = BASE64toTEXT(textBox14.Text, "Hata!");
+                    textBox13.Text = Crypto.BASE64toTEXT(textBox14.Text, "Hata!");
                 button17.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -512,27 +505,27 @@ namespace Conforyon.UI
                 if (Seçim13 == "INCH")
                 {
                     if (Seçim14 == "CM")
-                        textBox16.Text = INCHtoCM(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Typography.INCHtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "PX")
-                        textBox16.Text = INCHtoPX(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Typography.INCHtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
                 else if (Seçim13 == "CM")
                 {
                     if (Seçim14 == "INCH")
-                        textBox16.Text = CMtoINCH(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Typography.CMtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "PX")
-                        textBox16.Text = CMtoPX(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Typography.CMtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
                 else if (Seçim13 == "PX")
                 {
                     if (Seçim14 == "INCH")
-                        textBox16.Text = PXtoINCH(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Typography.PXtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else if (Seçim14 == "CM")
-                        textBox16.Text = PXtoCM(textBox17.Text, Seçim15, Seçim16, System.Convert.ToInt32(textBox15.Text), "Hata!");
+                        textBox16.Text = Typography.PXtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
                     else
                         textBox16.Text = "Hata!";
                 }
