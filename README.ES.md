@@ -9,7 +9,7 @@
 [![nuget](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/packages/Conforyon)
 
 # Bienvenido a Conforyon
-Conforion es una biblioteca de Convertidor de Unidades.
+Conforion es una biblioteca de Convertidor de Unidades. Permite la conversión de varias conversiones de unidades que ofrece.
 
 ## Colaboradores
 
@@ -58,4 +58,4 @@ Step 1：Agregue una referencia a Conforyon o busque Conforyon en el NuGet;
 
 ```Install-Package Conforyon```
 
-Step 2：Disfruta diseñando
+Step 2：Disfruta de las conversiones
