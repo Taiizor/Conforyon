@@ -83,7 +83,7 @@ CopyText("Conforyon");
 
 ```CS
 /* PasteText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
-PasteText(true, "Boş!");
+PasteText(true, "Boş!", "Hata!");
 ```
 
 #### Ses
@@ -106,12 +106,8 @@ CopyAudio(byte[] Bytes);
 ```
 
 ```XML
-<Application.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
-        </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-</Application.Resources>
+<Result>
+	<ReturnType>string</ReturnType>
+	<ReturnValue></ReturnValue>
+</Result>
 ```
