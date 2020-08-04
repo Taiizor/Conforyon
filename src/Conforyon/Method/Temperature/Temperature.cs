@@ -23,7 +23,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
                 {
                     if (Text == false)
                         return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
@@ -53,7 +53,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) == true && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 32)
                     {

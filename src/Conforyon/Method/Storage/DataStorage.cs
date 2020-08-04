@@ -114,63 +114,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8192", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8388608", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8589934592", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, (8796093022208 * 2048).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, (8796093022208 * 3072).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, (8796093022208 * 4096).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
@@ -188,63 +188,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, (1125899906842624 * 3072).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
@@ -262,63 +262,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8192", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
                                 else
                                     return Error;
@@ -336,63 +336,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8388608", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1152921504606847000", Comma, Error, false, true);
                                 else
                                     return Error;
@@ -410,63 +410,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8589934592", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
                                 else
                                     return Error;
@@ -484,63 +484,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
                                 else
                                     return Error;
@@ -558,63 +558,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
                                 else
                                     return Error;
@@ -632,63 +632,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "9223372036854775808", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
                                 else
                                     return Error;
@@ -706,63 +706,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "9444732965739290427392", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "YB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
                                 else
                                     return Error;
@@ -780,63 +780,63 @@ namespace Conforyon
                         {
                             if (TypeConvert == "Bit")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "9671406556917033397649408", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "Byte")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1208925819614629174706176", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "KB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "MB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "GB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "TB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "PB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "EB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
                                 else
                                     return Error;
                             }
                             else if (TypeConvert == "ZB")
                             {
-                                if (NumberCheck(InputVariable) == true)
+                                if (NumberCheck(InputVariable))
                                     Variable = VariableFormat(InputVariable, "1024", Comma, Error);
                                 else
                                     return Error;

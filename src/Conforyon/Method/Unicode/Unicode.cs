@@ -60,7 +60,7 @@ namespace Conforyon
                     string[] Letterler = Variable.Split(Ayraçlar);
                     for (int i = 0; i < Letterler.Length; i++)
                     {
-                        if (NumberCheck(Letterler[i], IntType.Int32) == true && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
+                        if (NumberCheck(Letterler[i], false, IntType.Int32) && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
                             Sonuç += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letterler[i]) }); //Encoding.ASCII
                         else
                             return Error;

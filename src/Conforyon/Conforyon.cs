@@ -124,10 +124,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
+        /// <param name="TypePass"></param>
         /// <param name="Type"></param>
-        /// <param name="ByPass"></param>
         /// <returns></returns>
-        public static bool NumberCheck(string Variable, IntType Type = IntType.Int64, bool ByPass = false)
+        public static bool NumberCheck(string Variable, bool TypePass = false, IntType Type = IntType.Int64)
         {
             try
             {
@@ -135,7 +135,7 @@ namespace Conforyon
                     return false;
                 else
                 {
-                    if (ByPass)
+                    if (TypePass)
                         return true;
                     else
                     {
@@ -258,7 +258,7 @@ namespace Conforyon
             {
                 if (Mod == false)
                 {
-                    if (NumberCheck(Coefficient.ToString()) == true)
+                    if (NumberCheck(Coefficient.ToString()))
                     {
                         string Variable1, Variable2, Variable3;
                         if (Comma == true)
@@ -365,7 +365,7 @@ namespace Conforyon
                     {
                         if (Variable.Length > 2)
                         {
-                            if (NumberCheck(Variable) == true)
+                            if (NumberCheck(Variable))
                                 return string.Format("{0:0,0}", Convert.ToInt64(Variable));
                             else
                                 return string.Format("{0:0,0}", Variable);
@@ -410,7 +410,7 @@ namespace Conforyon
                     {
                         if (Variable.Length > 2)
                         {
-                            if (NumberCheck(Variable) == true)
+                            if (NumberCheck(Variable))
                                 return string.Format("{0:0,0}", Convert.ToInt64(Variable));
                             else
                                 return string.Format("{0:0,0}", Variable);
