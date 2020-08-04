@@ -9,3 +9,53 @@
 [![nuget](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/packages/Conforyon)
 
 # Bienvenido a Conforyon
+Conforion es una biblioteca de Convertidor de Unidades.
+
+## Colaboradores
+
+Gracias a estas personas maravillosas ([clave emoji](https://allcontributors.org/docs/es-es/emoji-key)):
+
+<table>
+  <tr>
+    <td align="center">
+		<a href="https://github.com/Taiizor">
+			<img src="https://avatars3.githubusercontent.com/u/41683699?s=460&v=4" width="80px;" alt="Taiizor"/>
+			<br/>
+			<sub>
+				<b>Taiizor</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Taiizor/Conforyon/commits?author=Taiizor" title="Código">💻</a>
+		<a href="https://www.taiizor.com" title="Ideas & Planificación, Comentarios">🤔</a>
+	</td>
+  </tr>
+</table>
+
+Este proyecto sigue la especificación de [todos los contribuyentes](https://github.com/all-contributors/all-contributors). ¡Contribuciones de cualquier tipo de bienvenida!
+
+## Partidarios
+
+<table>
+  <tr>
+    <td align="center">
+		<a href="https://github.com/Soferity">
+			<img src="https://avatars3.githubusercontent.com/u/63516515?s=200&v=4" width="80px;" alt="Soferity"/>
+			<br/>
+			<sub>
+				<b>Soferity</b>
+			</sub>
+		</a>
+		<br/>
+		<a href="https://github.com/Soferity" target="_blank" title="Contenido">🖋</a>
+	</td>
+  </tr>
+</table>
+
+## Utilizar
+
+Step 1：Agregue una referencia a Conforyon o busque Conforyon en el NuGet;
+
+```Install-Package Conforyon```
+
+Step 2：Disfruta diseñando
