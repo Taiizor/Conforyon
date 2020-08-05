@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 04.Aug.2020
+//     Changed: 05.Aug.2020
 //     Version: 1.4.6.5
 //
 // |---------DO-NOT-REMOVE---------|
@@ -173,72 +173,59 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable1"></param>
-        /// <param name="Variable2"></param>
+        /// <param name="Text"></param>
+        /// <param name="Words"></param>
         /// <param name="Type"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Searching(string Variable1, string[] Variable2, SearchType Type = SearchType.Contains, string Error = ErrorMessage)
+        public static bool Searching(string Text, string[] Words, SearchType Type = SearchType.Contains)
         {
             try
             {
-                string Status = "N";
                 switch (Type)
                 {
                     case SearchType.Starts:
-                        if (Variable2.Length > 1)
+                        if (Words.Length > 1)
                         {
-                            foreach (string Letter in Variable2)
+                            foreach (string Letter in Words)
                             {
-                                if (Variable1.StartsWith(Letter))
-                                {
-                                    Status = "Y";
-                                    break;
-                                }
+                                if (Text.StartsWith(Letter))
+                                    return true;
                             }
                         }
-                        else if (Variable1.StartsWith(Variable2[0]))
-                            Status = "Y";
+                        else if (Text.StartsWith(Words[0]))
+                            return true;
                         break;
                     case SearchType.Contains:
-                        if (Variable2.Length > 1)
+                        if (Words.Length > 1)
                         {
-                            foreach (string Letter in Variable2)
+                            foreach (string Letter in Words)
                             {
-                                if (Variable1.Contains(Letter))
-                                {
-                                    Status = "Y";
-                                    break;
-                                }
+                                if (Text.Contains(Letter))
+                                    return true;
                             }
                         }
-                        else if (Variable1.Contains(Variable2[0]))
-                            Status = "Y";
+                        else if (Text.Contains(Words[0]))
+                            return true;
                         break;
                     case SearchType.Ends:
-                        if (Variable2.Length > 1)
+                        if (Words.Length > 1)
                         {
-                            foreach (string Letter in Variable2)
+                            foreach (string Letter in Words)
                             {
-                                if (Variable1.EndsWith(Letter))
-                                {
-                                    Status = "Y";
-                                    break;
-                                }
+                                if (Text.EndsWith(Letter))
+                                    return true;
                             }
                         }
-                        else if (Variable1.EndsWith(Variable2[0]))
-                            Status = "Y";
+                        else if (Text.EndsWith(Words[0]))
+                            return true;
                         break;
                 }
-                if (Status == "N")
-                    return "N";
-                else
-                    return "Y";
+                return false;
             }
             catch
             {
-                return Error + ErrorTitle + "1A2!)";
+                return false;
             }
         }
 
@@ -273,15 +260,15 @@ namespace Conforyon
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains, Error) == "Y")
+                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
                             {
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             }
-                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
+                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
@@ -300,22 +287,22 @@ namespace Conforyon
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
-                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains, Error) == "Y")
+                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
                             {
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             }
-                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts, Error) == "Y")
+                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
                             else
                                 Variable1 = Variable3;
                         }
-                        if (string.IsNullOrEmpty(Variable1))
+                        if (string.IsNullOrEmpty(Variable1) || string.IsNullOrWhiteSpace(Variable1))
                             return Error;
                         else
                             return Variable1;
