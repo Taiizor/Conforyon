@@ -61,21 +61,21 @@ namespace Conforyon
                         else
                         {
                             string Sonuç = null;
-                            if (Decimal == false && Comma == false)
+                            if (!Decimal && !Comma)
                                 Sonuç = InputVariable;
                             else
                             {
-                                if (Decimal == true && Comma == false)
+                                if (Decimal && !Comma)
                                     Sonuç = UseDecimal(InputVariable);
-                                else if (Decimal == false && Comma == true)
+                                else if (!Decimal && Comma)
                                     Sonuç = UseComma(InputVariable, PostComma);
                                 else
                                     Sonuç = DecimalComma(InputVariable, PostComma);
                             }
-                            if (TypeText == false)
-                                return Sonuç;
-                            else
+                            if (TypeText)
                                 return Sonuç + " " + Type;
+                            else
+                                return Sonuç;
                         }
                     }
                 }
@@ -99,755 +99,648 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string DataConvert(string InputVariable, string InputType, string TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string DataConvert(string InputVariable, StorageType InputType, StorageType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(StorageTypes, InputType) >= 0 && Array.IndexOf(StorageTypes, TypeConvert) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable) && UseCheck(InputType) && UseCheck(TypeConvert))
+                if (InputVariable.Length <= VariableLength && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
-                    if (InputType == "Bit")
+                    switch (InputType)
                     {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Byte")
+                        case StorageType.Bit:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8", Comma, Error, false, true);
-                                else
+                                case StorageType.Bit:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8192", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8388608", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8589934592", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, (8796093022208 * 2048).ToString(), Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, (8796093022208 * 3072).ToString(), Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, (8796093022208 * 4096).ToString(), Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8192", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8388608", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8589934592", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, (8796093022208 * 2048).ToString(), Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, (8796093022208 * 3072).ToString(), Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, (8796093022208 * 4096).ToString(), Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "Byte")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.Byte:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8", Comma, Error);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, (1125899906842624 * 3072).ToString(), Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, (1125899906842624 * 3072).ToString(), Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "KB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.KB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8192", Comma, Error);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8192", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "MB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.MB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8388608", Comma, Error);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8388608", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1152921504606847000", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1152921504606847000", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "GB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.GB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8589934592", Comma, Error);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8589934592", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "TB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.TB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "PB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.PB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "EB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.EB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "9223372036854775808", Comma, Error, true);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "9223372036854775808", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "ZB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.ZB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "9444732965739290427392", Comma, Error, true);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "9444732965739290427392", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case StorageType.YB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "YB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
-                    }
-                    else if (InputType == "YB")
-                    {
-                        if (TypeConvert == InputType)
-                            return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                        else
-                        {
-                            if (TypeConvert == "Bit")
+                        case StorageType.YB:
+                            switch (TypeConvert)
                             {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "9671406556917033397649408", Comma, Error, true);
-                                else
+                                case StorageType.Bit:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "9671406556917033397649408", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.Byte:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1208925819614629174706176", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.KB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.MB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.GB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.TB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.PB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.EB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.ZB:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case StorageType.YB:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                default:
                                     return Error;
                             }
-                            else if (TypeConvert == "Byte")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1208925819614629174706176", Comma, Error, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "KB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1180591620717411303424", Comma, Error, true);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "MB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1152921504606846976", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "GB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "TB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "PB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "EB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else if (TypeConvert == "ZB")
-                            {
-                                if (NumberCheck(InputVariable))
-                                    Variable = VariableFormat(InputVariable, "1024", Comma, Error);
-                                else
-                                    return Error;
-                            }
-                            else
-                                return Error;
                             return LastCheck(Variable, Decimal, Comma, PostComma, Error);
-                        }
+                        default:
+                            return Error;
                     }
-                    else
-                        return Error;
                 }
                 else
                     return Error;
