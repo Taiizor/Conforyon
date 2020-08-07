@@ -438,7 +438,7 @@ namespace Conforyon.UI
                     textBox13.Text = Crypto.TEXTtoBASE64(textBox14.Text, "Error!");
                 else if (Selection12 == "Text=>MD5")
                     textBox13.Text = Crypto.TEXTtoMD5(textBox14.Text, "Error!");
-                else if (Selection12 == "Textar=>SHA1")
+                else if (Selection12 == "Text=>SHA1")
                     textBox13.Text = Crypto.TEXTtoSHA1(textBox14.Text, "Error!");
                 else if (Selection12 == "Text=>SHA256")
                     textBox13.Text = Crypto.TEXTtoSHA256(textBox14.Text, "Error!");
