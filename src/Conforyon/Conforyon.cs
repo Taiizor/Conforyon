@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 07.Aug.2020
+//     Changed: 08.Aug.2020
 //     Version: 1.4.6.8
 //
 // |---------DO-NOT-REMOVE---------|
@@ -213,6 +213,8 @@ namespace Conforyon
                             case IntType.UInt64:
                                 Convert.ToUInt64(Variable);
                                 break;
+                            default:
+                                return false;
                         }
                         return true;
                     }
@@ -241,10 +243,7 @@ namespace Conforyon
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
-                            {
-                                if (Text.StartsWith(Letter))
-                                    return true;
-                            }
+                                if (Text.StartsWith(Letter)) return true;
                         }
                         else if (Text.StartsWith(Words[0]))
                             return true;
@@ -253,10 +252,7 @@ namespace Conforyon
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
-                            {
-                                if (Text.Contains(Letter))
-                                    return true;
-                            }
+                                if (Text.Contains(Letter)) return true;
                         }
                         else if (Text.Contains(Words[0]))
                             return true;
@@ -265,10 +261,7 @@ namespace Conforyon
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
-                            {
-                                if (Text.EndsWith(Letter))
-                                    return true;
-                            }
+                                if (Text.EndsWith(Letter)) return true;
                         }
                         else if (Text.EndsWith(Words[0]))
                             return true;
@@ -303,16 +296,17 @@ namespace Conforyon
                         string Variable1, Variable2, Variable3;
                         if (Comma)
                         {
-                            if (!Mod2)
-                            {
-                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
-                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
-                            }
-                            else
+                            if (Mod2)
                             {
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
+                            else
+                            {
+                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
+                            }
+
                             if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
                             {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
@@ -321,25 +315,28 @@ namespace Conforyon
                                     Variable1 = Variable3;
                             }
                             else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                            {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
+                            }
                             else
                                 Variable1 = Variable2;
                         }
                         else
                         {
-                            if (!Mod2)
-                            {
-                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
-                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
-                            }
-                            else
+                            if (Mod2)
                             {
                                 Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
                             }
+                            else
+                            {
+                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
+                            }
+
                             if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
                             {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
@@ -348,10 +345,12 @@ namespace Conforyon
                                     Variable1 = Variable3;
                             }
                             else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                            {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable2;
                                 else
                                     Variable1 = Variable3;
+                            }
                             else
                                 Variable1 = Variable3;
                         }
@@ -365,10 +364,10 @@ namespace Conforyon
                 }
                 else
                 {
-                    if (!Mod2)
-                        return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
-                    else
+                    if (Mod2)
                         return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
+                    else
+                        return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
                 }
             }
             catch
@@ -387,20 +386,20 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                if (Searching(Variable, SymbolsCalc))
                     return Variable;
                 else
                 {
                     if (Variable.Contains(","))
                     {
                         char[] Brackets = { ',', '.' };
-                        string[] Variableler = Variable.Split(Brackets);
-                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
+                        string[] Variables = Variable.Split(Brackets);
+                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variables[0]));
                         if (Result.Length == 2 && Result == "00")
                             Result = "0";
                         else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
                             Result.Replace("0", "");
-                        return Result + "," + Variableler[1];
+                        return Result + "," + Variables[1];
                     }
                     else
                     {
@@ -432,15 +431,15 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                if (Searching(Variable, SymbolsCalc))
                     return Variable;
                 else
                 {
                     if (Variable.Contains(","))
                     {
                         char[] Brackets = { ',' };
-                        string[] Variableler = Variable.Split(Brackets);
-                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
+                        string[] Variables = Variable.Split(Brackets);
+                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variables[0]));
                         if (Result.Length == 2 && Result == "00")
                             return "0";
                         else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
@@ -479,23 +478,23 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                if (Searching(Variable, SymbolsCalc))
                     return Variable;
                 else
                 {
                     if (Variable.Contains(",") && PostComma != 0)
                     {
                         char[] Brackets = { ',' };
-                        string[] Variableler = Variable.Split(Brackets);
-                        if (PostComma <= Variableler[1].Length)
-                            return Variableler[0] + "," + Variableler[1].Substring(0, PostComma);
+                        string[] Variables = Variable.Split(Brackets);
+                        if (PostComma <= Variables[1].Length)
+                            return Variables[0] + "," + Variables[1].Substring(0, PostComma);
                         else
                         {
-                            string Işlem = Variableler[0] + "," + Variableler[1].Substring(0, Variableler[1].Length);
-                            int Işlem2 = PostComma - Variableler[1].Length;
-                            for (int i = 0; i < Işlem2; i++)
-                                Işlem += "0";
-                            return Işlem;
+                            string Operation = Variables[0] + "," + Variables[1].Substring(0, Variables[1].Length);
+                            int Operation2 = PostComma - Variables[1].Length;
+                            for (int i = 0; i < Operation2; i++)
+                                Operation += "0";
+                            return Operation;
                         }
                     }
                     else
@@ -503,15 +502,15 @@ namespace Conforyon
                         if (PostComma == 0)
                         {
                             char[] Brackets = { ',' };
-                            string[] Variableler = Variable.Split(Brackets);
-                            return Variableler[0];
+                            string[] Variables = Variable.Split(Brackets);
+                            return Variables[0];
                         }
                         else
                         {
-                            string Işlem = ",";
+                            string Operation = ",";
                             for (int i = 0; i < PostComma; i++)
-                                Işlem += "0";
-                            return Variable + Işlem;
+                                Operation += "0";
+                            return Variable + Operation;
                         }
                     }
                 }
@@ -533,30 +532,26 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                if (Searching(Variable, SymbolsCalc))
                     return Variable;
                 else
                 {
                     if (PostComma <= Variable.Length)
+                    {
                         if (Variable == ",")
                             return Variable.Substring(0, PostComma) + "0";
                         else
                             return Variable.Substring(0, PostComma);
+                    }
                     else
                     {
-                        string Işlem = Variable.Substring(0, Variable.Length);
-                        int Işlem2 = PostComma - Variable.Length;
+                        string Operation = Variable.Substring(0, Variable.Length);
+                        int Operation2 = PostComma - Variable.Length;
                         if (Variable == ",")
-                        {
-                            for (int i = 0; i <= Işlem2; i++)
-                                Işlem += "0";
-                        }
+                            for (int i = 0; i <= Operation2; i++) Operation += "0";
                         else
-                        {
-                            for (int i = 0; i < Işlem2; i++)
-                                Işlem += "0";
-                        }
-                        return Işlem;
+                            for (int i = 0; i < Operation2; i++) Operation += "0";
+                        return Operation;
                     }
                 }
             }
@@ -577,7 +572,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Contains("E") || Variable.Contains("B") || Variable.Contains("+") || Variable.Contains("-"))
+                if (Searching(Variable, SymbolsCalc))
                     return Variable;
                 else
                 {
@@ -588,8 +583,8 @@ namespace Conforyon
                         if (Variable.Contains(","))
                         {
                             char[] Brackets = { ',' };
-                            string[] Variableler = Variable.Split(Brackets);
-                            return UseDecimal2(Variableler[0]) + "," + UseComma2(Variableler[1], PostComma);
+                            string[] Variables = Variable.Split(Brackets);
+                            return UseDecimal2(Variables[0]) + "," + UseComma2(Variables[1], PostComma);
                         }
                         else
                             return UseDecimal2(Variable) + UseComma2(",", PostComma);
