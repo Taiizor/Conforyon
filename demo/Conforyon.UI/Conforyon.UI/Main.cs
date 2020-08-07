@@ -357,9 +357,9 @@ namespace Conforyon.UI
                     textBox8.Text = Color.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Error!");
                 else
                 {
-                    textBox6.Text = Color.HEXtoRGB(textBox8.Text, 8, "Error!");
-                    textBox9.Text = Color.HEXtoRGB(textBox8.Text, 9, "Error!");
-                    textBox10.Text = Color.HEXtoRGB(textBox8.Text, 10, "Error!");
+                    textBox6.Text = Color.HEXtoRGB(textBox8.Text, Conforyon.ColorType.OnlyR, "Error!");
+                    textBox9.Text = Color.HEXtoRGB(textBox8.Text, Conforyon.ColorType.OnlyG, "Error!");
+                    textBox10.Text = Color.HEXtoRGB(textBox8.Text, Conforyon.ColorType.OnlyB, "Error!");
                 }
 
                 button9.Cursor = Cursors.Hand;
