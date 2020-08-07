@@ -56,8 +56,8 @@ namespace Conforyon
                 if (Variable.Length <= TextLength && UseCheck(Variable))
                 {
                     string Result = "";
-                    char[] Ayraçlar = { ',' };
-                    string[] Letterler = Variable.Split(Ayraçlar);
+                    char[] Brackets = { ',' };
+                    string[] Letterler = Variable.Split(Brackets);
                     for (int i = 0; i < Letterler.Length; i++)
                     {
                         if (NumberCheck(Letterler[i], false, IntType.Int32) && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)

@@ -184,7 +184,6 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Words"></param>
         /// <param name="Type"></param>
-        /// <param name="Error"></param>
         /// <returns></returns>
         public static bool Searching(string Text, string[] Words, SearchType Type = SearchType.Contains)
         {
@@ -251,14 +250,14 @@ namespace Conforyon
         {
             try
             {
-                if (Mod == false)
+                if (!Mod)
                 {
                     if (NumberCheck(Coefficient.ToString()))
                     {
                         string Variable1, Variable2, Variable3;
-                        if (Comma == true)
+                        if (Comma)
                         {
-                            if (Mod2 == false)
+                            if (!Mod2)
                             {
                                 Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
@@ -285,7 +284,7 @@ namespace Conforyon
                         }
                         else
                         {
-                            if (Mod2 == false)
+                            if (!Mod2)
                             {
                                 Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
                                 Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
@@ -320,7 +319,7 @@ namespace Conforyon
                 }
                 else
                 {
-                    if (Mod2 == false)
+                    if (!Mod2)
                         return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
                     else
                         return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
@@ -336,6 +335,7 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
+        /// <param name="Error"></param>
         /// <returns></returns>
         public static string UseDecimal(string Variable, string Error = ErrorMessage)
         {
@@ -347,8 +347,8 @@ namespace Conforyon
                 {
                     if (Variable.Contains(","))
                     {
-                        char[] Ayraçlar = { ',', '.' };
-                        string[] Variableler = Variable.Split(Ayraçlar);
+                        char[] Brackets = { ',', '.' };
+                        string[] Variableler = Variable.Split(Brackets);
                         string Result = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
                         if (Result.Length == 2 && Result == "00")
                             Result = "0";
@@ -380,6 +380,7 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
+        /// <param name="Error"></param>
         /// <returns></returns>
         public static string UseDecimal2(string Variable, string Error = ErrorMessage)
         {
@@ -391,8 +392,8 @@ namespace Conforyon
                 {
                     if (Variable.Contains(","))
                     {
-                        char[] Ayraçlar = { ',' };
-                        string[] Variableler = Variable.Split(Ayraçlar);
+                        char[] Brackets = { ',' };
+                        string[] Variableler = Variable.Split(Brackets);
                         string Result = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
                         if (Result.Length == 2 && Result == "00")
                             return "0";
@@ -426,6 +427,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
         /// <returns></returns>
         public static string UseComma(string Variable, int PostComma = 0, string Error = ErrorMessage)
         {
@@ -437,8 +439,8 @@ namespace Conforyon
                 {
                     if (Variable.Contains(",") && PostComma != 0)
                     {
-                        char[] Ayraçlar = { ',' };
-                        string[] Variableler = Variable.Split(Ayraçlar);
+                        char[] Brackets = { ',' };
+                        string[] Variableler = Variable.Split(Brackets);
                         if (PostComma <= Variableler[1].Length)
                             return Variableler[0] + "," + Variableler[1].Substring(0, PostComma);
                         else
@@ -454,8 +456,8 @@ namespace Conforyon
                     {
                         if (PostComma == 0)
                         {
-                            char[] Ayraçlar = { ',' };
-                            string[] Variableler = Variable.Split(Ayraçlar);
+                            char[] Brackets = { ',' };
+                            string[] Variableler = Variable.Split(Brackets);
                             return Variableler[0];
                         }
                         else
@@ -479,6 +481,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
         /// <returns></returns>
         public static string UseComma2(string Variable, int PostComma = 0, string Error = ErrorMessage)
         {
@@ -522,6 +525,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
         /// <returns></returns>
         public static string DecimalComma(string Variable, int PostComma = 0, string Error = ErrorMessage)
         {
@@ -537,8 +541,8 @@ namespace Conforyon
                     {
                         if (Variable.Contains(","))
                         {
-                            char[] Ayraçlar = { ',' };
-                            string[] Variableler = Variable.Split(Ayraçlar);
+                            char[] Brackets = { ',' };
+                            string[] Variableler = Variable.Split(Brackets);
                             return UseDecimal2(Variableler[0]) + "," + UseComma2(Variableler[1], PostComma);
                         }
                         else
