@@ -1,6 +1,5 @@
 ﻿#region Imports
 
-using System;
 using static Conforyon.Conforyon;
 using System.Text.RegularExpressions;
 
@@ -49,30 +48,30 @@ namespace Conforyon
 
                     if (InputType != Type)
                     {
-                        string Sonuç = DataConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
-                        if (TypeText == false || Sonuç == Error)
-                            return Sonuç;
+                        string Result = DataConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
+                        if (!TypeText || Result == Error)
+                            return Result;
                         else
-                            return Sonuç + " " + Type;
+                            return Result + " " + Type;
                     }
                     else
                     {
-                        string Sonuç = null;
+                        string Result = null;
                         if (!Decimal && !Comma)
-                            Sonuç = InputVariable;
+                            Result = InputVariable;
                         else
                         {
                             if (Decimal && !Comma)
-                                Sonuç = UseDecimal(InputVariable);
+                                Result = UseDecimal(InputVariable);
                             else if (!Decimal && Comma)
-                                Sonuç = UseComma(InputVariable, PostComma);
+                                Result = UseComma(InputVariable, PostComma);
                             else
-                                Sonuç = DecimalComma(InputVariable, PostComma);
+                                Result = DecimalComma(InputVariable, PostComma);
                         }
-                        if (TypeText)
-                            return Sonuç + " " + Type;
+                        if (!TypeText || Result == Error)
+                            return Result;
                         else
-                            return Sonuç;
+                            return Result + " " + Type;
                     }
                 }
                 else

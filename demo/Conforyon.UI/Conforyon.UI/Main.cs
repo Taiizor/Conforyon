@@ -1,4 +1,5 @@
 ﻿using System;
+using Conforyon;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
@@ -11,7 +12,8 @@ namespace Conforyon.UI
             InitializeComponent();
         }
 
-        string Seçim1, Seçim2, Seçim6, Seçim12, Seçim13, Seçim14;
+        Conforyon.StorageType Seçim1, Seçim2;
+        string Seçim6, Seçim12, Seçim13, Seçim14;
         bool Seçim3, Seçim4, Seçim5, Seçim7, Seçim8, Seçim9, Seçim10, Seçim11, Seçim15, Seçim16;
 
         private void ComboBox()
@@ -19,45 +21,45 @@ namespace Conforyon.UI
             try
             {
                 if (comboBox1.SelectedIndex == 0)
-                    Seçim1 = "Bit";
+                    Seçim1 = Conforyon.StorageType.Bit;
                 else if (comboBox1.SelectedIndex == 1)
-                    Seçim1 = "Byte";
+                    Seçim1 = Conforyon.StorageType.Byte;
                 else if (comboBox1.SelectedIndex == 2)
-                    Seçim1 = "KB";
+                    Seçim1 = Conforyon.StorageType.KB;
                 else if (comboBox1.SelectedIndex == 3)
-                    Seçim1 = "MB";
+                    Seçim1 = Conforyon.StorageType.MB;
                 else if (comboBox1.SelectedIndex == 4)
-                    Seçim1 = "GB";
+                    Seçim1 = Conforyon.StorageType.GB;
                 else if (comboBox1.SelectedIndex == 5)
-                    Seçim1 = "TB";
+                    Seçim1 = Conforyon.StorageType.TB;
                 else if (comboBox1.SelectedIndex == 6)
-                    Seçim1 = "PB";
+                    Seçim1 = Conforyon.StorageType.PB;
                 else if (comboBox1.SelectedIndex == 7)
-                    Seçim1 = "EB";
+                    Seçim1 = Conforyon.StorageType.EB;
                 else if (comboBox1.SelectedIndex == 8)
-                    Seçim1 = "ZB";
+                    Seçim1 = Conforyon.StorageType.ZB;
                 else if (comboBox1.SelectedIndex == 9)
-                    Seçim1 = "YB";
+                    Seçim1 = Conforyon.StorageType.YB;
                 if (comboBox2.SelectedIndex == 0)
-                    Seçim2 = "Bit";
+                    Seçim2 = Conforyon.StorageType.Bit;
                 else if (comboBox2.SelectedIndex == 1)
-                    Seçim2 = "Byte";
+                    Seçim2 = Conforyon.StorageType.Byte;
                 else if (comboBox2.SelectedIndex == 2)
-                    Seçim2 = "KB";
+                    Seçim2 = Conforyon.StorageType.KB;
                 else if (comboBox2.SelectedIndex == 3)
-                    Seçim2 = "MB";
+                    Seçim2 = Conforyon.StorageType.MB;
                 else if (comboBox2.SelectedIndex == 4)
-                    Seçim2 = "GB";
+                    Seçim2 = Conforyon.StorageType.GB;
                 else if (comboBox2.SelectedIndex == 5)
-                    Seçim2 = "TB";
+                    Seçim2 = Conforyon.StorageType.TB;
                 else if (comboBox2.SelectedIndex == 6)
-                    Seçim2 = "PB";
+                    Seçim2 = Conforyon.StorageType.PB;
                 else if (comboBox2.SelectedIndex == 7)
-                    Seçim2 = "EB";
+                    Seçim2 = Conforyon.StorageType.EB;
                 else if (comboBox2.SelectedIndex == 8)
-                    Seçim2 = "ZB";
+                    Seçim2 = Conforyon.StorageType.ZB;
                 else if (comboBox2.SelectedIndex == 9)
-                    Seçim2 = "YB";
+                    Seçim2 = Conforyon.StorageType.YB;
                 if (comboBox3.SelectedIndex == 0)
                     Seçim3 = true;
                 else

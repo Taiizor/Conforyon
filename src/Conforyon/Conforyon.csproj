@@ -12,7 +12,7 @@
     <Description>C# Converter For Everyone - Conforyon</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Function errors have been edited.
+    <PackageReleaseNotes>Functions have been renewed.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor C# CSharp DotNet Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
