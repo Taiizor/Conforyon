@@ -210,7 +210,7 @@ TEXTtoSHA1("Conforyon", "¡Error!");
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
-	<ReturnValue>9946dc70f0672da2ba000a0cb80f8872</ReturnValue>
+	<ReturnValue>4a417fe4795f59e4848c403ffc4c569417a743b4</ReturnValue>
 </FunctionResult>
 ```
 

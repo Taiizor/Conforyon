@@ -20,8 +20,14 @@ namespace Conforyon_CR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            textBox3.Text = Hash.FILEtoSHA512(textBox2.Text, false, "Hata!");
-            textBox4.Text = Hash.FILEtoSHA512(textBox2.Text, true, "Hata!");
+            textBox3.Text = Hash.FILEtoSHA512(textBox2.Text, false, "Error!");
+            textBox4.Text = Hash.FILEtoSHA512(textBox2.Text, true, "Error!");
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Crypto.TEXTtoMD5(textBox5.Text, "Error!"));
+            MessageBox.Show(Crypto.TEXTtoSHA1(textBox5.Text, "Error!"));
         }
     }
 }
