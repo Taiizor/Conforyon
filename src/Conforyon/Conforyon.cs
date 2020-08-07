@@ -69,6 +69,29 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
+        public enum LengthType
+        {
+            MM,
+            CM,
+            DM,
+            M,
+            DAM,
+            HM,
+            KM,
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum SpeedType
+        {
+            MPH,
+            KMH
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum StorageType
         {
             Bit,
@@ -81,6 +104,29 @@ namespace Conforyon
             EB,
             ZB,
             YB
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum TimeType
+        {
+            Millisecond,
+            Second,
+            Minute,
+            Hour,
+            Day,
+            Week
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum WeightType
+        {
+            Milligram,
+            Gram,
+            KG
         }
 
         /// <summary>
