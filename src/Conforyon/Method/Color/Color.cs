@@ -14,40 +14,45 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Mode"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string HEXtoRGB(string Variable, int Mod = 0, string Error = ErrorMessage)
+        public static string HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length == 6 && Mod >= 0 && Mod <= 10 && UseCheck(Variable))
+                if (Variable.Length == 6 && UseCheck(Variable))
                 {
                     System.Drawing.Color HexColor = ColorTranslator.FromHtml("#" + Variable);
-                    if (Mod == 0)
-                        return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;
-                    else if (Mod == 1)
-                        return HexColor.R + " " + HexColor.G + " " + HexColor.B;
-                    else if (Mod == 2)
-                        return HexColor.R + " - " + HexColor.G + " - " + HexColor.B;
-                    else if (Mod == 3)
-                        return "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B;
-                    else if (Mod == 4)
-                        return "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B;
-                    else if (Mod == 5)
-                        return "R: " + HexColor.R;
-                    else if (Mod == 6)
-                        return "G: " + HexColor.G;
-                    else if (Mod == 7)
-                        return "B: " + HexColor.B;
-                    else if (Mod == 8)
-                        return HexColor.R.ToString();
-                    else if (Mod == 9)
-                        return HexColor.G.ToString();
-                    else if (Mod == 10)
-                        return HexColor.B.ToString();
-                    else
-                        return Variable;
+                    switch (Mode)
+                    {
+                        case ColorType.RGB1:
+                            return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;
+                        case ColorType.RGB2:
+                            return HexColor.R + " " + HexColor.G + " " + HexColor.B;
+                        case ColorType.RGB3:
+                            return HexColor.R + " - " + HexColor.G + " - " + HexColor.B;
+                        case ColorType.RRGGBB1:
+                            return "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B;
+                        case ColorType.RRGGBB2:
+                            return "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B;
+                        case ColorType.RRGGBB3:
+                            return "R: " + HexColor.R + " - G: " + HexColor.G + " - B: " + HexColor.B;
+                        case ColorType.RR:
+                            return "R: " + HexColor.R;
+                        case ColorType.GG:
+                            return "G: " + HexColor.G;
+                        case ColorType.BB:
+                            return "B: " + HexColor.B;
+                        case ColorType.OnlyR:
+                            return HexColor.R.ToString();
+                        case ColorType.OnlyG:
+                            return HexColor.G.ToString();
+                        case ColorType.OnlyB:
+                            return HexColor.B.ToString();
+                        default:
+                            return Error;
+                    }
                 }
                 else
                     return Error;
@@ -64,10 +69,10 @@ namespace Conforyon
         /// <param name="R"></param>
         /// <param name="G"></param>
         /// <param name="B"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Sharp"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string RGBtoHEX(string R, string G, string B, bool Mod = false, string Error = ErrorMessage)
+        public static string RGBtoHEX(string R, string G, string B, bool Sharp = false, string Error = ErrorMessage)
         {
             try
             {
@@ -80,7 +85,7 @@ namespace Conforyon
                         if (Convert.ToInt32(R) >= 0 && Convert.ToInt32(R) <= 255 && Convert.ToInt32(G) >= 0 && Convert.ToInt32(G) <= 255 && Convert.ToInt32(B) >= 0 && Convert.ToInt32(B) <= 255)
                         {
                             System.Drawing.Color RGBColor = System.Drawing.Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
-                            if (Mod == true)
+                            if (Sharp)
                                 return "#" + RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
                             else
                                 return RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");

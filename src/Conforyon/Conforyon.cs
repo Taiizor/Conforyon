@@ -45,6 +45,25 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
+        public enum ColorType
+        {
+            RGB1,
+            RGB2,
+            RGB3,
+            RRGGBB1,
+            RRGGBB2,
+            RRGGBB3,
+            RR,
+            GG,
+            BB,
+            OnlyR,
+            OnlyG,
+            OnlyB
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum StorageType
         {
             Bit,
