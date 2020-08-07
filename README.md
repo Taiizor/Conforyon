@@ -383,10 +383,9 @@ FILEtoSHA512("C:\\Conforyon.dll", true, "Error!");
 /* AutoDataConvert(string InputVariable, StorageType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
 AutoDataConvert("987654321", StorageType.Byte, true, true, true, 2, "Error!");
 ```
-```
 ```XML
 <FunctionResult>
-	<ReturnType>System.IO.Stream</ReturnType>
+	<ReturnType>System.String</ReturnType>
 	<ReturnValue>941,90 MB</ReturnValue>
 </FunctionResult>
 ```
@@ -395,10 +394,9 @@ AutoDataConvert("987654321", StorageType.Byte, true, true, true, 2, "Error!");
 /* AutoDataConvert(string InputVariable, StorageType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
 AutoDataConvert("987654321", StorageType.Byte, false, true, false, 0, "Error!");
 ```
-```
 ```XML
 <FunctionResult>
-	<ReturnType>System.IO.Stream</ReturnType>
+	<ReturnType>System.String</ReturnType>
 	<ReturnValue>941</ReturnValue>
 </FunctionResult>
 ```
@@ -409,10 +407,9 @@ AutoDataConvert("987654321", StorageType.Byte, false, true, false, 0, "Error!");
 /* DataConvert(string InputVariable, StorageType InputType, StorageType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
 DataConvert("987654321", StorageType.Byte, StorageType.GB, true, true, 2, "Error!");
 ```
-```
 ```XML
 <FunctionResult>
-	<ReturnType>System.IO.Stream</ReturnType>
+	<ReturnType>System.String</ReturnType>
 	<ReturnValue>0,91</ReturnValue>
 </FunctionResult>
 ```
@@ -421,10 +418,9 @@ DataConvert("987654321", StorageType.Byte, StorageType.GB, true, true, 2, "Error
 /* DataConvert(string InputVariable, StorageType InputType, StorageType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
 DataConvert("987654321", StorageType.Byte, StorageType.GB, false, true, 5, "Error!");
 ```
-```
 ```XML
 <FunctionResult>
-	<ReturnType>System.IO.Stream</ReturnType>
+	<ReturnType>System.String</ReturnType>
 	<ReturnValue>0,91982</ReturnValue>
 </FunctionResult>
 ```
