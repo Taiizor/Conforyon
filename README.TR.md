@@ -109,3 +109,53 @@ PasteAudio(true);
 	<ReturnValue>DataFormats.WaveAudio</ReturnValue>
 </FunctionResult>
 ```
+
+### Renk
+
+#### HEX -> RGB
+
+```CS
+/* HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage) */
+HEXtoRGB("FFFFFF", ColorType.RGB1, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>255, 255, 255</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage) */
+HEXtoRGB("000000", ColorType.RRGGBB1, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>R: 0, G: 0, B: 0</ReturnValue>
+</FunctionResult>
+```
+
+#### RGB -> HEX
+
+```CS
+/* RGBtoHEX(string R, string G, string B, bool Sharp = false, string Error = ErrorMessage) */
+RGBtoHEX("255", "255", "255", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>#FFFFFF</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* RGBtoHEX(string R, string G, string B, bool Sharp = false, string Error = ErrorMessage) */
+RGBtoHEX("0", "0", "0", false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>000000</ReturnValue>
+</FunctionResult>
+```
