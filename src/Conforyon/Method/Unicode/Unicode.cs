@@ -1,7 +1,6 @@
 ﻿#region Imports
 
 using System;
-using System.Linq;
 using System.Text;
 using static Conforyon.Conforyon;
 
@@ -15,6 +14,7 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
+        /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string CHARtoASCII(string Variable, char Bracket = ',', string Error = ErrorMessage)
@@ -48,20 +48,21 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
+        /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string ASCIItoCHAR(string Variable, char Bracket = ',', string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && Variable.Contains(Bracket) && UseCheck(Variable))
+                if (Variable.Length <= TextLength && UseCheck(Variable))
                 {
                     string Result = "";
-                    string[] Letterler = Variable.Split(Bracket);
-                    for (int i = 0; i < Letterler.Length; i++)
+                    string[] Letters = Variable.Split(Bracket);
+                    for (int i = 0; i < Letters.Length; i++)
                     {
-                        if (NumberCheck(Letterler[i], false, IntType.Int32) && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
-                            Result += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letterler[i]) }); //Encoding.ASCII
+                        if (NumberCheck(Letters[i], false, IntType.Int32) && Letters[i].Length >= 1 && Letters[i].Length <= 3 && Convert.ToInt32(Letters[i]) >= 0 && Convert.ToInt32(Letters[i]) <= 255)
+                            Result += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letters[i]) }); //Encoding.ASCII
                         else
                             return Error;
                     }
