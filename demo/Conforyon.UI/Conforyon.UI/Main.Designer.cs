@@ -86,6 +86,7 @@
             this.button21 = new System.Windows.Forms.Button();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.comboBox13 = new System.Windows.Forms.ComboBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox3
@@ -617,10 +618,16 @@
             resources.ApplyResources(this.comboBox13, "comboBox13");
             this.comboBox13.Name = "comboBox13";
             // 
+            // textBox18
+            // 
+            resources.ApplyResources(this.textBox18, "textBox18");
+            this.textBox18.Name = "textBox18";
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox18);
             this.Controls.Add(this.comboBox13);
             this.Controls.Add(this.button18);
             this.Controls.Add(this.button20);
@@ -745,6 +752,7 @@
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.ComboBox comboBox13;
+        private System.Windows.Forms.TextBox textBox18;
     }
 }
 

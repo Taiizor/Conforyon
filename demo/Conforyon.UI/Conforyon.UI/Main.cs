@@ -353,7 +353,7 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Selection10 == true)
+                if (Selection10)
                     textBox8.Text = Color.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Error!");
                 else
                 {
@@ -416,10 +416,10 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Selection11 == true)
-                    textBox12.Text = Unicode.CHARtoASCII(textBox11.Text, "Error!");
+                if (Selection11)
+                    textBox12.Text = Unicode.CHARtoASCII(textBox11.Text, textBox18.Text.ToCharArray()[0], "Error!");
                 else
-                    textBox11.Text = Unicode.ASCIItoCHAR(textBox12.Text, "Error!");
+                    textBox11.Text = Unicode.ASCIItoCHAR(textBox12.Text, textBox18.Text.ToCharArray()[0], "Error!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }

@@ -29,7 +29,7 @@ namespace Conforyon
                     {
                         LetterByte = UTF8Encoding.UTF8.GetBytes(Variable.Substring(i, 1)); //Encoding.ASCII
                         if (i < Variable.Length - 1)
-                            Result += LetterByte[0] + Bracket;
+                            Result += LetterByte[0] + Bracket.ToString();
                         else
                             Result += LetterByte[0].ToString();
                     }
@@ -55,7 +55,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable))
+                if (Variable.Length <= TextLength && Variable.Contains(Bracket.ToString()) && UseCheck(Variable, Bracket == ' '))
                 {
                     string Result = "";
                     string[] Letters = Variable.Split(Bracket);

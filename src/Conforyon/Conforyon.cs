@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 08.Aug.2020
-//     Version: 1.4.6.8
+//     Version: 1.4.7.0
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -679,13 +679,13 @@ namespace Conforyon
         {
             try
             {
-                if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable))
+                if (Variable != "" && !string.IsNullOrEmpty(Variable))
                 {
                     if (Spaces)
                         return true;
                     else
                     {
-                        if (Variable.Contains(" "))
+                        if (Variable.Contains(" ") || string.IsNullOrWhiteSpace(Variable))
                             return false;
                         else
                             return true;
