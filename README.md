@@ -474,3 +474,149 @@ FtoC("12345", false, false, 0, false, "Error!");
 	<ReturnValue>6840</ReturnValue>
 </FunctionResult>
 ```
+
+### Typography
+
+#### INCH -> CM
+
+```CS
+/* INCHtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCHtoCM("12345", true, true, 1, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>31.356,3</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* INCHtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCHtoCM("12345", false, false, 0, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>31356</ReturnValue>
+</FunctionResult>
+```
+
+#### INCH -> PX
+
+```CS
+/* INCHtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCHtoPX("12345", true, true, 1, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>1.185.120,0</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* INCHtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCHtoPX("12345", false, false, 0, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>1185120</ReturnValue>
+</FunctionResult>
+```
+
+#### CM -> INCH
+
+```CS
+/* CMtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CMtoINCH("12345", true, true, 1, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>4.860,2</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* CMtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CMtoINCH("12345", false, false, 0, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>4860</ReturnValue>
+</FunctionResult>
+```
+
+#### CM -> PX
+
+```CS
+/* CMtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CMtoPX("12345", true, true, 1, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>466.582,6</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* CMtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CMtoPX("12345", false, false, 0, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>466582</ReturnValue>
+</FunctionResult>
+```
+
+#### PX -> CM
+
+```CS
+/* PXtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PXtoCM("12345", true, true, 1, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>326,6</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* PXtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PXtoCM("12345", false, false, 0, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>326</ReturnValue>
+</FunctionResult>
+```
+
+#### PX -> INCH
+
+```CS
+/* PXtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PXtoINCH("12345", true, true, 1, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>128,5</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* PXtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PXtoINCH("12345", false, false, 0, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>128</ReturnValue>
+</FunctionResult>
+```
