@@ -638,7 +638,7 @@ namespace Conforyon
         {
             try
             {
-                if (Mod == false)
+                if (!Mod)
                 {
                     if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable) && !Variable.Contains(" "))
                         return true;
