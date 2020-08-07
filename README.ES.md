@@ -125,7 +125,6 @@ HEXtoRGB("FFFFFF", ColorType.RGB1, "¡Error!");
 </FunctionResult>
 ```
 
-
 ```CS
 /* HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage) */
 HEXtoRGB("000000", ColorType.RRGGBB1, "¡Error!");
@@ -149,7 +148,6 @@ RGBtoHEX("255", "255", "255", true, "¡Error!");
 	<ReturnValue>#FFFFFF</ReturnValue>
 </FunctionResult>
 ```
-
 
 ```CS
 /* RGBtoHEX(string R, string G, string B, bool Sharp = false, string Error = ErrorMessage) */
