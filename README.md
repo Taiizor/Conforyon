@@ -424,3 +424,53 @@ DataConvert("987654321", StorageType.Byte, StorageType.GB, false, true, 5, "Erro
 	<ReturnValue>0,91982</ReturnValue>
 </FunctionResult>
 ```
+
+### Temperature
+
+#### Celsius -> Fahrenheit
+
+```CS
+/* CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+CtoF("12345", true, true, 1, true, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>22.253,0 F</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+CtoF("12345", false, false, 0, false, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>22253</ReturnValue>
+</FunctionResult>
+```
+
+#### Fahrenheit -> Celsius
+
+```CS
+/* FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+FtoC("12345", true, true, 2, true, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>6.840,55 C</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+FtoC("12345", false, false, 0, false, "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>6840</ReturnValue>
+</FunctionResult>
+```
