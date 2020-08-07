@@ -39,7 +39,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1T!)";
+                return Error + ErrorTitle + "UE-CTA1!)";
             }
         }
 
@@ -72,7 +72,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1A!)";
+                return Error + ErrorTitle + "UE-ATC1!)";
             }
         }
     }

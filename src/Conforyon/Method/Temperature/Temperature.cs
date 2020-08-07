@@ -35,7 +35,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C!)";
+                return Error + ErrorTitle + "TE-CTF1!)";
             }
         }
 
@@ -75,7 +75,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1F!)";
+                return Error + ErrorTitle + "TE-FTC1!)";
             }
         }
     }

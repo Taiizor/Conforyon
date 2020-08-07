@@ -29,7 +29,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1I2!)";
+                return Error + ErrorTitle + "TY-ITC1!)";
             }
         }
 
@@ -56,7 +56,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1I3!)";
+                return Error + ErrorTitle + "TY-ITP1!)";
             }
         }
 
@@ -85,7 +85,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C7!)";
+                return Error + ErrorTitle + "TY-CTI1!)";
             }
         }
 
@@ -109,7 +109,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C8!)";
+                return Error + ErrorTitle + "TY-CTP1!)";
             }
         }
 
@@ -138,7 +138,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1P!)";
+                return Error + ErrorTitle + "TY-PTC1!)";
             }
         }
 
@@ -167,7 +167,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1P2!)";
+                return Error + ErrorTitle + "TY-PTI1!)";
             }
         }
     }

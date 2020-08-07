@@ -79,7 +79,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "DS-ADC1!)";
+                return Error + ErrorTitle + "SE-ADC1!)";
             }
         }
 
@@ -742,7 +742,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "DS-DC1!)";
+                return Error + ErrorTitle + "SE-DC1!)";
             }
         }
     }
