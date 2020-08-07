@@ -20,19 +20,19 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                 {
-                    string Sonuç = "";
+                    string Result = "";
                     byte[] LetterByte;
                     for (int i = 0; i < Variable.Length; i++)
                     {
                         LetterByte = UTF8Encoding.UTF8.GetBytes(Variable.Substring(i, 1)); //Encoding.ASCII
                         if (i < Variable.Length - 1)
-                            Sonuç += LetterByte[0] + ",";
+                            Result += LetterByte[0] + ",";
                         else
-                            Sonuç += LetterByte[0].ToString();
+                            Result += LetterByte[0].ToString();
                     }
-                    return Sonuç;
+                    return Result;
                 }
                 else
                     return Error;
@@ -53,19 +53,19 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable))
+                if (Variable.Length <= TextLength && UseCheck(Variable))
                 {
-                    string Sonuç = "";
+                    string Result = "";
                     char[] Ayraçlar = { ',' };
                     string[] Letterler = Variable.Split(Ayraçlar);
                     for (int i = 0; i < Letterler.Length; i++)
                     {
                         if (NumberCheck(Letterler[i], false, IntType.Int32) && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
-                            Sonuç += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letterler[i]) }); //Encoding.ASCII
+                            Result += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letterler[i]) }); //Encoding.ASCII
                         else
                             return Error;
                     }
-                    return Sonuç;
+                    return Result;
                 }
                 else
                     return Error;

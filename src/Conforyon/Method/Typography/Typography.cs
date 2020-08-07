@@ -48,8 +48,8 @@ namespace Conforyon
             {
                 if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
                 {
-                    string Sonuç = (Convert.ToInt64(Variable) * 2.54 * 37.79527559055118).ToString();
-                    return LastCheck2(Sonuç, Decimal, Comma, PostComma, Error);
+                    string Result = (Convert.ToInt64(Variable) * 2.54 * 37.79527559055118).ToString();
+                    return LastCheck2(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;

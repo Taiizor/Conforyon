@@ -39,6 +39,11 @@ namespace Conforyon
         /// 
         /// </summary>
         public const int VariableLength = 15;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int TextLength = 32767;
         #endregion
 
         #region Enums
@@ -344,12 +349,12 @@ namespace Conforyon
                     {
                         char[] Ayraçlar = { ',', '.' };
                         string[] Variableler = Variable.Split(Ayraçlar);
-                        string Sonuç = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
-                        if (Sonuç.Length == 2 && Sonuç == "00")
-                            Sonuç = "0";
-                        else if (Sonuç.Length == 2 && Sonuç.StartsWith("0") && !Sonuç.EndsWith("0"))
-                            Sonuç.Replace("0", "");
-                        return Sonuç + "," + Variableler[1];
+                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
+                        if (Result.Length == 2 && Result == "00")
+                            Result = "0";
+                        else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
+                            Result.Replace("0", "");
+                        return Result + "," + Variableler[1];
                     }
                     else
                     {
@@ -388,13 +393,13 @@ namespace Conforyon
                     {
                         char[] Ayraçlar = { ',' };
                         string[] Variableler = Variable.Split(Ayraçlar);
-                        string Sonuç = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
-                        if (Sonuç.Length == 2 && Sonuç == "00")
+                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variableler[0]));
+                        if (Result.Length == 2 && Result == "00")
                             return "0";
-                        else if (Sonuç.Length == 2 && Sonuç.StartsWith("0") && !Sonuç.EndsWith("0"))
-                            return Sonuç.Replace("0", "");
+                        else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
+                            return Result.Replace("0", "");
                         else
-                            return Sonuç;
+                            return Result;
                     }
                     else
                     {

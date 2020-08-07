@@ -21,7 +21,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable))
+                if (Variable.Length <= TextLength && UseCheck(Variable))
                 {
                     if (Variable.EndsWith("="))
                     {
@@ -86,7 +86,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                     return Convert.ToBase64String(Encoding.UTF8.GetBytes(Variable));
                 else
                     return Error;
@@ -107,15 +107,15 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                 {
                     using (MD5 MD5 = MD5.Create())
                     {
                         MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
-                        byte[] Sonuç = MD5.Hash;
+                        byte[] Result = MD5.Hash;
                         StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Builder.Append(Sonuç[i].ToString("x2"));
+                        for (int i = 0; i < Result.Length; i++)
+                            Builder.Append(Result[i].ToString("x2"));
                         return Builder.ToString();
                     }
                 }
@@ -138,14 +138,14 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                 {
                     using (SHA1 SHA1 = SHA1.Create())
                     {
-                        byte[] Sonuç = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Builder.Append(Sonuç[i].ToString("x2"));
+                        for (int i = 0; i < Result.Length; i++)
+                            Builder.Append(Result[i].ToString("x2"));
                         return Builder.ToString();
                     }
                 }
@@ -168,14 +168,14 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                 {
                     using (SHA256 SHA256 = SHA256.Create())
                     {
-                        byte[] Sonuç = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Builder.Append(Sonuç[i].ToString("x2"));
+                        for (int i = 0; i < Result.Length; i++)
+                            Builder.Append(Result[i].ToString("x2"));
                         return Builder.ToString();
                     }
                 }
@@ -198,14 +198,14 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                 {
                     using (SHA384 SHA384 = SHA384.Create())
                     {
-                        byte[] Sonuç = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Builder.Append(Sonuç[i].ToString("x2"));
+                        for (int i = 0; i < Result.Length; i++)
+                            Builder.Append(Result[i].ToString("x2"));
                         return Builder.ToString();
                     }
                 }
@@ -228,14 +228,14 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= 32767 && UseCheck(Variable, true))
+                if (Variable.Length <= TextLength && UseCheck(Variable, true))
                 {
                     using (SHA512 SHA512 = SHA512.Create())
                     {
-                        byte[] Sonuç = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
                         StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Sonuç.Length; i++)
-                            Builder.Append(Sonuç[i].ToString("x2"));
+                        for (int i = 0; i < Result.Length; i++)
+                            Builder.Append(Result[i].ToString("x2"));
                         return Builder.ToString();
                     }
                 }

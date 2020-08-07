@@ -25,10 +25,10 @@ namespace Conforyon
             {
                 if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
                 {
-                    if (Text == false)
-                        return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
-                    else
+                    if (Text)
                         return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error) + " F";
+                    else
+                        return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -57,17 +57,17 @@ namespace Conforyon
                 {
                     if (Convert.ToInt64(Variable) >= 32)
                     {
-                        if (Text == false)
-                            return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error);
-                        else
+                        if (Text)
                             return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error) + " C";
+                        else
+                            return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {
-                        if (Text == false)
-                            return LastCheck2("0", Decimal, Comma, PostComma, Error);
-                        else
+                        if (Text)
                             return LastCheck2("0", Decimal, Comma, PostComma, Error) + " C";
+                        else
+                            return LastCheck2("0", Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
