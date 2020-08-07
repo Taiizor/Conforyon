@@ -131,9 +131,9 @@ namespace Conforyon.UI
                 else
                     Selection16 = false;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -199,9 +199,9 @@ namespace Conforyon.UI
                 textBox4.Text = DataStorage.DataConvert(textBox3.Text, Selection1, Selection2, Selection3, Selection4, Convert.ToInt32(textBox7.Text), "Error!");
                 button4.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -215,9 +215,9 @@ namespace Conforyon.UI
                 textBox4.Text = DataStorage.AutoDataConvert(textBox3.Text, Selection1, Selection5, Selection3, Selection4, Convert.ToInt32(textBox7.Text), "Error!");
                 button4.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -230,9 +230,9 @@ namespace Conforyon.UI
                 comboBox1.SelectedIndex = C2;
                 comboBox2.SelectedIndex = C1;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -246,9 +246,9 @@ namespace Conforyon.UI
                     ClipBoard.CopyText(textBox4.Text, false);
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -265,9 +265,9 @@ namespace Conforyon.UI
                     textBox2.Text = Temperature.FtoC(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 button6.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -281,9 +281,9 @@ namespace Conforyon.UI
                     ClipBoard.CopyText(textBox2.Text, false);
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -296,9 +296,9 @@ namespace Conforyon.UI
                 else
                     comboBox6.SelectedIndex = 0;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -311,9 +311,9 @@ namespace Conforyon.UI
                 else
                     comboBox10.SelectedIndex = 0;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -327,9 +327,9 @@ namespace Conforyon.UI
                     ClipBoard.CopyText(textBox8.Text, false);
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -343,9 +343,9 @@ namespace Conforyon.UI
                     ClipBoard.CopyText(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text, false);
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
         private void Button11_Click(object sender, EventArgs e)
@@ -365,9 +365,9 @@ namespace Conforyon.UI
                 button9.Cursor = Cursors.Hand;
                 button10.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -389,9 +389,9 @@ namespace Conforyon.UI
                     ClipBoard.CopyText(textBox11.Text, false);
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -405,9 +405,9 @@ namespace Conforyon.UI
                     ClipBoard.CopyText(textBox12.Text, false);
                 }
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -423,9 +423,9 @@ namespace Conforyon.UI
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -450,9 +450,9 @@ namespace Conforyon.UI
                     textBox13.Text = Crypto.BASE64toTEXT(textBox14.Text, "Error!");
                 button17.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -491,9 +491,9 @@ namespace Conforyon.UI
                 comboBox17.SelectedIndex = C2;
                 comboBox13.SelectedIndex = C1;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -533,9 +533,9 @@ namespace Conforyon.UI
                 }
                 button18.Cursor = Cursors.Hand;
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
 
@@ -561,9 +561,9 @@ namespace Conforyon.UI
                 comboBox15.SelectedIndex = comboBox4.Items.IndexOf("Fraction On");
                 comboBox16.SelectedIndex = comboBox3.Items.IndexOf("Decimal On");
             }
-            catch (Exception Hata)
+            catch (Exception Ex)
             {
-                MessageBox.Show(Hata.Message);
+                MessageBox.Show(Ex.Message);
             }
         }
     }
