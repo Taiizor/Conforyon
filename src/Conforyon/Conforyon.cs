@@ -615,7 +615,7 @@ namespace Conforyon
         {
             try
             {
-                if (Decimal == false && Comma == false)
+                if (!Decimal && !Comma)
                 {
                     if (string.IsNullOrEmpty(Variable))
                         return Error;
@@ -624,9 +624,9 @@ namespace Conforyon
                 }
                 else
                 {
-                    if (Decimal == true && Comma == false)
+                    if (Decimal && !Comma)
                         return UseDecimal(Variable);
-                    else if (Decimal == false && Comma == true)
+                    else if (!Decimal && Comma)
                         return UseComma(Variable, PostComma);
                     else
                         return DecimalComma(Variable, PostComma);
@@ -651,7 +651,7 @@ namespace Conforyon
         {
             try
             {
-                if (Decimal == false && Comma == false)
+                if (!Decimal && !Comma)
                 {
                     if (string.IsNullOrEmpty(Variable))
                         return Error;
@@ -660,9 +660,9 @@ namespace Conforyon
                 }
                 else
                 {
-                    if (Decimal == true && Comma == false)
+                    if (Decimal && !Comma)
                         return LastCheck(Variable, true, true, 0, Error);
-                    else if (Decimal == false && Comma == true)
+                    else if (!Decimal && Comma)
                         return LastCheck(Variable, false, true, PostComma, Error);
                     else
                         return DecimalComma(Variable, PostComma);
@@ -678,26 +678,26 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Spaces"></param>
         /// <returns></returns>
-        public static bool UseCheck(string Variable, bool Mod = false)
+        public static bool UseCheck(string Variable, bool Spaces = false)
         {
             try
             {
-                if (!Mod)
+                if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable))
                 {
-                    if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable) && !Variable.Contains(" "))
+                    if (Spaces)
                         return true;
                     else
-                        return false;
+                    {
+                        if (Variable.Contains(" "))
+                            return false;
+                        else
+                            return true;
+                    }
                 }
                 else
-                {
-                    if (Variable != "" && !string.IsNullOrEmpty(Variable) && !string.IsNullOrWhiteSpace(Variable))
-                        return true;
-                    else
-                        return false;
-                }
+                    return false;
             }
             catch
             {
