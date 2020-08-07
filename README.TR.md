@@ -252,3 +252,125 @@ TEXTtoSHA512("Conforyon", "Hata!");
 	<ReturnValue>d47368182220aab5f687dde734acbb8d895bb2d870e789ee03216f3b215ac00a4202ead0aabce2049ae49a0079b130211323453604c088b09a27ee989de9db8b</ReturnValue>
 </FunctionResult>
 ```
+
+### Hash
+
+#### FILE -> MD5
+
+```CS
+/* FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoMD5("C:\Conforyon.dll", false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>f9d992a8e8e021c00baa6fe40a35b2fd</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoMD5("C:\Conforyon.dll", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>F9D992A8E8E021C00BAA6FE40A35B2FD</ReturnValue>
+</FunctionResult>
+```
+
+#### FILE -> SHA1
+
+```CS
+/* FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA1("C:\Conforyon.dll", false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>5622cc83830cf224545f122a3ca129d60d151dcb</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA1("C:\Conforyon.dll", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>5622CC83830CF224545F122A3CA129D60D151DCB</ReturnValue>
+</FunctionResult>
+```
+
+#### FILE -> SHA256
+
+```CS
+/* FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA256("C:\Conforyon.dll", false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>0d71a9f754b5c02cf143a4af153cbe853cda8fc096a253ebe86e6d7970615ece</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA256("C:\Conforyon.dll", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>0D71A9F754B5C02CF143A4AF153CBE853CDA8FC096A253EBE86E6D7970615ECE</ReturnValue>
+</FunctionResult>
+```
+
+#### FILE -> SHA384
+
+```CS
+/* FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA384("C:\Conforyon.dll", false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>154af1bf38dc9b0495704d0a67bf5890f89833165f14d9f4990004bea1f29341a8699e70537a188e0cade1695083c9c6</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA384("C:\Conforyon.dll", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>154AF1BF38DC9B0495704D0A67BF5890F89833165F14D9F4990004BEA1F29341A8699E70537A188E0CADE1695083C9C6</ReturnValue>
+</FunctionResult>
+```
+
+#### FILE -> SHA512
+
+```CS
+/* FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA512("C:\Conforyon.dll", false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>a9de54d604fba423c81862b0559aa21165d6d69cc751c74f7d2dcc360ba1b750f4e4fee934c24939bb15c70d9a632b203e086a1b9eeeb745e2e7959325c1e968</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+FILEtoSHA512("C:\Conforyon.dll", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>A9DE54D604FBA423C81862B0559AA21165D6D69CC751C74F7D2DCC360BA1B750F4E4FEE934C24939BB15C70D9A632B203E086A1B9EEEB745E2E7959325C1E968</ReturnValue>
+</FunctionResult>
+```

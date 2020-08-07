@@ -15,10 +15,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Path"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoMD5(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Conforyon
                         using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = MD5.ComputeHash(Stream);
-                            return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
+                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                         }
                     }
                 }
@@ -46,10 +46,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Path"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA1(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Conforyon
                         using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA1.ComputeHash(Stream);
-                            return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
+                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                         }
                     }
                 }
@@ -77,10 +77,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Path"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA256(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace Conforyon
                         using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA256.ComputeHash(Stream);
-                            return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
+                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                         }
                     }
                 }
@@ -108,10 +108,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Path"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA384(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -122,7 +122,7 @@ namespace Conforyon
                         using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA384.ComputeHash(Stream);
-                            return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
+                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                         }
                     }
                 }
@@ -139,10 +139,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Path"></param>
-        /// <param name="Mod"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA512(string Path, bool Mod = false, string Error = ErrorMessage)
+        public static string FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -153,7 +153,7 @@ namespace Conforyon
                         using (var Stream = File.OpenRead(Path))
                         {
                             var Hash = SHA512.ComputeHash(Stream);
-                            return Mod == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
+                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                         }
                     }
                 }
