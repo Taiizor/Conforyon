@@ -160,7 +160,7 @@
     <value>3</value>
   </data>
   <data name="button1.Text" xml:space="preserve">
-    <value>Çevir 1</value>
+    <value>Convert DataConvert</value>
   </data>
   <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
@@ -400,7 +400,7 @@
     <value>14</value>
   </data>
   <data name="button2.Text" xml:space="preserve">
-    <value>Çevir 2</value>
+    <value>Convert AutoDataConvert</value>
   </data>
   <data name="&gt;&gt;button2.Name" xml:space="preserve">
     <value>button2</value>
@@ -735,7 +735,7 @@
     <value>20</value>
   </data>
   <data name="button5.Text" xml:space="preserve">
-    <value>Çevir 3</value>
+    <value>Convert Temperature</value>
   </data>
   <data name="&gt;&gt;button5.Name" xml:space="preserve">
     <value>button5</value>
@@ -1738,7 +1738,7 @@
     <value>42</value>
   </data>
   <data name="button11.Text" xml:space="preserve">
-    <value>Çevir 4</value>
+    <value>Convert Color</value>
   </data>
   <data name="&gt;&gt;button11.Name" xml:space="preserve">
     <value>button11</value>
@@ -2172,7 +2172,7 @@
     <value>49</value>
   </data>
   <data name="button15.Text" xml:space="preserve">
-    <value>Çevir 5</value>
+    <value>Convert Unicode</value>
   </data>
   <data name="&gt;&gt;button15.Name" xml:space="preserve">
     <value>button15</value>
@@ -2196,7 +2196,7 @@
     <value>56</value>
   </data>
   <data name="button16.Text" xml:space="preserve">
-    <value>Çevir 6</value>
+    <value>Convert Crypto</value>
   </data>
   <data name="&gt;&gt;button16.Name" xml:space="preserve">
     <value>button16</value>
@@ -2977,7 +2977,7 @@
     <value>58</value>
   </data>
   <data name="button21.Text" xml:space="preserve">
-    <value>Çevir 7</value>
+    <value>Convert Typography</value>
   </data>
   <data name="&gt;&gt;button21.Name" xml:space="preserve">
     <value>button21</value>

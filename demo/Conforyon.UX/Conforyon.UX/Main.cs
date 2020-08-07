@@ -1,8 +1,8 @@
-﻿using System.Windows.Forms;
+﻿using ReaLTaiizor;
 
 namespace Conforyon.UX
 {
-    public partial class Main : Form
+    public partial class Main : LostForm
     {
         public Main()
         {

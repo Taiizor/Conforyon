@@ -68,7 +68,7 @@ Step 2：Enjoy conversions
 
 ### Conforyon UX
 
-![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/04/XxXx.png)
+![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/07/1bhT.png)
 
 ## Detailed Usage
 
