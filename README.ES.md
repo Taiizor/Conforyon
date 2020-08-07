@@ -70,7 +70,7 @@ Step 2：Disfruta de las conversiones
 
 ![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/07/1bhT.png)
 
-## Utilizar detallado
+## Utilizar Detallado
 
 ### Portapapeles
 
