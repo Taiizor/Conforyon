@@ -38,7 +38,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1F1!)";
+                return Error + ErrorTitle + "HH-FTM1!)";
             }
         }
 
@@ -69,7 +69,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1F2!)";
+                return Error + ErrorTitle + "HH-FTS1!)";
             }
         }
 
@@ -100,7 +100,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1F3!)";
+                return Error + ErrorTitle + "HH-FTS2!)";
             }
         }
 
@@ -131,7 +131,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1F4!)";
+                return Error + ErrorTitle + "HH-FTS3!)";
             }
         }
 
@@ -162,7 +162,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1F5!)";
+                return Error + ErrorTitle + "HH-FTS4!)";
             }
         }
     }

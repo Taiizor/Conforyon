@@ -65,7 +65,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1P!)";
+                return Error + ErrorTitle + "CB-PT1!)";
             }
         }
 

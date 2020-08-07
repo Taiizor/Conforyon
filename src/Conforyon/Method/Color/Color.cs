@@ -54,7 +54,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1H!)";
+                return Error + ErrorTitle + "CR-HTR1!)";
             }
         }
 
@@ -94,7 +94,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1R!)";
+                return Error + ErrorTitle + "CR-RTH1!)";
             }
         }
     }

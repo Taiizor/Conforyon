@@ -72,7 +72,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1B!)";
+                return Error + ErrorTitle + "CO-BTT1!)";
             }
         }
 
@@ -93,7 +93,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C!)";
+                return Error + ErrorTitle + "CO-TTB1!)";
             }
         }
 
@@ -124,7 +124,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C2!)";
+                return Error + ErrorTitle + "CO-TTM1!)";
             }
         }
 
@@ -154,7 +154,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C3!)";
+                return Error + ErrorTitle + "CO-TTS1!)";
             }
         }
 
@@ -184,7 +184,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C4!)";
+                return Error + ErrorTitle + "CO-TTS2!)";
             }
         }
 
@@ -214,7 +214,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C5!)";
+                return Error + ErrorTitle + "CO-TTS3!)";
             }
         }
 
@@ -244,7 +244,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1C6!)";
+                return Error + ErrorTitle + "CO-TTS4!)";
             }
         }
     }

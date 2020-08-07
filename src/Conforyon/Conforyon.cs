@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 07.Aug.2020
-//     Version: 1.4.6.5
+//     Version: 1.4.6.6
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -23,7 +23,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public const string ErrorTitle = " (CN-LY";
+        public const string ErrorTitle = " (CN-";
 
         /// <summary>
         /// 
@@ -304,7 +304,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1V2!)";
+                return Error + ErrorTitle + "CN-VF1!)";
             }
         }
 
@@ -313,7 +313,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        public static string UseDecimal(string Variable)
+        public static string UseDecimal(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -346,9 +346,9 @@ namespace Conforyon
                     }
                 }
             }
-            catch (Exception Error)
+            catch
             {
-                return Error + ErrorTitle + "1O2!)";
+                return Error + ErrorTitle + "CN-UD1!)";
             }
         }
 
@@ -357,7 +357,7 @@ namespace Conforyon
         /// </summary>
         /// <param name="Variable"></param>
         /// <returns></returns>
-        public static string UseDecimal2(string Variable)
+        public static string UseDecimal2(string Variable, string Error = ErrorMessage)
         {
             try
             {
@@ -391,9 +391,9 @@ namespace Conforyon
                     }
                 }
             }
-            catch (Exception Error)
+            catch
             {
-                return Error + ErrorTitle + "1O3!)";
+                return Error + ErrorTitle + "CN-UD2!)";
             }
         }
 
@@ -403,7 +403,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public static string UseComma(string Variable, int PostComma = 0)
+        public static string UseComma(string Variable, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -444,9 +444,9 @@ namespace Conforyon
                     }
                 }
             }
-            catch (Exception Error)
+            catch
             {
-                return Error + ErrorTitle + "1V3!)";
+                return Error + ErrorTitle + "CN-UC1!)";
             }
         }
 
@@ -456,7 +456,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public static string UseComma2(string Variable, int PostComma = 0)
+        public static string UseComma2(string Variable, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -487,9 +487,9 @@ namespace Conforyon
                     }
                 }
             }
-            catch (Exception Error)
+            catch
             {
-                return Error + ErrorTitle + "1v4!)";
+                return Error + ErrorTitle + "CN-UC2!)";
             }
         }
 
@@ -499,7 +499,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="PostComma"></param>
         /// <returns></returns>
-        public static string DecimalComma(string Variable, int PostComma = 0)
+        public static string DecimalComma(string Variable, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
@@ -522,9 +522,9 @@ namespace Conforyon
                     }
                 }
             }
-            catch (Exception Error)
+            catch
             {
-                return Error + ErrorTitle + "1O4!)";
+                return Error + ErrorTitle + "CN-DC1!)";
             }
         }
 
@@ -560,7 +560,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1S!)";
+                return Error + ErrorTitle + "CN-LC1!)";
             }
         }
 
@@ -596,7 +596,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "1S2!)";
+                return Error + ErrorTitle + "CN-LC2!)";
             }
         }
 
