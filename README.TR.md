@@ -259,7 +259,7 @@ TEXTtoSHA512("Conforyon", "Hata!");
 
 ```CS
 /* FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoMD5("C:\Conforyon.dll", false, "Hata!");
+FILEtoMD5("C:\\Conforyon.dll", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -270,7 +270,7 @@ FILEtoMD5("C:\Conforyon.dll", false, "Hata!");
 
 ```CS
 /* FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoMD5("C:\Conforyon.dll", true, "Hata!");
+FILEtoMD5("C:\\Conforyon.dll", true, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -283,7 +283,7 @@ FILEtoMD5("C:\Conforyon.dll", true, "Hata!");
 
 ```CS
 /* FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA1("C:\Conforyon.dll", false, "Hata!");
+FILEtoSHA1("C:\\Conforyon.dll", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -294,7 +294,7 @@ FILEtoSHA1("C:\Conforyon.dll", false, "Hata!");
 
 ```CS
 /* FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA1("C:\Conforyon.dll", true, "Hata!");
+FILEtoSHA1("C:\\Conforyon.dll", true, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -307,7 +307,7 @@ FILEtoSHA1("C:\Conforyon.dll", true, "Hata!");
 
 ```CS
 /* FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA256("C:\Conforyon.dll", false, "Hata!");
+FILEtoSHA256("C:\\Conforyon.dll", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -318,7 +318,7 @@ FILEtoSHA256("C:\Conforyon.dll", false, "Hata!");
 
 ```CS
 /* FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA256("C:\Conforyon.dll", true, "Hata!");
+FILEtoSHA256("C:\\Conforyon.dll", true, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -331,7 +331,7 @@ FILEtoSHA256("C:\Conforyon.dll", true, "Hata!");
 
 ```CS
 /* FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA384("C:\Conforyon.dll", false, "Hata!");
+FILEtoSHA384("C:\\Conforyon.dll", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -342,7 +342,7 @@ FILEtoSHA384("C:\Conforyon.dll", false, "Hata!");
 
 ```CS
 /* FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA384("C:\Conforyon.dll", true, "Hata!");
+FILEtoSHA384("C:\\Conforyon.dll", true, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -355,7 +355,7 @@ FILEtoSHA384("C:\Conforyon.dll", true, "Hata!");
 
 ```CS
 /* FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA512("C:\Conforyon.dll", false, "Hata!");
+FILEtoSHA512("C:\\Conforyon.dll", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -366,7 +366,7 @@ FILEtoSHA512("C:\Conforyon.dll", false, "Hata!");
 
 ```CS
 /* FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA512("C:\Conforyon.dll", true, "Hata!");
+FILEtoSHA512("C:\\Conforyon.dll", true, "Hata!");
 ```
 ```XML
 <FunctionResult>
