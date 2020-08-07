@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using System;
+using System.Linq;
 using System.Text;
 using static Conforyon.Conforyon;
 
@@ -16,7 +17,7 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CHARtoASCII(string Variable, string Error = ErrorMessage)
+        public static string CHARtoASCII(string Variable, char Bracket = ',', string Error = ErrorMessage)
         {
             try
             {
@@ -28,7 +29,7 @@ namespace Conforyon
                     {
                         LetterByte = UTF8Encoding.UTF8.GetBytes(Variable.Substring(i, 1)); //Encoding.ASCII
                         if (i < Variable.Length - 1)
-                            Result += LetterByte[0] + ",";
+                            Result += LetterByte[0] + Bracket;
                         else
                             Result += LetterByte[0].ToString();
                     }
@@ -49,15 +50,14 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ASCIItoCHAR(string Variable, string Error = ErrorMessage)
+        public static string ASCIItoCHAR(string Variable, char Bracket = ',', string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable))
+                if (Variable.Length <= TextLength && Variable.Contains(Bracket) && UseCheck(Variable))
                 {
                     string Result = "";
-                    char[] Brackets = { ',' };
-                    string[] Letterler = Variable.Split(Brackets);
+                    string[] Letterler = Variable.Split(Bracket);
                     for (int i = 0; i < Letterler.Length; i++)
                     {
                         if (NumberCheck(Letterler[i], false, IntType.Int32) && Letterler[i].Length >= 1 && Letterler[i].Length <= 3 && Convert.ToInt32(Letterler[i]) >= 0 && Convert.ToInt32(Letterler[i]) <= 255)
