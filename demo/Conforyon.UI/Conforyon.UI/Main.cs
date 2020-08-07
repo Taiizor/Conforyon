@@ -12,124 +12,124 @@ namespace Conforyon.UI
             InitializeComponent();
         }
 
-        Conforyon.StorageType Seçim1, Seçim2;
-        string Seçim6, Seçim12, Seçim13, Seçim14;
-        bool Seçim3, Seçim4, Seçim5, Seçim7, Seçim8, Seçim9, Seçim10, Seçim11, Seçim15, Seçim16;
+        Conforyon.StorageType Selection1, Selection2;
+        string Selection6, Selection12, Selection13, Selection14;
+        bool Selection3, Selection4, Selection5, Selection7, Selection8, Selection9, Selection10, Selection11, Selection15, Selection16;
 
         private void ComboBox()
         {
             try
             {
                 if (comboBox1.SelectedIndex == 0)
-                    Seçim1 = Conforyon.StorageType.Bit;
+                    Selection1 = Conforyon.StorageType.Bit;
                 else if (comboBox1.SelectedIndex == 1)
-                    Seçim1 = Conforyon.StorageType.Byte;
+                    Selection1 = Conforyon.StorageType.Byte;
                 else if (comboBox1.SelectedIndex == 2)
-                    Seçim1 = Conforyon.StorageType.KB;
+                    Selection1 = Conforyon.StorageType.KB;
                 else if (comboBox1.SelectedIndex == 3)
-                    Seçim1 = Conforyon.StorageType.MB;
+                    Selection1 = Conforyon.StorageType.MB;
                 else if (comboBox1.SelectedIndex == 4)
-                    Seçim1 = Conforyon.StorageType.GB;
+                    Selection1 = Conforyon.StorageType.GB;
                 else if (comboBox1.SelectedIndex == 5)
-                    Seçim1 = Conforyon.StorageType.TB;
+                    Selection1 = Conforyon.StorageType.TB;
                 else if (comboBox1.SelectedIndex == 6)
-                    Seçim1 = Conforyon.StorageType.PB;
+                    Selection1 = Conforyon.StorageType.PB;
                 else if (comboBox1.SelectedIndex == 7)
-                    Seçim1 = Conforyon.StorageType.EB;
+                    Selection1 = Conforyon.StorageType.EB;
                 else if (comboBox1.SelectedIndex == 8)
-                    Seçim1 = Conforyon.StorageType.ZB;
+                    Selection1 = Conforyon.StorageType.ZB;
                 else if (comboBox1.SelectedIndex == 9)
-                    Seçim1 = Conforyon.StorageType.YB;
+                    Selection1 = Conforyon.StorageType.YB;
                 if (comboBox2.SelectedIndex == 0)
-                    Seçim2 = Conforyon.StorageType.Bit;
+                    Selection2 = Conforyon.StorageType.Bit;
                 else if (comboBox2.SelectedIndex == 1)
-                    Seçim2 = Conforyon.StorageType.Byte;
+                    Selection2 = Conforyon.StorageType.Byte;
                 else if (comboBox2.SelectedIndex == 2)
-                    Seçim2 = Conforyon.StorageType.KB;
+                    Selection2 = Conforyon.StorageType.KB;
                 else if (comboBox2.SelectedIndex == 3)
-                    Seçim2 = Conforyon.StorageType.MB;
+                    Selection2 = Conforyon.StorageType.MB;
                 else if (comboBox2.SelectedIndex == 4)
-                    Seçim2 = Conforyon.StorageType.GB;
+                    Selection2 = Conforyon.StorageType.GB;
                 else if (comboBox2.SelectedIndex == 5)
-                    Seçim2 = Conforyon.StorageType.TB;
+                    Selection2 = Conforyon.StorageType.TB;
                 else if (comboBox2.SelectedIndex == 6)
-                    Seçim2 = Conforyon.StorageType.PB;
+                    Selection2 = Conforyon.StorageType.PB;
                 else if (comboBox2.SelectedIndex == 7)
-                    Seçim2 = Conforyon.StorageType.EB;
+                    Selection2 = Conforyon.StorageType.EB;
                 else if (comboBox2.SelectedIndex == 8)
-                    Seçim2 = Conforyon.StorageType.ZB;
+                    Selection2 = Conforyon.StorageType.ZB;
                 else if (comboBox2.SelectedIndex == 9)
-                    Seçim2 = Conforyon.StorageType.YB;
+                    Selection2 = Conforyon.StorageType.YB;
                 if (comboBox3.SelectedIndex == 0)
-                    Seçim3 = true;
+                    Selection3 = true;
                 else
-                    Seçim3 = false;
+                    Selection3 = false;
                 if (comboBox4.SelectedIndex == 0)
-                    Seçim4 = true;
+                    Selection4 = true;
                 else
-                    Seçim4 = false;
+                    Selection4 = false;
                 if (comboBox5.SelectedIndex == 0)
-                    Seçim5 = true;
+                    Selection5 = true;
                 else
-                    Seçim5 = false;
+                    Selection5 = false;
                 if (comboBox6.SelectedIndex == 0)
-                    Seçim6 = "C=>F";
+                    Selection6 = "C=>F";
                 else
-                    Seçim6 = "F=>C";
+                    Selection6 = "F=>C";
                 if (comboBox7.SelectedIndex == 0)
-                    Seçim7 = true;
+                    Selection7 = true;
                 else
-                    Seçim7 = false;
+                    Selection7 = false;
                 if (comboBox8.SelectedIndex == 0)
-                    Seçim8 = true;
+                    Selection8 = true;
                 else
-                    Seçim8 = false;
+                    Selection8 = false;
                 if (comboBox9.SelectedIndex == 0)
-                    Seçim9 = true;
+                    Selection9 = true;
                 else
-                    Seçim9 = false;
+                    Selection9 = false;
                 if (comboBox10.SelectedIndex == 0)
-                    Seçim10 = true;
+                    Selection10 = true;
                 else
-                    Seçim10 = false;
+                    Selection10 = false;
                 if (comboBox11.SelectedIndex == 0)
-                    Seçim11 = true;
+                    Selection11 = true;
                 else
-                    Seçim11 = false;
+                    Selection11 = false;
                 if (comboBox12.SelectedIndex == 0)
-                    Seçim12 = "Text=>Base64";
+                    Selection12 = "Text=>Base64";
                 else if (comboBox12.SelectedIndex == 1)
-                    Seçim12 = "Text=>MD5";
+                    Selection12 = "Text=>MD5";
                 else if (comboBox12.SelectedIndex == 2)
-                    Seçim12 = "Text=>SHA1";
+                    Selection12 = "Text=>SHA1";
                 else if (comboBox12.SelectedIndex == 3)
-                    Seçim12 = "Text=>SHA256";
+                    Selection12 = "Text=>SHA256";
                 else if (comboBox12.SelectedIndex == 4)
-                    Seçim12 = "Text=>SHA384";
+                    Selection12 = "Text=>SHA384";
                 else if (comboBox12.SelectedIndex == 5)
-                    Seçim12 = "Text=>SHA512";
+                    Selection12 = "Text=>SHA512";
                 else if (comboBox12.SelectedIndex == 6)
-                    Seçim12 = "Base64=>Text";
+                    Selection12 = "Base64=>Text";
                 if (comboBox17.SelectedIndex == 0)
-                    Seçim13 = "INCH";
+                    Selection13 = "INCH";
                 else if (comboBox17.SelectedIndex == 1)
-                    Seçim13 = "CM";
+                    Selection13 = "CM";
                 else
-                    Seçim13 = "PX";
+                    Selection13 = "PX";
                 if (comboBox13.SelectedIndex == 0)
-                    Seçim14 = "INCH";
+                    Selection14 = "INCH";
                 else if (comboBox13.SelectedIndex == 1)
-                    Seçim14 = "CM";
+                    Selection14 = "CM";
                 else
-                    Seçim14 = "PX";
+                    Selection14 = "PX";
                 if (comboBox16.SelectedIndex == 0)
-                    Seçim15 = true;
+                    Selection15 = true;
                 else
-                    Seçim15 = false;
+                    Selection15 = false;
                 if (comboBox15.SelectedIndex == 0)
-                    Seçim16 = true;
+                    Selection16 = true;
                 else
-                    Seçim16 = false;
+                    Selection16 = false;
             }
             catch (Exception Hata)
             {
@@ -196,7 +196,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = DataStorage.DataConvert(textBox3.Text, Seçim1, Seçim2, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = DataStorage.DataConvert(textBox3.Text, Selection1, Selection2, Selection3, Selection4, Convert.ToInt32(textBox7.Text), "Error!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -212,7 +212,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox7.Text))
                     textBox7.Text = "1";
-                textBox4.Text = DataStorage.AutoDataConvert(textBox3.Text, Seçim1, Seçim5, Seçim3, Seçim4, Convert.ToInt32(textBox7.Text), "Hata!");
+                textBox4.Text = DataStorage.AutoDataConvert(textBox3.Text, Selection1, Selection5, Selection3, Selection4, Convert.ToInt32(textBox7.Text), "Error!");
                 button4.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -259,10 +259,10 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox5.Text))
                     textBox5.Text = "1";
-                if (Seçim6 == "C=>F")
-                    textBox2.Text = Temperature.CtoF(textBox1.Text, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                if (Selection6 == "C=>F")
+                    textBox2.Text = Temperature.CtoF(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 else
-                    textBox2.Text = Temperature.FtoC(textBox1.Text, Seçim9, Seçim8, Convert.ToInt32(textBox5.Text), Seçim7, "Hata!");
+                    textBox2.Text = Temperature.FtoC(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 button6.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -353,13 +353,13 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Seçim10 == true)
-                    textBox8.Text = Color.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Hata!");
+                if (Selection10 == true)
+                    textBox8.Text = Color.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Error!");
                 else
                 {
-                    textBox6.Text = Color.HEXtoRGB(textBox8.Text, 8, "Hata!");
-                    textBox9.Text = Color.HEXtoRGB(textBox8.Text, 9, "Hata!");
-                    textBox10.Text = Color.HEXtoRGB(textBox8.Text, 10, "Hata!");
+                    textBox6.Text = Color.HEXtoRGB(textBox8.Text, 8, "Error!");
+                    textBox9.Text = Color.HEXtoRGB(textBox8.Text, 9, "Error!");
+                    textBox10.Text = Color.HEXtoRGB(textBox8.Text, 10, "Error!");
                 }
 
                 button9.Cursor = Cursors.Hand;
@@ -416,10 +416,10 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Seçim11 == true)
-                    textBox12.Text = Unicode.CHARtoASCII(textBox11.Text, "Hata!");
+                if (Selection11 == true)
+                    textBox12.Text = Unicode.CHARtoASCII(textBox11.Text, "Error!");
                 else
-                    textBox11.Text = Unicode.ASCIItoCHAR(textBox12.Text, "Hata!");
+                    textBox11.Text = Unicode.ASCIItoCHAR(textBox12.Text, "Error!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
@@ -434,20 +434,20 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Seçim12 == "Text=>Base64")
-                    textBox13.Text = Crypto.TEXTtoBASE64(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Text=>MD5")
-                    textBox13.Text = Crypto.TEXTtoMD5(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Textar=>SHA1")
-                    textBox13.Text = Crypto.TEXTtoSHA1(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Text=>SHA256")
-                    textBox13.Text = Crypto.TEXTtoSHA256(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Text=>SHA384")
-                    textBox13.Text = Crypto.TEXTtoSHA384(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Text=>SHA512")
-                    textBox13.Text = Crypto.TEXTtoSHA512(textBox14.Text, "Hata!");
-                else if (Seçim12 == "Base64=>Text")
-                    textBox13.Text = Crypto.BASE64toTEXT(textBox14.Text, "Hata!");
+                if (Selection12 == "Text=>Base64")
+                    textBox13.Text = Crypto.TEXTtoBASE64(textBox14.Text, "Error!");
+                else if (Selection12 == "Text=>MD5")
+                    textBox13.Text = Crypto.TEXTtoMD5(textBox14.Text, "Error!");
+                else if (Selection12 == "Textar=>SHA1")
+                    textBox13.Text = Crypto.TEXTtoSHA1(textBox14.Text, "Error!");
+                else if (Selection12 == "Text=>SHA256")
+                    textBox13.Text = Crypto.TEXTtoSHA256(textBox14.Text, "Error!");
+                else if (Selection12 == "Text=>SHA384")
+                    textBox13.Text = Crypto.TEXTtoSHA384(textBox14.Text, "Error!");
+                else if (Selection12 == "Text=>SHA512")
+                    textBox13.Text = Crypto.TEXTtoSHA512(textBox14.Text, "Error!");
+                else if (Selection12 == "Base64=>Text")
+                    textBox13.Text = Crypto.BASE64toTEXT(textBox14.Text, "Error!");
                 button17.Cursor = Cursors.Hand;
             }
             catch (Exception Hata)
@@ -504,32 +504,32 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox15.Text))
                     textBox15.Text = "1";
-                if (Seçim13 == "INCH")
+                if (Selection13 == "INCH")
                 {
-                    if (Seçim14 == "CM")
-                        textBox16.Text = Typography.INCHtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
-                    else if (Seçim14 == "PX")
-                        textBox16.Text = Typography.INCHtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                    if (Selection14 == "CM")
+                        textBox16.Text = Typography.INCHtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                    else if (Selection14 == "PX")
+                        textBox16.Text = Typography.INCHtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else
-                        textBox16.Text = "Hata!";
+                        textBox16.Text = "Error!";
                 }
-                else if (Seçim13 == "CM")
+                else if (Selection13 == "CM")
                 {
-                    if (Seçim14 == "INCH")
-                        textBox16.Text = Typography.CMtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
-                    else if (Seçim14 == "PX")
-                        textBox16.Text = Typography.CMtoPX(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                    if (Selection14 == "INCH")
+                        textBox16.Text = Typography.CMtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                    else if (Selection14 == "PX")
+                        textBox16.Text = Typography.CMtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else
-                        textBox16.Text = "Hata!";
+                        textBox16.Text = "Error!";
                 }
-                else if (Seçim13 == "PX")
+                else if (Selection13 == "PX")
                 {
-                    if (Seçim14 == "INCH")
-                        textBox16.Text = Typography.PXtoINCH(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
-                    else if (Seçim14 == "CM")
-                        textBox16.Text = Typography.PXtoCM(textBox17.Text, Seçim15, Seçim16, Convert.ToInt32(textBox15.Text), "Hata!");
+                    if (Selection14 == "INCH")
+                        textBox16.Text = Typography.PXtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                    else if (Selection14 == "CM")
+                        textBox16.Text = Typography.PXtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else
-                        textBox16.Text = "Hata!";
+                        textBox16.Text = "Error!";
                 }
                 button18.Cursor = Cursors.Hand;
             }
@@ -546,20 +546,20 @@ namespace Conforyon.UI
                 this.CenterToScreen();
                 comboBox1.SelectedIndex = comboBox1.Items.IndexOf("GigaByte");
                 comboBox2.SelectedIndex = comboBox2.Items.IndexOf("MegaByte");
-                comboBox3.SelectedIndex = comboBox3.Items.IndexOf("Ondalık Açık");
-                comboBox4.SelectedIndex = comboBox4.Items.IndexOf("Küsürat Kapalı");
-                comboBox5.SelectedIndex = comboBox5.Items.IndexOf("Çevir2 Tür Açık");
+                comboBox3.SelectedIndex = comboBox3.Items.IndexOf("Decimal On");
+                comboBox4.SelectedIndex = comboBox4.Items.IndexOf("Fraction Off");
+                comboBox5.SelectedIndex = comboBox5.Items.IndexOf("ADC Type On");
                 comboBox6.SelectedIndex = comboBox6.Items.IndexOf("C - Celsius => F - Fahrenheit");
-                comboBox7.SelectedIndex = comboBox7.Items.IndexOf("Çevir3 Tür Açık");
-                comboBox8.SelectedIndex = comboBox8.Items.IndexOf("Küsürat Açık");
-                comboBox9.SelectedIndex = comboBox9.Items.IndexOf("Ondalık Açık");
+                comboBox7.SelectedIndex = comboBox7.Items.IndexOf("Type On");
+                comboBox8.SelectedIndex = comboBox8.Items.IndexOf("Fraction On");
+                comboBox9.SelectedIndex = comboBox9.Items.IndexOf("Decimal On");
                 comboBox10.SelectedIndex = comboBox10.Items.IndexOf("RGB => HEX");
                 comboBox11.SelectedIndex = comboBox11.Items.IndexOf("Char => ASCII");
                 comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Text => Base64");
                 comboBox13.SelectedIndex = comboBox13.Items.IndexOf("CM");
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
-                comboBox15.SelectedIndex = comboBox4.Items.IndexOf("Küsürat Açık");
-                comboBox16.SelectedIndex = comboBox3.Items.IndexOf("Ondalık Açık");
+                comboBox15.SelectedIndex = comboBox4.Items.IndexOf("Fraction On");
+                comboBox16.SelectedIndex = comboBox3.Items.IndexOf("Decimal On");
             }
             catch (Exception Hata)
             {

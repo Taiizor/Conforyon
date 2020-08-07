@@ -286,10 +286,10 @@
     <value>53</value>
   </data>
   <data name="comboBox3.Items" xml:space="preserve">
-    <value>Ondalık Açık</value>
+    <value>Decimal On</value>
   </data>
   <data name="comboBox3.Items1" xml:space="preserve">
-    <value>Ondalık Kapalı</value>
+    <value>Decimal Off</value>
   </data>
   <data name="comboBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 87</value>
@@ -313,10 +313,10 @@
     <value>51</value>
   </data>
   <data name="comboBox4.Items" xml:space="preserve">
-    <value>Küsürat Açık</value>
+    <value>Fraction On</value>
   </data>
   <data name="comboBox4.Items1" xml:space="preserve">
-    <value>Küsürat Kapalı</value>
+    <value>Fraction Off</value>
   </data>
   <data name="comboBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 113</value>
@@ -415,10 +415,10 @@
     <value>48</value>
   </data>
   <data name="comboBox5.Items" xml:space="preserve">
-    <value>Çevir2 Tür Açık</value>
+    <value>ADC Type On</value>
   </data>
   <data name="comboBox5.Items1" xml:space="preserve">
-    <value>Çevir2 Tür Kapalı</value>
+    <value>ADC Type Off</value>
   </data>
   <data name="comboBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 86</value>
@@ -882,10 +882,10 @@
     <value>40</value>
   </data>
   <data name="comboBox7.Items" xml:space="preserve">
-    <value>Çevir3 Tür Açık</value>
+    <value>Type On</value>
   </data>
   <data name="comboBox7.Items1" xml:space="preserve">
-    <value>Çevir3 Tür Kapalı</value>
+    <value>Type Off</value>
   </data>
   <data name="comboBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>330, 86</value>
@@ -909,10 +909,10 @@
     <value>39</value>
   </data>
   <data name="comboBox8.Items" xml:space="preserve">
-    <value>Küsürat Açık</value>
+    <value>Fraction On</value>
   </data>
   <data name="comboBox8.Items1" xml:space="preserve">
-    <value>Küsürat Kapalı</value>
+    <value>Fraction Off</value>
   </data>
   <data name="comboBox8.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 113</value>
@@ -966,10 +966,10 @@
     <value>38</value>
   </data>
   <data name="comboBox9.Items" xml:space="preserve">
-    <value>Ondalık Açık</value>
+    <value>Decimal On</value>
   </data>
   <data name="comboBox9.Items1" xml:space="preserve">
-    <value>Ondalık Kapalı</value>
+    <value>Decimal Off</value>
   </data>
   <data name="comboBox9.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 86</value>
@@ -2821,10 +2821,10 @@
     <value>2</value>
   </data>
   <data name="comboBox15.Items" xml:space="preserve">
-    <value>Küsürat Açık</value>
+    <value>Fraction On</value>
   </data>
   <data name="comboBox15.Items1" xml:space="preserve">
-    <value>Küsürat Kapalı</value>
+    <value>Fraction Off</value>
   </data>
   <data name="comboBox15.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 319</value>
@@ -2848,10 +2848,10 @@
     <value>3</value>
   </data>
   <data name="comboBox16.Items" xml:space="preserve">
-    <value>Ondalık Açık</value>
+    <value>Decimal On</value>
   </data>
   <data name="comboBox16.Items1" xml:space="preserve">
-    <value>Ondalık Kapalı</value>
+    <value>Decimal Off</value>
   </data>
   <data name="comboBox16.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 293</value>
