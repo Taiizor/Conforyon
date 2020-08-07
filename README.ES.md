@@ -620,3 +620,31 @@ PXtoINCH("12345", false, false, 0, "¡Error!");
 	<ReturnValue>128</ReturnValue>
 </FunctionResult>
 ```
+
+### Unicode
+
+#### CHAR -> ASCII
+
+```CS
+/* CHARtoASCII(string Variable, string Error = ErrorMessage) */
+CHARtoASCII("Conforyon", "¡Error!!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>67,111,110,102,111,114,121,111,110</ReturnValue>
+</FunctionResult>
+```
+
+#### ASCII -> CHAR
+
+```CS
+/* ASCIItoCHAR(string Variable, string Error = ErrorMessage) */
+ASCIItoCHAR("67,111,110,102,111,114,121,111,110", "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>Conforyon</ReturnValue>
+</FunctionResult>
+```
