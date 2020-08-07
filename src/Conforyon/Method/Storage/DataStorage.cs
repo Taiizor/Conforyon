@@ -21,62 +21,58 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string AutoDataConvert(string InputVariable, string InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string AutoDataConvert(string InputVariable, StorageType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && Array.IndexOf(StorageTypes, InputType) >= 0 && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable) && UseCheck(InputType))
+                if (InputVariable.Length <= VariableLength && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
-                    string Type = null;
-                    if (InputType == StorageTypes[StorageTypes.Length - 1])
-                        Type = StorageTypes[StorageTypes.Length - 1];
+                    StorageType Type = InputType;
+                    if (InputType == StorageType.YB)
+                        Type = StorageType.YB;
                     else
                     {
-                        for (int i = Array.IndexOf(StorageTypes, InputType); i < StorageTypes.Length; i++)
+                        for (int i = (int)InputType; i <= (int)StorageType.YB; i++)
                         {
-                            if (DataConvert(InputVariable, InputType, StorageTypes[i], false, false, 0, Error) == "0")
+                            if (DataConvert(InputVariable, InputType, (StorageType)i, false, false, 0, Error) == "0")
                             {
-                                Type = StorageTypes[i - 1];
+                                Type = (StorageType)i - 1;
                                 break;
                             }
                             else
                             {
-                                if (StorageTypes[i] == StorageTypes[StorageTypes.Length - 1])
-                                    Type = StorageTypes[i];
+                                if ((StorageType)i == StorageType.YB)
+                                    Type = (StorageType)i;
                             }
                         }
                     }
-                    if (string.IsNullOrEmpty(Type))
-                        return Error;
+
+                    if (InputType != Type)
+                    {
+                        string Sonuç = DataConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
+                        if (TypeText == false || Sonuç == Error)
+                            return Sonuç;
+                        else
+                            return Sonuç + " " + Type;
+                    }
                     else
                     {
-                        if (InputType != Type)
-                        {
-                            string Sonuç = DataConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
-                            if (TypeText == false || Sonuç == Error)
-                                return Sonuç;
-                            else
-                                return Sonuç + " " + Type;
-                        }
+                        string Sonuç = null;
+                        if (!Decimal && !Comma)
+                            Sonuç = InputVariable;
                         else
                         {
-                            string Sonuç = null;
-                            if (!Decimal && !Comma)
-                                Sonuç = InputVariable;
+                            if (Decimal && !Comma)
+                                Sonuç = UseDecimal(InputVariable);
+                            else if (!Decimal && Comma)
+                                Sonuç = UseComma(InputVariable, PostComma);
                             else
-                            {
-                                if (Decimal && !Comma)
-                                    Sonuç = UseDecimal(InputVariable);
-                                else if (!Decimal && Comma)
-                                    Sonuç = UseComma(InputVariable, PostComma);
-                                else
-                                    Sonuç = DecimalComma(InputVariable, PostComma);
-                            }
-                            if (TypeText)
-                                return Sonuç + " " + Type;
-                            else
-                                return Sonuç;
+                                Sonuç = DecimalComma(InputVariable, PostComma);
                         }
+                        if (TypeText)
+                            return Sonuç + " " + Type;
+                        else
+                            return Sonuç;
                     }
                 }
                 else

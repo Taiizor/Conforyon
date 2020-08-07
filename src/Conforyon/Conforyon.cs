@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 06.Aug.2020
+//     Changed: 07.Aug.2020
 //     Version: 1.4.6.5
 //
 // |---------DO-NOT-REMOVE---------|
@@ -84,22 +84,6 @@ namespace Conforyon
         #endregion
 
         #region Arrays
-        /// <summary>
-        /// 
-        /// </summary>
-        public static readonly string[] StorageTypes = {
-            "Bit",
-            "Byte",
-            "KB",
-            "MB",
-            "GB",
-            "TB",
-            "PB",
-            "EB",
-            "ZB",
-            "YB"
-        };
-
         /// <summary>
         /// 
         /// </summary>

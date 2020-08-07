@@ -39,6 +39,9 @@
     <ApplicationIcon>Resources\Fork1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Conforyon">
+      <HintPath>..\Conforyon\bin\Release\net48\Conforyon.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
