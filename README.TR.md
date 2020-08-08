@@ -626,8 +626,8 @@ PXtoINCH("12345", false, false, 0, "Hata!");
 #### CHAR -> ASCII
 
 ```CS
-/* CHARtoASCII(string Variable, string Error = ErrorMessage) */
-CHARtoASCII("Conforyon", "Hata!");
+/* CHARtoASCII(string Variable, char Bracket = ',', string Error = ErrorMessage) */
+CHARtoASCII("Conforyon", ',', "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -639,8 +639,8 @@ CHARtoASCII("Conforyon", "Hata!");
 #### ASCII -> CHAR
 
 ```CS
-/* ASCIItoCHAR(string Variable, string Error = ErrorMessage) */
-ASCIItoCHAR("67,111,110,102,111,114,121,111,110", "Hata!");
+/* ASCIItoCHAR(string Variable, char Bracket = ',', string Error = ErrorMessage) */
+ASCIItoCHAR("67,111,110,102,111,114,121,111,110", ',', "Hata!");
 ```
 ```XML
 <FunctionResult>
