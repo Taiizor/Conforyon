@@ -39,8 +39,8 @@
     <StartupObject>Conforyon.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Conforyon, Version=1.4.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Conforyon.1.4.7\lib\net48\Conforyon.dll</HintPath>
+    <Reference Include="Conforyon, Version=1.4.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Conforyon.1.4.7.1\lib\net48\Conforyon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
