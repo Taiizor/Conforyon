@@ -55,14 +55,24 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= TextLength && Variable.Contains(Bracket.ToString()) && UseCheck(Variable, Bracket == ' '))
+                if (Variable.Length <= TextLength && UseCheck(Variable, Bracket == ' '))
                 {
-                    string Result = "";
-                    string[] Letters = Variable.Split(Bracket);
-                    for (int i = 0; i < Letters.Length; i++)
+                    string Result = string.Empty;
+                    if (Variable.Contains(Bracket.ToString()))
                     {
-                        if (NumberCheck(Letters[i], false, IntType.Int32) && Letters[i].Length >= 1 && Letters[i].Length <= 3 && Convert.ToInt32(Letters[i]) >= 0 && Convert.ToInt32(Letters[i]) <= 255)
-                            Result += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letters[i]) }); //Encoding.ASCII
+                        string[] Letters = Variable.Split(Bracket);
+                        for (int i = 0; i < Letters.Length; i++)
+                        {
+                            if (NumberCheck(Letters[i], false, IntType.Int32) && Letters[i].Length >= 1 && Letters[i].Length <= 3 && Convert.ToInt32(Letters[i]) >= 0 && Convert.ToInt32(Letters[i]) <= 255)
+                                Result += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letters[i]) }); //Encoding.ASCII
+                            else
+                                return Error;
+                        }
+                    }
+                    else
+                    {
+                        if (NumberCheck(Variable, false, IntType.Int32) && Variable.Length >= 1 && Variable.Length <= 3 && Convert.ToInt32(Variable) >= 0 && Convert.ToInt32(Variable) <= 255)
+                            Result = UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Variable) }); //Encoding.ASCII
                         else
                             return Error;
                     }

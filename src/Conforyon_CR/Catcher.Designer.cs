@@ -138,7 +138,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(282, 20);
             this.textBox7.TabIndex = 9;
-            this.textBox7.Text = "67,111,110,102,111,114,121,111,110";
+            this.textBox7.Text = "67";
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button4
