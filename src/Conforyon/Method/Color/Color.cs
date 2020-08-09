@@ -14,17 +14,21 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Variable"></param>
-        /// <param name="Mode"></param>
+        /// <param name="Type"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage)
+        public static string HEXtoRGB(string Variable, ColorType Type = ColorType.RGB1, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length == 6 && UseCheck(Variable))
+                if ((Variable.Length == 6 && UseCheck(Variable)) || (Variable.Length == 7 && Variable.StartsWith("#") && UseCheck(Variable.Substring(1, Variable.Length - 1))))
                 {
-                    System.Drawing.Color HexColor = ColorTranslator.FromHtml("#" + Variable);
-                    switch (Mode)
+                    System.Drawing.Color HexColor;
+                    if (Variable.StartsWith("#"))
+                        HexColor = ColorTranslator.FromHtml(Variable);
+                    else
+                        HexColor = ColorTranslator.FromHtml("#" + Variable);
+                    switch (Type)
                     {
                         case ColorType.RGB1:
                             return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;

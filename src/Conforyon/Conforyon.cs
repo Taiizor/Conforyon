@@ -10,8 +10,8 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 08.Aug.2020
-//     Version: 1.4.7.1
+//     Changed: 10.Aug.2020
+//     Version: 1.4.7.2
 //
 // |---------DO-NOT-REMOVE---------|
 
