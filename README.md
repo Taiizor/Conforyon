@@ -127,7 +127,7 @@ HEXtoRGB("FFFFFF", ColorType.RGB1, "Error!");
 
 ```CS
 /* HEXtoRGB(string Variable, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
-HEXtoRGB("000000", ColorType.RRGGBB1, "Error!");
+HEXtoRGB("#000000", ColorType.RRGGBB1, "Error!");
 ```
 ```XML
 <FunctionResult>
