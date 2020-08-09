@@ -115,7 +115,7 @@ PasteAudio(true);
 #### HEX -> RGB
 
 ```CS
-/* HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage) */
+/* HEXtoRGB(string Variable, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
 HEXtoRGB("FFFFFF", ColorType.RGB1, "Hata!");
 ```
 ```XML
@@ -126,7 +126,7 @@ HEXtoRGB("FFFFFF", ColorType.RGB1, "Hata!");
 ```
 
 ```CS
-/* HEXtoRGB(string Variable, ColorType Mode = ColorType.RGB1, string Error = ErrorMessage) */
+/* HEXtoRGB(string Variable, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
 HEXtoRGB("000000", ColorType.RRGGBB1, "Hata!");
 ```
 ```XML
