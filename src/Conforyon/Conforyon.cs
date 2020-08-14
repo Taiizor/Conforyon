@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 14.Aug.2020
-//     Version: 1.4.7.2
+//     Version: 1.4.7.3
 //
 // |---------DO-NOT-REMOVE---------|
 
