@@ -139,8 +139,8 @@ HEXtoRGB("#000000", ColorType.RRGGBB1, "Hata!");
 #### RGB -> HEX
 
 ```CS
-/* RGBtoHEX(string R, string G, string B, bool Sharp = false, string Error = ErrorMessage) */
-RGBtoHEX("255", "255", "255", true, "Hata!");
+/* RGBtoHEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage) */
+RGBtoHEX(255, 255, 255, true, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -150,8 +150,8 @@ RGBtoHEX("255", "255", "255", true, "Hata!");
 ```
 
 ```CS
-/* RGBtoHEX(string R, string G, string B, bool Sharp = false, string Error = ErrorMessage) */
-RGBtoHEX("0", "0", "0", false, "Hata!");
+/* RGBtoHEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage) */
+RGBtoHEX(0, 0, 0, false, "Hata!");
 ```
 ```XML
 <FunctionResult>
