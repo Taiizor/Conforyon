@@ -165,7 +165,7 @@ RGBtoHEX(0, 0, 0, false, "¡Error!");
 #### TEXT -> BASE64
 
 ```CS
-/* TEXTtoBASE64(string Variable, string Error = ErrorMessage) */
+/* TEXTtoBASE64(string Text, string Error = ErrorMessage) */
 TEXTtoBASE64("Conforyon", "¡Error!");
 ```
 ```XML
@@ -178,7 +178,7 @@ TEXTtoBASE64("Conforyon", "¡Error!");
 #### BASE64 -> TEXT
 
 ```CS
-/* BASE64toTEXT(string Variable, string Error = ErrorMessage) */
+/* BASE64toTEXT(string Base64, string Error = ErrorMessage) */
 BASE64toTEXT("Q29uZm9yeW9u", "¡Error!");
 ```
 ```XML
@@ -191,7 +191,7 @@ BASE64toTEXT("Q29uZm9yeW9u", "¡Error!");
 #### TEXT -> MD5
 
 ```CS
-/* TEXTtoMD5(string Variable, string Error = ErrorMessage) */
+/* TEXTtoMD5(string Text, string Error = ErrorMessage) */
 TEXTtoMD5("Conforyon", "¡Error!");
 ```
 ```XML
@@ -204,7 +204,7 @@ TEXTtoMD5("Conforyon", "¡Error!");
 #### TEXT -> SHA1
 
 ```CS
-/* TEXTtoSHA1(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA1(string Text, string Error = ErrorMessage) */
 TEXTtoSHA1("Conforyon", "¡Error!");
 ```
 ```XML
@@ -217,7 +217,7 @@ TEXTtoSHA1("Conforyon", "¡Error!");
 #### TEXT -> SHA256
 
 ```CS
-/* TEXTtoSHA256(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA256(string Text, string Error = ErrorMessage) */
 TEXTtoSHA256("Conforyon", "¡Error!");
 ```
 ```XML
@@ -230,7 +230,7 @@ TEXTtoSHA256("Conforyon", "¡Error!");
 #### TEXT -> SHA384
 
 ```CS
-/* TEXTtoSHA384(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA384(string Text, string Error = ErrorMessage) */
 TEXTtoSHA384("Conforyon", "¡Error!");
 ```
 ```XML
@@ -243,7 +243,7 @@ TEXTtoSHA384("Conforyon", "¡Error!");
 #### TEXT -> SHA512
 
 ```CS
-/* TEXTtoSHA512(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA512(string Text, string Error = ErrorMessage) */
 TEXTtoSHA512("Conforyon", "¡Error!");
 ```
 ```XML

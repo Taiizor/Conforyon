@@ -14,36 +14,36 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Base64"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string BASE64toTEXT(string Variable, string Error = ErrorMessage)
+        public static string BASE64toTEXT(string Base64, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable))
+                if (Base64.Length <= TextLength && UseCheck(Base64))
                 {
-                    if (Variable.EndsWith("="))
+                    if (Base64.EndsWith("="))
                     {
                         try
                         {
-                            return Encoding.UTF8.GetString(Convert.FromBase64String(Variable));
+                            return Encoding.UTF8.GetString(Convert.FromBase64String(Base64));
                         }
                         catch
                         {
                             try
                             {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "="));
+                                return Encoding.UTF8.GetString(Convert.FromBase64String(Base64 + "="));
                             }
                             catch
                             {
                                 try
                                 {
-                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Variable.Remove(Variable.Length - 1)));
+                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Base64.Remove(Base64.Length - 1)));
                                 }
                                 catch
                                 {
-                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Variable.Remove(Variable.Length - 2)));
+                                    return Encoding.UTF8.GetString(Convert.FromBase64String(Base64.Remove(Base64.Length - 2)));
                                 }
                             }
                         }
@@ -52,17 +52,17 @@ namespace Conforyon
                     {
                         try
                         {
-                            return Encoding.UTF8.GetString(Convert.FromBase64String(Variable));
+                            return Encoding.UTF8.GetString(Convert.FromBase64String(Base64));
                         }
                         catch
                         {
                             try
                             {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "="));
+                                return Encoding.UTF8.GetString(Convert.FromBase64String(Base64 + "="));
                             }
                             catch
                             {
-                                return Encoding.UTF8.GetString(Convert.FromBase64String(Variable + "=="));
+                                return Encoding.UTF8.GetString(Convert.FromBase64String(Base64 + "=="));
                             }
                         }
                     }
@@ -79,15 +79,15 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoBASE64(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoBASE64(string Text, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
-                    return Convert.ToBase64String(Encoding.UTF8.GetBytes(Variable));
+                if (Text.Length <= TextLength && UseCheck(Text, true))
+                    return Convert.ToBase64String(Encoding.UTF8.GetBytes(Text));
                 else
                     return Error;
             }
@@ -100,18 +100,18 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoMD5(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoMD5(string Text, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
+                if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
                     using (MD5 MD5 = MD5.Create())
                     {
-                        MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                         byte[] Result = MD5.Hash;
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
@@ -131,18 +131,18 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA1(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA1(string Text, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
+                if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
                     using (SHA1 SHA1 = SHA1.Create())
                     {
-                        byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
@@ -161,18 +161,18 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA256(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA256(string Text, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
+                if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
                     using (SHA256 SHA256 = SHA256.Create())
                     {
-                        byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
@@ -191,18 +191,18 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA384(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA384(string Text, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
+                if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
                     using (SHA384 SHA384 = SHA384.Create())
                     {
-                        byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
@@ -221,18 +221,18 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA512(string Variable, string Error = ErrorMessage)
+        public static string TEXTtoSHA512(string Text, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
+                if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
                     using (SHA512 SHA512 = SHA512.Create())
                     {
-                        byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Variable));
+                        byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));

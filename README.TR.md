@@ -165,7 +165,7 @@ RGBtoHEX(0, 0, 0, false, "Hata!");
 #### TEXT -> BASE64
 
 ```CS
-/* TEXTtoBASE64(string Variable, string Error = ErrorMessage) */
+/* TEXTtoBASE64(string Text, string Error = ErrorMessage) */
 TEXTtoBASE64("Conforyon", "Hata!");
 ```
 ```XML
@@ -178,7 +178,7 @@ TEXTtoBASE64("Conforyon", "Hata!");
 #### BASE64 -> TEXT
 
 ```CS
-/* BASE64toTEXT(string Variable, string Error = ErrorMessage) */
+/* BASE64toTEXT(string Base64, string Error = ErrorMessage) */
 BASE64toTEXT("Q29uZm9yeW9u", "Hata!");
 ```
 ```XML
@@ -191,7 +191,7 @@ BASE64toTEXT("Q29uZm9yeW9u", "Hata!");
 #### TEXT -> MD5
 
 ```CS
-/* TEXTtoMD5(string Variable, string Error = ErrorMessage) */
+/* TEXTtoMD5(string Text, string Error = ErrorMessage) */
 TEXTtoMD5("Conforyon", "Hata!");
 ```
 ```XML
@@ -204,7 +204,7 @@ TEXTtoMD5("Conforyon", "Hata!");
 #### TEXT -> SHA1
 
 ```CS
-/* TEXTtoSHA1(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA1(string Text, string Error = ErrorMessage) */
 TEXTtoSHA1("Conforyon", "Hata!");
 ```
 ```XML
@@ -217,7 +217,7 @@ TEXTtoSHA1("Conforyon", "Hata!");
 #### TEXT -> SHA256
 
 ```CS
-/* TEXTtoSHA256(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA256(string Text, string Error = ErrorMessage) */
 TEXTtoSHA256("Conforyon", "Hata!");
 ```
 ```XML
@@ -230,7 +230,7 @@ TEXTtoSHA256("Conforyon", "Hata!");
 #### TEXT -> SHA384
 
 ```CS
-/* TEXTtoSHA384(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA384(string Text, string Error = ErrorMessage) */
 TEXTtoSHA384("Conforyon", "Hata!");
 ```
 ```XML
@@ -243,7 +243,7 @@ TEXTtoSHA384("Conforyon", "Hata!");
 #### TEXT -> SHA512
 
 ```CS
-/* TEXTtoSHA512(string Variable, string Error = ErrorMessage) */
+/* TEXTtoSHA512(string Text, string Error = ErrorMessage) */
 TEXTtoSHA512("Conforyon", "Hata!");
 ```
 ```XML
