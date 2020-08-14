@@ -56,5 +56,11 @@ namespace Conforyon_CR
                 textBox6.Text = Unicode.ASCIItoCHAR(textBox7.Text, textBox8.Text.ToCharArray()[0], "Error!");
             Unicoder = !Unicoder;
         }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Color.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), true, "Error!"));
+            MessageBox.Show(Color.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), false, "Error!"));
+        }
     }
 }
