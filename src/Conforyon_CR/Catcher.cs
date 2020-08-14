@@ -14,6 +14,7 @@ namespace Conforyon_CR
         }
 
         private bool Unicoder = true;
+        private bool Temperaturer = true;
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -61,6 +62,15 @@ namespace Conforyon_CR
         {
             MessageBox.Show(Color.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), true, "Error!"));
             MessageBox.Show(Color.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), false, "Error!"));
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            if (Temperaturer)
+                textBox13.Text = Temperature.CtoF(Convert.ToInt32(textBox12.Text), false, false, 0, false, "Error!");
+            else
+                textBox12.Text = Temperature.FtoC(Convert.ToInt32(textBox13.Text), false, false, 0, false, "Error!");
+            Temperaturer = !Temperaturer;
         }
     }
 }

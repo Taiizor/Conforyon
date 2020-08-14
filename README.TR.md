@@ -430,7 +430,7 @@ DataConvert("987654321", StorageType.Byte, StorageType.GB, false, true, 5, "Hata
 #### Celsius -> Fahrenheit
 
 ```CS
-/* CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* CtoF(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 CtoF("12345", true, true, 1, true, "Hata!");
 ```
 ```XML
@@ -441,7 +441,7 @@ CtoF("12345", true, true, 1, true, "Hata!");
 ```
 
 ```CS
-/* CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* CtoF(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 CtoF("12345", false, false, 0, false, "Hata!");
 ```
 ```XML
@@ -454,7 +454,7 @@ CtoF("12345", false, false, 0, false, "Hata!");
 #### Fahrenheit -> Celsius
 
 ```CS
-/* FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* FtoC(int Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 FtoC("12345", true, true, 2, true, "Hata!");
 ```
 ```XML
@@ -465,7 +465,7 @@ FtoC("12345", true, true, 2, true, "Hata!");
 ```
 
 ```CS
-/* FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* FtoC(int Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 FtoC("12345", false, false, 0, false, "Hata!");
 ```
 ```XML
