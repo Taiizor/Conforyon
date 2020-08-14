@@ -2,6 +2,7 @@
 
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using static Conforyon.Conforyon;
 using System.Security.Cryptography;
 
@@ -163,6 +164,40 @@ namespace Conforyon
             catch
             {
                 return Error + ErrorTitle + "HH-FTS4!)";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Path"></param>
+        /// <param name="Uppercase"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        private static Task<string> FILEtoHASH_Async(HashType Type, string Path, bool Uppercase = false, string Error = ErrorMessage)
+        {
+            try
+            {
+                switch (Type)
+                {
+                    case HashType.MD5:
+                        return new Task<string>(() => FILEtoMD5(Path, Uppercase, Error));
+                    case HashType.SHA1:
+                        return new Task<string>(() => FILEtoSHA1(Path, Uppercase, Error));
+                    case HashType.SHA256:
+                        return new Task<string>(() => FILEtoSHA256(Path, Uppercase, Error));
+                    case HashType.SHA384:
+                        return new Task<string>(() => FILEtoSHA384(Path, Uppercase, Error));
+                    case HashType.SHA512:
+                        return new Task<string>(() => FILEtoSHA512(Path, Uppercase, Error));
+                    default:
+                        return new Task<string>(() => Error);
+                }
+            }
+            catch
+            {
+                return new Task<string>(() => Error + ErrorTitle + "HH-FTHA1!)");
             }
         }
     }
