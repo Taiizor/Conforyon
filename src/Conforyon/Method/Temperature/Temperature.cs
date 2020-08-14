@@ -12,23 +12,23 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Celsius"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CtoF(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string CtoF(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (NumberCheck(Celsius.ToString(), false, IntType.Int32) && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum)
                 {
                     if (Text)
-                        return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error) + " F";
+                        return LastCheck2((Convert.ToDouble(Celsius) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error) + " F";
                     else
-                        return LastCheck2((Convert.ToDouble(Variable) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
+                        return LastCheck2((Convert.ToDouble(Celsius) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -42,25 +42,25 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="Fahrenheit"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FtoC(string Variable, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string FtoC(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Fahrenheit.Length <= VariableLength && NumberCheck(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Fahrenheit))
                 {
-                    if (Convert.ToInt64(Variable) >= 32)
+                    if (Convert.ToInt64(Fahrenheit) >= 32)
                     {
                         if (Text)
-                            return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error) + " C";
+                            return LastCheck2(((Convert.ToDouble(Fahrenheit) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error) + " C";
                         else
-                            return LastCheck2(((Convert.ToDouble(Variable) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error);
+                            return LastCheck2(((Convert.ToDouble(Fahrenheit) - 32) * 5 / 9).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {

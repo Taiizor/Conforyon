@@ -43,6 +43,16 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
+        public const int PostCommaMinimum = 0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int PostCommaMaximum = 99;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int TextLength = 32767;
         #endregion
 

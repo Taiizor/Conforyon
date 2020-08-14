@@ -24,7 +24,7 @@ namespace Conforyon
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && InputType >= StorageType.Bit && InputType <= StorageType.YB && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= VariableLength && InputType >= StorageType.Bit && InputType <= StorageType.YB && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
                     StorageType Type = InputType;
                     if (InputType == StorageType.YB)
@@ -99,7 +99,7 @@ namespace Conforyon
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && InputType >= StorageType.Bit && InputType <= StorageType.YB && TypeConvert >= StorageType.Bit && TypeConvert <= StorageType.YB && PostComma >= 0 && PostComma <= 99 && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= VariableLength && InputType >= StorageType.Bit && InputType <= StorageType.YB && TypeConvert >= StorageType.Bit && TypeConvert <= StorageType.YB && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
                     switch (InputType)
                     {

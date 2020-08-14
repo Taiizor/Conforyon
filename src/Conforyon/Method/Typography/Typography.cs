@@ -22,7 +22,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Variable))
                     return LastCheck2((Convert.ToInt64(Variable) * 2.54).ToString(), Decimal, Comma, PostComma, Error);
                 else
                     return Error;
@@ -46,7 +46,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Variable))
                 {
                     string Result = (Convert.ToInt64(Variable) * 2.54 * 37.79527559055118).ToString();
                     return LastCheck2(Result, Decimal, Comma, PostComma, Error);
@@ -73,7 +73,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 3)
                         return LastCheck2((Convert.ToInt64(Variable) / 2.54).ToString(), Decimal, Comma, PostComma, Error);
@@ -102,7 +102,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Variable))
                     return LastCheck2((Convert.ToInt64(Variable) * 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
                 else
                     return Error;
@@ -126,7 +126,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 38)
                         return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
@@ -155,7 +155,7 @@ namespace Conforyon
         {
             try
             {
-                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= 0 && PostComma <= 99 && UseCheck(Variable))
+                if (Variable.Length <= VariableLength && NumberCheck(Variable) && !Variable.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Variable))
                 {
                     if (Convert.ToInt64(Variable) >= 96)
                         return LastCheck2((Convert.ToInt64(Variable) / 37.79527559055118 / 2.54).ToString(), Decimal, Comma, PostComma, Error);
