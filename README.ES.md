@@ -82,8 +82,8 @@ CopyText("Conforyon", false);
 ```
 
 ```CS
-/* PasteText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
-PasteText(true, "¡Vacío!", "¡Error!");
+/* GetText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
+GetText(true, "¡Vacío!", "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -100,8 +100,8 @@ CopyAudio(File.ReadAllBytes(FilePath));
 ```
 
 ```CS
-/* PasteAudio(bool Clear = false) */
-PasteAudio(true);
+/* GetAudio(bool Clear = false) */
+GetAudio(true);
 ```
 ```XML
 <FunctionResult>

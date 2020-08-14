@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 12.Aug.2020
+//     Changed: 14.Aug.2020
 //     Version: 1.4.7.2
 //
 // |---------DO-NOT-REMOVE---------|

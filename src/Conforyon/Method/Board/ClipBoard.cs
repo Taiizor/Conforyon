@@ -49,7 +49,7 @@ namespace Conforyon
         /// <param name="Back"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string PasteText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage)
+        public static string GetText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Clear"></param>
-        public static void PasteAudio(bool Clear = false)
+        public static void GetAudio(bool Clear = false)
         {
             try
             {
