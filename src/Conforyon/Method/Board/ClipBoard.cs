@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using System.IO;
 using System.Windows.Forms;
 using static Conforyon.Conforyon;
 
@@ -73,18 +74,20 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Clear"></param>
-        public static void GetAudio(bool Clear = false)
+        public static Stream GetAudio(bool Clear = false)
         {
             try
             {
-                Clipboard.GetAudioStream();
+                Stream Audio = Clipboard.GetAudioStream();
 
                 if (Clear)
                     Clipboard.Clear();
+
+                return Audio;
             }
             catch
             {
-                return;
+                return Stream.Null;
             }
         }
     }
