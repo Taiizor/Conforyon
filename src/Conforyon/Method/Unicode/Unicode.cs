@@ -13,22 +13,22 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="CHAR"></param>
         /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CHARtoASCII(string Variable, char Bracket = ',', string Error = ErrorMessage)
+        public static string CHARtoASCII(string CHAR, char Bracket = ',', string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, true))
+                if (CHAR.Length <= TextLength && UseCheck(CHAR, true))
                 {
-                    string Result = "";
+                    string Result = string.Empty;
                     byte[] LetterByte;
-                    for (int i = 0; i < Variable.Length; i++)
+                    for (int i = 0; i < CHAR.Length; i++)
                     {
-                        LetterByte = UTF8Encoding.UTF8.GetBytes(Variable.Substring(i, 1)); //Encoding.ASCII
-                        if (i < Variable.Length - 1)
+                        LetterByte = UTF8Encoding.UTF8.GetBytes(CHAR.Substring(i, 1)); //Encoding.ASCII
+                        if (i < CHAR.Length - 1)
                             Result += LetterByte[0] + Bracket.ToString();
                         else
                             Result += LetterByte[0].ToString();
@@ -47,20 +47,20 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
+        /// <param name="ASCII"></param>
         /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ASCIItoCHAR(string Variable, char Bracket = ',', string Error = ErrorMessage)
+        public static string ASCIItoCHAR(string ASCII, char Bracket = ',', string Error = ErrorMessage)
         {
             try
             {
-                if (Variable.Length <= TextLength && UseCheck(Variable, Bracket == ' '))
+                if (ASCII.Length <= TextLength && UseCheck(ASCII, Bracket == ' '))
                 {
                     string Result = string.Empty;
-                    if (Variable.Contains(Bracket.ToString()))
+                    if (ASCII.Contains(Bracket.ToString()))
                     {
-                        string[] Letters = Variable.Split(Bracket);
+                        string[] Letters = ASCII.Split(Bracket);
                         for (int i = 0; i < Letters.Length; i++)
                         {
                             if (NumberCheck(Letters[i], false, IntType.Int32) && Letters[i].Length >= 1 && Letters[i].Length <= 3 && Convert.ToInt32(Letters[i]) >= 0 && Convert.ToInt32(Letters[i]) <= 255)
@@ -71,8 +71,8 @@ namespace Conforyon
                     }
                     else
                     {
-                        if (NumberCheck(Variable, false, IntType.Int32) && Variable.Length >= 1 && Variable.Length <= 3 && Convert.ToInt32(Variable) >= 0 && Convert.ToInt32(Variable) <= 255)
-                            Result = UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Variable) }); //Encoding.ASCII
+                        if (NumberCheck(ASCII, false, IntType.Int32) && ASCII.Length >= 1 && ASCII.Length <= 3 && Convert.ToInt32(ASCII) >= 0 && Convert.ToInt32(ASCII) <= 255)
+                            Result = UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(ASCII) }); //Encoding.ASCII
                         else
                             return Error;
                     }

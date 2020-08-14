@@ -626,7 +626,7 @@ PXtoINCH("12345", false, false, 0, "¡Error!");
 #### CHAR -> ASCII
 
 ```CS
-/* CHARtoASCII(string Variable, char Bracket = ',', string Error = ErrorMessage) */
+/* CHARtoASCII(string CHAR, char Bracket = ',', string Error = ErrorMessage) */
 CHARtoASCII("Conforyon", ',', "¡Error!");
 ```
 ```XML
@@ -639,7 +639,7 @@ CHARtoASCII("Conforyon", ',', "¡Error!");
 #### ASCII -> CHAR
 
 ```CS
-/* ASCIItoCHAR(string Variable, char Bracket = ',', string Error = ErrorMessage) */
+/* ASCIItoCHAR(string ASCII, char Bracket = ',', string Error = ErrorMessage) */
 ASCIItoCHAR("67,111,110,102,111,114,121,111,110", ',', "¡Error!");
 ```
 ```XML
