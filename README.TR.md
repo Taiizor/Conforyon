@@ -430,7 +430,7 @@ DataConvert("987654321", StorageType.Byte, StorageType.GB, false, true, 5, "Hata
 #### Celsius -> Fahrenheit
 
 ```CS
-/* CtoF(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* CtoF(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 CtoF("12345", true, true, 1, true, "Hata!");
 ```
 ```XML
@@ -441,7 +441,7 @@ CtoF("12345", true, true, 1, true, "Hata!");
 ```
 
 ```CS
-/* CtoF(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* CtoF(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 CtoF("12345", false, false, 0, false, "Hata!");
 ```
 ```XML
@@ -454,7 +454,7 @@ CtoF("12345", false, false, 0, false, "Hata!");
 #### Fahrenheit -> Celsius
 
 ```CS
-/* FtoC(int Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* FtoC(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 FtoC("12345", true, true, 2, true, "Hata!");
 ```
 ```XML
@@ -465,7 +465,7 @@ FtoC("12345", true, true, 2, true, "Hata!");
 ```
 
 ```CS
-/* FtoC(int Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+/* FtoC(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
 FtoC("12345", false, false, 0, false, "Hata!");
 ```
 ```XML
@@ -480,7 +480,7 @@ FtoC("12345", false, false, 0, false, "Hata!");
 #### INCH -> CM
 
 ```CS
-/* INCHtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* INCHtoCM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 INCHtoCM("12345", true, true, 1, "Hata!");
 ```
 ```XML
@@ -491,7 +491,7 @@ INCHtoCM("12345", true, true, 1, "Hata!");
 ```
 
 ```CS
-/* INCHtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* INCHtoCM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 INCHtoCM("12345", false, false, 0, "Hata!");
 ```
 ```XML
@@ -504,7 +504,7 @@ INCHtoCM("12345", false, false, 0, "Hata!");
 #### INCH -> PX
 
 ```CS
-/* INCHtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* INCHtoPX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 INCHtoPX("12345", true, true, 1, "Hata!");
 ```
 ```XML
@@ -515,7 +515,7 @@ INCHtoPX("12345", true, true, 1, "Hata!");
 ```
 
 ```CS
-/* INCHtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* INCHtoPX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 INCHtoPX("12345", false, false, 0, "Hata!");
 ```
 ```XML
@@ -528,7 +528,7 @@ INCHtoPX("12345", false, false, 0, "Hata!");
 #### CM -> INCH
 
 ```CS
-/* CMtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* CMtoINCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 CMtoINCH("12345", true, true, 1, "Hata!");
 ```
 ```XML
@@ -539,7 +539,7 @@ CMtoINCH("12345", true, true, 1, "Hata!");
 ```
 
 ```CS
-/* CMtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* CMtoINCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 CMtoINCH("12345", false, false, 0, "Hata!");
 ```
 ```XML
@@ -552,7 +552,7 @@ CMtoINCH("12345", false, false, 0, "Hata!");
 #### CM -> PX
 
 ```CS
-/* CMtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* CMtoPX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 CMtoPX("12345", true, true, 1, "Hata!");
 ```
 ```XML
@@ -563,7 +563,7 @@ CMtoPX("12345", true, true, 1, "Hata!");
 ```
 
 ```CS
-/* CMtoPX(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* CMtoPX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 CMtoPX("12345", false, false, 0, "Hata!");
 ```
 ```XML
@@ -576,7 +576,7 @@ CMtoPX("12345", false, false, 0, "Hata!");
 #### PX -> CM
 
 ```CS
-/* PXtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* PXtoCM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 PXtoCM("12345", true, true, 1, "Hata!");
 ```
 ```XML
@@ -587,7 +587,7 @@ PXtoCM("12345", true, true, 1, "Hata!");
 ```
 
 ```CS
-/* PXtoCM(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* PXtoCM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 PXtoCM("12345", false, false, 0, "Hata!");
 ```
 ```XML
@@ -600,7 +600,7 @@ PXtoCM("12345", false, false, 0, "Hata!");
 #### PX -> INCH
 
 ```CS
-/* PXtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* PXtoINCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 PXtoINCH("12345", true, true, 1, "Hata!");
 ```
 ```XML
@@ -611,7 +611,7 @@ PXtoINCH("12345", true, true, 1, "Hata!");
 ```
 
 ```CS
-/* PXtoINCH(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+/* PXtoINCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
 PXtoINCH("12345", false, false, 0, "Hata!");
 ```
 ```XML

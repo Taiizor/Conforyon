@@ -19,11 +19,11 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CtoF(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string CtoF(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (NumberCheck(Celsius.ToString(), false, IntType.Int32) && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum)
+                if (Celsius.Length <= VariableLength && NumberCheck(Celsius) && !Celsius.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Celsius))
                 {
                     if (Text)
                         return LastCheck2((Convert.ToDouble(Celsius) * 9 / 5 + 32).ToString(), Decimal, Comma, PostComma, Error) + " F";
@@ -49,11 +49,11 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FtoC(int Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string FtoC(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (NumberCheck(Fahrenheit.ToString(), false, IntType.Int32) && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum)
+                if (Fahrenheit.Length <= VariableLength && NumberCheck(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Fahrenheit))
                 {
                     if (Convert.ToInt64(Fahrenheit) >= 32)
                     {

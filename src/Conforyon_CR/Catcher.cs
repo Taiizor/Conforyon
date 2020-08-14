@@ -67,9 +67,9 @@ namespace Conforyon_CR
         private void Button7_Click(object sender, EventArgs e)
         {
             if (Temperaturer)
-                textBox13.Text = Temperature.CtoF(Convert.ToInt32(textBox12.Text), false, false, 0, false, "Error!");
+                textBox13.Text = Temperature.CtoF(textBox12.Text, false, false, 0, false, "Error!");
             else
-                textBox12.Text = Temperature.FtoC(Convert.ToInt32(textBox13.Text), false, false, 0, false, "Error!");
+                textBox12.Text = Temperature.FtoC(textBox13.Text, false, false, 0, false, "Error!");
             Temperaturer = !Temperaturer;
         }
     }
