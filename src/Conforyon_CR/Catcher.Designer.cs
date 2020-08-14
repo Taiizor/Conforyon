@@ -41,6 +41,7 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -105,7 +106,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 193);
+            this.textBox5.Location = new System.Drawing.Point(12, 223);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(282, 20);
             this.textBox5.TabIndex = 6;
@@ -115,7 +116,7 @@
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Location = new System.Drawing.Point(12, 219);
+            this.button3.Location = new System.Drawing.Point(12, 249);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(282, 23);
             this.button3.TabIndex = 7;
@@ -162,12 +163,24 @@
             this.textBox8.Text = ",";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // button5
+            // 
+            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Location = new System.Drawing.Point(12, 184);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(282, 23);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "HASH ASYNC";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_ClickAsync);
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
-            this.ClientSize = new System.Drawing.Size(600, 251);
+            this.ClientSize = new System.Drawing.Size(600, 282);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox7);
@@ -204,5 +217,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -175,7 +175,7 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        private static Task<string> FILEtoHASH_Async(HashType Type, string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static Task<string> FILEtoHASH_Async(HashType Type, string Path, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -197,7 +197,7 @@ namespace Conforyon
             }
             catch
             {
-                return new Task<string>(() => Error + ErrorTitle + "HH-FTHA1!)");
+                return new Task<string>(() => Error + ErrorTitle + "HH-FTH1!)");
             }
         }
     }

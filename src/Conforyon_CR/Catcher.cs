@@ -26,6 +26,19 @@ namespace Conforyon_CR
             textBox4.Text = Hash.FILEtoSHA512(textBox2.Text, true, "Error!");
         }
 
+        private async void Button5_ClickAsync(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox3.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, false, "Error!");
+                textBox4.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, true, "Error!");
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
         private void Button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show(Crypto.TEXTtoMD5(textBox5.Text, "Error!"));
