@@ -354,7 +354,7 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Selection10)
-                    textBox8.Text = Color.RGBtoHEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Error!");
+                    textBox8.Text = Color.RGBtoHEX(Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), false, "Error!");
                 else
                 {
                     textBox6.Text = Color.HEXtoRGB(textBox8.Text, Conforyon.ColorType.OnlyR, "Error!");
