@@ -1,6 +1,7 @@
 ﻿using System;
 using Conforyon;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Conforyon_CR
 {
@@ -30,8 +31,14 @@ namespace Conforyon_CR
         {
             try
             {
-                textBox3.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, false, "Error!");
-                textBox4.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, true, "Error!");
+                await Task.Run
+                (
+                    async () =>
+                    {
+                        textBox3.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, false, "Error!");
+                        textBox4.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, true, "Error!");
+                    }
+                );
             }
             catch (Exception Ex)
             {
