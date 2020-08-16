@@ -10,7 +10,7 @@
     <PackageId>Conforyon</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
-    <Description>C# Unit Converter For Everyone - Conforyon</Description>
+    <Description>C# Insanely Fast Unit Converter - Conforyon</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Major bugs fixed.
