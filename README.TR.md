@@ -69,7 +69,7 @@ Step 2：Dönüşümlerin tadını çıkarın
 
 ### Conforyon UX
 
-![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/07/1bhT.png)
+![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/08/16/AGDW.png)
 
 ## Ayrıntılı Kullanım
 
