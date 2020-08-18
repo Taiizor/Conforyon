@@ -23,7 +23,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     <RepositoryUrl>https://github.com/Taiizor/Conforyon</RepositoryUrl>
     <PackageIcon>INPUT.png</PackageIcon>
     <Company>$(Authors)</Company>
-    <Owners>$(Company)</Owners>
+    <Owners>$(Authors)</Owners>
     <LangVersion>Latest</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
