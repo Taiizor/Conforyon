@@ -7,10 +7,10 @@
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Conforyon</Title>
-    <PackageId>Conforyon</PackageId>
+    <PackageId>$(Title)</PackageId>
     <Authors>Taiizor</Authors>
-    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) Taiizor Inc.</Copyright>
-    <Description>C# Insanely Fast Unit Converter - Conforyon</Description>
+    <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
+    <Description>C# Insanely Fast Unit Converter - $(Title)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Major bugs fixed.
@@ -22,8 +22,9 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     <PackageDescription>$(Description)</PackageDescription>
     <RepositoryUrl>https://github.com/Taiizor/Conforyon</RepositoryUrl>
     <PackageIcon>INPUT.png</PackageIcon>
-    <Company>Taiizor</Company>
-    <Owners>Taiizor</Owners>
+    <Company>$(Authors)</Company>
+    <Owners>$(Company)</Owners>
+    <LangVersion>Latest</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
