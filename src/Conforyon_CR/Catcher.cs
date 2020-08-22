@@ -82,5 +82,10 @@ namespace Conforyon_CR
                 textBox14.Text = Speed.KPHtoMPH(textBox15.Text, false, false, 0, false, "Error!");
             Speeder = !Speeder;
         }
+
+        private void Button9_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Time.TimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Millisecond, Conforyon.Conforyon.TimeType.Second, true, true, 2, "Hata!"));
+        }
     }
 }

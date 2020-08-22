@@ -138,7 +138,8 @@ namespace Conforyon
             Minute,
             Hour,
             Day,
-            Week
+            Week,
+            Year
         }
 
         /// <summary>
