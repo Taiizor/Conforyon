@@ -83,11 +83,22 @@ namespace Conforyon
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeConvert"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string TimeConvert(string InputVariable, TimeType InputType, TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
         {
             try
             {
-                string Variable = string.Empty;
+                string Variable;
                 if (InputVariable.Length <= VariableLength && InputType >= TimeType.Millisecond && InputType <= TimeType.Week && TypeConvert >= TimeType.Millisecond && TypeConvert <= TimeType.Week && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
                     switch (InputType)

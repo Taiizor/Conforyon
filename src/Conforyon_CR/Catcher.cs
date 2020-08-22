@@ -85,7 +85,8 @@ namespace Conforyon_CR
 
         private void Button9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Time.TimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Millisecond, Conforyon.Conforyon.TimeType.Second, true, true, 2, "Hata!"));
+            MessageBox.Show(Time.AutoTimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Microsecond, true, true, true, 2, "Hata!"));
+            MessageBox.Show(Time.TimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Minute, Conforyon.Conforyon.TimeType.Hour, true, true, 2, "Hata!"));
         }
     }
 }
