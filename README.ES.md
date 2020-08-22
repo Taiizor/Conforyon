@@ -649,3 +649,53 @@ ASCIItoCHAR("67,111,110,102,111,114,121,111,110", ',', "¡Error!");
 	<ReturnValue>Conforyon</ReturnValue>
 </FunctionResult>
 ```
+
+### Velocidad
+
+#### Miles Per Hour -> Kilometers Per Hour
+
+```CS
+/* MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+MPHtoKPH("12345", true, true, 1, true, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>19.867,3 KPH</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+MPHtoKPH("12345", false, false, 0, false, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>19867</ReturnValue>
+</FunctionResult>
+```
+
+#### Kilometers Per Hour -> Miles Per Hour
+
+```CS
+/* KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+KPHtoMPH("12345", true, true, 1, true, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>7.670,8 MPH</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+KPHtoMPH("12345", false, false, 0, false, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>7670</ReturnValue>
+</FunctionResult>
+```
