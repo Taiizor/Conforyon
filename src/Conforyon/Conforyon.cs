@@ -133,6 +133,7 @@ namespace Conforyon
         /// </summary>
         public enum TimeType
         {
+            Microsecond,
             Millisecond,
             Second,
             Minute,
