@@ -9,16 +9,26 @@ namespace Conforyon
 {
     public static class Speed
     {
-        public static string MPHtoKPH(string Mile, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Miles"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Mile.Length <= VariableLength && NumberCheck(Mile) && !Mile.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Mile))
+                if (Miles.Length <= VariableLength && NumberCheck(Miles) && !Miles.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Miles))
                 {
                     if (Text)
-                        return LastCheck2((Convert.ToDouble(Mile) * 1.609344).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
+                        return LastCheck2((Convert.ToDouble(Miles) * 1.609344).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
                     else
-                        return LastCheck2((Convert.ToDouble(Mile) * 1.609344).ToString(), Decimal, Comma, PostComma, Error);
+                        return LastCheck2((Convert.ToDouble(Miles) * 1.609344).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
@@ -29,16 +39,26 @@ namespace Conforyon
             }
         }
 
-        public static string KPHtoMPH(string Kilometer, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kilometers"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
         {
             try
             {
-                if (Kilometer.Length <= VariableLength && NumberCheck(Kilometer) && !Kilometer.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Kilometer))
+                if (Kilometers.Length <= VariableLength && NumberCheck(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Kilometers))
                 {
                     if (Text)
-                        return LastCheck2((Convert.ToDouble(Kilometer) * 0.621371192).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
+                        return LastCheck2((Convert.ToDouble(Kilometers) * 0.621371192).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
                     else
-                        return LastCheck2((Convert.ToDouble(Kilometer) * 0.621371192).ToString(), Decimal, Comma, PostComma, Error);
+                        return LastCheck2((Convert.ToDouble(Kilometers) * 0.621371192).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;
