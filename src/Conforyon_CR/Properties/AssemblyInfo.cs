@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
 [assembly: AssemblyTitle("Conforyon CR")]
-[assembly: AssemblyDescription("Conforyon CR v1.2.5.3")]
+[assembly: AssemblyDescription("Conforyon CR v1.2.5.4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
 [assembly: AssemblyProduct("Conforyon CR")]
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Tüm değerleri belirtebilir veya varsayılan Derleme ve Düzeltme Numaralarını kullanmak için
 // aşağıda gösterildiği gibi '*' kullanabilirsiniz:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.2.5.3")]
-[assembly: AssemblyFileVersion("1.2.5.3")]
+[assembly: AssemblyVersion("1.2.5.4")]
+[assembly: AssemblyFileVersion("1.2.5.4")]

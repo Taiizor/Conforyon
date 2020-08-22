@@ -15,6 +15,7 @@ namespace Conforyon_CR
 
         private bool Unicoder = true;
         private bool Temperaturer = true;
+        private bool Speeder = true;
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -71,6 +72,15 @@ namespace Conforyon_CR
             else
                 textBox12.Text = Temperature.FtoC(textBox13.Text, false, false, 0, false, "Error!");
             Temperaturer = !Temperaturer;
+        }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            if (Speeder)
+                textBox15.Text = Speed.MPHtoKPH(textBox14.Text, false, false, 0, false, "Error!");
+            else
+                textBox14.Text = Speed.KPHtoMPH(textBox15.Text, false, false, 0, false, "Error!");
+            Speeder = !Speeder;
         }
     }
 }

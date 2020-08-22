@@ -49,6 +49,9 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -254,12 +257,46 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
+            // button8
+            // 
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.Location = new System.Drawing.Point(601, 64);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(282, 23);
+            this.button8.TabIndex = 22;
+            this.button8.Text = "SPEED";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Button8_Click);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(600, 12);
+            this.textBox14.MaxLength = 99;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(282, 20);
+            this.textBox14.TabIndex = 21;
+            this.textBox14.Text = "100";
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(601, 38);
+            this.textBox15.MaxLength = 99;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(282, 20);
+            this.textBox15.TabIndex = 20;
+            this.textBox15.Text = "160";
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
-            this.ClientSize = new System.Drawing.Size(600, 282);
+            this.ClientSize = new System.Drawing.Size(894, 282);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.textBox15);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.textBox12);
@@ -312,5 +349,8 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
     }
 }
