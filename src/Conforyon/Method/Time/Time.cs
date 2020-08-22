@@ -33,7 +33,8 @@ namespace Conforyon
                     {
                         for (int i = (int)InputType; i <= (int)TimeType.Year; i++)
                         {
-                            if (TimeConvert(InputVariable, InputType, (TimeType)i, false, false, 0, Error) == "0")
+                            string Result = TimeConvert(InputVariable, InputType, (TimeType)i, true, true, 0, Error);
+                            if (Result == "0")
                             {
                                 Type = (TimeType)i - 1;
                                 break;
@@ -79,7 +80,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "SE-ADC1!)";
+                return Error + ErrorTitle + "TE-ATC1!)";
             }
         }
 
@@ -99,7 +100,7 @@ namespace Conforyon
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && InputType >= TimeType.Millisecond && InputType <= TimeType.Week && TypeConvert >= TimeType.Millisecond && TypeConvert <= TimeType.Week && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= VariableLength && InputType >= TimeType.Microsecond && InputType <= TimeType.Year && TypeConvert >= TimeType.Microsecond && TypeConvert <= TimeType.Year && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
                     switch (InputType)
                     {
