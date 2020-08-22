@@ -165,7 +165,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.Byte:
                             switch (TypeConvert)
                             {
@@ -228,7 +228,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.KB:
                             switch (TypeConvert)
                             {
@@ -291,7 +291,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.MB:
                             switch (TypeConvert)
                             {
@@ -354,7 +354,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.GB:
                             switch (TypeConvert)
                             {
@@ -417,7 +417,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.TB:
                             switch (TypeConvert)
                             {
@@ -480,7 +480,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.PB:
                             switch (TypeConvert)
                             {
@@ -543,7 +543,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.EB:
                             switch (TypeConvert)
                             {
@@ -606,7 +606,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.ZB:
                             switch (TypeConvert)
                             {
@@ -669,7 +669,7 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         case StorageType.YB:
                             switch (TypeConvert)
                             {
@@ -732,10 +732,11 @@ namespace Conforyon
                                 default:
                                     return Error;
                             }
-                            return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                            break;
                         default:
                             return Error;
                     }
+                    return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;

@@ -67,7 +67,6 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
   <ItemGroup>
     <Folder Include="Method\Length\" />
     <Folder Include="Method\Weight\" />
-    <Folder Include="Method\Time\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 
