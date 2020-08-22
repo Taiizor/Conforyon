@@ -33,8 +33,7 @@ namespace Conforyon
                     {
                         for (int i = (int)InputType; i <= (int)TimeType.Year; i++)
                         {
-                            string Result = TimeConvert(InputVariable, InputType, (TimeType)i, true, true, 0, Error);
-                            if (Result == "0")
+                            if (TimeConvert(InputVariable, InputType, (TimeType)i, true, true, 0, Error) == "0")
                             {
                                 Type = (TimeType)i - 1;
                                 break;
