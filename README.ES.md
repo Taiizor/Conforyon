@@ -699,3 +699,53 @@ KPHtoMPH("12345", false, false, 0, false, "¡Error!");
 	<ReturnValue>7670</ReturnValue>
 </FunctionResult>
 ```
+
+### Hora
+
+#### Conversión Automática de Hora
+
+```CS
+/* AutoTimeConvert(string InputVariable, TimeType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
+AutoTimeConvert("12345", InputType.Second, true, true, true, 2, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>3,43 Hour</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* AutoTimeConvert(string InputVariable, TimeType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
+AutoTimeConvert("12345", InputType.Second, false, true, false, 0, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>3</ReturnValue>
+</FunctionResult>
+```
+
+#### Conversión de Hora
+
+```CS
+/* TimeConvert(string InputVariable, TimeType InputType, TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
+TimeConvert("12345", InputType.Second, InputType.Minute, true, true, 2, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>205,75</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* TimeConvert(string InputVariable, TimeType InputType, TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
+TimeConvert("12345", InputType.Second, InputType.Minute, false, true, 5, "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>205,75411</ReturnValue>
+</FunctionResult>
+```

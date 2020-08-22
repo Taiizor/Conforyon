@@ -308,7 +308,7 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(282, 20);
             this.textBox16.TabIndex = 23;
-            this.textBox16.Text = "999999999999999";
+            this.textBox16.Text = "123456789";
             this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Catcher
