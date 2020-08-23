@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 #endregion
@@ -194,6 +195,82 @@ namespace Conforyon
             "B",
             "+",
             "-"
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
+        {
+            {
+                "DataStorage", new Dictionary<string, Dictionary<string, string>>()
+                {
+                    {
+                        "Bit", new Dictionary<string, string>()
+                        {
+                            {
+                                "Byte", "8"
+                            },
+                            {
+                                "KB", "8192"
+                            },
+                            {
+                                "MB", "8388608"
+                            },
+                            {
+                                "GB", "8589934592"
+                            },
+                            {
+                                "TB", "8796093022208"
+                            },
+                            {
+                                "PB", "9007199254740992"
+                            },
+                            {
+                                "EB", ""
+                            },
+                            {
+                                "ZB", ""
+                            },
+                            {
+                                "YB", ""
+                            }
+                        }
+                    },
+                    {
+                        "Byte", new Dictionary<string, string>()
+                        {
+                            {
+                                "Bit", "8"
+                            },
+                            {
+                                "KB", "1024"
+                            },
+                            {
+                                "MB", "1048576"
+                            },
+                            {
+                                "GB", "1073741824"
+                            },
+                            {
+                                "TB", "1099511627776"
+                            },
+                            {
+                                "PB", "1125899906842624"
+                            },
+                            {
+                                "EB", "1152921504606846976"
+                            },
+                            {
+                                "ZB", ""
+                            },
+                            {
+                                "YB", ""
+                            }
+                        }
+                    }
+                }
+            }
         };
         #endregion
 
@@ -721,6 +798,76 @@ namespace Conforyon
             catch
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Key1"></param>
+        /// <param name="Key2"></param>
+        /// <param name="Key3"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage)
+        {
+            try
+            {
+                if (Values.ContainsKey(Key1))
+                {
+                    if (Values[Key1].ContainsKey(Key2))
+                    {
+                        if (Values[Key1][Key2].ContainsKey(Key3))
+                            return Values[Key1][Key2][Key3];
+                        else
+                            return Error;
+                    }
+                    else
+                        return Error;
+                }
+                else
+                    return Error;
+            }
+            catch
+            {
+                return Error + ErrorTitle + "CN-GV1!)";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Key1"></param>
+        /// <param name="Key2"></param>
+        /// <param name="Key3"></param>
+        /// <param name="Value"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage)
+        {
+            try
+            {
+                if (Values.ContainsKey(Key1))
+                {
+                    if (Values[Key1].ContainsKey(Key2))
+                    {
+                        if (Values[Key1][Key2].ContainsKey(Key3))
+                        {
+                            Values[Key1][Key2][Key3] = Value;
+                            return Values[Key1][Key2][Key3];
+                        }
+                        else
+                            return Error;
+                    }
+                    else
+                        return Error;
+                }
+                else
+                    return Error;
+            }
+            catch
+            {
+                return Error + ErrorTitle + "CN-GV1!)";
             }
         }
         #endregion

@@ -54,6 +54,7 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.textBox16 = new System.Windows.Forms.TextBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -311,12 +312,24 @@
             this.textBox16.Text = "123456789";
             this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // button10
+            // 
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.Location = new System.Drawing.Point(600, 247);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(282, 23);
+            this.button10.TabIndex = 25;
+            this.button10.Text = "TEST";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.Button10_Click);
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
             this.ClientSize = new System.Drawing.Size(894, 282);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.button8);
@@ -380,5 +393,6 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Button button10;
     }
 }

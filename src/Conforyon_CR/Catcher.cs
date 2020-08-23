@@ -88,5 +88,12 @@ namespace Conforyon_CR
             MessageBox.Show(Time.AutoTimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Second, true, true, true, 2, "Error!"));
             MessageBox.Show(Time.TimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Second, Conforyon.Conforyon.TimeType.Day, true, true, 2, "Error!"));
         }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Conforyon.Conforyon.GetValues());
+            MessageBox.Show(Conforyon.Conforyon.SetValues("DataStorage", "Bit", "Byte", "333", "Error!"));
+            MessageBox.Show(Conforyon.Conforyon.GetValues());
+        }
     }
 }
