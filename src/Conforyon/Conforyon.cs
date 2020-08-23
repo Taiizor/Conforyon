@@ -718,25 +718,25 @@ namespace Conforyon
                         "Day", new Dictionary<string, string>()
                         {
                             {
-                                "Microsecond", "3600000000"
+                                "Microsecond", "86400000000"
                             },
                             {
-                                "Millisecond", "3600000"
+                                "Millisecond", "86400000"
                             },
                             {
-                                "Second", "3600"
+                                "Second", "86400"
                             },
                             {
-                                "Minute", "60"
+                                "Minute", "1440"
                             },
                             {
-                                "Hour", "0,041667"
+                                "Hour", "24"
                             },
                             {
-                                "Week", "0,005952"
+                                "Week", "0,142857"
                             },
                             {
-                                "Year", "0,000114"
+                                "Year", "0,002738"
                             }
                         }
                     }
