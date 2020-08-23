@@ -14,7 +14,7 @@
     <Description>C# Insanely Fast Unit Converter - $(Title)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Major bugs fixed.
+    <PackageReleaseNotes>Various improvements have been made.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor C# CSharp DotNet Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
