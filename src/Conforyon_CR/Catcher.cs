@@ -91,9 +91,8 @@ namespace Conforyon_CR
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Conforyon.Conforyon.GetValues());
-            MessageBox.Show(Conforyon.Conforyon.SetValues("DataStorage", "Bit", "Byte", "333", "Error!"));
-            MessageBox.Show(Conforyon.Conforyon.GetValues());
+            MessageBox.Show(Conforyon.Conforyon.GetValues("DataStorage", "PB", "EB", "Error!"));
+            MessageBox.Show(Conforyon.Conforyon.SetValues("DataStorage", "PB", "EB", "3333", "Error!"));
         }
     }
 }
