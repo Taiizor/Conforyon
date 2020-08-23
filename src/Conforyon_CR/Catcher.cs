@@ -93,6 +93,21 @@ namespace Conforyon_CR
         {
             MessageBox.Show(Conforyon.Conforyon.GetValues("DataStorage", "PB", "EB", "Error!"));
             MessageBox.Show(Conforyon.Conforyon.SetValues("DataStorage", "PB", "EB", "3333", "Error!"));
+
+            MessageBox.Show(Conforyon.Conforyon.GetValues("Temperature", "Celsius", "Multipy", "Error!"));
+            MessageBox.Show(Conforyon.Conforyon.SetValues("Temperature", "Celsius", "Multipy", "18", "Error!"));
+        }
+
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Typography.INCHtoCM(textBox17.Text, true, true, 2, "Error!") + " - INCH => CM");
+            MessageBox.Show(Typography.INCHtoPX(textBox17.Text, true, true, 2, "Error!") + " - INCH => PX");
+
+            MessageBox.Show(Typography.CMtoINCH(textBox17.Text, true, true, 2, "Error!") + " - CM => INCH");
+            MessageBox.Show(Typography.CMtoPX(textBox17.Text, true, true, 2, "Error!") + " - CM => PX");
+
+            MessageBox.Show(Typography.PXtoINCH(textBox17.Text, true, true, 2, "Error!") + " - PX => INCH");
+            MessageBox.Show(Typography.PXtoCM(textBox17.Text, true, true, 2, "Error!") + " - PX => CM");
         }
     }
 }

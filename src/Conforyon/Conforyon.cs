@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 23.Aug.2020
-//     Version: 1.4.7.3
+//     Version: 1.4.7.4
 //
 // |---------DO-NOT-REMOVE---------|
 
@@ -789,6 +789,44 @@ namespace Conforyon
                             },
                             {
                                 "Week", "52,17857"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "Typography", new Dictionary<string, Dictionary<string, string>>()
+                {
+                    {
+                        "INCH", new Dictionary<string, string>()
+                        {
+                            {
+                                "CM", "2,54"
+                            },
+                            {
+                                "PX", "96"
+                            }
+                        }
+                    },
+                    {
+                        "CM", new Dictionary<string, string>()
+                        {
+                            {
+                                "INCH", "0,3937007874"
+                            },
+                            {
+                                "PX", "37,795275591"
+                            }
+                        }
+                    },
+                    {
+                        "PX", new Dictionary<string, string>()
+                        {
+                            {
+                                "INCH", "0,0104166667"
+                            },
+                            {
+                                "CM", "0,0264583333"
                             }
                         }
                     }

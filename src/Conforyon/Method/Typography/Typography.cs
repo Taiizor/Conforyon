@@ -23,7 +23,7 @@ namespace Conforyon
             try
             {
                 if (Inch.Length <= VariableLength && NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Inch))
-                    return LastCheck2((Convert.ToInt64(Inch) * 2.54).ToString(), Decimal, Comma, PostComma, Error);
+                    return LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(GetValues("Typography", "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 else
                     return Error;
             }
@@ -48,7 +48,7 @@ namespace Conforyon
             {
                 if (Inch.Length <= VariableLength && NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Inch))
                 {
-                    string Result = (Convert.ToInt64(Inch) * 2.54 * 37.79527559055118).ToString();
+                    string Result = (Convert.ToInt64(Inch) * Convert.ToDouble(GetValues("Typography", "INCH", "PX", Error))).ToString();
                     return LastCheck2(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
@@ -76,7 +76,7 @@ namespace Conforyon
                 if (Centimeter.Length <= VariableLength && NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Centimeter))
                 {
                     if (Convert.ToInt64(Centimeter) >= 3)
-                        return LastCheck2((Convert.ToInt64(Centimeter) / 2.54).ToString(), Decimal, Comma, PostComma, Error);
+                        return LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(GetValues("Typography", "CM", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     else
                         return LastCheck2("0", Decimal, Comma, PostComma, Error);
                 }
@@ -103,7 +103,7 @@ namespace Conforyon
             try
             {
                 if (Centimeter.Length <= VariableLength && NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Centimeter))
-                    return LastCheck2((Convert.ToInt64(Centimeter) * 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
+                    return LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(GetValues("Typography", "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 else
                     return Error;
             }
@@ -129,7 +129,7 @@ namespace Conforyon
                 if (Pixel.Length <= VariableLength && NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 38)
-                        return LastCheck2((Convert.ToInt64(Pixel) / 37.79527559055118).ToString(), Decimal, Comma, PostComma, Error);
+                        return LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(GetValues("Typography", "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     else
                         return LastCheck2("0", Decimal, Comma, PostComma, Error);
                 }
@@ -158,7 +158,7 @@ namespace Conforyon
                 if (Pixel.Length <= VariableLength && NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 96)
-                        return LastCheck2((Convert.ToInt64(Pixel) / 37.79527559055118 / 2.54).ToString(), Decimal, Comma, PostComma, Error);
+                        return LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(GetValues("Typography", "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     else
                         return LastCheck2("0", Decimal, Comma, PostComma, Error);
                 }
