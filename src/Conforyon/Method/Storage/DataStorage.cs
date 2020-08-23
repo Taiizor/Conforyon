@@ -423,31 +423,31 @@ namespace Conforyon
                             {
                                 case StorageType.Bit:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "8796093022208", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "Bit", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.Byte:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "Byte", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.KB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "KB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.MB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "MB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.GB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "GB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
@@ -455,25 +455,25 @@ namespace Conforyon
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case StorageType.PB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "PB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.EB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "EB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.ZB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "ZB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.YB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "YB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
@@ -486,37 +486,37 @@ namespace Conforyon
                             {
                                 case StorageType.Bit:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "9007199254740992", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "Bit", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.Byte:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1125899906842624", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "Byte", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.KB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1099511627776", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "KB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.MB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "MB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.GB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "GB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.TB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "TB", Error), Comma, Error);
                                     else
                                         return Error;
                                     break;
@@ -524,19 +524,19 @@ namespace Conforyon
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case StorageType.EB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1024", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "EB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.ZB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1048576", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "ZB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.YB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, "1073741824", Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "YB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
