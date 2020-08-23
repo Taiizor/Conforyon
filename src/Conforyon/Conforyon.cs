@@ -687,6 +687,58 @@ namespace Conforyon
                                 "Year", "0,000002"
                             }
                         }
+                    },
+                    {
+                        "Hour", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "3600000000"
+                            },
+                            {
+                                "Millisecond", "3600000"
+                            },
+                            {
+                                "Second", "3600"
+                            },
+                            {
+                                "Minute", "60"
+                            },
+                            {
+                                "Day", "0,041667"
+                            },
+                            {
+                                "Week", "0,005952"
+                            },
+                            {
+                                "Year", "0,000114"
+                            }
+                        }
+                    },
+                    {
+                        "Day", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "3600000000"
+                            },
+                            {
+                                "Millisecond", "3600000"
+                            },
+                            {
+                                "Second", "3600"
+                            },
+                            {
+                                "Minute", "60"
+                            },
+                            {
+                                "Hour", "0,041667"
+                            },
+                            {
+                                "Week", "0,005952"
+                            },
+                            {
+                                "Year", "0,000114"
+                            }
+                        }
                     }
                 }
             }
