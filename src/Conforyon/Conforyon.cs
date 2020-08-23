@@ -580,6 +580,89 @@ namespace Conforyon
                         }
                     }
                 }
+            },
+            {
+                "Time", new Dictionary<string, Dictionary<string, string>>()
+                {
+                    {
+                        "Microsecond", new Dictionary<string, string>()
+                        {
+                            {
+                                "Millisecond", "0,001"
+                            },
+                            {
+                                "Second", "0,000001"
+                            },
+                            {
+                                "Minute", "0,000000016666667"
+                            },
+                            {
+                                "Hour", "0,000000000277778"
+                            },
+                            {
+                                "Day", "0,000000000011574"
+                            },
+                            {
+                                "Week", "0,000000000001653"
+                            },
+                            {
+                                "Year", "0,000000000000032"
+                            }
+                        }
+                    },
+                    {
+                        "Millisecond", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "1000"
+                            },
+                            {
+                                "Second", "0,001"
+                            },
+                            {
+                                "Minute", "0,0000166667"
+                            },
+                            {
+                                "Hour", "0,000000277777778"
+                            },
+                            {
+                                "Day", "0,000000011574074"
+                            },
+                            {
+                                "Week", "0,000000001653439"
+                            },
+                            {
+                                "Year", "0,000000000031688"
+                            }
+                        }
+                    },
+                    {
+                        "Second", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "1000"
+                            },
+                            {
+                                "Millisecond", "1000"
+                            },
+                            {
+                                "Minute", "0,0000166667"
+                            },
+                            {
+                                "Hour", "0,000000277777778"
+                            },
+                            {
+                                "Day", "0,000000011574074"
+                            },
+                            {
+                                "Week", "0,000000001653439"
+                            },
+                            {
+                                "Year", "0,000000000031688"
+                            }
+                        }
+                    }
+                }
             }
         };
         #endregion
