@@ -739,6 +739,58 @@ namespace Conforyon
                                 "Year", "0,002738"
                             }
                         }
+                    },
+                    {
+                        "Week", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "604800000000"
+                            },
+                            {
+                                "Millisecond", "604800000"
+                            },
+                            {
+                                "Second", "604800"
+                            },
+                            {
+                                "Minute", "10080"
+                            },
+                            {
+                                "Hour", "168"
+                            },
+                            {
+                                "Day", "7"
+                            },
+                            {
+                                "Year", "0,019165"
+                            }
+                        }
+                    },
+                    {
+                        "Year", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "31557600000000"
+                            },
+                            {
+                                "Millisecond", "31557600000"
+                            },
+                            {
+                                "Second", "31557600"
+                            },
+                            {
+                                "Minute", "525960"
+                            },
+                            {
+                                "Hour", "8766"
+                            },
+                            {
+                                "Day", "365,25"
+                            },
+                            {
+                                "Week", "52,17857"
+                            }
+                        }
                     }
                 }
             }
