@@ -146,19 +146,19 @@ namespace Conforyon
                                     break;
                                 case StorageType.EB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, (8796093022208 * 2048).ToString(), Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "EB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.ZB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, (8796093022208 * 3072).ToString(), Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "ZB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.YB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, (8796093022208 * 4096).ToString(), Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "YB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
@@ -215,13 +215,13 @@ namespace Conforyon
                                     break;
                                 case StorageType.ZB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "ZB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
                                 case StorageType.YB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, (1125899906842624 * 3072).ToString(), Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "YB", Error), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
@@ -284,7 +284,7 @@ namespace Conforyon
                                     break;
                                 case StorageType.YB:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, (1125899906842624 * 2048).ToString(), Comma, Error, false, true);
+                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "YB", Error).ToString(), Comma, Error, false, true);
                                     else
                                         return Error;
                                     break;
