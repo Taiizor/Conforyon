@@ -640,25 +640,51 @@ namespace Conforyon
                         "Second", new Dictionary<string, string>()
                         {
                             {
-                                "Microsecond", "1000"
+                                "Microsecond", "1000000"
                             },
                             {
                                 "Millisecond", "1000"
                             },
                             {
-                                "Minute", "0,0000166667"
+                                "Minute", "0,016667"
                             },
                             {
-                                "Hour", "0,000000277777778"
+                                "Hour", "0,000278"
                             },
                             {
-                                "Day", "0,000000011574074"
+                                "Day", "0,000012"
                             },
                             {
-                                "Week", "0,000000001653439"
+                                "Week", "0,000002"
                             },
                             {
-                                "Year", "0,000000000031688"
+                                "Year", "0,000000031688088"
+                            }
+                        }
+                    },
+                    {
+                        "Minute", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "60000000"
+                            },
+                            {
+                                "Millisecond", "60000"
+                            },
+                            {
+                                "Second", "60"
+                            },
+                            {
+                                "Hour", "0,016667"
+                            },
+                            {
+                                "Day", "0,000694"
+                            },
+                            {
+                                "Week", "0,000099"
+                            },
+                            {
+                                "Year", "0,000002"
                             }
                         }
                     }
