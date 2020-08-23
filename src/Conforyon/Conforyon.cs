@@ -526,6 +526,60 @@ namespace Conforyon
                         }
                     }
                 }
+            },
+            {
+                "Speed", new Dictionary<string, Dictionary<string, string>>()
+                {
+                    {
+                        "MPH", new Dictionary<string, string>()
+                        {
+                            {
+                                "KPH", "1,609344"
+                            }
+                        }
+                    },
+                    {
+                        "KPH", new Dictionary<string, string>()
+                        {
+                            {
+                                "MPH", "0,621371192"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "Temperature", new Dictionary<string, Dictionary<string, string>>()
+                {
+                    {
+                        "Celsius", new Dictionary<string, string>()
+                        {
+                            {
+                                "Divide", "5"
+                            },
+                            {
+                                "Multipy", "9"
+                            },
+                            {
+                                "Add", "32"
+                            }
+                        }
+                    },
+                    {
+                        "Fahrenheit", new Dictionary<string, string>()
+                        {
+                            {
+                                "Deduct", "32"
+                            },
+                            {
+                                "Multipy", "5"
+                            },
+                            {
+                                "Divide", "9"
+                            }
+                        }
+                    }
+                }
             }
         };
         #endregion
