@@ -39,8 +39,8 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Conforyon, Version=1.4.7.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Conforyon.1.4.7.2\lib\net48\Conforyon.dll</HintPath>
+    <Reference Include="Conforyon, Version=1.4.7.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Conforyon.1.4.7.3\lib\net48\Conforyon.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="ReaLTaiizor, Version=3.7.7.5, Culture=neutral, processorArchitecture=MSIL">
