@@ -7,11 +7,11 @@
     <Version>1.4.7.4</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>Conforyon</Title>
-    <PackageId>$(Title)</PackageId>
+    <Title>$(PackageId)</Title>
+    <PackageId>Conforyon</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>C# Insanely Fast Unit Converter - $(Title)</Description>
+    <Description>C# Insanely Fast Unit Converter - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReleaseNotes>Various improvements have been made.
