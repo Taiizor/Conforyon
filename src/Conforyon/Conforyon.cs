@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Web.Script.Serialization;
 
 #endregion
 
@@ -1436,9 +1437,48 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValues()
+        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValues(string Error = ErrorMessage)
         {
-            return Values;
+            try
+            {
+                return Values;
+            }
+            catch
+            {
+                return new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
+                {
+                    {
+                        "Error", new Dictionary<string, Dictionary<string, string>>()
+                        {
+                            {
+                                "ErrorTitle", new Dictionary<string, string>()
+                                {
+                                    {
+                                        "CN", "LV1!"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+            }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ListValuesJson(string Error = ErrorMessage)
+        {
+            try
+            {
+                return new JavaScriptSerializer().Serialize(ListValues());
+            }
+            catch
+            {
+                return Error + ErrorTitle + "CN-LVJ1!)";
+            }
         }
         #endregion
     }

@@ -1,7 +1,6 @@
 ﻿using System;
 using Conforyon;
 using System.Windows.Forms;
-using System.Web.Script.Serialization;
 
 namespace Conforyon_CR
 {
@@ -112,8 +111,7 @@ namespace Conforyon_CR
 
         private void Button12_Click(object sender, EventArgs e)
         {
-            string JSON = new JavaScriptSerializer().Serialize(Conforyon.Conforyon.ListValues());
-            MessageBox.Show(JSON);
+            MessageBox.Show(Conforyon.Conforyon.ListValuesJson());
         }
     }
 }
