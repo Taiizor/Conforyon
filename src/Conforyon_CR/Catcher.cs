@@ -1,7 +1,7 @@
 ﻿using System;
 using Conforyon;
 using System.Windows.Forms;
-using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace Conforyon_CR
 {
@@ -108,6 +108,12 @@ namespace Conforyon_CR
 
             MessageBox.Show(Typography.PXtoINCH(textBox17.Text, true, true, 2, "Error!") + " - PX => INCH");
             MessageBox.Show(Typography.PXtoCM(textBox17.Text, true, true, 2, "Error!") + " - PX => CM");
+        }
+
+        private void Button12_Click(object sender, EventArgs e)
+        {
+            string JSON = new JavaScriptSerializer().Serialize(Conforyon.Conforyon.ListValues());
+            MessageBox.Show(JSON);
         }
     }
 }

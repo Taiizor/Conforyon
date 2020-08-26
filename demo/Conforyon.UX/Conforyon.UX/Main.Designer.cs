@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.labelEdit1 = new ReaLTaiizor.LabelEdit();
+            this.labelEdit1 = new ReaLTaiizor.Controls.LabelEdit.LabelEdit();
             this.SuspendLayout();
             // 
             // labelEdit1
@@ -63,6 +63,6 @@
 
         #endregion
 
-        private ReaLTaiizor.LabelEdit labelEdit1;
+        private ReaLTaiizor.Controls.LabelEdit.LabelEdit labelEdit1;
     }
 }

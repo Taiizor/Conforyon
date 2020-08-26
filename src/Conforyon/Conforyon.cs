@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 23.Aug.2020
+//     Changed: 26.Aug.2020
 //     Version: 1.4.7.4
 //
 // |---------DO-NOT-REMOVE---------|
@@ -200,7 +200,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
+        private static Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
         {
             {
                 "DataStorage", new Dictionary<string, Dictionary<string, string>>()
@@ -1430,6 +1430,15 @@ namespace Conforyon
             {
                 return Error + ErrorTitle + "CN-GV1!)";
             }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValues()
+        {
+            return Values;
         }
         #endregion
     }
