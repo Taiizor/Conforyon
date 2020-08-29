@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 //     Creator: Taiizor
 //     Site   : www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 26.Aug.2020
+//     Changed: 29.Aug.2020
 //     Version: 1.4.7.4
 //
 // |---------DO-NOT-REMOVE---------|

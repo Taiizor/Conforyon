@@ -25,7 +25,8 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     <PackageIcon>INPUT.png</PackageIcon>
     <Company>$(Authors)</Company>
     <Owners>$(Authors)</Owners>
-    <LangVersion>Latest</LangVersion>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <LangVersion>latest</LangVersion>
     <NeutralLanguage>en</NeutralLanguage>
     <FileVersion>$(Version)</FileVersion>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
