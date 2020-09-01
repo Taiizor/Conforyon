@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.BG = new ReaLTaiizor.Controls.Panel.Panel();
-            this.BODY = new ReaLTaiizor.Controls.GroupBox.ForeverGroupBox();
-            this.VIEW = new ReaLTaiizor.Controls.GroupBox.ForeverGroupBox();
-            this.BAR = new ReaLTaiizor.Controls.GroupBox.ForeverGroupBox();
-            this.hopeButton1 = new ReaLTaiizor.Controls.Button.HopeButton();
+            this.BG = new ReaLTaiizor.Controls.Panel();
+            this.BODY = new ReaLTaiizor.Controls.ForeverGroupBox();
+            this.VIEW = new ReaLTaiizor.Controls.ForeverGroupBox();
+            this.BAR = new ReaLTaiizor.Controls.ForeverGroupBox();
+            this.hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
             this.BG.SuspendLayout();
             this.BODY.SuspendLayout();
             this.BAR.SuspendLayout();
@@ -153,10 +153,10 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.Panel.Panel BG;
-        private ReaLTaiizor.Controls.GroupBox.ForeverGroupBox BAR;
-        private ReaLTaiizor.Controls.GroupBox.ForeverGroupBox BODY;
-        private ReaLTaiizor.Controls.GroupBox.ForeverGroupBox VIEW;
-        private ReaLTaiizor.Controls.Button.HopeButton hopeButton1;
+        private ReaLTaiizor.Controls.Panel BG;
+        private ReaLTaiizor.Controls.ForeverGroupBox BAR;
+        private ReaLTaiizor.Controls.ForeverGroupBox BODY;
+        private ReaLTaiizor.Controls.ForeverGroupBox VIEW;
+        private ReaLTaiizor.Controls.HopeButton hopeButton1;
     }
 }
