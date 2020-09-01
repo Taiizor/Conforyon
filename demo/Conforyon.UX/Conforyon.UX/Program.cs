@@ -5,7 +5,6 @@ namespace Conforyon.UX
 {
     static class Program
     {
-
         /// <summary>
         /// Uygulamanın ana girdi noktası.
         /// </summary>
