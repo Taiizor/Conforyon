@@ -22,7 +22,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
     <PackageDescription>$(Description)</PackageDescription>
     <RepositoryUrl>https://github.com/Taiizor/Conforyon</RepositoryUrl>
-    <PackageIcon>INPUT.png</PackageIcon>
+    <PackageIcon>CUBE.png</PackageIcon>
     <Company>$(Authors)</Company>
     <Owners>$(Authors)</Owners>
     <AnalysisLevel>latest</AnalysisLevel>
@@ -63,7 +63,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Resources\INPUT.png">
+    <None Include="Resources\CUBE.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
