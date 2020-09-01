@@ -1,13 +1,13 @@
-![logo](https://www.photo.herominyum.com/resimler/2020/08/04/1mpl.png)
+![Logo](https://www.photo.herominyum.com/resimler/2020/09/01/ElS2.png)
 
-![dotnetframework-version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
-![dotnetstandard-version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.1-blue)
-![dotnetcore-version](https://img.shields.io/badge/.NET%20Core-%3E%3D2.1-blue)
-![dotnet-version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
-![csharp-version](https://img.shields.io/badge/C%23-9.0-blue.svg)
-![ide-version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
-[![nuget-version](https://img.shields.io/nuget/v/Conforyon.svg)](https://www.nuget.org/packages/Conforyon)
-[![nuget](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/packages/Conforyon)
+![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
+![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.1-blue)
+![Dot-Net-Core-Version](https://img.shields.io/badge/.NET%20Core-%3E%3D2.1-blue)
+![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D5.0-blue)
+![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
+![IDE-Version](https://img.shields.io/badge/IDE-vs2019-blue.svg)
+[![NuGet-Version](https://img.shields.io/nuget/v/Conforyon.svg)](https://www.nuget.org/packages/Conforyon)
+[![NuGet](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/packages/Conforyon)
 
 # Welcome to Conforyon
 Conforyon is a Unit Converter library. It allows the conversion of various unit conversions it offers.
