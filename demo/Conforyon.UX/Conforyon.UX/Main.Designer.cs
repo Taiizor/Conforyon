@@ -431,7 +431,7 @@
             this.Controls.Add(this.BG);
             this.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Image = global::Conforyon.UX.Properties.Resources.INPUT;
+            this.Image = global::Conforyon.UX.Properties.Resources.CUBE;
             this.MinimumSize = new System.Drawing.Size(230, 230);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
