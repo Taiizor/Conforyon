@@ -1,4 +1,4 @@
-![Logo](https://www.photo.herominyum.com/resimler/2020/09/01/ElS2.png)
+![Logo](https://www.photo.herominyum.com/resimler/2020/09/01/E0YY.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.1-blue)
