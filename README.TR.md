@@ -65,7 +65,7 @@ Step 2：Dönüşümlerin tadını çıkarın
 
 ### Conforyon UI
 
-![ConforyonUIDemo](https://www.photo.herominyum.com/resimler/2020/09/01/EewF.png)
+![ConforyonUIDemo](https://www.photo.herominyum.com/resimler/2020/09/01/EiIS.png)
 
 ### Conforyon UX
 
