@@ -36,7 +36,7 @@
     <StartupObject>Conforyon_CR.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Fork1.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Conforyon">
@@ -85,8 +85,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Fork1.ico" />
-    <Content Include="Resources\Fork2.png" />
+    <None Include="Resources\ICO.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FORK.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
