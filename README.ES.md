@@ -55,11 +55,11 @@ Este proyecto sigue la especificación de [todos los contribuyentes](https://git
 
 ## Utilizar
 
-Step 1：Agregue una referencia a Conforyon o busque Conforyon en el NuGet;
+Paso 1：Agregue una referencia a Conforyon o busque Conforyon en el NuGet;
 
 ```Install-Package Conforyon```
 
-Step 2：Disfruta de las conversiones
+Paso 2：Disfruta de las conversiones
 
 ## Demos
 

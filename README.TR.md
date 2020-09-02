@@ -55,11 +55,11 @@ Bu proje [tüm katkıda bulunanların](https://github.com/all-contributors/all-c
 
 ## Kullanım
 
-Step 1：Referans olarak Conforyon'u ekleyin veya NuGet üzerinden Conforyon'u aratın;
+Adım 1：Referans olarak Conforyon'u ekleyin veya NuGet üzerinden Conforyon'u aratın;
 
 ```Install-Package Conforyon```
 
-Step 2：Dönüşümlerin tadını çıkarın
+Adım 2：Dönüşümlerin tadını çıkarın
 
 ## Demolar
 
