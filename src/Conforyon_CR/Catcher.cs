@@ -45,8 +45,8 @@ namespace Conforyon_CR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Crypto.TEXTtoMD5(textBox5.Text, "Error!"));
-            MessageBox.Show(Crypto.TEXTtoSHA1(textBox5.Text, "Error!"));
+            MessageBox.Show(Crypto.TEXTtoMD5(textBox5.Text, false, "Error!") + "\n" + Crypto.TEXTtoMD5(textBox5.Text, true, "Error!"));
+            MessageBox.Show(Crypto.TEXTtoSHA1(textBox5.Text, false, "Error!") + "\n" + Crypto.TEXTtoSHA1(textBox5.Text, true, "Error!"));
         }
 
         private void Button4_Click(object sender, EventArgs e)

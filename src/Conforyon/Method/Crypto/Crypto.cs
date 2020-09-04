@@ -101,9 +101,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoMD5(string Text, string Error = ErrorMessage)
+        public static string TEXTtoMD5(string Text, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -116,7 +117,7 @@ namespace Conforyon
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
-                        return Builder.ToString();
+                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                     }
                 }
                 else
@@ -132,9 +133,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA1(string Text, string Error = ErrorMessage)
+        public static string TEXTtoSHA1(string Text, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -146,7 +148,7 @@ namespace Conforyon
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
-                        return Builder.ToString();
+                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                     }
                 }
                 else
@@ -162,9 +164,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA256(string Text, string Error = ErrorMessage)
+        public static string TEXTtoSHA256(string Text, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -176,7 +179,7 @@ namespace Conforyon
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
-                        return Builder.ToString();
+                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                     }
                 }
                 else
@@ -192,9 +195,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA384(string Text, string Error = ErrorMessage)
+        public static string TEXTtoSHA384(string Text, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -206,7 +210,7 @@ namespace Conforyon
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
-                        return Builder.ToString();
+                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                     }
                 }
                 else
@@ -222,9 +226,10 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA512(string Text, string Error = ErrorMessage)
+        public static string TEXTtoSHA512(string Text, bool Uppercase = false, string Error = ErrorMessage)
         {
             try
             {
@@ -236,7 +241,7 @@ namespace Conforyon
                         StringBuilder Builder = new StringBuilder();
                         for (int i = 0; i < Result.Length; i++)
                             Builder.Append(Result[i].ToString("x2"));
-                        return Builder.ToString();
+                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                     }
                 }
                 else
