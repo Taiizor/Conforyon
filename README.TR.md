@@ -192,8 +192,8 @@ BASE64toTEXT("Q29uZm9yeW9u", "Hata!");
 #### TEXT -> MD5
 
 ```CS
-/* TEXTtoMD5(string Text, string Error = ErrorMessage) */
-TEXTtoMD5("Conforyon", "Hata!");
+/* TEXTtoMD5(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoMD5("Conforyon", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -202,11 +202,22 @@ TEXTtoMD5("Conforyon", "Hata!");
 </FunctionResult>
 ```
 
+```CS
+/* TEXTtoMD5(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoMD5("Conforyon", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>9946DC70F0672DA2BA000A0CB80F8872</ReturnValue>
+</FunctionResult>
+```
+
 #### TEXT -> SHA1
 
 ```CS
-/* TEXTtoSHA1(string Text, string Error = ErrorMessage) */
-TEXTtoSHA1("Conforyon", "Hata!");
+/* TEXTtoSHA1(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA1("Conforyon", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -215,11 +226,22 @@ TEXTtoSHA1("Conforyon", "Hata!");
 </FunctionResult>
 ```
 
+```CS
+/* TEXTtoSHA1(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA1("Conforyon", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>4A417FE4795F59E4848C403FFC4C569417A743B4</ReturnValue>
+</FunctionResult>
+```
+
 #### TEXT -> SHA256
 
 ```CS
-/* TEXTtoSHA256(string Text, string Error = ErrorMessage) */
-TEXTtoSHA256("Conforyon", "Hata!");
+/* TEXTtoSHA256(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA256("Conforyon", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -228,11 +250,22 @@ TEXTtoSHA256("Conforyon", "Hata!");
 </FunctionResult>
 ```
 
+```CS
+/* TEXTtoSHA256(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA256("Conforyon", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>4A772E794799EFDF4DC171EA2779E78BFA582C46EF86C6C018B7E9387D7FE56B</ReturnValue>
+</FunctionResult>
+```
+
 #### TEXT -> SHA384
 
 ```CS
-/* TEXTtoSHA384(string Text, string Error = ErrorMessage) */
-TEXTtoSHA384("Conforyon", "Hata!");
+/* TEXTtoSHA384(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA384("Conforyon", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -241,16 +274,38 @@ TEXTtoSHA384("Conforyon", "Hata!");
 </FunctionResult>
 ```
 
+```CS
+/* TEXTtoSHA384(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA384("Conforyon", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>3DCA281C6056810CA6AFF8BB151EA8D0A1908F8650D573237CC038DCE3BB30D04A79D2C0F778A5A2E609951A11443DB3</ReturnValue>
+</FunctionResult>
+```
+
 #### TEXT -> SHA512
 
 ```CS
-/* TEXTtoSHA512(string Text, string Error = ErrorMessage) */
-TEXTtoSHA512("Conforyon", "Hata!");
+/* TEXTtoSHA512(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA512("Conforyon", false, "Hata!");
 ```
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
 	<ReturnValue>d47368182220aab5f687dde734acbb8d895bb2d870e789ee03216f3b215ac00a4202ead0aabce2049ae49a0079b130211323453604c088b09a27ee989de9db8b</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* TEXTtoSHA512(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+TEXTtoSHA512("Conforyon", true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>D47368182220AAB5F687DDE734ACBB8D895BB2D870E789EE03216F3B215AC00A4202EAD0AABCE2049AE49A0079B130211323453604C088B09A27EE989DE9DB8B</ReturnValue>
 </FunctionResult>
 ```
 
