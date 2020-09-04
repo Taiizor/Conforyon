@@ -10,7 +10,7 @@ using System.Web.Script.Serialization;
 // |---------DO-NOT-REMOVE---------|
 //
 //     Creator: Taiizor
-//     Site   : www.Taiizor.com
+//     Website: www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 04.Sep.2020
 //     Version: 1.4.7.4
