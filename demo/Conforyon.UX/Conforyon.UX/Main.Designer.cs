@@ -84,7 +84,7 @@
             this.BODY.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.BODY.Location = new System.Drawing.Point(230, 5);
             this.BODY.Name = "BODY";
-            this.BODY.ShowArror = false;
+            this.BODY.ShowArrow = false;
             this.BODY.ShowText = false;
             this.BODY.Size = new System.Drawing.Size(561, 452);
             this.BODY.TabIndex = 4;
@@ -102,7 +102,7 @@
             this.VIEW.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.VIEW.Location = new System.Drawing.Point(0, 0);
             this.VIEW.Name = "VIEW";
-            this.VIEW.ShowArror = false;
+            this.VIEW.ShowArrow = false;
             this.VIEW.ShowText = false;
             this.VIEW.Size = new System.Drawing.Size(561, 452);
             this.VIEW.TabIndex = 5;
@@ -122,7 +122,7 @@
             this.BAR.Location = new System.Drawing.Point(5, 5);
             this.BAR.Name = "BAR";
             this.BAR.Padding = new System.Windows.Forms.Padding(15);
-            this.BAR.ShowArror = false;
+            this.BAR.ShowArrow = false;
             this.BAR.ShowText = false;
             this.BAR.Size = new System.Drawing.Size(225, 452);
             this.BAR.TabIndex = 3;
