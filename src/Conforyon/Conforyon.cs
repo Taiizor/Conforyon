@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 04.Sep.2020
+//     Changed: 07.Sep.2020
 //     Version: 1.4.7.4
 //
 // |---------DO-NOT-REMOVE---------|
@@ -1437,7 +1437,7 @@ namespace Conforyon
         /// 
         /// </summary>
         /// <returns></returns>
-        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValues(string Error = ErrorMessage)
+        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValues(string Error = "Error", string Title = "Title")
         {
             try
             {
@@ -1448,10 +1448,10 @@ namespace Conforyon
                 return new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
                 {
                     {
-                        "Error", new Dictionary<string, Dictionary<string, string>>()
+                        Error, new Dictionary<string, Dictionary<string, string>>()
                         {
                             {
-                                "ErrorTitle", new Dictionary<string, string>()
+                                Title, new Dictionary<string, string>()
                                 {
                                     {
                                         "CN", "LV1!"
