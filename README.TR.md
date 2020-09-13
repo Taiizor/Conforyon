@@ -761,7 +761,7 @@ KPHtoMPH("12345", false, false, 0, false, "Hata!");
 
 ```CS
 /* AutoTimeConvert(string InputVariable, TimeType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
-AutoTimeConvert("12345", InputType.Second, true, true, true, 2, "Hata!");
+AutoTimeConvert("12345", TimeType.Second, true, true, true, 2, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -772,7 +772,7 @@ AutoTimeConvert("12345", InputType.Second, true, true, true, 2, "Hata!");
 
 ```CS
 /* AutoTimeConvert(string InputVariable, TimeType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
-AutoTimeConvert("12345", InputType.Second, false, true, false, 0, "Hata!");
+AutoTimeConvert("12345", TimeType.Second, false, true, false, 0, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -785,7 +785,7 @@ AutoTimeConvert("12345", InputType.Second, false, true, false, 0, "Hata!");
 
 ```CS
 /* TimeConvert(string InputVariable, TimeType InputType, TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
-TimeConvert("12345", InputType.Second, InputType.Minute, true, true, 2, "Hata!");
+TimeConvert("12345", TimeType.Second, TimeType.Minute, true, true, 2, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -796,7 +796,7 @@ TimeConvert("12345", InputType.Second, InputType.Minute, true, true, 2, "Hata!")
 
 ```CS
 /* TimeConvert(string InputVariable, TimeType InputType, TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage) */
-TimeConvert("12345", InputType.Second, InputType.Minute, false, true, 5, "Hata!");
+TimeConvert("12345", TimeType.Second, TimeType.Minute, false, true, 5, "Hata!");
 ```
 ```XML
 <FunctionResult>
