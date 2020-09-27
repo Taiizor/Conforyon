@@ -1,4 +1,4 @@
-![Logo](https://i.hizliresim.com/5Yp0Qe.png)
+![Logo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.images/Logo.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.1-blue)
@@ -65,11 +65,11 @@ Step 2：Enjoy conversions
 
 ### Conforyon UI
 
-![ConforyonUIDemo](https://i.hizliresim.com/ynNoAQ.png)
+![ConforyonUIDemo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.screenshots/UI.png)
 
 ### Conforyon UX
 
-![ConforyonUXDemo](https://i.hizliresim.com/ikCMMu.gif)
+![ConforyonUXDemo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.screenshots/UX.gif)
 
 ## Detailed Usage
 
