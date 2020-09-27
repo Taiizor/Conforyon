@@ -1,4 +1,4 @@
-![Logo](https://www.photo.herominyum.com/resimler/2020/09/01/E0YY.png)
+![Logo](https://i.hizliresim.com/5Yp0Qe.png)
 
 ![Dot-Net-Framework-Version](https://img.shields.io/badge/.NET%20Framework-%3E%3D4.0-blue)
 ![Dot-Net-Standard-Version](https://img.shields.io/badge/.NET%20Standard-%3E%3D2.1-blue)
@@ -65,11 +65,11 @@ Paso 2：Disfruta de las conversiones
 
 ### Conforyon UI
 
-![ConforyonUIDemo](https://www.photo.herominyum.com/resimler/2020/09/01/EiIS.png)
+![ConforyonUIDemo](https://i.hizliresim.com/ynNoAQ.png)
 
 ### Conforyon UX
 
-![ConforyonUXDemo](https://www.photo.herominyum.com/resimler/2020/09/01/EXPO.gif)
+![ConforyonUXDemo](https://i.hizliresim.com/ikCMMu.gif)
 
 ## Utilizar Detallado
 
