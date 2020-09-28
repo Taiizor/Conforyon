@@ -32,6 +32,7 @@
             this.BG = new ReaLTaiizor.Controls.Panel();
             this.BODY = new ReaLTaiizor.Controls.ForeverGroupBox();
             this.VIEW = new ReaLTaiizor.Controls.ForeverGroupBox();
+            this.labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
             this.BAR = new ReaLTaiizor.Controls.ForeverGroupBox();
             this.materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
             this.Units = new System.Windows.Forms.TabPage();
@@ -47,7 +48,6 @@
             this.Crypto = new ReaLTaiizor.Controls.HopeButton();
             this.Clipboard = new ReaLTaiizor.Controls.HopeButton();
             this.materialTabSelector1 = new ReaLTaiizor.Controls.MaterialTabSelector();
-            this.labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
             this.BG.SuspendLayout();
             this.BODY.SuspendLayout();
             this.VIEW.SuspendLayout();
@@ -109,6 +109,19 @@
             this.VIEW.Text = "VIEW";
             this.VIEW.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             // 
+            // labelEdit1
+            // 
+            this.labelEdit1.BackColor = System.Drawing.Color.Transparent;
+            this.labelEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 101F, System.Drawing.FontStyle.Bold);
+            this.labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.labelEdit1.Location = new System.Drawing.Point(0, 0);
+            this.labelEdit1.Name = "labelEdit1";
+            this.labelEdit1.Size = new System.Drawing.Size(561, 452);
+            this.labelEdit1.TabIndex = 0;
+            this.labelEdit1.Text = "Coming\r\nSoon!";
+            this.labelEdit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // BAR
             // 
             this.BAR.ArrowColorF = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
@@ -137,7 +150,7 @@
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Location = new System.Drawing.Point(18, 80);
             this.materialTabControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.materialTabControl1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
@@ -164,7 +177,7 @@
             // 
             this.Time.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Time.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Time.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Time.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Time.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Time.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Time.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -186,7 +199,7 @@
             // 
             this.Speed.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Speed.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Speed.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Speed.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Speed.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Speed.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Speed.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -208,7 +221,7 @@
             // 
             this.Typography.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Typography.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Typography.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Typography.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Typography.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Typography.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Typography.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -230,7 +243,7 @@
             // 
             this.Temperature.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Temperature.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Temperature.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Temperature.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Temperature.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Temperature.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Temperature.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -252,7 +265,7 @@
             // 
             this.DataStorage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DataStorage.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.DataStorage.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.DataStorage.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.DataStorage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DataStorage.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.DataStorage.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -274,7 +287,7 @@
             // 
             this.Color.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Color.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Color.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Color.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Color.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Color.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Color.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -310,7 +323,7 @@
             // 
             this.Unicode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Unicode.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Unicode.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Unicode.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Unicode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Unicode.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Unicode.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -332,7 +345,7 @@
             // 
             this.Hash.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Hash.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Hash.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Hash.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Hash.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Hash.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Hash.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -354,7 +367,7 @@
             // 
             this.Crypto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Crypto.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Crypto.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Crypto.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Crypto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Crypto.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Crypto.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -376,7 +389,7 @@
             // 
             this.Clipboard.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Clipboard.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.Clipboard.ButtonType = ReaLTaiizor.Utils.HopeButtonType.Primary;
+            this.Clipboard.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Clipboard.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Clipboard.DangerColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
             this.Clipboard.DefaultColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -403,25 +416,12 @@
             this.materialTabSelector1.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Center;
             this.materialTabSelector1.Location = new System.Drawing.Point(18, 18);
             this.materialTabSelector1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.materialTabSelector1.MouseState = ReaLTaiizor.Helpers.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
             this.materialTabSelector1.Size = new System.Drawing.Size(189, 62);
             this.materialTabSelector1.TabIndex = 7;
             this.materialTabSelector1.Text = "materialTabSelector1";
             this.materialTabSelector1.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextState.Normal;
-            // 
-            // labelEdit1
-            // 
-            this.labelEdit1.BackColor = System.Drawing.Color.Transparent;
-            this.labelEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 101F, System.Drawing.FontStyle.Bold);
-            this.labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.labelEdit1.Location = new System.Drawing.Point(0, 0);
-            this.labelEdit1.Name = "labelEdit1";
-            this.labelEdit1.Size = new System.Drawing.Size(561, 452);
-            this.labelEdit1.TabIndex = 0;
-            this.labelEdit1.Text = "Coming\r\nSoon!";
-            this.labelEdit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Main
             // 
@@ -432,7 +432,7 @@
             this.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Image = global::Conforyon.UX.Properties.Resources.CUBE;
-            this.MinimumSize = new System.Drawing.Size(230, 230);
+            this.MinimumSize = new System.Drawing.Size(239, 500);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conforyon UX";
