@@ -132,7 +132,7 @@ ListValues("Hata", "Başlık");
 ```XML
 <FunctionResult>
 	<ReturnType>System.Collections.Generic.Dictionary</ReturnType>
-	<ReturnValue>...</ReturnValue>
+	<ReturnValue>(Dictionary<string, Dictionary<string, Dictionary<string, string>>>)...</ReturnValue>
 </FunctionResult>
 ```
 
