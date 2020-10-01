@@ -160,6 +160,8 @@ namespace Conforyon.UI
                 else if (comboBox22.SelectedIndex == 8)
                     Selection18 = Conforyon.TimeType.Year;
                 else if (comboBox22.SelectedIndex == 9)
+                    Selection18 = Conforyon.TimeType.Century;
+                else if (comboBox22.SelectedIndex == 10)
                     Selection18 = Conforyon.TimeType.Millennium;
                 if (comboBox19.SelectedIndex == 0)
                     Selection19 = Conforyon.TimeType.Nanosecond;
@@ -180,6 +182,8 @@ namespace Conforyon.UI
                 else if (comboBox19.SelectedIndex == 8)
                     Selection19 = Conforyon.TimeType.Year;
                 else if (comboBox19.SelectedIndex == 9)
+                    Selection19 = Conforyon.TimeType.Century;
+                else if (comboBox19.SelectedIndex == 10)
                     Selection19 = Conforyon.TimeType.Millennium;
                 if (comboBox21.SelectedIndex == 0)
                     Selection20 = true;

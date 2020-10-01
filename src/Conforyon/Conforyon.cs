@@ -144,6 +144,7 @@ namespace Conforyon
             Day,
             Week,
             Year,
+            Century,
             Millennium
         }
 
@@ -615,6 +616,9 @@ namespace Conforyon
                                 "Year", "3,168808781E-17"
                             },
                             {
+                                "Century", "3,170979198E-19"
+                            },
+                            {
                                 "Millennium", "3,170979198E-20"
                             }
                         }
@@ -645,6 +649,9 @@ namespace Conforyon
                             },
                             {
                                 "Year", "3,168808781E-14"
+                            },
+                            {
+                                "Century", "3,170979198E-16"
                             },
                             {
                                 "Millennium", "3,170979198E-17"
@@ -679,6 +686,9 @@ namespace Conforyon
                                 "Year", "3,168808781E-11"
                             },
                             {
+                                "Century", "3,170979198E-13"
+                            },
+                            {
                                 "Millennium", "3,170979198E-14"
                             }
                         }
@@ -709,6 +719,9 @@ namespace Conforyon
                             },
                             {
                                 "Year", "3,168808781E-8"
+                            },
+                            {
+                                "Century", "3,170979198E-10"
                             },
                             {
                                 "Millennium", "3,170979198E-11"
@@ -743,6 +756,9 @@ namespace Conforyon
                                 "Year", "0,0000019013"
                             },
                             {
+                                "Century", "1,902587519E-8"
+                            },
+                            {
                                 "Millennium", "1,902587519E-9"
                             }
                         }
@@ -773,6 +789,9 @@ namespace Conforyon
                             },
                             {
                                 "Year", "0,0001140771"
+                            },
+                            {
+                                "Century", "0,0000011416"
                             },
                             {
                                 "Millennium", "1,141552511E-7"
@@ -807,6 +826,9 @@ namespace Conforyon
                                 "Year", "0,0027378508"
                             },
                             {
+                                "Century", "0,0000273973"
+                            },
+                            {
                                 "Millennium", "0,0000027397"
                             }
                         }
@@ -837,6 +859,9 @@ namespace Conforyon
                             },
                             {
                                 "Year", "0,0191649555"
+                            },
+                            {
+                                "Century", "0,0001917808"
                             },
                             {
                                 "Millennium", "0,0000191781"
@@ -871,7 +896,45 @@ namespace Conforyon
                                 "Week", "52,178571429"
                             },
                             {
+                                "Century", "0,0100068493"
+                            },
+                            {
                                 "Millennium", "0,0010006849"
+                            }
+                        }
+                    },
+                    {
+                        "Century", new Dictionary<string, string>()
+                        {
+                            {
+                                "Nanosecond", "3153600000000000000"
+                            },
+                            {
+                                "Microsecond", "3153600000000000"
+                            },
+                            {
+                                "Millisecond", "3153600000000"
+                            },
+                            {
+                                "Second", "3153600000"
+                            },
+                            {
+                                "Minute", "52560000"
+                            },
+                            {
+                                "Hour", "876000"
+                            },
+                            {
+                                "Day", "36500"
+                            },
+                            {
+                                "Week", "5214,2857143"
+                            },
+                            {
+                                "Year", "99,93155373"
+                            },
+                            {
+                                "Millennium", "0,1"
                             }
                         }
                     },
@@ -904,6 +967,9 @@ namespace Conforyon
                             },
                             {
                                 "Year", "999,3155373"
+                            },
+                            {
+                                "Century", "10"
                             }
                         }
                     }

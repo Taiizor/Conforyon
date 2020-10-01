@@ -739,7 +739,8 @@
             resources.GetString("comboBox19.Items6"),
             resources.GetString("comboBox19.Items7"),
             resources.GetString("comboBox19.Items8"),
-            resources.GetString("comboBox19.Items9")});
+            resources.GetString("comboBox19.Items9"),
+            resources.GetString("comboBox19.Items10")});
             resources.ApplyResources(this.comboBox19, "comboBox19");
             this.comboBox19.Name = "comboBox19";
             // 
@@ -780,7 +781,8 @@
             resources.GetString("comboBox22.Items6"),
             resources.GetString("comboBox22.Items7"),
             resources.GetString("comboBox22.Items8"),
-            resources.GetString("comboBox22.Items9")});
+            resources.GetString("comboBox22.Items9"),
+            resources.GetString("comboBox22.Items10")});
             resources.ApplyResources(this.comboBox22, "comboBox22");
             this.comboBox22.Name = "comboBox22";
             // 

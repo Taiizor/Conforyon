@@ -3199,7 +3199,7 @@
     <value>74</value>
   </data>
   <data name="textBox19.Text" xml:space="preserve">
-    <value>437cb99f327491eafc973c08538c44df</value>
+    <value>3f76e37d03810bed3ccc128f21321b5e</value>
   </data>
   <data name="textBox19.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -3226,7 +3226,7 @@
     <value>73</value>
   </data>
   <data name="textBox20.Text" xml:space="preserve">
-    <value>Conforyon.UI.exe</value>
+    <value>Conforyon.dll</value>
   </data>
   <data name="textBox20.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Center</value>
@@ -3621,6 +3621,9 @@
     <value>Year</value>
   </data>
   <data name="comboBox19.Items9" xml:space="preserve">
+    <value>Century</value>
+  </data>
+  <data name="comboBox19.Items10" xml:space="preserve">
     <value>Millennium</value>
   </data>
   <data name="comboBox19.Location" type="System.Drawing.Point, System.Drawing">
@@ -3726,6 +3729,9 @@
     <value>Year</value>
   </data>
   <data name="comboBox22.Items9" xml:space="preserve">
+    <value>Century</value>
+  </data>
+  <data name="comboBox22.Items10" xml:space="preserve">
     <value>Millennium</value>
   </data>
   <data name="comboBox22.Location" type="System.Drawing.Point, System.Drawing">

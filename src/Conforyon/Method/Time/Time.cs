@@ -156,6 +156,12 @@ namespace Conforyon
                                     else
                                         return Error;
                                     break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Century", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Millennium", Error), Comma, true, false, Error);
@@ -216,6 +222,12 @@ namespace Conforyon
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Year", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Century", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -282,6 +294,12 @@ namespace Conforyon
                                     else
                                         return Error;
                                     break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Century", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Millennium", Error), Comma, true, false, Error);
@@ -342,6 +360,12 @@ namespace Conforyon
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Year", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Century", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -408,6 +432,12 @@ namespace Conforyon
                                     else
                                         return Error;
                                     break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Century", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millennium", Error), Comma, true, false, Error);
@@ -468,6 +498,12 @@ namespace Conforyon
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Year", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Century", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -534,6 +570,12 @@ namespace Conforyon
                                     else
                                         return Error;
                                     break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Century", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millennium", Error), Comma, true, false, Error);
@@ -594,6 +636,12 @@ namespace Conforyon
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Year", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Century", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -660,9 +708,84 @@ namespace Conforyon
                                     break;
                                 case TimeType.Year:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Century", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millennium", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                default:
+                                    return Error;
+                            }
+                            break;
+                        case TimeType.Century:
+                            switch (TypeConvert)
+                            {
+                                case TimeType.Nanosecond:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Nanosecond", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Microsecond:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Microsecond", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Millisecond:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Millisecond", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Second:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Second", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Minute:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Minute", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Hour:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Hour", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Day:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Day", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Week:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Week", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Year:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Year", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Century:
+                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case TimeType.Millennium:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Millennium", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -724,6 +847,12 @@ namespace Conforyon
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Year", Error), Comma, true, false, Error);
+                                    else
+                                        return Error;
+                                    break;
+                                case TimeType.Century:
+                                    if (NumberCheck(InputVariable))
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Century", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;

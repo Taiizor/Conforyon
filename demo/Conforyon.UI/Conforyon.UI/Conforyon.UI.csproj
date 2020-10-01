@@ -39,9 +39,8 @@
     <StartupObject>Conforyon.UI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Conforyon, Version=1.4.7.3, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\src\Conforyon\bin\Release\net48\Conforyon.dll</HintPath>
+    <Reference Include="Conforyon, Version=1.4.7.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Conforyon.1.4.7.4\lib\net48\Conforyon.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,6 +70,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

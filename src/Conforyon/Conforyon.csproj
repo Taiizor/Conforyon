@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
-    <!--<TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>-->
+    <!--<TargetFramework>net48</TargetFramework>-->
+    <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
     <Version>1.4.7.4</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
@@ -14,7 +14,7 @@
     <Description>C# Insanely Fast Unit Converter - $(PackageId)</Description>
     <PackageLicenseFile></PackageLicenseFile>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <PackageReleaseNotes>Various improvements have been made.
+    <PackageReleaseNotes>Bugs have also been fixed with the addition of new conversions.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor C# CSharp DotNet Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>

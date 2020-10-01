@@ -766,7 +766,7 @@ AutoTimeConvert("12345", TimeType.Second, true, true, true, 2, "Hata!");
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
-	<ReturnValue>3,43 Hour</ReturnValue>
+	<ReturnValue>3,42 Hour</ReturnValue>
 </FunctionResult>
 ```
 
@@ -801,6 +801,6 @@ TimeConvert("12345", TimeType.Second, TimeType.Minute, false, true, 5, "Hata!");
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
-	<ReturnValue>205,75411</ReturnValue>
+	<ReturnValue>205,75000</ReturnValue>
 </FunctionResult>
 ```
