@@ -135,6 +135,7 @@ namespace Conforyon
         /// </summary>
         public enum TimeType
         {
+            Nanosecond,
             Microsecond,
             Millisecond,
             Second,
@@ -142,7 +143,8 @@ namespace Conforyon
             Hour,
             Day,
             Week,
-            Year
+            Year,
+            Millennium
         }
 
         /// <summary>
@@ -586,8 +588,43 @@ namespace Conforyon
                 "Time", new Dictionary<string, Dictionary<string, string>>()
                 {
                     {
+                        "Nanosecond", new Dictionary<string, string>()
+                        {
+                            {
+                                "Microsecond", "0,001"
+                            },
+                            {
+                                "Millisecond", "0,000001"
+                            },
+                            {
+                                "Second", "1,E-9"
+                            },
+                            {
+                                "Minute", "1,666666666E-11"
+                            },
+                            {
+                                "Hour", "2,777777777E-13"
+                            },
+                            {
+                                "Day", "1,157407407E-14"
+                            },
+                            {
+                                "Week", "1,653439153E-15"
+                            },
+                            {
+                                "Year", "3,168808781E-17"
+                            },
+                            {
+                                "Millennium", "3,170979198E-20"
+                            }
+                        }
+                    },
+                    {
                         "Microsecond", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "1000"
+                            },
                             {
                                 "Millisecond", "0,001"
                             },
@@ -608,12 +645,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "3,168808781E-14"
+                            },
+                            {
+                                "Millennium", "3,170979198E-17"
                             }
                         }
                     },
                     {
                         "Millisecond", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "1000000"
+                            },
                             {
                                 "Microsecond", "1000"
                             },
@@ -634,12 +677,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "3,168808781E-11"
+                            },
+                            {
+                                "Millennium", "3,170979198E-14"
                             }
                         }
                     },
                     {
                         "Second", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "1000000000"
+                            },
                             {
                                 "Microsecond", "1000000"
                             },
@@ -660,12 +709,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "3,168808781E-8"
+                            },
+                            {
+                                "Millennium", "3,170979198E-11"
                             }
                         }
                     },
                     {
                         "Minute", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "60000000000"
+                            },
                             {
                                 "Microsecond", "60000000"
                             },
@@ -686,12 +741,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "0,0000019013"
+                            },
+                            {
+                                "Millennium", "1,902587519E-9"
                             }
                         }
                     },
                     {
                         "Hour", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "3600000000000"
+                            },
                             {
                                 "Microsecond", "3600000000000"
                             },
@@ -712,12 +773,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "0,0001140771"
+                            },
+                            {
+                                "Millennium", "1,141552511E-7"
                             }
                         }
                     },
                     {
                         "Day", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "86400000000000"
+                            },
                             {
                                 "Microsecond", "86400000000"
                             },
@@ -738,12 +805,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "0,0027378508"
+                            },
+                            {
+                                "Millennium", "0,0000027397"
                             }
                         }
                     },
                     {
                         "Week", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "604800000000002"
+                            },
                             {
                                 "Microsecond", "604800000000"
                             },
@@ -764,12 +837,18 @@ namespace Conforyon
                             },
                             {
                                 "Year", "0,0191649555"
+                            },
+                            {
+                                "Millennium", "0,0000191781"
                             }
                         }
                     },
                     {
                         "Year", new Dictionary<string, string>()
                         {
+                            {
+                                "Nanosecond", "31557599999999904"
+                            },
                             {
                                 "Microsecond", "31557600000000"
                             },
@@ -789,7 +868,42 @@ namespace Conforyon
                                 "Day", "365,25"
                             },
                             {
-                                "Week", "52.178571429"
+                                "Week", "52,178571429"
+                            },
+                            {
+                                "Millennium", "0,0010006849"
+                            }
+                        }
+                    },
+                    {
+                        "Millennium", new Dictionary<string, string>()
+                        {
+                            {
+                                "Nanosecond", "31536000000000000000"
+                            },
+                            {
+                                "Microsecond", "31536000000000000"
+                            },
+                            {
+                                "Millisecond", "31536000000000"
+                            },
+                            {
+                                "Second", "31536000000"
+                            },
+                            {
+                                "Minute", "525600000"
+                            },
+                            {
+                                "Hour", "8760000"
+                            },
+                            {
+                                "Day", "365000"
+                            },
+                            {
+                                "Week", "52142,857143"
+                            },
+                            {
+                                "Year", "999,3155373"
                             }
                         }
                     }
@@ -944,9 +1058,9 @@ namespace Conforyon
         /// <param name="InputVariable"></param>
         /// <param name="Coefficient"></param>
         /// <param name="Comma"></param>
-        /// <param name="Error"></param>
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
+        /// <param name="Error"></param>
         /// <returns></returns>
         public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = ErrorMessage)
         {
@@ -986,10 +1100,10 @@ namespace Conforyon
                             }
                             else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                             {
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
-                                    Variable1 = Variable2;
-                                else
+                                if (Searching(Variable2, SymbolsMath, SearchType.Starts))
                                     Variable1 = Variable3;
+                                else
+                                    Variable1 = Variable2;
                             }
                             else
                                 Variable1 = Variable2;

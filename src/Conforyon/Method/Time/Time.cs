@@ -24,14 +24,14 @@ namespace Conforyon
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && InputType >= TimeType.Microsecond && InputType <= TimeType.Year && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= VariableLength && InputType >= TimeType.Nanosecond && InputType <= TimeType.Millennium && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
                 {
                     TimeType Type = InputType;
-                    if (InputType == TimeType.Year)
-                        Type = TimeType.Year;
+                    if (InputType == TimeType.Millennium)
+                        Type = TimeType.Millennium;
                     else
                     {
-                        for (int i = (int)InputType; i <= (int)TimeType.Year; i++)
+                        for (int i = (int)InputType; i <= (int)TimeType.Millennium; i++)
                         {
                             if (TimeConvert(InputVariable, InputType, (TimeType)i, true, true, 0, Error) == "0")
                             {
@@ -40,7 +40,7 @@ namespace Conforyon
                             }
                             else
                             {
-                                if ((TimeType)i == TimeType.Year)
+                                if ((TimeType)i == TimeType.Millennium)
                                     Type = (TimeType)i;
                             }
                         }
@@ -159,7 +159,7 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -210,13 +210,13 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Millisecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Millisecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -261,19 +261,19 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millisecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millisecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Second", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Second", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -312,25 +312,25 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Millisecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Millisecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Second", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Second", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Minute", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Minute", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -363,31 +363,31 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millisecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millisecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Second", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Second", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Minute", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Minute", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Hour", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Hour", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -414,37 +414,37 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Millisecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Millisecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Second", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Second", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Minute", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Minute", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Hour", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Hour", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Day", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Day", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -465,31 +465,31 @@ namespace Conforyon
                             {
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Microsecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Microsecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millisecond", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millisecond", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Second", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Second", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Minute", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Minute", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Hour", Error), Comma, false, true, Error);
+                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Hour", Error), Comma, true, false, Error);
                                     else
                                         return Error;
                                     break;
@@ -514,7 +514,12 @@ namespace Conforyon
                         default:
                             return Error;
                     }
-                    return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                    if (!Comma)
+                    {
+                        return LastCheck(Variable, Decimal, !Comma, 0, Error);
+                    }
+                    else
+                        return LastCheck(Variable, Decimal, Comma, PostComma, Error);
                 }
                 else
                     return Error;

@@ -723,7 +723,7 @@ namespace Conforyon.UI
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
                 comboBox15.SelectedIndex = comboBox15.Items.IndexOf("Fraction On");
                 comboBox16.SelectedIndex = comboBox16.Items.IndexOf("Decimal On");
-                comboBox22.SelectedIndex = comboBox22.Items.IndexOf("Hour");
+                comboBox22.SelectedIndex = comboBox22.Items.IndexOf("Day");
                 comboBox19.SelectedIndex = comboBox19.Items.IndexOf("Second");
                 comboBox21.SelectedIndex = comboBox21.Items.IndexOf("Decimal On");
                 comboBox20.SelectedIndex = comboBox20.Items.IndexOf("Fraction Off");
