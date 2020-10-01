@@ -141,51 +141,54 @@ namespace Conforyon.UI
                     Selection17 = "FILE=>SHA384";
                 else if (comboBox14.SelectedIndex == 4)
                     Selection17 = "FILE=>SHA512";
-
                 if (comboBox22.SelectedIndex == 0)
-                    Selection18 = Conforyon.TimeType.Microsecond;
+                    Selection18 = Conforyon.TimeType.Nanosecond;
                 else if (comboBox22.SelectedIndex == 1)
-                    Selection18 = Conforyon.TimeType.Millisecond;
+                    Selection18 = Conforyon.TimeType.Microsecond;
                 else if (comboBox22.SelectedIndex == 2)
-                    Selection18 = Conforyon.TimeType.Second;
+                    Selection18 = Conforyon.TimeType.Millisecond;
                 else if (comboBox22.SelectedIndex == 3)
-                    Selection18 = Conforyon.TimeType.Minute;
+                    Selection18 = Conforyon.TimeType.Second;
                 else if (comboBox22.SelectedIndex == 4)
-                    Selection18 = Conforyon.TimeType.Hour;
+                    Selection18 = Conforyon.TimeType.Minute;
                 else if (comboBox22.SelectedIndex == 5)
-                    Selection18 = Conforyon.TimeType.Day;
+                    Selection18 = Conforyon.TimeType.Hour;
                 else if (comboBox22.SelectedIndex == 6)
-                    Selection18 = Conforyon.TimeType.Week;
+                    Selection18 = Conforyon.TimeType.Day;
                 else if (comboBox22.SelectedIndex == 7)
+                    Selection18 = Conforyon.TimeType.Week;
+                else if (comboBox22.SelectedIndex == 8)
                     Selection18 = Conforyon.TimeType.Year;
-
+                else if (comboBox22.SelectedIndex == 9)
+                    Selection18 = Conforyon.TimeType.Millennium;
                 if (comboBox19.SelectedIndex == 0)
-                    Selection19 = Conforyon.TimeType.Microsecond;
+                    Selection19 = Conforyon.TimeType.Nanosecond;
                 else if (comboBox19.SelectedIndex == 1)
-                    Selection19 = Conforyon.TimeType.Millisecond;
+                    Selection19 = Conforyon.TimeType.Microsecond;
                 else if (comboBox19.SelectedIndex == 2)
-                    Selection19 = Conforyon.TimeType.Second;
+                    Selection19 = Conforyon.TimeType.Millisecond;
                 else if (comboBox19.SelectedIndex == 3)
-                    Selection19 = Conforyon.TimeType.Minute;
+                    Selection19 = Conforyon.TimeType.Second;
                 else if (comboBox19.SelectedIndex == 4)
-                    Selection19 = Conforyon.TimeType.Hour;
+                    Selection19 = Conforyon.TimeType.Minute;
                 else if (comboBox19.SelectedIndex == 5)
-                    Selection19 = Conforyon.TimeType.Day;
+                    Selection19 = Conforyon.TimeType.Hour;
                 else if (comboBox19.SelectedIndex == 6)
-                    Selection19 = Conforyon.TimeType.Week;
+                    Selection19 = Conforyon.TimeType.Day;
                 else if (comboBox19.SelectedIndex == 7)
+                    Selection19 = Conforyon.TimeType.Week;
+                else if (comboBox19.SelectedIndex == 8)
                     Selection19 = Conforyon.TimeType.Year;
-
+                else if (comboBox19.SelectedIndex == 9)
+                    Selection19 = Conforyon.TimeType.Millennium;
                 if (comboBox21.SelectedIndex == 0)
                     Selection20 = true;
                 else
                     Selection20 = false;
-
                 if (comboBox20.SelectedIndex == 0)
                     Selection21 = true;
                 else
                     Selection21 = false;
-
                 if (comboBox18.SelectedIndex == 0)
                     Selection22 = true;
                 else
