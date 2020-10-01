@@ -595,19 +595,19 @@ namespace Conforyon
                                 "Second", "0,000001"
                             },
                             {
-                                "Minute", "0,000000016666667"
+                                "Minute", "1,666666666E-8"
                             },
                             {
-                                "Hour", "0,000000000277778"
+                                "Hour", "2,777777777E-10"
                             },
                             {
-                                "Day", "0,000000000011574"
+                                "Day", "1,157407407E-11"
                             },
                             {
-                                "Week", "0,000000000001653"
+                                "Week", "1,653439153E-12"
                             },
                             {
-                                "Year", "0,000000000000032"
+                                "Year", "3,168808781E-14"
                             }
                         }
                     },
@@ -624,16 +624,16 @@ namespace Conforyon
                                 "Minute", "0,0000166667"
                             },
                             {
-                                "Hour", "0,000000277777778"
+                                "Hour", "2,777777777E-7"
                             },
                             {
-                                "Day", "0,000000011574074"
+                                "Day", "1,157407407E-8"
                             },
                             {
-                                "Week", "0,000000001653439"
+                                "Week", "1,653439153E-9"
                             },
                             {
-                                "Year", "0,000000000031688"
+                                "Year", "3,168808781E-11"
                             }
                         }
                     },
@@ -647,19 +647,19 @@ namespace Conforyon
                                 "Millisecond", "1000"
                             },
                             {
-                                "Minute", "0,016667"
+                                "Minute", "0,0166666667"
                             },
                             {
-                                "Hour", "0,000278"
+                                "Hour", "0,0002777778"
                             },
                             {
-                                "Day", "0,000012"
+                                "Day", "0,0000115741"
                             },
                             {
-                                "Week", "0,000002"
+                                "Week", "0,0000016534"
                             },
                             {
-                                "Year", "0,000000031688088"
+                                "Year", "3,168808781E-8"
                             }
                         }
                     },
@@ -676,16 +676,16 @@ namespace Conforyon
                                 "Second", "60"
                             },
                             {
-                                "Hour", "0,016667"
+                                "Hour", "0,0166666667"
                             },
                             {
-                                "Day", "0,000694"
+                                "Day", "0,0006944444"
                             },
                             {
-                                "Week", "0,000099"
+                                "Week", "0,0000992063"
                             },
                             {
-                                "Year", "0,000002"
+                                "Year", "0,0000019013"
                             }
                         }
                     },
@@ -693,7 +693,7 @@ namespace Conforyon
                         "Hour", new Dictionary<string, string>()
                         {
                             {
-                                "Microsecond", "3600000000"
+                                "Microsecond", "3600000000000"
                             },
                             {
                                 "Millisecond", "3600000"
@@ -705,13 +705,13 @@ namespace Conforyon
                                 "Minute", "60"
                             },
                             {
-                                "Day", "0,041667"
+                                "Day", "0,0416666667"
                             },
                             {
-                                "Week", "0,005952"
+                                "Week", "0,005952381"
                             },
                             {
-                                "Year", "0,000114"
+                                "Year", "0,0001140771"
                             }
                         }
                     },
@@ -734,10 +734,10 @@ namespace Conforyon
                                 "Hour", "24"
                             },
                             {
-                                "Week", "0,142857"
+                                "Week", "0,1428571429"
                             },
                             {
-                                "Year", "0,002738"
+                                "Year", "0,0027378508"
                             }
                         }
                     },
@@ -763,7 +763,7 @@ namespace Conforyon
                                 "Day", "7"
                             },
                             {
-                                "Year", "0,019165"
+                                "Year", "0,0191649555"
                             }
                         }
                     },
@@ -789,7 +789,7 @@ namespace Conforyon
                                 "Day", "365,25"
                             },
                             {
-                                "Week", "52,17857"
+                                "Week", "52.178571429"
                             }
                         }
                     }
@@ -948,11 +948,18 @@ namespace Conforyon
         /// <param name="Mod"></param>
         /// <param name="Mod2"></param>
         /// <returns></returns>
-        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, string Error = ErrorMessage, bool Mod = false, bool Mod2 = false)
+        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = ErrorMessage)
         {
             try
             {
-                if (!Mod)
+                if (Mod)
+                {
+                    if (Mod2)
+                        return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
+                    else
+                        return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                }
+                else
                 {
                     if (NumberCheck(Coefficient.ToString()))
                     {
@@ -1024,13 +1031,6 @@ namespace Conforyon
                     }
                     else
                         return Error;
-                }
-                else
-                {
-                    if (Mod2)
-                        return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
-                    else
-                        return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
                 }
             }
             catch
