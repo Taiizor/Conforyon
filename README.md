@@ -7,7 +7,7 @@
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-9.0-blue.svg)
 ![IDE-Version](https://img.shields.io/badge/IDE-VS2019-blue.svg)
 [![NuGet-Version](https://img.shields.io/nuget/v/Conforyon.svg)](https://www.nuget.org/packages/Conforyon)
-[![NuGet](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/packages/Conforyon)
+[![NuGet](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/api/v2/package/Conforyon)
 
 # Welcome to Conforyon
 Conforyon is a Unit Converter library. It allows the conversion of various unit conversions it offers.
