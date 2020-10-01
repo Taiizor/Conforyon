@@ -73,6 +73,80 @@ Adım 2：Dönüşümlerin tadını çıkarın
 
 ## Ayrıntılı Kullanım
 
+### Çekirdek Formüllerini Değiştirme
+
+#### Alma
+
+```CS
+/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValues("Time", "Minute", "Second", "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>60</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValues("Speed", "MPH", "KPH", "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>1,609344</ReturnValue>
+</FunctionResult>
+```
+
+#### Ayarlama
+
+```CS
+/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValues("Time", "Minute", "Second", "30", "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>30</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValues("Speed", "MPH", "KPH", "2", "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>2</ReturnValue>
+</FunctionResult>
+```
+
+#### Liste
+
+```CS
+/* ListValues(string Error = "Error", string Title = "Title") */
+ListValues("Hata", "Başlık");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.Collections.Generic.Dictionary</ReturnType>
+	<ReturnValue>...</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* ListValuesJson(string Error = ErrorMessage) */
+ListValuesJson("Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>(JS-Serialize)...</ReturnValue>
+</FunctionResult>
+```
+
 ### Pano
 
 #### Metin

@@ -73,6 +73,80 @@ Step 2：Enjoy conversions
 
 ## Detailed Usage
 
+### Changing Core Formulas
+
+#### Get
+
+```CS
+/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValues("Time", "Minute", "Second", "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>60</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValues("Speed", "MPH", "KPH", "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>1,609344</ReturnValue>
+</FunctionResult>
+```
+
+#### Set
+
+```CS
+/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValues("Time", "Minute", "Second", "30", "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>30</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValues("Speed", "MPH", "KPH", "2", "Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>2</ReturnValue>
+</FunctionResult>
+```
+
+#### List
+
+```CS
+/* ListValues(string Error = "Error", string Title = "Title") */
+ListValues("Error", "Title");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.Collections.Generic.Dictionary</ReturnType>
+	<ReturnValue>...</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* ListValuesJson(string Error = ErrorMessage) */
+ListValuesJson("Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>(JS-Serialize)...</ReturnValue>
+</FunctionResult>
+```
+
 ### Clipboard
 
 #### Text

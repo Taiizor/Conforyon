@@ -73,6 +73,80 @@ Paso 2：Disfruta de las conversiones
 
 ## Utilizar Detallado
 
+### Cambio de Fórmulas de Kernel
+
+#### Conseguir
+
+```CS
+/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValues("Time", "Minute", "Second", "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>60</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValues("Speed", "MPH", "KPH", "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>1,609344</ReturnValue>
+</FunctionResult>
+```
+
+#### Conjunto
+
+```CS
+/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValues("Time", "Minute", "Second", "30", "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>30</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValues("Speed", "MPH", "KPH", "2", "¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>2</ReturnValue>
+</FunctionResult>
+```
+
+#### Lista
+
+```CS
+/* ListValues(string Error = "Error", string Title = "Title") */
+ListValues("¡Error", "Título");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.Collections.Generic.Dictionary</ReturnType>
+	<ReturnValue>...</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* ListValuesJson(string Error = ErrorMessage) */
+ListValuesJson("¡Error!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>(JS-Serialize)...</ReturnValue>
+</FunctionResult>
+```
+
 ### Portapapeles
 
 #### Texto
