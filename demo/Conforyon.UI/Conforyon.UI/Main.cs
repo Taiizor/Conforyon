@@ -13,8 +13,9 @@ namespace Conforyon.UI
         }
 
         Conforyon.StorageType Selection1, Selection2;
-        string Selection6, Selection12, Selection13, Selection14;
-        bool Selection3, Selection4, Selection5, Selection7, Selection8, Selection9, Selection10, Selection11, Selection15, Selection16;
+        Conforyon.TimeType Selection18, Selection19;
+        string Selection6, Selection12, Selection13, Selection14, Selection17;
+        bool Selection3, Selection4, Selection5, Selection7, Selection8, Selection9, Selection10, Selection11, Selection15, Selection16, Selection20, Selection21, Selection22;
 
         private void ComboBox()
         {
@@ -130,6 +131,65 @@ namespace Conforyon.UI
                     Selection16 = true;
                 else
                     Selection16 = false;
+                if (comboBox14.SelectedIndex == 0)
+                    Selection17 = "FILE=>MD5";
+                else if (comboBox14.SelectedIndex == 1)
+                    Selection17 = "FILE=>SHA1";
+                else if (comboBox14.SelectedIndex == 2)
+                    Selection17 = "FILE=>SHA256";
+                else if (comboBox14.SelectedIndex == 3)
+                    Selection17 = "FILE=>SHA384";
+                else if (comboBox14.SelectedIndex == 4)
+                    Selection17 = "FILE=>SHA512";
+
+                if (comboBox22.SelectedIndex == 0)
+                    Selection18 = Conforyon.TimeType.Microsecond;
+                else if (comboBox22.SelectedIndex == 1)
+                    Selection18 = Conforyon.TimeType.Millisecond;
+                else if (comboBox22.SelectedIndex == 2)
+                    Selection18 = Conforyon.TimeType.Second;
+                else if (comboBox22.SelectedIndex == 3)
+                    Selection18 = Conforyon.TimeType.Minute;
+                else if (comboBox22.SelectedIndex == 4)
+                    Selection18 = Conforyon.TimeType.Hour;
+                else if (comboBox22.SelectedIndex == 5)
+                    Selection18 = Conforyon.TimeType.Day;
+                else if (comboBox22.SelectedIndex == 6)
+                    Selection18 = Conforyon.TimeType.Week;
+                else if (comboBox22.SelectedIndex == 7)
+                    Selection18 = Conforyon.TimeType.Year;
+
+                if (comboBox19.SelectedIndex == 0)
+                    Selection19 = Conforyon.TimeType.Microsecond;
+                else if (comboBox19.SelectedIndex == 1)
+                    Selection19 = Conforyon.TimeType.Millisecond;
+                else if (comboBox19.SelectedIndex == 2)
+                    Selection19 = Conforyon.TimeType.Second;
+                else if (comboBox19.SelectedIndex == 3)
+                    Selection19 = Conforyon.TimeType.Minute;
+                else if (comboBox19.SelectedIndex == 4)
+                    Selection19 = Conforyon.TimeType.Hour;
+                else if (comboBox19.SelectedIndex == 5)
+                    Selection19 = Conforyon.TimeType.Day;
+                else if (comboBox19.SelectedIndex == 6)
+                    Selection19 = Conforyon.TimeType.Week;
+                else if (comboBox19.SelectedIndex == 7)
+                    Selection19 = Conforyon.TimeType.Year;
+
+                if (comboBox21.SelectedIndex == 0)
+                    Selection20 = true;
+                else
+                    Selection20 = false;
+
+                if (comboBox20.SelectedIndex == 0)
+                    Selection21 = true;
+                else
+                    Selection21 = false;
+
+                if (comboBox18.SelectedIndex == 0)
+                    Selection22 = true;
+                else
+                    Selection22 = false;
             }
             catch (Exception Ex)
             {
@@ -333,6 +393,108 @@ namespace Conforyon.UI
             }
         }
 
+        private void Button26_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBox();
+                if (string.IsNullOrEmpty(textBox21.Text))
+                    textBox21.Text = "1";
+                textBox22.Text = Time.AutoTimeConvert(textBox23.Text, Selection18, Selection22, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
+                button24.Cursor = Cursors.Hand;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void Button23_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (button23.Cursor == Cursors.Hand)
+                {
+                    button23.Cursor = Cursors.No;
+                    ClipBoard.CopyText(textBox19.Text, false);
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void Button25_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int C1 = comboBox22.SelectedIndex;
+                int C2 = comboBox19.SelectedIndex;
+                comboBox22.SelectedIndex = C2;
+                comboBox19.SelectedIndex = C1;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void Button27_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBox();
+                if (string.IsNullOrEmpty(textBox21.Text))
+                    textBox21.Text = "1";
+                textBox22.Text = Time.TimeConvert(textBox23.Text, Selection18, Selection19, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
+                button24.Cursor = Cursors.Hand;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void Button24_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (button24.Cursor == Cursors.Hand)
+                {
+                    button24.Cursor = Cursors.No;
+                    ClipBoard.CopyText(textBox22.Text, false);
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void Button22_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBox();
+                if (Selection17 == "FILE=>MD5")
+                    textBox19.Text = Hash.FILEtoMD5(textBox20.Text, false, "Error!");
+                else if (Selection17 == "FILE=>SHA1")
+                    textBox19.Text = Hash.FILEtoSHA1(textBox20.Text, false, "Error!");
+                else if (Selection17 == "FILE=>SHA256")
+                    textBox19.Text = Hash.FILEtoSHA256(textBox20.Text, false, "Error!");
+                else if (Selection17 == "FILE=>SHA384")
+                    textBox19.Text = Hash.FILEtoSHA384(textBox20.Text, false, "Error!");
+                else if (Selection17 == "FILE=>SHA512")
+                    textBox19.Text = Hash.FILEtoSHA512(textBox20.Text, false, "Error!");
+                button23.Cursor = Cursors.Hand;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
         private void Button10_Click(object sender, EventArgs e)
         {
             try
@@ -437,15 +599,15 @@ namespace Conforyon.UI
                 if (Selection12 == "Text=>Base64")
                     textBox13.Text = Crypto.TEXTtoBASE64(textBox14.Text, "Error!");
                 else if (Selection12 == "Text=>MD5")
-                    textBox13.Text = Crypto.TEXTtoMD5(textBox14.Text, "Error!");
+                    textBox13.Text = Crypto.TEXTtoMD5(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA1")
-                    textBox13.Text = Crypto.TEXTtoSHA1(textBox14.Text, "Error!");
+                    textBox13.Text = Crypto.TEXTtoSHA1(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA256")
-                    textBox13.Text = Crypto.TEXTtoSHA256(textBox14.Text, "Error!");
+                    textBox13.Text = Crypto.TEXTtoSHA256(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA384")
-                    textBox13.Text = Crypto.TEXTtoSHA384(textBox14.Text, "Error!");
+                    textBox13.Text = Crypto.TEXTtoSHA384(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA512")
-                    textBox13.Text = Crypto.TEXTtoSHA512(textBox14.Text, "Error!");
+                    textBox13.Text = Crypto.TEXTtoSHA512(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Base64=>Text")
                     textBox13.Text = Crypto.BASE64toTEXT(textBox14.Text, "Error!");
                 button17.Cursor = Cursors.Hand;
@@ -556,10 +718,16 @@ namespace Conforyon.UI
                 comboBox10.SelectedIndex = comboBox10.Items.IndexOf("RGB => HEX");
                 comboBox11.SelectedIndex = comboBox11.Items.IndexOf("Char => ASCII");
                 comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Text => Base64");
+                comboBox14.SelectedIndex = comboBox14.Items.IndexOf("FILE => MD5");
                 comboBox13.SelectedIndex = comboBox13.Items.IndexOf("CM");
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
-                comboBox15.SelectedIndex = comboBox4.Items.IndexOf("Fraction On");
-                comboBox16.SelectedIndex = comboBox3.Items.IndexOf("Decimal On");
+                comboBox15.SelectedIndex = comboBox15.Items.IndexOf("Fraction On");
+                comboBox16.SelectedIndex = comboBox16.Items.IndexOf("Decimal On");
+                comboBox22.SelectedIndex = comboBox22.Items.IndexOf("Hour");
+                comboBox19.SelectedIndex = comboBox19.Items.IndexOf("Second");
+                comboBox21.SelectedIndex = comboBox21.Items.IndexOf("Decimal On");
+                comboBox20.SelectedIndex = comboBox20.Items.IndexOf("Fraction Off");
+                comboBox18.SelectedIndex = comboBox18.Items.IndexOf("ATC Type On");
             }
             catch (Exception Ex)
             {
