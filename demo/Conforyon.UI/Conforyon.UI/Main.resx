@@ -148,7 +148,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox3.ZOrder" xml:space="preserve">
-    <value>74</value>
+    <value>84</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 143</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>73</value>
+    <value>83</value>
   </data>
   <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 61</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox4.ZOrder" xml:space="preserve">
-    <value>72</value>
+    <value>82</value>
   </data>
   <data name="comboBox1.Items" xml:space="preserve">
     <value>Bit</value>
@@ -253,7 +253,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox1.ZOrder" xml:space="preserve">
-    <value>70</value>
+    <value>80</value>
   </data>
   <data name="textBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>118, 113</value>
@@ -283,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox7.ZOrder" xml:space="preserve">
-    <value>71</value>
+    <value>81</value>
   </data>
   <data name="comboBox3.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -310,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox3.ZOrder" xml:space="preserve">
-    <value>69</value>
+    <value>79</value>
   </data>
   <data name="comboBox4.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -337,7 +337,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox4.ZOrder" xml:space="preserve">
-    <value>68</value>
+    <value>78</value>
   </data>
   <data name="comboBox2.Items" xml:space="preserve">
     <value>Bit</value>
@@ -388,7 +388,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox2.ZOrder" xml:space="preserve">
-    <value>67</value>
+    <value>77</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 172</value>
@@ -412,7 +412,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>66</value>
+    <value>76</value>
   </data>
   <data name="comboBox5.Items" xml:space="preserve">
     <value>ADC Type On</value>
@@ -439,7 +439,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox5.ZOrder" xml:space="preserve">
-    <value>65</value>
+    <value>75</value>
   </data>
   <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -618,7 +618,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button3.ZOrder" xml:space="preserve">
-    <value>64</value>
+    <value>74</value>
   </data>
   <data name="button4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -693,7 +693,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>63</value>
+    <value>73</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 36</value>
@@ -723,7 +723,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>62</value>
+    <value>72</value>
   </data>
   <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
     <value>437, 144</value>
@@ -747,7 +747,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>61</value>
+    <value>71</value>
   </data>
   <data name="comboBox6.Items" xml:space="preserve">
     <value>C - Celsius =&gt; F - Fahrenheit</value>
@@ -774,7 +774,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox6.ZOrder" xml:space="preserve">
-    <value>60</value>
+    <value>70</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 62</value>
@@ -804,7 +804,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>59</value>
+    <value>69</value>
   </data>
   <data name="button6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -879,7 +879,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
-    <value>58</value>
+    <value>68</value>
   </data>
   <data name="comboBox7.Items" xml:space="preserve">
     <value>Type On</value>
@@ -906,7 +906,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox7.ZOrder" xml:space="preserve">
-    <value>57</value>
+    <value>67</value>
   </data>
   <data name="comboBox8.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -933,7 +933,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox8.ZOrder" xml:space="preserve">
-    <value>55</value>
+    <value>65</value>
   </data>
   <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>544, 114</value>
@@ -963,7 +963,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox5.ZOrder" xml:space="preserve">
-    <value>56</value>
+    <value>66</value>
   </data>
   <data name="comboBox9.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -990,7 +990,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox9.ZOrder" xml:space="preserve">
-    <value>54</value>
+    <value>64</value>
   </data>
   <data name="button7.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1169,7 +1169,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
-    <value>53</value>
+    <value>63</value>
   </data>
   <data name="button8.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1348,7 +1348,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>51</value>
+    <value>61</value>
   </data>
   <data name="comboBox10.Items" xml:space="preserve">
     <value>RGB =&gt; HEX</value>
@@ -1375,7 +1375,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox10.ZOrder" xml:space="preserve">
-    <value>52</value>
+    <value>62</value>
   </data>
   <data name="textBox6.Location" type="System.Drawing.Point, System.Drawing">
     <value>660, 36</value>
@@ -1405,7 +1405,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox6.ZOrder" xml:space="preserve">
-    <value>47</value>
+    <value>57</value>
   </data>
   <data name="button9.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1480,7 +1480,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
-    <value>49</value>
+    <value>59</value>
   </data>
   <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
     <value>651, 62</value>
@@ -1510,7 +1510,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox8.ZOrder" xml:space="preserve">
-    <value>50</value>
+    <value>60</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1537,7 +1537,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>48</value>
+    <value>58</value>
   </data>
   <data name="textBox9.Location" type="System.Drawing.Point, System.Drawing">
     <value>731, 36</value>
@@ -1567,7 +1567,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox9.ZOrder" xml:space="preserve">
-    <value>45</value>
+    <value>55</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1594,7 +1594,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>46</value>
+    <value>56</value>
   </data>
   <data name="textBox10.Location" type="System.Drawing.Point, System.Drawing">
     <value>801, 36</value>
@@ -1624,7 +1624,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox10.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>53</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1651,7 +1651,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>44</value>
+    <value>54</value>
   </data>
   <data name="button10.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1726,7 +1726,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>52</value>
   </data>
   <data name="button11.Location" type="System.Drawing.Point, System.Drawing">
     <value>650, 86</value>
@@ -1750,7 +1750,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button11.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>51</value>
   </data>
   <data name="button12.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1932,7 +1932,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>49</value>
   </data>
   <data name="comboBox11.Items" xml:space="preserve">
     <value>Char =&gt; ASCII</value>
@@ -1959,7 +1959,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox11.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>50</value>
   </data>
   <data name="button13.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2034,7 +2034,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>47</value>
   </data>
   <data name="textBox11.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 246</value>
@@ -2061,7 +2061,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox11.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>48</value>
   </data>
   <data name="button14.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2136,7 +2136,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>45</value>
   </data>
   <data name="textBox12.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 272</value>
@@ -2163,7 +2163,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox12.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>46</value>
   </data>
   <data name="button15.Location" type="System.Drawing.Point, System.Drawing">
     <value>696, 298</value>
@@ -2187,7 +2187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button15.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>44</value>
   </data>
   <data name="button16.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 298</value>
@@ -2211,7 +2211,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>38</value>
   </data>
   <data name="button17.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2286,7 +2286,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button17.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>39</value>
   </data>
   <data name="textBox13.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 272</value>
@@ -2313,7 +2313,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox13.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>40</value>
   </data>
   <data name="textBox14.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 246</value>
@@ -2340,7 +2340,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox14.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>41</value>
   </data>
   <data name="button19.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2519,7 +2519,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button19.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>42</value>
   </data>
   <data name="comboBox12.Items" xml:space="preserve">
     <value>Text =&gt; Base64</value>
@@ -2561,7 +2561,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox12.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>43</value>
   </data>
   <data name="button18.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2639,7 +2639,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button18.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>29</value>
   </data>
   <data name="button20.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2821,7 +2821,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button20.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>30</value>
   </data>
   <data name="comboBox15.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -2848,7 +2848,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox15.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>31</value>
   </data>
   <data name="comboBox16.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -2875,7 +2875,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox16.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>32</value>
   </data>
   <data name="comboBox17.Items" xml:space="preserve">
     <value>INCH</value>
@@ -2905,7 +2905,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox17.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>33</value>
   </data>
   <data name="textBox15.Location" type="System.Drawing.Point, System.Drawing">
     <value>544, 319</value>
@@ -2935,7 +2935,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox15.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>34</value>
   </data>
   <data name="textBox16.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 267</value>
@@ -2965,7 +2965,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox16.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>35</value>
   </data>
   <data name="button21.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2992,7 +2992,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button21.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>36</value>
   </data>
   <data name="textBox17.Location" type="System.Drawing.Point, System.Drawing">
     <value>438, 244</value>
@@ -3022,7 +3022,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox17.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>37</value>
   </data>
   <data name="comboBox13.Items" xml:space="preserve">
     <value>INCH</value>
@@ -3052,7 +3052,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox13.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>28</value>
   </data>
   <data name="textBox18.Location" type="System.Drawing.Point, System.Drawing">
     <value>652, 299</value>
@@ -3082,7 +3082,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox18.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>27</value>
   </data>
   <data name="button22.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3109,7 +3109,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button22.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>22</value>
   </data>
   <data name="button23.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3187,7 +3187,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button23.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>23</value>
   </data>
   <data name="textBox19.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 272</value>
@@ -3214,7 +3214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox19.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>24</value>
   </data>
   <data name="textBox20.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 246</value>
@@ -3241,7 +3241,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox20.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>25</value>
   </data>
   <data name="comboBox14.Items" xml:space="preserve">
     <value>FILE =&gt; MD5</value>
@@ -3277,7 +3277,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox14.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>26</value>
   </data>
   <data name="button24.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3355,7 +3355,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button24.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>10</value>
   </data>
   <data name="button25.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3537,7 +3537,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button25.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>11</value>
   </data>
   <data name="comboBox18.Items" xml:space="preserve">
     <value>ATC Type On</value>
@@ -3564,7 +3564,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox18.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>12</value>
   </data>
   <data name="button26.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3591,7 +3591,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button26.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>13</value>
   </data>
   <data name="comboBox19.Items" xml:space="preserve">
     <value>Nanosecond</value>
@@ -3645,7 +3645,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox19.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>14</value>
   </data>
   <data name="comboBox20.Items" xml:space="preserve">
     <value>Fraction On</value>
@@ -3672,7 +3672,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox20.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>15</value>
   </data>
   <data name="comboBox21.Items" xml:space="preserve">
     <value>Decimal On</value>
@@ -3699,7 +3699,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox21.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>16</value>
   </data>
   <data name="comboBox22.Items" xml:space="preserve">
     <value>Nanosecond</value>
@@ -3753,7 +3753,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBox22.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>17</value>
   </data>
   <data name="textBox21.Location" type="System.Drawing.Point, System.Drawing">
     <value>330, 113</value>
@@ -3783,7 +3783,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox21.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>18</value>
   </data>
   <data name="textBox22.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 61</value>
@@ -3813,7 +3813,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox22.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>19</value>
   </data>
   <data name="button27.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3840,7 +3840,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button27.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>20</value>
   </data>
   <data name="textBox23.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 38</value>
@@ -3870,7 +3870,492 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox23.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>21</value>
+  </data>
+  <data name="button28.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="button28.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="button28.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 421</value>
+  </data>
+  <data name="button28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="button28.TabIndex" type="System.Int32, mscorlib">
+    <value>98</value>
+  </data>
+  <data name="&gt;&gt;button28.Name" xml:space="preserve">
+    <value>button28</value>
+  </data>
+  <data name="&gt;&gt;button28.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button28.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button28.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="comboBox23.Items" xml:space="preserve">
+    <value>Decimal On</value>
+  </data>
+  <data name="comboBox23.Items1" xml:space="preserve">
+    <value>Decimal Off</value>
+  </data>
+  <data name="comboBox23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 473</value>
+  </data>
+  <data name="comboBox23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="comboBox23.TabIndex" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="&gt;&gt;comboBox23.Name" xml:space="preserve">
+    <value>comboBox23</value>
+  </data>
+  <data name="&gt;&gt;comboBox23.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox23.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBox23.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="comboBox24.Items" xml:space="preserve">
+    <value>Fraction On</value>
+  </data>
+  <data name="comboBox24.Items1" xml:space="preserve">
+    <value>Fraction Off</value>
+  </data>
+  <data name="comboBox24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 500</value>
+  </data>
+  <data name="comboBox24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="comboBox24.TabIndex" type="System.Int32, mscorlib">
+    <value>96</value>
+  </data>
+  <data name="&gt;&gt;comboBox24.Name" xml:space="preserve">
+    <value>comboBox24</value>
+  </data>
+  <data name="&gt;&gt;comboBox24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox24.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBox24.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="textBox24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 500</value>
+  </data>
+  <data name="textBox24.MaxLength" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="textBox24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="textBox24.TabIndex" type="System.Int32, mscorlib">
+    <value>95</value>
+  </data>
+  <data name="textBox24.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="textBox24.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;textBox24.Name" xml:space="preserve">
+    <value>textBox24</value>
+  </data>
+  <data name="&gt;&gt;textBox24.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox24.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBox24.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="button29.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        3dz8Cf3E9/yr3UdpAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button29.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="button29.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 447</value>
+  </data>
+  <data name="button29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 22</value>
+  </data>
+  <data name="button29.TabIndex" type="System.Int32, mscorlib">
+    <value>93</value>
+  </data>
+  <data name="&gt;&gt;button29.Name" xml:space="preserve">
+    <value>button29</value>
+  </data>
+  <data name="&gt;&gt;button29.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button29.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button29.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBox25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 448</value>
+  </data>
+  <data name="textBox25.MaxLength" type="System.Int32, mscorlib">
+    <value>123</value>
+  </data>
+  <data name="textBox25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 20</value>
+  </data>
+  <data name="textBox25.TabIndex" type="System.Int32, mscorlib">
+    <value>92</value>
+  </data>
+  <data name="textBox25.Text" xml:space="preserve">
+    <value>16 KPH</value>
+  </data>
+  <data name="textBox25.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;textBox25.Name" xml:space="preserve">
+    <value>textBox25</value>
+  </data>
+  <data name="&gt;&gt;textBox25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox25.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBox25.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="comboBox26.Items" xml:space="preserve">
+    <value>Miles Per Hour =&gt; Kilometers Per Hour</value>
+  </data>
+  <data name="comboBox26.Items1" xml:space="preserve">
+    <value>Kilometers Per Hour =&gt; Miles Per Hour</value>
+  </data>
+  <data name="comboBox26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 397</value>
+  </data>
+  <data name="comboBox26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 21</value>
+  </data>
+  <data name="comboBox26.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="&gt;&gt;comboBox26.Name" xml:space="preserve">
+    <value>comboBox26</value>
+  </data>
+  <data name="&gt;&gt;comboBox26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox26.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBox26.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="button30.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 530</value>
+  </data>
+  <data name="button30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 23</value>
+  </data>
+  <data name="button30.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="button30.Text" xml:space="preserve">
+    <value>Convert Speed</value>
+  </data>
+  <data name="&gt;&gt;button30.Name" xml:space="preserve">
+    <value>button30</value>
+  </data>
+  <data name="&gt;&gt;button30.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button30.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button30.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="textBox26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 422</value>
+  </data>
+  <data name="textBox26.MaxLength" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="textBox26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 20</value>
+  </data>
+  <data name="textBox26.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="textBox26.Text" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="textBox26.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;textBox26.Name" xml:space="preserve">
+    <value>textBox26</value>
+  </data>
+  <data name="&gt;&gt;textBox26.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox26.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBox26.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="comboBox25.Items" xml:space="preserve">
+    <value>Type On</value>
+  </data>
+  <data name="comboBox25.Items1" xml:space="preserve">
+    <value>Type Off</value>
+  </data>
+  <data name="comboBox25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 473</value>
+  </data>
+  <data name="comboBox25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="comboBox25.TabIndex" type="System.Int32, mscorlib">
+    <value>99</value>
+  </data>
+  <data name="&gt;&gt;comboBox25.Name" xml:space="preserve">
+    <value>comboBox25</value>
+  </data>
+  <data name="&gt;&gt;comboBox25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBox25.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comboBox25.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -3879,7 +4364,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>867, 381</value>
+    <value>867, 565</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

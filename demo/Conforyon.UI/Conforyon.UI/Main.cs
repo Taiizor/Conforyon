@@ -14,8 +14,8 @@ namespace Conforyon.UI
 
         Conforyon.StorageType Selection1, Selection2;
         Conforyon.TimeType Selection18, Selection19;
-        string Selection6, Selection12, Selection13, Selection14, Selection17;
-        bool Selection3, Selection4, Selection5, Selection7, Selection8, Selection9, Selection10, Selection11, Selection15, Selection16, Selection20, Selection21, Selection22;
+        string Selection6, Selection12, Selection13, Selection14, Selection17, Selection26;
+        bool Selection3, Selection4, Selection5, Selection7, Selection8, Selection9, Selection10, Selection11, Selection15, Selection16, Selection20, Selection21, Selection22, Selection23, Selection24, Selection25;
 
         private void ComboBox()
         {
@@ -197,6 +197,22 @@ namespace Conforyon.UI
                     Selection22 = true;
                 else
                     Selection22 = false;
+                if (comboBox23.SelectedIndex == 0)
+                    Selection23 = true;
+                else
+                    Selection23 = false;
+                if (comboBox24.SelectedIndex == 0)
+                    Selection24 = true;
+                else
+                    Selection24 = false;
+                if (comboBox25.SelectedIndex == 0)
+                    Selection25 = true;
+                else
+                    Selection25 = false;
+                if (comboBox26.SelectedIndex == 0)
+                    Selection26 = "MPH => KPH";
+                else
+                    Selection26 = "KPH => MPH";
             }
             catch (Exception Ex)
             {
@@ -409,6 +425,40 @@ namespace Conforyon.UI
                     textBox21.Text = "1";
                 textBox22.Text = Time.AutoTimeConvert(textBox23.Text, Selection18, Selection22, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
                 button24.Cursor = Cursors.Hand;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (comboBox26.SelectedIndex == 0)
+                    comboBox26.SelectedIndex = 1;
+                else
+                    comboBox26.SelectedIndex = 0;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ComboBox();
+                if (string.IsNullOrEmpty(textBox24.Text))
+                    textBox24.Text = "1";
+                if (Selection26 == "MPH => KPH")
+                    textBox25.Text = Speed.MPHtoKPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
+                else
+                    textBox25.Text = Speed.KPHtoMPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
+                button29.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
             {
@@ -712,7 +762,7 @@ namespace Conforyon.UI
         {
             try
             {
-                this.CenterToScreen();
+                CenterToScreen();
                 comboBox1.SelectedIndex = comboBox1.Items.IndexOf("GigaByte");
                 comboBox2.SelectedIndex = comboBox2.Items.IndexOf("MegaByte");
                 comboBox3.SelectedIndex = comboBox3.Items.IndexOf("Decimal On");
@@ -735,6 +785,10 @@ namespace Conforyon.UI
                 comboBox21.SelectedIndex = comboBox21.Items.IndexOf("Decimal On");
                 comboBox20.SelectedIndex = comboBox20.Items.IndexOf("Fraction Off");
                 comboBox18.SelectedIndex = comboBox18.Items.IndexOf("ATC Type On");
+                comboBox23.SelectedIndex = comboBox23.Items.IndexOf("Decimal On");
+                comboBox24.SelectedIndex = comboBox24.Items.IndexOf("Fraction Off");
+                comboBox25.SelectedIndex = comboBox25.Items.IndexOf("Type On");
+                comboBox26.SelectedIndex = comboBox26.Items.IndexOf("Miles Per Hour => Kilometers Per Hour");
             }
             catch (Exception Ex)
             {

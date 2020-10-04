@@ -104,6 +104,16 @@
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.button27 = new System.Windows.Forms.Button();
             this.textBox23 = new System.Windows.Forms.TextBox();
+            this.button28 = new System.Windows.Forms.Button();
+            this.comboBox23 = new System.Windows.Forms.ComboBox();
+            this.comboBox24 = new System.Windows.Forms.ComboBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.button29 = new System.Windows.Forms.Button();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.comboBox26 = new System.Windows.Forms.ComboBox();
+            this.button30 = new System.Windows.Forms.Button();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.comboBox25 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBox3
@@ -812,10 +822,109 @@
             resources.ApplyResources(this.textBox23, "textBox23");
             this.textBox23.Name = "textBox23";
             // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button28, "button28");
+            this.button28.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button28.ForeColor = System.Drawing.Color.Transparent;
+            this.button28.Name = "button28";
+            this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
+            // 
+            // comboBox23
+            // 
+            this.comboBox23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox23.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox23.FormattingEnabled = true;
+            this.comboBox23.Items.AddRange(new object[] {
+            resources.GetString("comboBox23.Items"),
+            resources.GetString("comboBox23.Items1")});
+            resources.ApplyResources(this.comboBox23, "comboBox23");
+            this.comboBox23.Name = "comboBox23";
+            // 
+            // comboBox24
+            // 
+            this.comboBox24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox24.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox24.FormattingEnabled = true;
+            this.comboBox24.Items.AddRange(new object[] {
+            resources.GetString("comboBox24.Items"),
+            resources.GetString("comboBox24.Items1")});
+            resources.ApplyResources(this.comboBox24, "comboBox24");
+            this.comboBox24.Name = "comboBox24";
+            // 
+            // textBox24
+            // 
+            resources.ApplyResources(this.textBox24, "textBox24");
+            this.textBox24.Name = "textBox24";
+            // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.button29, "button29");
+            this.button29.Cursor = System.Windows.Forms.Cursors.No;
+            this.button29.ForeColor = System.Drawing.Color.Transparent;
+            this.button29.Name = "button29";
+            this.button29.UseVisualStyleBackColor = false;
+            // 
+            // textBox25
+            // 
+            this.textBox25.Cursor = System.Windows.Forms.Cursors.No;
+            resources.ApplyResources(this.textBox25, "textBox25");
+            this.textBox25.Name = "textBox25";
+            this.textBox25.ReadOnly = true;
+            // 
+            // comboBox26
+            // 
+            this.comboBox26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox26.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox26.FormattingEnabled = true;
+            this.comboBox26.Items.AddRange(new object[] {
+            resources.GetString("comboBox26.Items"),
+            resources.GetString("comboBox26.Items1")});
+            resources.ApplyResources(this.comboBox26, "comboBox26");
+            this.comboBox26.Name = "comboBox26";
+            // 
+            // button30
+            // 
+            this.button30.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.button30, "button30");
+            this.button30.Name = "button30";
+            this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // textBox26
+            // 
+            this.textBox26.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.textBox26, "textBox26");
+            this.textBox26.Name = "textBox26";
+            // 
+            // comboBox25
+            // 
+            this.comboBox25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox25.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox25.FormattingEnabled = true;
+            this.comboBox25.Items.AddRange(new object[] {
+            resources.GetString("comboBox25.Items"),
+            resources.GetString("comboBox25.Items1")});
+            resources.ApplyResources(this.comboBox25, "comboBox25");
+            this.comboBox25.Name = "comboBox25";
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox25);
+            this.Controls.Add(this.button28);
+            this.Controls.Add(this.comboBox23);
+            this.Controls.Add(this.comboBox24);
+            this.Controls.Add(this.textBox24);
+            this.Controls.Add(this.button29);
+            this.Controls.Add(this.textBox25);
+            this.Controls.Add(this.comboBox26);
+            this.Controls.Add(this.button30);
+            this.Controls.Add(this.textBox26);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button25);
             this.Controls.Add(this.comboBox18);
@@ -976,6 +1085,16 @@
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.Button button27;
         private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.ComboBox comboBox23;
+        private System.Windows.Forms.ComboBox comboBox24;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.ComboBox comboBox26;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.ComboBox comboBox25;
     }
 }
 
