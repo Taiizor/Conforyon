@@ -28,9 +28,14 @@ namespace Conforyon
                 {
                     System.Drawing.Color HexColor;
                     if (Hex.StartsWith("#"))
+                    {
                         HexColor = ColorTranslator.FromHtml(Hex);
+                    }
                     else
+                    {
                         HexColor = ColorTranslator.FromHtml("#" + Hex);
+                    }
+
                     return Type switch
                     {
                         ColorType.RGB1 => HexColor.R + ", " + HexColor.G + ", " + HexColor.B,
@@ -49,7 +54,9 @@ namespace Conforyon
                     };
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -74,12 +81,18 @@ namespace Conforyon
                 {
                     System.Drawing.Color RGBColor = System.Drawing.Color.FromArgb(Convert.ToInt32(R), Convert.ToInt32(G), Convert.ToInt32(B));
                     if (Sharp)
+                    {
                         return "#" + RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
+                    }
                     else
+                    {
                         return RGBColor.R.ToString("X2") + RGBColor.G.ToString("X2") + RGBColor.B.ToString("X2");
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {

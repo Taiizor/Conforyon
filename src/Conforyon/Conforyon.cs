@@ -1209,11 +1209,15 @@ namespace Conforyon
             try
             {
                 if (Regex.IsMatch(Variable, "[^0-9]"))
+                {
                     return false;
+                }
                 else
                 {
                     if (TypePass)
+                    {
                         return true;
+                    }
                     else
                     {
                         switch (Type)
@@ -1266,28 +1270,52 @@ namespace Conforyon
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
-                                if (Text.StartsWith(Letter)) return true;
+                            {
+                                if (Text.StartsWith(Letter))
+                                {
+                                    return true;
+                                }
+                            }
                         }
                         else if (Text.StartsWith(Words[0]))
+                        {
                             return true;
+                        }
+
                         break;
                     case SearchType.Contains:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
-                                if (Text.Contains(Letter)) return true;
+                            {
+                                if (Text.Contains(Letter))
+                                {
+                                    return true;
+                                }
+                            }
                         }
                         else if (Text.Contains(Words[0]))
+                        {
                             return true;
+                        }
+
                         break;
                     case SearchType.Ends:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
-                                if (Text.EndsWith(Letter)) return true;
+                            {
+                                if (Text.EndsWith(Letter))
+                                {
+                                    return true;
+                                }
+                            }
                         }
                         else if (Text.EndsWith(Words[0]))
+                        {
                             return true;
+                        }
+
                         break;
                 }
                 return false;
@@ -1315,9 +1343,13 @@ namespace Conforyon
                 if (Mod)
                 {
                     if (Mod2)
+                    {
                         return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
+                    }
                     else
+                    {
                         return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                    }
                 }
                 else
                 {
@@ -1340,19 +1372,29 @@ namespace Conforyon
                             if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
                             {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                {
                                     Variable1 = Variable2;
+                                }
                                 else
+                                {
                                     Variable1 = Variable3;
+                                }
                             }
                             else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                             {
                                 if (Searching(Variable2, SymbolsMath, SearchType.Starts))
+                                {
                                     Variable1 = Variable3;
+                                }
                                 else
+                                {
                                     Variable1 = Variable2;
+                                }
                             }
                             else
+                            {
                                 Variable1 = Variable2;
+                            }
                         }
                         else
                         {
@@ -1370,27 +1412,43 @@ namespace Conforyon
                             if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
                             {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                {
                                     Variable1 = Variable2;
+                                }
                                 else
+                                {
                                     Variable1 = Variable3;
+                                }
                             }
                             else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
                             {
                                 if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                {
                                     Variable1 = Variable2;
+                                }
                                 else
+                                {
                                     Variable1 = Variable3;
+                                }
                             }
                             else
+                            {
                                 Variable1 = Variable3;
+                            }
                         }
                         if (string.IsNullOrEmpty(Variable1) || string.IsNullOrWhiteSpace(Variable1))
+                        {
                             return Error;
+                        }
                         else
+                        {
                             return Variable1;
+                        }
                     }
                     else
+                    {
                         return Error;
+                    }
                 }
             }
             catch
@@ -1410,7 +1468,9 @@ namespace Conforyon
             try
             {
                 if (Searching(Variable, SymbolsCalc))
+                {
                     return Variable;
+                }
                 else
                 {
                     if (Variable.Contains(","))
@@ -1419,9 +1479,14 @@ namespace Conforyon
                         string[] Variables = Variable.Split(Brackets);
                         string Result = string.Format("{0:0,0}", Convert.ToInt64(Variables[0]));
                         if (Result.Length == 2 && Result == "00")
+                        {
                             Result = "0";
+                        }
                         else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
+                        {
                             Result.Replace("0", "");
+                        }
+
                         return Result + "," + Variables[1];
                     }
                     else
@@ -1429,12 +1494,18 @@ namespace Conforyon
                         if (Variable.Length > 2)
                         {
                             if (NumberCheck(Variable))
+                            {
                                 return string.Format("{0:0,0}", Convert.ToInt64(Variable));
+                            }
                             else
+                            {
                                 return string.Format("{0:0,0}", Variable);
+                            }
                         }
                         else
+                        {
                             return Variable;
+                        }
                     }
                 }
             }
@@ -1455,7 +1526,9 @@ namespace Conforyon
             try
             {
                 if (Searching(Variable, SymbolsCalc))
+                {
                     return Variable;
+                }
                 else
                 {
                     if (Variable.Contains(","))
@@ -1464,23 +1537,35 @@ namespace Conforyon
                         string[] Variables = Variable.Split(Brackets);
                         string Result = string.Format("{0:0,0}", Convert.ToInt64(Variables[0]));
                         if (Result.Length == 2 && Result == "00")
+                        {
                             return "0";
+                        }
                         else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
+                        {
                             return Result.Replace("0", "");
+                        }
                         else
+                        {
                             return Result;
+                        }
                     }
                     else
                     {
                         if (Variable.Length > 2)
                         {
                             if (NumberCheck(Variable))
+                            {
                                 return string.Format("{0:0,0}", Convert.ToInt64(Variable));
+                            }
                             else
+                            {
                                 return string.Format("{0:0,0}", Variable);
+                            }
                         }
                         else
+                        {
                             return Variable;
+                        }
                     }
                 }
             }
@@ -1502,7 +1587,9 @@ namespace Conforyon
             try
             {
                 if (Searching(Variable, SymbolsCalc))
+                {
                     return Variable;
+                }
                 else
                 {
                     if (Variable.Contains(",") && PostComma != 0)
@@ -1510,13 +1597,18 @@ namespace Conforyon
                         char[] Brackets = { ',' };
                         string[] Variables = Variable.Split(Brackets);
                         if (PostComma <= Variables[1].Length)
+                        {
                             return Variables[0] + "," + Variables[1].Substring(0, PostComma);
+                        }
                         else
                         {
                             string Operation = Variables[0] + "," + Variables[1].Substring(0, Variables[1].Length);
                             int Operation2 = PostComma - Variables[1].Length;
                             for (int i = 0; i < Operation2; i++)
+                            {
                                 Operation += "0";
+                            }
+
                             return Operation;
                         }
                     }
@@ -1532,7 +1624,10 @@ namespace Conforyon
                         {
                             string Operation = ",";
                             for (int i = 0; i < PostComma; i++)
+                            {
                                 Operation += "0";
+                            }
+
                             return Variable + Operation;
                         }
                     }
@@ -1556,24 +1651,41 @@ namespace Conforyon
             try
             {
                 if (Searching(Variable, SymbolsCalc))
+                {
                     return Variable;
+                }
                 else
                 {
                     if (PostComma <= Variable.Length)
                     {
                         if (Variable == ",")
+                        {
                             return Variable.Substring(0, PostComma) + "0";
+                        }
                         else
+                        {
                             return Variable.Substring(0, PostComma);
+                        }
                     }
                     else
                     {
                         string Operation = Variable.Substring(0, Variable.Length);
                         int Operation2 = PostComma - Variable.Length;
                         if (Variable == ",")
-                            for (int i = 0; i <= Operation2; i++) Operation += "0";
+                        {
+                            for (int i = 0; i <= Operation2; i++)
+                            {
+                                Operation += "0";
+                            }
+                        }
                         else
-                            for (int i = 0; i < Operation2; i++) Operation += "0";
+                        {
+                            for (int i = 0; i < Operation2; i++)
+                            {
+                                Operation += "0";
+                            }
+                        }
+
                         return Operation;
                     }
                 }
@@ -1596,11 +1708,15 @@ namespace Conforyon
             try
             {
                 if (Searching(Variable, SymbolsCalc))
+                {
                     return Variable;
+                }
                 else
                 {
                     if (PostComma == 0)
+                    {
                         return UseDecimal2(Variable);
+                    }
                     else
                     {
                         if (Variable.Contains(","))
@@ -1610,7 +1726,9 @@ namespace Conforyon
                             return UseDecimal2(Variables[0]) + "," + UseComma2(Variables[1], PostComma);
                         }
                         else
+                        {
                             return UseDecimal2(Variable) + UseComma2(",", PostComma);
+                        }
                     }
                 }
             }
@@ -1636,18 +1754,28 @@ namespace Conforyon
                 if (!Decimal && !Comma)
                 {
                     if (string.IsNullOrEmpty(Variable))
+                    {
                         return Error;
+                    }
                     else
+                    {
                         return Variable;
+                    }
                 }
                 else
                 {
                     if (Decimal && !Comma)
+                    {
                         return UseDecimal(Variable);
+                    }
                     else if (!Decimal && Comma)
+                    {
                         return UseComma(Variable, PostComma);
+                    }
                     else
+                    {
                         return DecimalComma(Variable, PostComma);
+                    }
                 }
             }
             catch
@@ -1672,18 +1800,28 @@ namespace Conforyon
                 if (!Decimal && !Comma)
                 {
                     if (string.IsNullOrEmpty(Variable))
+                    {
                         return Error;
+                    }
                     else
+                    {
                         return LastCheck(Variable, false, true, 0, Error);
+                    }
                 }
                 else
                 {
                     if (Decimal && !Comma)
+                    {
                         return LastCheck(Variable, true, true, 0, Error);
+                    }
                     else if (!Decimal && Comma)
+                    {
                         return LastCheck(Variable, false, true, PostComma, Error);
+                    }
                     else
+                    {
                         return DecimalComma(Variable, PostComma);
+                    }
                 }
             }
             catch
@@ -1705,17 +1843,25 @@ namespace Conforyon
                 if (Variable != "" && !string.IsNullOrEmpty(Variable))
                 {
                     if (Spaces)
+                    {
                         return true;
+                    }
                     else
                     {
                         if (Variable.Contains(" ") || string.IsNullOrWhiteSpace(Variable))
+                        {
                             return false;
+                        }
                         else
+                        {
                             return true;
+                        }
                     }
                 }
                 else
+                {
                     return false;
+                }
             }
             catch
             {
@@ -1740,15 +1886,23 @@ namespace Conforyon
                     if (Values[Key1].ContainsKey(Key2))
                     {
                         if (Values[Key1][Key2].ContainsKey(Key3))
+                        {
                             return Values[Key1][Key2][Key3];
+                        }
                         else
+                        {
                             return Error;
+                        }
                     }
                     else
+                    {
                         return Error;
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -1779,13 +1933,19 @@ namespace Conforyon
                             return Values[Key1][Key2][Key3];
                         }
                         else
+                        {
                             return Error;
+                        }
                     }
                     else
+                    {
                         return Error;
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {

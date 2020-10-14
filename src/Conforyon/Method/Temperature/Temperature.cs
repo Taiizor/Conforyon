@@ -29,12 +29,18 @@ namespace Conforyon
                 if (Celsius.Length <= VariableLength && NumberCheck(Celsius) && !Celsius.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Celsius))
                 {
                     if (Text)
+                    {
                         return LastCheck2((Convert.ToDouble(Celsius) / Convert.ToInt32(GetValues("Temperature", "Celsius", "Divide", Error)) * Convert.ToInt32(GetValues("Temperature", "Celsius", "Multipy", Error)) + Convert.ToInt32(GetValues("Temperature", "Celsius", "Add", Error))).ToString(), Decimal, Comma, PostComma, Error) + " F";
+                    }
                     else
+                    {
                         return LastCheck2((Convert.ToDouble(Celsius) / Convert.ToInt32(GetValues("Temperature", "Celsius", "Divide", Error)) * Convert.ToInt32(GetValues("Temperature", "Celsius", "Multipy", Error)) + Convert.ToInt32(GetValues("Temperature", "Celsius", "Add", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -61,20 +67,30 @@ namespace Conforyon
                     if (Convert.ToInt64(Fahrenheit) >= 32)
                     {
                         if (Text)
+                        {
                             return LastCheck2(((Convert.ToDouble(Fahrenheit) - Convert.ToInt32(GetValues("Temperature", "Fahrenheit", "Deduct", Error))) * Convert.ToInt32(GetValues("Temperature", "Fahrenheit", "Multipy", Error)) / Convert.ToInt32(GetValues("Temperature", "Fahrenheit", "Divide", Error))).ToString(), Decimal, Comma, PostComma, Error) + " C";
+                        }
                         else
+                        {
                             return LastCheck2(((Convert.ToDouble(Fahrenheit) - Convert.ToInt32(GetValues("Temperature", "Fahrenheit", "Deduct", Error))) * Convert.ToInt32(GetValues("Temperature", "Fahrenheit", "Multipy", Error)) / Convert.ToInt32(GetValues("Temperature", "Fahrenheit", "Divide", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        }
                     }
                     else
                     {
                         if (Text)
+                        {
                             return LastCheck2("0", Decimal, Comma, PostComma, Error) + " C";
+                        }
                         else
+                        {
                             return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                        }
                     }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {

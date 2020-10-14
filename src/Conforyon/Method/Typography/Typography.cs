@@ -26,9 +26,13 @@ namespace Conforyon
             try
             {
                 if (Inch.Length <= VariableLength && NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Inch))
+                {
                     return LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(GetValues("Typography", "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -55,7 +59,9 @@ namespace Conforyon
                     return LastCheck2(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -79,12 +85,18 @@ namespace Conforyon
                 if (Centimeter.Length <= VariableLength && NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Centimeter))
                 {
                     if (Convert.ToInt64(Centimeter) >= 3)
+                    {
                         return LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(GetValues("Typography", "CM", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    }
                     else
+                    {
                         return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -106,9 +118,13 @@ namespace Conforyon
             try
             {
                 if (Centimeter.Length <= VariableLength && NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Centimeter))
+                {
                     return LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(GetValues("Typography", "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -132,12 +148,18 @@ namespace Conforyon
                 if (Pixel.Length <= VariableLength && NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 38)
+                    {
                         return LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(GetValues("Typography", "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    }
                     else
+                    {
                         return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -161,12 +183,18 @@ namespace Conforyon
                 if (Pixel.Length <= VariableLength && NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 96)
+                    {
                         return LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(GetValues("Typography", "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    }
                     else
+                    {
                         return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {

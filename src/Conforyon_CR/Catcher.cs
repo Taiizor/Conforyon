@@ -52,9 +52,14 @@ namespace Conforyon_CR
         private void Button4_Click(object sender, EventArgs e)
         {
             if (Unicoder)
+            {
                 textBox7.Text = Unicode.CHARtoASCII(textBox6.Text, textBox8.Text.ToCharArray()[0], "Error!");
+            }
             else
+            {
                 textBox6.Text = Unicode.ASCIItoCHAR(textBox7.Text, textBox8.Text.ToCharArray()[0], "Error!");
+            }
+
             Unicoder = !Unicoder;
         }
 
@@ -67,18 +72,28 @@ namespace Conforyon_CR
         private void Button7_Click(object sender, EventArgs e)
         {
             if (Temperaturer)
+            {
                 textBox13.Text = Temperature.CtoF(textBox12.Text, false, false, 0, false, "Error!");
+            }
             else
+            {
                 textBox12.Text = Temperature.FtoC(textBox13.Text, false, false, 0, false, "Error!");
+            }
+
             Temperaturer = !Temperaturer;
         }
 
         private void Button8_Click(object sender, EventArgs e)
         {
             if (Speeder)
+            {
                 textBox15.Text = Speed.MPHtoKPH(textBox14.Text, false, false, 0, false, "Error!");
+            }
             else
+            {
                 textBox14.Text = Speed.KPHtoMPH(textBox15.Text, false, false, 0, false, "Error!");
+            }
+
             Speeder = !Speeder;
         }
 

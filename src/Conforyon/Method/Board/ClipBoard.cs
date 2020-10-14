@@ -60,12 +60,18 @@ namespace Conforyon
                 IDataObject IData = Clipboard.GetDataObject();
 
                 if (Clear)
+                {
                     Clipboard.Clear();
+                }
 
                 if (IData.GetDataPresent(DataFormats.Text))
+                {
                     return (string)IData.GetData(DataFormats.Text);
+                }
                 else
+                {
                     return Back;
+                }
             }
             catch
             {
@@ -84,7 +90,9 @@ namespace Conforyon
                 Stream Audio = Clipboard.GetAudioStream();
 
                 if (Clear)
+                {
                     Clipboard.Clear();
+                }
 
                 return Audio;
             }

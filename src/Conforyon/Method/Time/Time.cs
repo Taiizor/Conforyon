@@ -31,7 +31,9 @@ namespace Conforyon
                 {
                     TimeType Type = InputType;
                     if (InputType == TimeType.Millennium)
+                    {
                         Type = TimeType.Millennium;
+                    }
                     else
                     {
                         for (int i = (int)InputType; i <= (int)TimeType.Millennium; i++)
@@ -44,7 +46,9 @@ namespace Conforyon
                             else
                             {
                                 if ((TimeType)i == TimeType.Millennium)
+                                {
                                     Type = (TimeType)i;
+                                }
                             }
                         }
                     }
@@ -53,32 +57,50 @@ namespace Conforyon
                     {
                         string Result = TimeConvert(InputVariable, InputType, Type, Decimal, Comma, PostComma, Error);
                         if (!TypeText || Result == Error)
+                        {
                             return Result;
+                        }
                         else
+                        {
                             return Result + " " + Type;
+                        }
                     }
                     else
                     {
                         string Result = null;
                         if (!Decimal && !Comma)
+                        {
                             Result = InputVariable;
+                        }
                         else
                         {
                             if (Decimal && !Comma)
+                            {
                                 Result = UseDecimal(InputVariable);
+                            }
                             else if (!Decimal && Comma)
+                            {
                                 Result = UseComma(InputVariable, PostComma);
+                            }
                             else
+                            {
                                 Result = DecimalComma(InputVariable, PostComma);
+                            }
                         }
                         if (!TypeText || Result == Error)
+                        {
                             return Result;
+                        }
                         else
+                        {
                             return Result + " " + Type;
+                        }
                     }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -113,63 +135,113 @@ namespace Conforyon
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -180,65 +252,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -249,65 +371,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -318,65 +490,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -387,65 +609,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -456,65 +728,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -525,65 +847,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -594,65 +966,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -663,65 +1085,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -732,65 +1204,115 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 case TimeType.Millennium:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Millennium", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 default:
                                     return Error;
@@ -801,63 +1323,113 @@ namespace Conforyon
                             {
                                 case TimeType.Nanosecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Nanosecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Microsecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Microsecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millisecond:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Millisecond", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Second:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Second", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Minute:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Minute", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Hour:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Hour", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Day:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Day", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Week:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Week", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Year:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Year", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Century:
                                     if (NumberCheck(InputVariable))
+                                    {
                                         Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Century", Error), Comma, true, false, Error);
+                                    }
                                     else
+                                    {
                                         return Error;
+                                    }
+
                                     break;
                                 case TimeType.Millennium:
                                     return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
@@ -869,12 +1441,18 @@ namespace Conforyon
                             return Error;
                     }
                     if (!Comma)
+                    {
                         return LastCheck(Variable, Decimal, !Comma, 0, Error);
+                    }
                     else
+                    {
                         return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                    }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {

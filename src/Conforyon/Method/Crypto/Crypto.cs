@@ -71,7 +71,9 @@ namespace Conforyon
                     }
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -90,9 +92,13 @@ namespace Conforyon
             try
             {
                 if (Text.Length <= TextLength && UseCheck(Text, true))
+                {
                     return Convert.ToBase64String(Encoding.UTF8.GetBytes(Text));
+                }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -118,11 +124,16 @@ namespace Conforyon
                     byte[] Result = MD5.Hash;
                     StringBuilder Builder = new StringBuilder();
                     for (int i = 0; i < Result.Length; i++)
+                    {
                         Builder.Append(Result[i].ToString("x2"));
+                    }
+
                     return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -147,11 +158,16 @@ namespace Conforyon
                     byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                     StringBuilder Builder = new StringBuilder();
                     for (int i = 0; i < Result.Length; i++)
+                    {
                         Builder.Append(Result[i].ToString("x2"));
+                    }
+
                     return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -176,11 +192,16 @@ namespace Conforyon
                     byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                     StringBuilder Builder = new StringBuilder();
                     for (int i = 0; i < Result.Length; i++)
+                    {
                         Builder.Append(Result[i].ToString("x2"));
+                    }
+
                     return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -205,11 +226,16 @@ namespace Conforyon
                     byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                     StringBuilder Builder = new StringBuilder();
                     for (int i = 0; i < Result.Length; i++)
+                    {
                         Builder.Append(Result[i].ToString("x2"));
+                    }
+
                     return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -234,11 +260,16 @@ namespace Conforyon
                     byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
                     StringBuilder Builder = new StringBuilder();
                     for (int i = 0; i < Result.Length; i++)
+                    {
                         Builder.Append(Result[i].ToString("x2"));
+                    }
+
                     return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {

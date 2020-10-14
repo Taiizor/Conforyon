@@ -29,12 +29,14 @@ namespace Conforyon
                 if (File.Exists(Path))
                 {
                     using MD5 MD5 = new MD5CryptoServiceProvider();
-                    using var Stream = File.OpenRead(Path);
-                    var Hash = MD5.ComputeHash(Stream);
+                    using FileStream Stream = File.OpenRead(Path);
+                    byte[] Hash = MD5.ComputeHash(Stream);
                     return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -56,12 +58,14 @@ namespace Conforyon
                 if (File.Exists(Path))
                 {
                     using SHA1 SHA1 = new SHA1CryptoServiceProvider();
-                    using var Stream = File.OpenRead(Path);
-                    var Hash = SHA1.ComputeHash(Stream);
+                    using FileStream Stream = File.OpenRead(Path);
+                    byte[] Hash = SHA1.ComputeHash(Stream);
                     return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -83,12 +87,14 @@ namespace Conforyon
                 if (File.Exists(Path))
                 {
                     using SHA256 SHA256 = new SHA256CryptoServiceProvider();
-                    using var Stream = File.OpenRead(Path);
-                    var Hash = SHA256.ComputeHash(Stream);
+                    using FileStream Stream = File.OpenRead(Path);
+                    byte[] Hash = SHA256.ComputeHash(Stream);
                     return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -110,12 +116,14 @@ namespace Conforyon
                 if (File.Exists(Path))
                 {
                     using SHA384 SHA384 = new SHA384CryptoServiceProvider();
-                    using var Stream = File.OpenRead(Path);
-                    var Hash = SHA384.ComputeHash(Stream);
+                    using FileStream Stream = File.OpenRead(Path);
+                    byte[] Hash = SHA384.ComputeHash(Stream);
                     return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
@@ -137,12 +145,14 @@ namespace Conforyon
                 if (File.Exists(Path))
                 {
                     using SHA512 SHA512 = new SHA512CryptoServiceProvider();
-                    using var Stream = File.OpenRead(Path);
-                    var Hash = SHA512.ComputeHash(Stream);
+                    using FileStream Stream = File.OpenRead(Path);
+                    byte[] Hash = SHA512.ComputeHash(Stream);
                     return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
+                {
                     return Error;
+                }
             }
             catch
             {
