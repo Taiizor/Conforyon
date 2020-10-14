@@ -28,14 +28,10 @@ namespace Conforyon
             {
                 if (File.Exists(Path))
                 {
-                    using (MD5 MD5 = new MD5CryptoServiceProvider())
-                    {
-                        using (var Stream = File.OpenRead(Path))
-                        {
-                            var Hash = MD5.ComputeHash(Stream);
-                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
-                        }
-                    }
+                    using MD5 MD5 = new MD5CryptoServiceProvider();
+                    using var Stream = File.OpenRead(Path);
+                    var Hash = MD5.ComputeHash(Stream);
+                    return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -59,14 +55,10 @@ namespace Conforyon
             {
                 if (File.Exists(Path))
                 {
-                    using (SHA1 SHA1 = new SHA1CryptoServiceProvider())
-                    {
-                        using (var Stream = File.OpenRead(Path))
-                        {
-                            var Hash = SHA1.ComputeHash(Stream);
-                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
-                        }
-                    }
+                    using SHA1 SHA1 = new SHA1CryptoServiceProvider();
+                    using var Stream = File.OpenRead(Path);
+                    var Hash = SHA1.ComputeHash(Stream);
+                    return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -90,14 +82,10 @@ namespace Conforyon
             {
                 if (File.Exists(Path))
                 {
-                    using (SHA256 SHA256 = new SHA256CryptoServiceProvider())
-                    {
-                        using (var Stream = File.OpenRead(Path))
-                        {
-                            var Hash = SHA256.ComputeHash(Stream);
-                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
-                        }
-                    }
+                    using SHA256 SHA256 = new SHA256CryptoServiceProvider();
+                    using var Stream = File.OpenRead(Path);
+                    var Hash = SHA256.ComputeHash(Stream);
+                    return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -121,14 +109,10 @@ namespace Conforyon
             {
                 if (File.Exists(Path))
                 {
-                    using (SHA384 SHA384 = new SHA384CryptoServiceProvider())
-                    {
-                        using (var Stream = File.OpenRead(Path))
-                        {
-                            var Hash = SHA384.ComputeHash(Stream);
-                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
-                        }
-                    }
+                    using SHA384 SHA384 = new SHA384CryptoServiceProvider();
+                    using var Stream = File.OpenRead(Path);
+                    var Hash = SHA384.ComputeHash(Stream);
+                    return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -152,14 +136,10 @@ namespace Conforyon
             {
                 if (File.Exists(Path))
                 {
-                    using (SHA512 SHA512 = new SHA512CryptoServiceProvider())
-                    {
-                        using (var Stream = File.OpenRead(Path))
-                        {
-                            var Hash = SHA512.ComputeHash(Stream);
-                            return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
-                        }
-                    }
+                    using SHA512 SHA512 = new SHA512CryptoServiceProvider();
+                    using var Stream = File.OpenRead(Path);
+                    var Hash = SHA512.ComputeHash(Stream);
+                    return Uppercase == false ? BitConverter.ToString(Hash).Replace("-", "").ToLowerInvariant() : BitConverter.ToString(Hash).Replace("-", "").ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -182,21 +162,15 @@ namespace Conforyon
         {
             try
             {
-                switch (Type)
+                return Type switch
                 {
-                    case HashType.MD5:
-                        return new Task<string>(() => FILEtoMD5(Path, Uppercase, Error));
-                    case HashType.SHA1:
-                        return new Task<string>(() => FILEtoSHA1(Path, Uppercase, Error));
-                    case HashType.SHA256:
-                        return new Task<string>(() => FILEtoSHA256(Path, Uppercase, Error));
-                    case HashType.SHA384:
-                        return new Task<string>(() => FILEtoSHA384(Path, Uppercase, Error));
-                    case HashType.SHA512:
-                        return new Task<string>(() => FILEtoSHA512(Path, Uppercase, Error));
-                    default:
-                        return new Task<string>(() => Error);
-                }
+                    HashType.MD5 => new Task<string>(() => FILEtoMD5(Path, Uppercase, Error)),
+                    HashType.SHA1 => new Task<string>(() => FILEtoSHA1(Path, Uppercase, Error)),
+                    HashType.SHA256 => new Task<string>(() => FILEtoSHA256(Path, Uppercase, Error)),
+                    HashType.SHA384 => new Task<string>(() => FILEtoSHA384(Path, Uppercase, Error)),
+                    HashType.SHA512 => new Task<string>(() => FILEtoSHA512(Path, Uppercase, Error)),
+                    _ => new Task<string>(() => Error),
+                };
             }
             catch
             {

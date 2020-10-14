@@ -31,35 +31,22 @@ namespace Conforyon
                         HexColor = ColorTranslator.FromHtml(Hex);
                     else
                         HexColor = ColorTranslator.FromHtml("#" + Hex);
-                    switch (Type)
+                    return Type switch
                     {
-                        case ColorType.RGB1:
-                            return HexColor.R + ", " + HexColor.G + ", " + HexColor.B;
-                        case ColorType.RGB2:
-                            return HexColor.R + " " + HexColor.G + " " + HexColor.B;
-                        case ColorType.RGB3:
-                            return HexColor.R + " - " + HexColor.G + " - " + HexColor.B;
-                        case ColorType.RRGGBB1:
-                            return "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B;
-                        case ColorType.RRGGBB2:
-                            return "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B;
-                        case ColorType.RRGGBB3:
-                            return "R: " + HexColor.R + " - G: " + HexColor.G + " - B: " + HexColor.B;
-                        case ColorType.RR:
-                            return "R: " + HexColor.R;
-                        case ColorType.GG:
-                            return "G: " + HexColor.G;
-                        case ColorType.BB:
-                            return "B: " + HexColor.B;
-                        case ColorType.OnlyR:
-                            return HexColor.R.ToString();
-                        case ColorType.OnlyG:
-                            return HexColor.G.ToString();
-                        case ColorType.OnlyB:
-                            return HexColor.B.ToString();
-                        default:
-                            return Error;
-                    }
+                        ColorType.RGB1 => HexColor.R + ", " + HexColor.G + ", " + HexColor.B,
+                        ColorType.RGB2 => HexColor.R + " " + HexColor.G + " " + HexColor.B,
+                        ColorType.RGB3 => HexColor.R + " - " + HexColor.G + " - " + HexColor.B,
+                        ColorType.RRGGBB1 => "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B,
+                        ColorType.RRGGBB2 => "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B,
+                        ColorType.RRGGBB3 => "R: " + HexColor.R + " - G: " + HexColor.G + " - B: " + HexColor.B,
+                        ColorType.RR => "R: " + HexColor.R,
+                        ColorType.GG => "G: " + HexColor.G,
+                        ColorType.BB => "B: " + HexColor.B,
+                        ColorType.OnlyR => HexColor.R.ToString(),
+                        ColorType.OnlyG => HexColor.G.ToString(),
+                        ColorType.OnlyB => HexColor.B.ToString(),
+                        _ => Error,
+                    };
                 }
                 else
                     return Error;

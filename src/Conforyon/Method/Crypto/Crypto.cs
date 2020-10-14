@@ -113,15 +113,13 @@ namespace Conforyon
             {
                 if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
-                    using (MD5 MD5 = MD5.Create())
-                    {
-                        MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
-                        byte[] Result = MD5.Hash;
-                        StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Result.Length; i++)
-                            Builder.Append(Result[i].ToString("x2"));
-                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
-                    }
+                    using MD5 MD5 = MD5.Create();
+                    MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
+                    byte[] Result = MD5.Hash;
+                    StringBuilder Builder = new StringBuilder();
+                    for (int i = 0; i < Result.Length; i++)
+                        Builder.Append(Result[i].ToString("x2"));
+                    return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -145,14 +143,12 @@ namespace Conforyon
             {
                 if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
-                    using (SHA1 SHA1 = SHA1.Create())
-                    {
-                        byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
-                        StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Result.Length; i++)
-                            Builder.Append(Result[i].ToString("x2"));
-                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
-                    }
+                    using SHA1 SHA1 = SHA1.Create();
+                    byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
+                    StringBuilder Builder = new StringBuilder();
+                    for (int i = 0; i < Result.Length; i++)
+                        Builder.Append(Result[i].ToString("x2"));
+                    return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -176,14 +172,12 @@ namespace Conforyon
             {
                 if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
-                    using (SHA256 SHA256 = SHA256.Create())
-                    {
-                        byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
-                        StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Result.Length; i++)
-                            Builder.Append(Result[i].ToString("x2"));
-                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
-                    }
+                    using SHA256 SHA256 = SHA256.Create();
+                    byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
+                    StringBuilder Builder = new StringBuilder();
+                    for (int i = 0; i < Result.Length; i++)
+                        Builder.Append(Result[i].ToString("x2"));
+                    return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -207,14 +201,12 @@ namespace Conforyon
             {
                 if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
-                    using (SHA384 SHA384 = SHA384.Create())
-                    {
-                        byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
-                        StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Result.Length; i++)
-                            Builder.Append(Result[i].ToString("x2"));
-                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
-                    }
+                    using SHA384 SHA384 = SHA384.Create();
+                    byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
+                    StringBuilder Builder = new StringBuilder();
+                    for (int i = 0; i < Result.Length; i++)
+                        Builder.Append(Result[i].ToString("x2"));
+                    return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
                     return Error;
@@ -238,14 +230,12 @@ namespace Conforyon
             {
                 if (Text.Length <= TextLength && UseCheck(Text, true))
                 {
-                    using (SHA512 SHA512 = SHA512.Create())
-                    {
-                        byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
-                        StringBuilder Builder = new StringBuilder();
-                        for (int i = 0; i < Result.Length; i++)
-                            Builder.Append(Result[i].ToString("x2"));
-                        return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
-                    }
+                    using SHA512 SHA512 = SHA512.Create();
+                    byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
+                    StringBuilder Builder = new StringBuilder();
+                    for (int i = 0; i < Result.Length; i++)
+                        Builder.Append(Result[i].ToString("x2"));
+                    return Uppercase == false ? Builder.ToString().ToLowerInvariant() : Builder.ToString().ToUpperInvariant();
                 }
                 else
                     return Error;

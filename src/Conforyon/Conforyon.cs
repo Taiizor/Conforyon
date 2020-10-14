@@ -384,7 +384,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        private static Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
+        private static readonly Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
         {
             {
                 "DataStorage", new Dictionary<string, Dictionary<string, string>>()
