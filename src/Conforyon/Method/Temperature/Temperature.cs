@@ -7,6 +7,9 @@ using static Conforyon.Conforyon;
 
 namespace Conforyon
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Temperature
     {
         /// <summary>

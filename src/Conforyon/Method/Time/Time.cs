@@ -7,6 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace Conforyon
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Time
     {
         /// <summary>

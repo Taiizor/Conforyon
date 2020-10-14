@@ -10,6 +10,9 @@ using System.Security.Cryptography;
 
 namespace Conforyon
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Hash
     {
         /// <summary>

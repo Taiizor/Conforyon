@@ -9,6 +9,9 @@ using System.Security.Cryptography;
 
 namespace Conforyon
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Crypto
     {
         /// <summary>

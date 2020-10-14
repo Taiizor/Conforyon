@@ -17,6 +17,7 @@
     <PackageReleaseNotes>Bugs have also been fixed with the addition of new conversions.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor C# CSharp DotNet Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
+    <DocumentationFile>$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
