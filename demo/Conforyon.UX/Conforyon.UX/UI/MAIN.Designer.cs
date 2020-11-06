@@ -121,7 +121,7 @@
             this.CSLE.Name = "CSLE";
             this.CSLE.Size = new System.Drawing.Size(561, 452);
             this.CSLE.TabIndex = 0;
-            this.CSLE.Text = "Coming\r\nSoon!";
+            this.CSLE.Text = "Select\r\nMode!";
             this.CSLE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BAR

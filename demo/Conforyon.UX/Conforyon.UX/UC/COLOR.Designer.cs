@@ -40,6 +40,8 @@ namespace Conforyon.UX.UC
             this.CYB = new ReaLTaiizor.Controls.MaterialButton();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.CFN = new ReaLTaiizor.Controls.FoxNotification();
+            this.CFTD = new ReaLTaiizor.Controls.MaterialDivider();
+            this.CFBD = new ReaLTaiizor.Controls.MaterialDivider();
             this.SuspendLayout();
             // 
             // TACB
@@ -272,11 +274,37 @@ namespace Conforyon.UX.UC
             this.CFN.YellowBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(235)))), ((int)(((byte)(200)))));
             this.CFN.YellowTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(131)))), ((int)(((byte)(88)))));
             // 
+            // CFTD
+            // 
+            this.CFTD.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CFTD.BackColor = System.Drawing.Color.Orange;
+            this.CFTD.Depth = 0;
+            this.CFTD.Location = new System.Drawing.Point(3, 197);
+            this.CFTD.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.CFTD.Name = "CFTD";
+            this.CFTD.Size = new System.Drawing.Size(75, 1);
+            this.CFTD.TabIndex = 12;
+            this.CFTD.Text = "CFTD";
+            // 
+            // CFBD
+            // 
+            this.CFBD.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CFBD.BackColor = System.Drawing.Color.Orange;
+            this.CFBD.Depth = 0;
+            this.CFBD.Location = new System.Drawing.Point(3, 236);
+            this.CFBD.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.CFBD.Name = "CFBD";
+            this.CFBD.Size = new System.Drawing.Size(175, 1);
+            this.CFBD.TabIndex = 13;
+            this.CFBD.Text = "CFBD";
+            // 
             // COLOR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Controls.Add(this.CFBD);
+            this.Controls.Add(this.CFTD);
             this.Controls.Add(this.CFN);
             this.Controls.Add(this.CSS);
             this.Controls.Add(this.CYB);
@@ -308,5 +336,7 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialButton CYB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification CFN;
+        private ReaLTaiizor.Controls.MaterialDivider CFTD;
+        private ReaLTaiizor.Controls.MaterialDivider CFBD;
     }
 }
