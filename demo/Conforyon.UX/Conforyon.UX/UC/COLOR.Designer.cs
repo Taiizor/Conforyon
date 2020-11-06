@@ -262,7 +262,7 @@ namespace Conforyon.UX.UC
             this.CFN.Location = new System.Drawing.Point(3, 197);
             this.CFN.Name = "CFN";
             this.CFN.RedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.CFN.RedBarColor = System.Drawing.Color.Crimson;
+            this.CFN.RedBarColor = System.Drawing.Color.Orange;
             this.CFN.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
             this.CFN.Size = new System.Drawing.Size(300, 40);
             this.CFN.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Red;

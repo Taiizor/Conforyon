@@ -15,76 +15,107 @@ namespace Conforyon.UX.UI
 
         public MAIN()
         {
-            InitializeComponent();
-            MM = MaterialManager.Instance;
-            MM.EnforceBackcolorOnAllComponents = true;
-            MM.Theme = MaterialManager.Themes.DARK;
-            MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
-
-            UC.COLOR CR = new UC.COLOR() { Anchor = AnchorStyles.None };
-            AT = "Color";
-            CR.Location = new Point(VIEW.Width / 2 - CR.Width / 2, VIEW.Height / 2 - CR.Height / 2);
-            VIEW.Controls.Clear();
-            VIEW.Controls.Add(CR);
+            try
+            {
+                InitializeComponent();
+                MM = MaterialManager.Instance;
+                MM.Theme = MaterialManager.Themes.DARK;
+                MM.EnforceBackcolorOnAllComponents = true;
+                MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
+            }
+            catch
+            {
+                //
+            }
         }
 
         private new void Click(object sender, EventArgs e)
         {
-            HopeButton Button = sender as HopeButton;
-            if (AT != Button.Name)
+            try
             {
-                AT = Button.Name;
-                switch (Button.Name)
+                HopeButton Button = sender as HopeButton;
+                if (AT != Button.Name)
+                {
+                    AT = Button.Name;
+                    VIEW.Controls.Clear();
+                    SetControl(AT);
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void SetControl(string Control)
+        {
+            try
+            {
+                Control CR = null;
+                switch (Control)
                 {
                     case "Color":
-                        MessageBox.Show(Button.Name + "!");
+                        CR = new UC.COLOR() { Anchor = AnchorStyles.None };
                         break;
                     case "DataStorage":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Temperature":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Typography":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Speed":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Time":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Clipboard":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Crypto":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Hash":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     case "Unicode":
-                        MessageBox.Show(Button.Name + "!");
+                        MessageBox.Show(Control + "!");
                         break;
                     default:
                         MessageBox.Show("Unknown!");
                         break;
                 }
+                CR.Location = new Point(VIEW.Width / 2 - CR.Width / 2, VIEW.Height / 2 - CR.Height / 2);
+                VIEW.Controls.Add(CR);
+            }
+            catch
+            {
+                //
             }
         }
 
         private void CENTERED_Tick(object sender, EventArgs e)
         {
-            foreach (object Controls in VIEW.Controls)
+            try
             {
-                if (Controls.GetType().ToString().Contains(".UX.UC."))
+                foreach (object Controls in VIEW.Controls)
                 {
-                    UserControl Control = Controls as UserControl;
-                    if (Control.Location.X != VIEW.Width / 2 - Control.Width / 2 || Control.Location.Y != VIEW.Height / 2 - Control.Height / 2)
+                    if (Controls.GetType().ToString().Contains(".UX.UC."))
                     {
-                        Control.Location = new Point(VIEW.Width / 2 - Control.Width / 2, VIEW.Height / 2 - Control.Height / 2);
+                        UserControl Control = Controls as UserControl;
+                        if (Control.Location.X != VIEW.Width / 2 - Control.Width / 2 || Control.Location.Y != VIEW.Height / 2 - Control.Height / 2)
+                        {
+                            Control.Location = new Point(VIEW.Width / 2 - Control.Width / 2, VIEW.Height / 2 - Control.Height / 2);
+                        }
                     }
                 }
+            }
+            catch
+            {
+                //
             }
         }
     }
