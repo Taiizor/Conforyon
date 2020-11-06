@@ -54,17 +54,23 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UC\HASH.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UC\HASH.Designer.cs">
-      <DependentUpon>HASH.cs</DependentUpon>
-    </Compile>
     <Compile Include="UC\COLOR.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UC\COLOR.Designer.cs">
       <DependentUpon>COLOR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\CRYPTO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\CRYPTO.Designer.cs">
+      <DependentUpon>CRYPTO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC\HASH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\HASH.Designer.cs">
+      <DependentUpon>HASH.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\MAIN.cs">
       <SubType>Form</SubType>
@@ -74,11 +80,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UC\HASH.resx">
-      <DependentUpon>HASH.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UC\COLOR.resx">
       <DependentUpon>COLOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\CRYPTO.resx">
+      <DependentUpon>CRYPTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\HASH.resx">
+      <DependentUpon>HASH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>

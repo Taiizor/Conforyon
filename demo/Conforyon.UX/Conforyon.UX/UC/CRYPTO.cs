@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
 {
-    public partial class HASH : UserControl
+    public partial class CRYPTO : UserControl
     {
         private bool HRC = false;
 
-        public HASH()
+        public CRYPTO()
         {
             try
             {
@@ -16,6 +16,8 @@ namespace Conforyon.UX.UC
                 TACB.SelectedIndex = 0;
                 TBCB.SelectedIndex = 0;
                 Height = 244;
+                //ilk combo'dan Text seçilirse ikinciden kaldır
+                //ilk combo'dan Base64 seçilirse ikinciden kaldır
             }
             catch
             {

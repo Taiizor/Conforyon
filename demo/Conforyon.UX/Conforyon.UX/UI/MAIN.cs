@@ -3,8 +3,8 @@ using System.Drawing;
 using ReaLTaiizor.Util;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Colors;
-using ReaLTaiizor.Controls;
 using System.Windows.Forms;
+using ReaLTaiizor.Controls;
 
 namespace Conforyon.UX.UI
 {
@@ -23,7 +23,7 @@ namespace Conforyon.UX.UI
                 MM.EnforceBackcolorOnAllComponents = true;
                 MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
 
-                //SetControl("Hash");
+                SetControl("Crypto");
             }
             catch
             {
@@ -78,7 +78,7 @@ namespace Conforyon.UX.UI
                         MessageBox.Show(Control + "!");
                         break;
                     case "Crypto":
-                        MessageBox.Show(Control + "!");
+                        UC = new UC.CRYPTO() { Anchor = AnchorStyles.None };
                         break;
                     case "Hash":
                         UC = new UC.HASH() { Anchor = AnchorStyles.None };

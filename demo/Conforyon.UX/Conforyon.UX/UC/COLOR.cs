@@ -1,21 +1,38 @@
 ﻿using System;
 using Conforyon;
+using System.Drawing;
 using System.Windows.Forms;
+using ReaLTaiizor.Controls;
+using System.Text.RegularExpressions;
 
 namespace Conforyon.UX.UC
 {
-    public partial class HASH : UserControl
+    public partial class COLOR : UserControl
     {
-        private bool HRC = false;
-
-        public HASH()
+        public COLOR()
         {
             try
             {
                 InitializeComponent();
                 TACB.SelectedIndex = 0;
                 TBCB.SelectedIndex = 0;
-                Height = 244;
+                Height = 194;
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void TTB_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string TA = TACB.SelectedItem.ToString();
+                string TB = TBCB.SelectedItem.ToString();
+                TACB.SelectedItem = TB;
+                TBCB.SelectedItem = TA;
+                Refresh();
             }
             catch
             {
@@ -27,69 +44,15 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (TBCB.SelectedItem.ToString() == "MD5")
+                if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    FRTB.Text = Hash.FILEtoMD5(FLTB.Text, HRC);
-                }
-                else if (TBCB.SelectedItem.ToString() == "SHA1")
-                {
-                    FRTB.Text = Hash.FILEtoSHA1(FLTB.Text, HRC);
-                }
-                else if (TBCB.SelectedItem.ToString() == "SHA256")
-                {
-                    FRTB.Text = Hash.FILEtoSHA256(FLTB.Text, HRC);
-                }
-                else if (TBCB.SelectedItem.ToString() == "SHA384")
-                {
-                    FRTB.Text = Hash.FILEtoSHA384(FLTB.Text, HRC);
-                }
-                else if (TBCB.SelectedItem.ToString() == "SHA512")
-                {
-                    FRTB.Text = Hash.FILEtoSHA512(FLTB.Text, HRC);
-                }
-            }
-            catch
-            {
-                //
-            }
-        }
-
-        private void OFLB_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OpenFileDialog OFD = new OpenFileDialog
-                {
-                    RestoreDirectory = true,
-                    CheckFileExists = true
-                };
-
-                if (OFD.ShowDialog() == DialogResult.OK)
-                {
-                    FLTB.Text = OFD.FileName;
-                    FLTB.Focus();
-                }
-            }
-            catch
-            {
-                //
-            }
-        }
-
-        private void FRCB_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                HRC = !HRC;
-                if (HRC)
-                {
-                    FRCB.Icon = Properties.Resources.Uppercase;
-                    FRTB.Text = FRTB.Text.ToUpperInvariant();
+                    CHTB.Text = Color.RGBtoHEX(Convert.ToInt32(CRTB.Text), Convert.ToInt32(CGTB.Text), Convert.ToInt32(CBTB.Text));
                 }
                 else
                 {
-                    FRCB.Icon = Properties.Resources.Lowercase;
-                    FRTB.Text = FRTB.Text.ToLowerInvariant();
+                    CRTB.Text = Color.HEXtoRGB(CHTB.Text, Conforyon.ColorType.OnlyR);
+                    CGTB.Text = Color.HEXtoRGB(CHTB.Text, Conforyon.ColorType.OnlyG);
+                    CBTB.Text = Color.HEXtoRGB(CHTB.Text, Conforyon.ColorType.OnlyB);
                 }
             }
             catch
@@ -102,10 +65,107 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Clipboard.GetText() != FRTB.Text)
+                if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    ClipBoard.CopyText(FRTB.Text);
-                    FRTB.Focus();
+                    if (Clipboard.GetText() != CHTB.Text)
+                    {
+                        ClipBoard.CopyText(CHTB.Text);
+                        CHTB.Focus();
+                    }
+                }
+                else
+                {
+                    if (Clipboard.GetText() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
+                    {
+                        ClipBoard.CopyText(CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text);
+                        CGTB.Focus();
+                    }
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void TCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MaterialComboBox TCB = sender as MaterialComboBox;
+                if (TCB.Name == "TACB")
+                {
+                    TBCB.SelectedIndex = TACB.SelectedIndex;
+                }
+                else
+                {
+                    TACB.SelectedIndex = TBCB.SelectedIndex;
+                }
+
+                Refresh();
+
+                if (TACB.SelectedItem.ToString() == "HEX")
+                {
+                    CRTB.ReadOnly = true;
+                    CRTB.Location = new Point(123, 48);
+                    CGTB.ReadOnly = true;
+                    CGTB.Location = new Point(185, 48);
+                    CBTB.ReadOnly = true;
+                    CBTB.Location = new Point(247, 48);
+                    CHTB.ReadOnly = false;
+                    CHTB.Location = new Point(3, 48);
+                    CTB.Location = new Point(3, 107);
+                    CYB.Location = new Point(191, 107);
+                }
+                else
+                {
+                    CRTB.ReadOnly = false;
+                    CRTB.Location = new Point(3, 48);
+                    CGTB.ReadOnly = false;
+                    CGTB.Location = new Point(65, 48);
+                    CBTB.ReadOnly = false;
+                    CBTB.Location = new Point(127, 48);
+                    CHTB.ReadOnly = true;
+                    CHTB.Location = new Point(217, 48);
+                    CTB.Location = new Point(35, 107);
+                    CYB.Location = new Point(238, 107);
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void TB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void TB_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MaterialTextBox CTB = sender as MaterialTextBox;
+                if (Regex.IsMatch(CTB.Text, "[^0-9]"))
+                {
+                    CTB.Text = CTB.Text.Remove(CTB.Text.Length - 1);
+                    TB_TextChanged(sender, e);
+                }
+                else if (Convert.ToInt32(CTB.Text) > 255)
+                {
+                    CTB.Text = "255";
+                }
+                else if (Convert.ToInt32(CTB.Text) < 0)
+                {
+                    CTB.Text = "0";
                 }
             }
             catch
@@ -120,11 +180,11 @@ namespace Conforyon.UX.UC
             {
                 if (CSS.Checked)
                 {
-                    Height = 296;
+                    Height = 240;
                 }
                 else
                 {
-                    Height = 244;
+                    Height = 194;
                 }
             }
             catch

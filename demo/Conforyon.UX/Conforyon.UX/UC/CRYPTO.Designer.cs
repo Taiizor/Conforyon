@@ -1,7 +1,7 @@
 ﻿
 namespace Conforyon.UX.UC
 {
-    partial class HASH
+    partial class CRYPTO
     {
         /// <summary> 
         ///Gerekli tasarımcı değişkeni.
@@ -54,7 +54,6 @@ namespace Conforyon.UX.UC
             this.TACB.DropDownHeight = 118;
             this.TACB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TACB.DropDownWidth = 121;
-            this.TACB.Enabled = false;
             this.TACB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.TACB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TACB.FormattingEnabled = true;
@@ -62,9 +61,10 @@ namespace Conforyon.UX.UC
             this.TACB.IntegralHeight = false;
             this.TACB.ItemHeight = 29;
             this.TACB.Items.AddRange(new object[] {
-            "FILE"});
+            "TEXT",
+            "BASE64"});
             this.TACB.Location = new System.Drawing.Point(3, 4);
-            this.TACB.MaxDropDownItems = 4;
+            this.TACB.MaxDropDownItems = 2;
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
@@ -88,13 +88,15 @@ namespace Conforyon.UX.UC
             this.TBCB.IntegralHeight = false;
             this.TBCB.ItemHeight = 29;
             this.TBCB.Items.AddRange(new object[] {
+            "BASE64",
+            "TEXT",
             "MD5",
             "SHA1",
             "SHA256",
             "SHA384",
             "SHA512"});
             this.TBCB.Location = new System.Drawing.Point(182, 4);
-            this.TBCB.MaxDropDownItems = 5;
+            this.TBCB.MaxDropDownItems = 7;
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
@@ -289,7 +291,6 @@ namespace Conforyon.UX.UC
             this.TTB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TTB.Depth = 0;
             this.TTB.DrawShadows = false;
-            this.TTB.Enabled = false;
             this.TTB.HighEmphasis = true;
             this.TTB.Icon = global::Conforyon.UX.Properties.Resources.Transfer;
             this.TTB.Location = new System.Drawing.Point(131, 3);
@@ -302,7 +303,7 @@ namespace Conforyon.UX.UC
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;
             // 
-            // HASH
+            // CRYPTO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -320,7 +321,7 @@ namespace Conforyon.UX.UC
             this.Controls.Add(this.TTB);
             this.Controls.Add(this.TBCB);
             this.Controls.Add(this.TACB);
-            this.Name = "HASH";
+            this.Name = "CRYPTO";
             this.Size = new System.Drawing.Size(306, 296);
             this.ResumeLayout(false);
             this.PerformLayout();
