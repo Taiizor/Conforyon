@@ -29,7 +29,6 @@ namespace Conforyon.UX.UC
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(COLOR));
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
@@ -94,7 +93,7 @@ namespace Conforyon.UX.UC
             this.TTB.Depth = 0;
             this.TTB.DrawShadows = false;
             this.TTB.HighEmphasis = true;
-            this.TTB.Icon = ((System.Drawing.Image)(resources.GetObject("TTB.Icon")));
+            this.TTB.Icon = global::Conforyon.UX.Properties.Resources.Transfer;
             this.TTB.Location = new System.Drawing.Point(131, 3);
             this.TTB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.TTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;

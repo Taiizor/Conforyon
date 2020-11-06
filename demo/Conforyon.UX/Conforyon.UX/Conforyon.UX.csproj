@@ -108,7 +108,10 @@
     <None Include="Resources\CUBE.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Transfer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Available.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
