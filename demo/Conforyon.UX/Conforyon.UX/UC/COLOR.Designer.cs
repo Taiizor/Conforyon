@@ -35,6 +35,7 @@ namespace Conforyon.UX.UC
             this.CRTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.CGTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.CBTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.CHTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // TACB
@@ -66,6 +67,7 @@ namespace Conforyon.UX.UC
             // 
             // TBCB
             // 
+            this.TBCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TBCB.AutoResize = false;
             this.TBCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TBCB.Depth = 0;
@@ -93,6 +95,7 @@ namespace Conforyon.UX.UC
             // 
             // TTB
             // 
+            this.TTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TTB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TTB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TTB.Depth = 0;
@@ -114,7 +117,7 @@ namespace Conforyon.UX.UC
             // 
             this.CRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CRTB.Depth = 0;
-            this.CRTB.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.CRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CRTB.Hint = "R";
             this.CRTB.Location = new System.Drawing.Point(3, 48);
             this.CRTB.MaxLength = 3;
@@ -129,9 +132,9 @@ namespace Conforyon.UX.UC
             // 
             this.CGTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CGTB.Depth = 0;
-            this.CGTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.CGTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CGTB.Hint = "G";
-            this.CGTB.Location = new System.Drawing.Point(125, 48);
+            this.CGTB.Location = new System.Drawing.Point(56, 48);
             this.CGTB.MaxLength = 3;
             this.CGTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.CGTB.Multiline = false;
@@ -144,9 +147,9 @@ namespace Conforyon.UX.UC
             // 
             this.CBTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CBTB.Depth = 0;
-            this.CBTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.CBTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.CBTB.Hint = "B";
-            this.CBTB.Location = new System.Drawing.Point(247, 48);
+            this.CBTB.Location = new System.Drawing.Point(118, 48);
             this.CBTB.MaxLength = 3;
             this.CBTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.CBTB.Multiline = false;
@@ -155,11 +158,28 @@ namespace Conforyon.UX.UC
             this.CBTB.TabIndex = 5;
             this.CBTB.Text = "255";
             // 
+            // CHTB
+            // 
+            this.CHTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CHTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CHTB.Depth = 0;
+            this.CHTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CHTB.Hint = "HEX";
+            this.CHTB.Location = new System.Drawing.Point(217, 48);
+            this.CHTB.MaxLength = 6;
+            this.CHTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.CHTB.Multiline = false;
+            this.CHTB.Name = "CHTB";
+            this.CHTB.Size = new System.Drawing.Size(86, 50);
+            this.CHTB.TabIndex = 6;
+            this.CHTB.Text = "FFFFFF";
+            // 
             // COLOR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Controls.Add(this.CHTB);
             this.Controls.Add(this.CBTB);
             this.Controls.Add(this.CGTB);
             this.Controls.Add(this.CRTB);
@@ -181,5 +201,6 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialTextBox CRTB;
         private ReaLTaiizor.Controls.MaterialTextBox CGTB;
         private ReaLTaiizor.Controls.MaterialTextBox CBTB;
+        private ReaLTaiizor.Controls.MaterialTextBox CHTB;
     }
 }

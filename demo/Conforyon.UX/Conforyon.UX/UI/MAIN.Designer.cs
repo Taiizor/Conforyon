@@ -189,7 +189,7 @@
             this.Time.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Time.Size = new System.Drawing.Size(169, 40);
             this.Time.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Time.TabIndex = 11;
+            this.Time.TabIndex = 5;
             this.Time.Text = "Time";
             this.Time.TextColor = System.Drawing.Color.White;
             this.Time.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -211,7 +211,7 @@
             this.Speed.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Speed.Size = new System.Drawing.Size(169, 40);
             this.Speed.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Speed.TabIndex = 10;
+            this.Speed.TabIndex = 4;
             this.Speed.Text = "Speed";
             this.Speed.TextColor = System.Drawing.Color.White;
             this.Speed.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -255,7 +255,7 @@
             this.Temperature.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Temperature.Size = new System.Drawing.Size(169, 40);
             this.Temperature.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Temperature.TabIndex = 8;
+            this.Temperature.TabIndex = 3;
             this.Temperature.Text = "Temperature";
             this.Temperature.TextColor = System.Drawing.Color.White;
             this.Temperature.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -277,7 +277,7 @@
             this.DataStorage.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.DataStorage.Size = new System.Drawing.Size(169, 40);
             this.DataStorage.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.DataStorage.TabIndex = 7;
+            this.DataStorage.TabIndex = 2;
             this.DataStorage.Text = "Data Storage";
             this.DataStorage.TextColor = System.Drawing.Color.White;
             this.DataStorage.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -299,7 +299,7 @@
             this.Color.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Color.Size = new System.Drawing.Size(169, 40);
             this.Color.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Color.TabIndex = 6;
+            this.Color.TabIndex = 1;
             this.Color.Text = "Color";
             this.Color.TextColor = System.Drawing.Color.White;
             this.Color.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -335,7 +335,7 @@
             this.Unicode.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Unicode.Size = new System.Drawing.Size(169, 40);
             this.Unicode.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Unicode.TabIndex = 10;
+            this.Unicode.TabIndex = 9;
             this.Unicode.Text = "Unicode";
             this.Unicode.TextColor = System.Drawing.Color.White;
             this.Unicode.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -357,7 +357,7 @@
             this.Hash.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Hash.Size = new System.Drawing.Size(169, 40);
             this.Hash.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Hash.TabIndex = 9;
+            this.Hash.TabIndex = 8;
             this.Hash.Text = "Hash";
             this.Hash.TextColor = System.Drawing.Color.White;
             this.Hash.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -379,7 +379,7 @@
             this.Crypto.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Crypto.Size = new System.Drawing.Size(169, 40);
             this.Crypto.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Crypto.TabIndex = 8;
+            this.Crypto.TabIndex = 7;
             this.Crypto.Text = "Crypto";
             this.Crypto.TextColor = System.Drawing.Color.White;
             this.Crypto.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -401,7 +401,7 @@
             this.Clipboard.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.Clipboard.Size = new System.Drawing.Size(169, 40);
             this.Clipboard.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
-            this.Clipboard.TabIndex = 7;
+            this.Clipboard.TabIndex = 6;
             this.Clipboard.Text = "Clipboard";
             this.Clipboard.TextColor = System.Drawing.Color.White;
             this.Clipboard.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
@@ -419,7 +419,7 @@
             this.UOTS.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.UOTS.Name = "UOTS";
             this.UOTS.Size = new System.Drawing.Size(189, 62);
-            this.UOTS.TabIndex = 7;
+            this.UOTS.TabIndex = 0;
             this.UOTS.Text = "materialTabSelector1";
             this.UOTS.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextState.Normal;
             // 
@@ -432,7 +432,7 @@
             this.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Image = global::Conforyon.UX.Properties.Resources.CUBE;
-            this.MinimumSize = new System.Drawing.Size(239, 500);
+            this.MinimumSize = new System.Drawing.Size(600, 500);
             this.Name = "MAIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conforyon UX";
