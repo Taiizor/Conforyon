@@ -5,13 +5,13 @@ using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
 using System.Windows.Forms;
 
-namespace Conforyon.UX
+namespace Conforyon.UX.UI
 {
-    public partial class Main : LostForm
+    public partial class MAIN : LostForm
     {
         private readonly MaterialManager MM;
 
-        public Main()
+        public MAIN()
         {
             InitializeComponent();
             MM = MaterialManager.Instance;

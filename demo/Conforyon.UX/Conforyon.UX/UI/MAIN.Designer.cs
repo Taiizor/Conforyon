@@ -1,6 +1,6 @@
-﻿namespace Conforyon.UX
+﻿namespace Conforyon.UX.UI
 {
-    partial class Main
+    partial class MAIN
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN));
             this.BG = new ReaLTaiizor.Controls.Panel();
             this.BODY = new ReaLTaiizor.Controls.ForeverGroupBox();
             this.VIEW = new ReaLTaiizor.Controls.ForeverGroupBox();
-            this.labelEdit1 = new ReaLTaiizor.Controls.LabelEdit();
+            this.CSLE = new ReaLTaiizor.Controls.LabelEdit();
             this.BAR = new ReaLTaiizor.Controls.ForeverGroupBox();
-            this.materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
+            this.UOTC = new ReaLTaiizor.Controls.MaterialTabControl();
             this.Units = new System.Windows.Forms.TabPage();
             this.Time = new ReaLTaiizor.Controls.HopeButton();
             this.Speed = new ReaLTaiizor.Controls.HopeButton();
@@ -47,12 +47,12 @@
             this.Hash = new ReaLTaiizor.Controls.HopeButton();
             this.Crypto = new ReaLTaiizor.Controls.HopeButton();
             this.Clipboard = new ReaLTaiizor.Controls.HopeButton();
-            this.materialTabSelector1 = new ReaLTaiizor.Controls.MaterialTabSelector();
+            this.UOTS = new ReaLTaiizor.Controls.MaterialTabSelector();
             this.BG.SuspendLayout();
             this.BODY.SuspendLayout();
             this.VIEW.SuspendLayout();
             this.BAR.SuspendLayout();
-            this.materialTabControl1.SuspendLayout();
+            this.UOTC.SuspendLayout();
             this.Units.SuspendLayout();
             this.Others.SuspendLayout();
             this.SuspendLayout();
@@ -97,7 +97,7 @@
             this.VIEW.ArrowColorH = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.VIEW.BackColor = System.Drawing.Color.Transparent;
             this.VIEW.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.VIEW.Controls.Add(this.labelEdit1);
+            this.VIEW.Controls.Add(this.CSLE);
             this.VIEW.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VIEW.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.VIEW.Location = new System.Drawing.Point(0, 0);
@@ -109,18 +109,18 @@
             this.VIEW.Text = "VIEW";
             this.VIEW.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             // 
-            // labelEdit1
+            // CSLE
             // 
-            this.labelEdit1.BackColor = System.Drawing.Color.Transparent;
-            this.labelEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelEdit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 101F, System.Drawing.FontStyle.Bold);
-            this.labelEdit1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
-            this.labelEdit1.Location = new System.Drawing.Point(0, 0);
-            this.labelEdit1.Name = "labelEdit1";
-            this.labelEdit1.Size = new System.Drawing.Size(561, 452);
-            this.labelEdit1.TabIndex = 0;
-            this.labelEdit1.Text = "Coming\r\nSoon!";
-            this.labelEdit1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CSLE.BackColor = System.Drawing.Color.Transparent;
+            this.CSLE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CSLE.Font = new System.Drawing.Font("Microsoft Sans Serif", 101F, System.Drawing.FontStyle.Bold);
+            this.CSLE.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(125)))), ((int)(((byte)(132)))));
+            this.CSLE.Location = new System.Drawing.Point(0, 0);
+            this.CSLE.Name = "CSLE";
+            this.CSLE.Size = new System.Drawing.Size(561, 452);
+            this.CSLE.TabIndex = 0;
+            this.CSLE.Text = "Coming\r\nSoon!";
+            this.CSLE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BAR
             // 
@@ -128,8 +128,8 @@
             this.BAR.ArrowColorH = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(70)))), ((int)(((byte)(73)))));
             this.BAR.BackColor = System.Drawing.Color.Transparent;
             this.BAR.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.BAR.Controls.Add(this.materialTabControl1);
-            this.BAR.Controls.Add(this.materialTabSelector1);
+            this.BAR.Controls.Add(this.UOTC);
+            this.BAR.Controls.Add(this.UOTS);
             this.BAR.Dock = System.Windows.Forms.DockStyle.Left;
             this.BAR.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.BAR.Location = new System.Drawing.Point(5, 5);
@@ -142,20 +142,20 @@
             this.BAR.Text = "BAR";
             this.BAR.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(168)))), ((int)(((byte)(109)))));
             // 
-            // materialTabControl1
+            // UOTC
             // 
-            this.materialTabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
-            this.materialTabControl1.Controls.Add(this.Units);
-            this.materialTabControl1.Controls.Add(this.Others);
-            this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(18, 80);
-            this.materialTabControl1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialTabControl1.Multiline = true;
-            this.materialTabControl1.Name = "materialTabControl1";
-            this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(189, 354);
-            this.materialTabControl1.TabIndex = 8;
+            this.UOTC.Alignment = System.Windows.Forms.TabAlignment.Bottom;
+            this.UOTC.Controls.Add(this.Units);
+            this.UOTC.Controls.Add(this.Others);
+            this.UOTC.Depth = 0;
+            this.UOTC.Location = new System.Drawing.Point(18, 80);
+            this.UOTC.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.UOTC.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.UOTC.Multiline = true;
+            this.UOTC.Name = "UOTC";
+            this.UOTC.SelectedIndex = 0;
+            this.UOTC.Size = new System.Drawing.Size(189, 354);
+            this.UOTC.TabIndex = 8;
             // 
             // Units
             // 
@@ -407,40 +407,40 @@
             this.Clipboard.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
             this.Clipboard.Click += new System.EventHandler(this.Click);
             // 
-            // materialTabSelector1
+            // UOTS
             // 
-            this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
-            this.materialTabSelector1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTabSelector1.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Center;
-            this.materialTabSelector1.Location = new System.Drawing.Point(18, 18);
-            this.materialTabSelector1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(189, 62);
-            this.materialTabSelector1.TabIndex = 7;
-            this.materialTabSelector1.Text = "materialTabSelector1";
-            this.materialTabSelector1.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextState.Normal;
+            this.UOTS.BaseTabControl = this.UOTC;
+            this.UOTS.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UOTS.Depth = 0;
+            this.UOTS.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.UOTS.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Center;
+            this.UOTS.Location = new System.Drawing.Point(18, 18);
+            this.UOTS.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.UOTS.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.UOTS.Name = "UOTS";
+            this.UOTS.Size = new System.Drawing.Size(189, 62);
+            this.UOTS.TabIndex = 7;
+            this.UOTS.Text = "materialTabSelector1";
+            this.UOTS.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextState.Normal;
             // 
-            // Main
+            // MAIN
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(800, 500);
             this.Controls.Add(this.BG);
             this.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Image = global::Conforyon.UX.Properties.Resources.CUBE;
             this.MinimumSize = new System.Drawing.Size(239, 500);
-            this.Name = "Main";
+            this.Name = "MAIN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Conforyon UX";
             this.BG.ResumeLayout(false);
             this.BODY.ResumeLayout(false);
             this.VIEW.ResumeLayout(false);
             this.BAR.ResumeLayout(false);
-            this.materialTabControl1.ResumeLayout(false);
+            this.UOTC.ResumeLayout(false);
             this.Units.ResumeLayout(false);
             this.Others.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -454,10 +454,10 @@
         private ReaLTaiizor.Controls.ForeverGroupBox BODY;
         private ReaLTaiizor.Controls.ForeverGroupBox VIEW;
         private ReaLTaiizor.Controls.HopeButton Color;
-        private ReaLTaiizor.Controls.MaterialTabControl materialTabControl1;
+        private ReaLTaiizor.Controls.MaterialTabControl UOTC;
         private System.Windows.Forms.TabPage Units;
         private System.Windows.Forms.TabPage Others;
-        private ReaLTaiizor.Controls.MaterialTabSelector materialTabSelector1;
+        private ReaLTaiizor.Controls.MaterialTabSelector UOTS;
         private ReaLTaiizor.Controls.HopeButton Clipboard;
         private ReaLTaiizor.Controls.HopeButton Crypto;
         private ReaLTaiizor.Controls.HopeButton Hash;
@@ -467,6 +467,6 @@
         private ReaLTaiizor.Controls.HopeButton Typography;
         private ReaLTaiizor.Controls.HopeButton Temperature;
         private ReaLTaiizor.Controls.HopeButton DataStorage;
-        private ReaLTaiizor.Controls.LabelEdit labelEdit1;
+        private ReaLTaiizor.Controls.LabelEdit CSLE;
     }
 }
