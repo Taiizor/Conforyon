@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using ReaLTaiizor.Util;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Colors;
@@ -18,6 +19,11 @@ namespace Conforyon.UX.UI
             MM.EnforceBackcolorOnAllComponents = true;
             MM.Theme = MaterialManager.Themes.DARK;
             MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
+
+            UC.COLOR CR = new UC.COLOR() { Anchor = AnchorStyles.None };
+            CR.Location = new Point(VIEW.Width / 2 - CR.Width / 2, VIEW.Height / 2 - CR.Height / 2);
+            VIEW.Controls.Clear();
+            VIEW.Controls.Add(CR);
         }
 
         private new void Click(object sender, EventArgs e)
