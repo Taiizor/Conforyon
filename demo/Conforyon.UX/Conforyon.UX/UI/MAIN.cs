@@ -22,6 +22,8 @@ namespace Conforyon.UX.UI
                 MM.Theme = MaterialManager.Themes.DARK;
                 MM.EnforceBackcolorOnAllComponents = true;
                 MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
+
+                //SetControl("Hash");
             }
             catch
             {
@@ -37,7 +39,6 @@ namespace Conforyon.UX.UI
                 if (AT != Button.Name)
                 {
                     AT = Button.Name;
-                    VIEW.Controls.Clear();
                     SetControl(AT);
                 }
             }
@@ -51,11 +52,12 @@ namespace Conforyon.UX.UI
         {
             try
             {
-                Control CR = null;
+                VIEW.Controls.Clear();
+                Control UC = null;
                 switch (Control)
                 {
                     case "Color":
-                        CR = new UC.COLOR() { Anchor = AnchorStyles.None };
+                        UC = new UC.COLOR() { Anchor = AnchorStyles.None };
                         break;
                     case "DataStorage":
                         MessageBox.Show(Control + "!");
@@ -79,7 +81,7 @@ namespace Conforyon.UX.UI
                         MessageBox.Show(Control + "!");
                         break;
                     case "Hash":
-                        MessageBox.Show(Control + "!");
+                        UC = new UC.HASH() { Anchor = AnchorStyles.None };
                         break;
                     case "Unicode":
                         MessageBox.Show(Control + "!");
@@ -88,8 +90,8 @@ namespace Conforyon.UX.UI
                         MessageBox.Show("Unknown!");
                         break;
                 }
-                CR.Location = new Point(VIEW.Width / 2 - CR.Width / 2, VIEW.Height / 2 - CR.Height / 2);
-                VIEW.Controls.Add(CR);
+                UC.Location = new Point(VIEW.Width / 2 - UC.Width / 2, VIEW.Height / 2 - UC.Height / 2);
+                VIEW.Controls.Add(UC);
             }
             catch
             {

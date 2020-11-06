@@ -54,6 +54,12 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UC\HASH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\HASH.Designer.cs">
+      <DependentUpon>HASH.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\COLOR.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UC\HASH.resx">
+      <DependentUpon>HASH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UC\COLOR.resx">
       <DependentUpon>COLOR.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +127,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenedFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sheets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileExplorer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Uppercase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lowercase.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
