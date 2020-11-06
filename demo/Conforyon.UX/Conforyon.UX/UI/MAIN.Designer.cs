@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN));
             this.BG = new ReaLTaiizor.Controls.Panel();
             this.BODY = new ReaLTaiizor.Controls.ForeverGroupBox();
@@ -48,6 +49,7 @@
             this.Crypto = new ReaLTaiizor.Controls.HopeButton();
             this.Clipboard = new ReaLTaiizor.Controls.HopeButton();
             this.UOTS = new ReaLTaiizor.Controls.MaterialTabSelector();
+            this.CENTERED = new System.Windows.Forms.Timer(this.components);
             this.BG.SuspendLayout();
             this.BODY.SuspendLayout();
             this.VIEW.SuspendLayout();
@@ -423,6 +425,12 @@
             this.UOTS.Text = "materialTabSelector1";
             this.UOTS.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextState.Normal;
             // 
+            // CENTERED
+            // 
+            this.CENTERED.Enabled = true;
+            this.CENTERED.Interval = 10;
+            this.CENTERED.Tick += new System.EventHandler(this.CENTERED_Tick);
+            // 
             // MAIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -468,5 +476,6 @@
         private ReaLTaiizor.Controls.HopeButton Temperature;
         private ReaLTaiizor.Controls.HopeButton DataStorage;
         private ReaLTaiizor.Controls.LabelEdit CSLE;
+        private System.Windows.Forms.Timer CENTERED;
     }
 }

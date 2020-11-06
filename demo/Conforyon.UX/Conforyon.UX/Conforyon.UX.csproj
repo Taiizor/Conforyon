@@ -116,5 +116,8 @@
   <ItemGroup>
     <None Include="Resources\Copy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Merge.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

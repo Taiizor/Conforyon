@@ -72,5 +72,20 @@ namespace Conforyon.UX.UI
                 }
             }
         }
+
+        private void CENTERED_Tick(object sender, EventArgs e)
+        {
+            foreach (object Controls in VIEW.Controls)
+            {
+                if (Controls.GetType().ToString().Contains(".UX.UC."))
+                {
+                    UserControl Control = Controls as UserControl;
+                    if (Control.Location.X != VIEW.Width / 2 - Control.Width / 2 || Control.Location.Y != VIEW.Height / 2 - Control.Height / 2)
+                    {
+                        Control.Location = new Point(VIEW.Width / 2 - Control.Width / 2, VIEW.Height / 2 - Control.Height / 2);
+                    }
+                }
+            }
+        }
     }
 }

@@ -113,6 +113,16 @@ namespace Conforyon.UX.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap Merge {
+            get {
+                object obj = ResourceManager.GetObject("Merge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap Transfer {
             get {
                 object obj = ResourceManager.GetObject("Transfer", resourceCulture);
