@@ -113,7 +113,7 @@ namespace Conforyon.UX.UC
             this.FLTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.FLTB.Multiline = false;
             this.FLTB.Name = "FLTB";
-            this.FLTB.Size = new System.Drawing.Size(248, 50);
+            this.FLTB.Size = new System.Drawing.Size(249, 50);
             this.FLTB.TabIndex = 3;
             this.FLTB.Text = "Conforyon.dll";
             // 
@@ -130,7 +130,7 @@ namespace Conforyon.UX.UC
             this.FRTB.Multiline = false;
             this.FRTB.Name = "FRTB";
             this.FRTB.ReadOnly = true;
-            this.FRTB.Size = new System.Drawing.Size(248, 50);
+            this.FRTB.Size = new System.Drawing.Size(249, 50);
             this.FRTB.TabIndex = 5;
             this.FRTB.Text = "3f76e37d03810bed3ccc128f21321b5e";
             // 
@@ -210,7 +210,7 @@ namespace Conforyon.UX.UC
             this.FRCB.DrawShadows = false;
             this.FRCB.HighEmphasis = true;
             this.FRCB.Icon = global::Conforyon.UX.Properties.Resources.Lowercase;
-            this.FRCB.Location = new System.Drawing.Point(258, 108);
+            this.FRCB.Location = new System.Drawing.Point(259, 108);
             this.FRCB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.FRCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.FRCB.Name = "FRCB";
@@ -250,7 +250,7 @@ namespace Conforyon.UX.UC
             this.OFLB.DrawShadows = false;
             this.OFLB.HighEmphasis = true;
             this.OFLB.Icon = global::Conforyon.UX.Properties.Resources.FileExplorer;
-            this.OFLB.Location = new System.Drawing.Point(258, 52);
+            this.OFLB.Location = new System.Drawing.Point(259, 52);
             this.OFLB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.OFLB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.OFLB.Name = "OFLB";

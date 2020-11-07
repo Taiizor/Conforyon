@@ -31,17 +31,16 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.FLTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.FRTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.CVTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.CRTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.HFN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
             this.HFBD = new ReaLTaiizor.Controls.MaterialDivider();
-            this.FRCB = new ReaLTaiizor.Controls.MaterialButton();
             this.CYB = new ReaLTaiizor.Controls.MaterialButton();
-            this.OFLB = new ReaLTaiizor.Controls.MaterialButton();
             this.CTB = new ReaLTaiizor.Controls.MaterialButton();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
+            this.CRCB = new ReaLTaiizor.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // TACB
@@ -51,7 +50,7 @@ namespace Conforyon.UX.UC
             this.TACB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TACB.Depth = 0;
             this.TACB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TACB.DropDownHeight = 118;
+            this.TACB.DropDownHeight = 60;
             this.TACB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TACB.DropDownWidth = 121;
             this.TACB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -70,6 +69,7 @@ namespace Conforyon.UX.UC
             this.TACB.Size = new System.Drawing.Size(121, 35);
             this.TACB.TabIndex = 0;
             this.TACB.UseTallSize = false;
+            this.TACB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
             // TBCB
             // 
@@ -78,7 +78,7 @@ namespace Conforyon.UX.UC
             this.TBCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TBCB.Depth = 0;
             this.TBCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TBCB.DropDownHeight = 147;
+            this.TBCB.DropDownHeight = 205;
             this.TBCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TBCB.DropDownWidth = 121;
             this.TBCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -102,39 +102,40 @@ namespace Conforyon.UX.UC
             this.TBCB.Size = new System.Drawing.Size(121, 35);
             this.TBCB.TabIndex = 2;
             this.TBCB.UseTallSize = false;
+            this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
-            // FLTB
+            // CVTB
             // 
-            this.FLTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FLTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FLTB.Depth = 0;
-            this.FLTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.FLTB.Hint = "File Location";
-            this.FLTB.Location = new System.Drawing.Point(3, 45);
-            this.FLTB.MaxLength = 2500;
-            this.FLTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.FLTB.Multiline = false;
-            this.FLTB.Name = "FLTB";
-            this.FLTB.Size = new System.Drawing.Size(248, 50);
-            this.FLTB.TabIndex = 3;
-            this.FLTB.Text = "Conforyon.dll";
+            this.CVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CVTB.Depth = 0;
+            this.CVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CVTB.Hint = "Crypto Value";
+            this.CVTB.Location = new System.Drawing.Point(3, 45);
+            this.CVTB.MaxLength = 5000;
+            this.CVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.CVTB.Multiline = false;
+            this.CVTB.Name = "CVTB";
+            this.CVTB.Size = new System.Drawing.Size(300, 50);
+            this.CVTB.TabIndex = 3;
+            this.CVTB.Text = "Taiizor";
             // 
-            // FRTB
+            // CRTB
             // 
-            this.FRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FRTB.Depth = 0;
-            this.FRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.FRTB.Hint = "File Result";
-            this.FRTB.Location = new System.Drawing.Point(3, 101);
-            this.FRTB.MaxLength = 512;
-            this.FRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.FRTB.Multiline = false;
-            this.FRTB.Name = "FRTB";
-            this.FRTB.ReadOnly = true;
-            this.FRTB.Size = new System.Drawing.Size(248, 50);
-            this.FRTB.TabIndex = 5;
-            this.FRTB.Text = "3f76e37d03810bed3ccc128f21321b5e";
+            this.CRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CRTB.Depth = 0;
+            this.CRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CRTB.Hint = "Crypto Result";
+            this.CRTB.Location = new System.Drawing.Point(3, 101);
+            this.CRTB.MaxLength = 512;
+            this.CRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.CRTB.Multiline = false;
+            this.CRTB.Name = "CRTB";
+            this.CRTB.ReadOnly = true;
+            this.CRTB.Size = new System.Drawing.Size(249, 50);
+            this.CRTB.TabIndex = 5;
+            this.CRTB.Text = "VGFpaXpvcg==";
             // 
             // CSS
             // 
@@ -203,26 +204,6 @@ namespace Conforyon.UX.UC
             this.HFBD.TabIndex = 12;
             this.HFBD.Text = "HFBD";
             // 
-            // FRCB
-            // 
-            this.FRCB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FRCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FRCB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FRCB.Depth = 0;
-            this.FRCB.DrawShadows = false;
-            this.FRCB.HighEmphasis = true;
-            this.FRCB.Icon = global::Conforyon.UX.Properties.Resources.Lowercase;
-            this.FRCB.Location = new System.Drawing.Point(258, 108);
-            this.FRCB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.FRCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.FRCB.Name = "FRCB";
-            this.FRCB.Size = new System.Drawing.Size(44, 36);
-            this.FRCB.TabIndex = 6;
-            this.FRCB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.FRCB.UseAccentColor = false;
-            this.FRCB.UseVisualStyleBackColor = true;
-            this.FRCB.Click += new System.EventHandler(this.FRCB_Click);
-            // 
             // CYB
             // 
             this.CYB.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -242,26 +223,6 @@ namespace Conforyon.UX.UC
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = true;
             this.CYB.Click += new System.EventHandler(this.CYB_Click);
-            // 
-            // OFLB
-            // 
-            this.OFLB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.OFLB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.OFLB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.OFLB.Depth = 0;
-            this.OFLB.DrawShadows = false;
-            this.OFLB.HighEmphasis = true;
-            this.OFLB.Icon = global::Conforyon.UX.Properties.Resources.FileExplorer;
-            this.OFLB.Location = new System.Drawing.Point(258, 52);
-            this.OFLB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.OFLB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.OFLB.Name = "OFLB";
-            this.OFLB.Size = new System.Drawing.Size(44, 36);
-            this.OFLB.TabIndex = 4;
-            this.OFLB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.OFLB.UseAccentColor = false;
-            this.OFLB.UseVisualStyleBackColor = true;
-            this.OFLB.Click += new System.EventHandler(this.OFLB_Click);
             // 
             // CTB
             // 
@@ -302,22 +263,42 @@ namespace Conforyon.UX.UC
             this.TTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;
+            this.TTB.Click += new System.EventHandler(this.TTB_Click);
+            // 
+            // CRCB
+            // 
+            this.CRCB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CRCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CRCB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CRCB.Depth = 0;
+            this.CRCB.DrawShadows = false;
+            this.CRCB.HighEmphasis = true;
+            this.CRCB.Icon = global::Conforyon.UX.Properties.Resources.Lowercase;
+            this.CRCB.Location = new System.Drawing.Point(259, 108);
+            this.CRCB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CRCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.CRCB.Name = "CRCB";
+            this.CRCB.Size = new System.Drawing.Size(44, 36);
+            this.CRCB.TabIndex = 13;
+            this.CRCB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.CRCB.UseAccentColor = false;
+            this.CRCB.UseVisualStyleBackColor = true;
+            this.CRCB.Click += new System.EventHandler(this.FRCB_Click);
             // 
             // CRYPTO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.Controls.Add(this.FRCB);
+            this.Controls.Add(this.CRCB);
             this.Controls.Add(this.CYB);
             this.Controls.Add(this.HFBD);
             this.Controls.Add(this.HFTD);
             this.Controls.Add(this.HFN);
             this.Controls.Add(this.CSS);
-            this.Controls.Add(this.OFLB);
             this.Controls.Add(this.CTB);
-            this.Controls.Add(this.FRTB);
-            this.Controls.Add(this.FLTB);
+            this.Controls.Add(this.CRTB);
+            this.Controls.Add(this.CVTB);
             this.Controls.Add(this.TTB);
             this.Controls.Add(this.TBCB);
             this.Controls.Add(this.TACB);
@@ -333,15 +314,14 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox FLTB;
-        private ReaLTaiizor.Controls.MaterialTextBox FRTB;
+        private ReaLTaiizor.Controls.MaterialTextBox CVTB;
+        private ReaLTaiizor.Controls.MaterialTextBox CRTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
-        private ReaLTaiizor.Controls.MaterialButton OFLB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification HFN;
         private ReaLTaiizor.Controls.MaterialDivider HFTD;
         private ReaLTaiizor.Controls.MaterialDivider HFBD;
         private ReaLTaiizor.Controls.MaterialButton CYB;
-        private ReaLTaiizor.Controls.MaterialButton FRCB;
+        private ReaLTaiizor.Controls.MaterialButton CRCB;
     }
 }
