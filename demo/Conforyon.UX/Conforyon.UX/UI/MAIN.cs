@@ -92,6 +92,50 @@ namespace Conforyon.UX.UI
                 }
                 UC.Location = new Point(VIEW.Width / 2 - UC.Width / 2, VIEW.Height / 2 - UC.Height / 2);
                 VIEW.Controls.Add(UC);
+                SetButton();
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void SetButton()
+        {
+            try
+            {
+                foreach (System.Windows.Forms.TabPage Controls in UOTC.TabPages)
+                {
+                    SetButton(Controls);
+                }
+
+                Refresh();
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void SetButton(System.Windows.Forms.TabPage Page)
+        {
+            try
+            {
+                foreach (object Controls in Page.Controls)
+                {
+                    if (Controls.GetType().ToString() == "ReaLTaiizor.Controls.HopeButton")
+                    {
+                        HopeButton Control = Controls as HopeButton;
+                        if (Control.Name == AT)
+                        {
+                            Control.PrimaryColor = System.Drawing.Color.FromArgb(35, 35, 38);
+                        }
+                        else
+                        {
+                            Control.PrimaryColor = System.Drawing.Color.FromArgb(45, 45, 48);
+                        }
+                    }
+                }
             }
             catch
             {

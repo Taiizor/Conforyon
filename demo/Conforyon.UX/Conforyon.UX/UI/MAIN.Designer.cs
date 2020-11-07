@@ -288,6 +288,7 @@
             // Color
             // 
             this.Color.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Color.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.Color.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
             this.Color.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             this.Color.Cursor = System.Windows.Forms.Cursors.Hand;
