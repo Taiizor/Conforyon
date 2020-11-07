@@ -64,7 +64,7 @@ namespace Conforyon.UX.UC
             "RGB",
             "HEX"});
             this.TACB.Location = new System.Drawing.Point(3, 4);
-            this.TACB.MaxDropDownItems = 4;
+            this.TACB.MaxDropDownItems = 2;
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
@@ -92,7 +92,7 @@ namespace Conforyon.UX.UC
             "HEX",
             "RGB"});
             this.TBCB.Location = new System.Drawing.Point(182, 4);
-            this.TBCB.MaxDropDownItems = 4;
+            this.TBCB.MaxDropDownItems = 2;
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);

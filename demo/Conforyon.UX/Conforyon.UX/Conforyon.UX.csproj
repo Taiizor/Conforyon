@@ -66,6 +66,12 @@
     <Compile Include="UC\CLIPBOARD.Designer.cs">
       <DependentUpon>CLIPBOARD.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\TYPOGRAPHY.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\TYPOGRAPHY.Designer.cs">
+      <DependentUpon>TYPOGRAPHY.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\UNICODE.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC\CLIPBOARD.resx">
       <DependentUpon>CLIPBOARD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\TYPOGRAPHY.resx">
+      <DependentUpon>TYPOGRAPHY.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\UNICODE.resx">
       <DependentUpon>UNICODE.cs</DependentUpon>

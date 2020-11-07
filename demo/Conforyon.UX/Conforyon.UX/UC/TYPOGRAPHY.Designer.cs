@@ -1,7 +1,7 @@
 ﻿
 namespace Conforyon.UX.UC
 {
-    partial class UNICODE
+    partial class TYPOGRAPHY
     {
         /// <summary> 
         ///Gerekli tasarımcı değişkeni.
@@ -31,8 +31,8 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.UVTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.URTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.TVTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.TRTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.HFN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
@@ -41,6 +41,7 @@ namespace Conforyon.UX.UC
             this.CTB = new ReaLTaiizor.Controls.MaterialButton();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
             this.BTTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.TCCB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.SuspendLayout();
             // 
             // TACB
@@ -60,14 +61,15 @@ namespace Conforyon.UX.UC
             this.TACB.IntegralHeight = false;
             this.TACB.ItemHeight = 29;
             this.TACB.Items.AddRange(new object[] {
-            "CHAR",
-            "ASCII"});
+            "INCH",
+            "CM",
+            "PX"});
             this.TACB.Location = new System.Drawing.Point(3, 4);
-            this.TACB.MaxDropDownItems = 2;
+            this.TACB.MaxDropDownItems = 3;
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
-            this.TACB.TabIndex = 0;
+            this.TACB.TabIndex = 3;
             this.TACB.UseTallSize = false;
             this.TACB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
@@ -88,49 +90,52 @@ namespace Conforyon.UX.UC
             this.TBCB.IntegralHeight = false;
             this.TBCB.ItemHeight = 29;
             this.TBCB.Items.AddRange(new object[] {
-            "ASCII",
-            "CHAR"});
+            "INCH",
+            "CM",
+            "PX"});
             this.TBCB.Location = new System.Drawing.Point(182, 4);
-            this.TBCB.MaxDropDownItems = 2;
+            this.TBCB.MaxDropDownItems = 3;
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
-            this.TBCB.TabIndex = 2;
+            this.TBCB.TabIndex = 3;
             this.TBCB.UseTallSize = false;
             this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
-            // UVTB
+            // TVTB
             // 
-            this.UVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.UVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UVTB.Depth = 0;
-            this.UVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.UVTB.Hint = "Unicode Value";
-            this.UVTB.Location = new System.Drawing.Point(3, 45);
-            this.UVTB.MaxLength = 5000;
-            this.UVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.UVTB.Multiline = false;
-            this.UVTB.Name = "UVTB";
-            this.UVTB.Size = new System.Drawing.Size(300, 50);
-            this.UVTB.TabIndex = 3;
-            this.UVTB.Text = "Taiizor";
+            this.TVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TVTB.Depth = 0;
+            this.TVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TVTB.Hint = "Typography Value";
+            this.TVTB.Location = new System.Drawing.Point(3, 45);
+            this.TVTB.MaxLength = 15;
+            this.TVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.TVTB.Multiline = false;
+            this.TVTB.Name = "TVTB";
+            this.TVTB.Size = new System.Drawing.Size(172, 50);
+            this.TVTB.TabIndex = 3;
+            this.TVTB.Text = "999999999999999";
+            this.TVTB.TextChanged += new System.EventHandler(this.TVTB_TextChanged);
+            this.TVTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TVTB_KeyPress);
             // 
-            // URTB
+            // TRTB
             // 
-            this.URTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.URTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.URTB.Depth = 0;
-            this.URTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.URTB.Hint = "Unicode Result";
-            this.URTB.Location = new System.Drawing.Point(71, 101);
-            this.URTB.MaxLength = 5000;
-            this.URTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.URTB.Multiline = false;
-            this.URTB.Name = "URTB";
-            this.URTB.ReadOnly = true;
-            this.URTB.Size = new System.Drawing.Size(232, 50);
-            this.URTB.TabIndex = 5;
-            this.URTB.Text = "84,97,105,105,122,111,114";
+            this.TRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TRTB.Depth = 0;
+            this.TRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TRTB.Hint = "Typography Result";
+            this.TRTB.Location = new System.Drawing.Point(71, 101);
+            this.TRTB.MaxLength = 500;
+            this.TRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.TRTB.Multiline = false;
+            this.TRTB.Name = "TRTB";
+            this.TRTB.ReadOnly = true;
+            this.TRTB.Size = new System.Drawing.Size(232, 50);
+            this.TRTB.TabIndex = 5;
+            this.TRTB.Text = "2,54";
             // 
             // CSS
             // 
@@ -170,7 +175,6 @@ namespace Conforyon.UX.UC
             this.HFN.Size = new System.Drawing.Size(300, 40);
             this.HFN.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Red;
             this.HFN.TabIndex = 10;
-            this.HFN.Text = "The converter does not have a core formula!";
             this.HFN.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
             this.HFN.YellowBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(235)))), ((int)(((byte)(200)))));
             this.HFN.YellowTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(131)))), ((int)(((byte)(88)))));
@@ -203,6 +207,7 @@ namespace Conforyon.UX.UC
             // 
             this.CYB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CYB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.CYB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.CYB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CYB.Depth = 0;
             this.CYB.DrawShadows = false;
@@ -216,7 +221,7 @@ namespace Conforyon.UX.UC
             this.CYB.TabIndex = 7;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
-            this.CYB.UseVisualStyleBackColor = true;
+            this.CYB.UseVisualStyleBackColor = false;
             this.CYB.Click += new System.EventHandler(this.CYB_Click);
             // 
             // CTB
@@ -278,11 +283,39 @@ namespace Conforyon.UX.UC
             this.BTTB.TextChanged += new System.EventHandler(this.BTTB_TextChanged);
             this.BTTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTTB_KeyPress);
             // 
-            // UNICODE
+            // TCCB
+            // 
+            this.TCCB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TCCB.AutoResize = false;
+            this.TCCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TCCB.Depth = 0;
+            this.TCCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.TCCB.DropDownHeight = 88;
+            this.TCCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TCCB.DropDownWidth = 121;
+            this.TCCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.TCCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TCCB.FormattingEnabled = true;
+            this.TCCB.Hint = "Decimal";
+            this.TCCB.IntegralHeight = false;
+            this.TCCB.ItemHeight = 43;
+            this.TCCB.Items.AddRange(new object[] {
+            "On",
+            "Off"});
+            this.TCCB.Location = new System.Drawing.Point(212, 45);
+            this.TCCB.MaxDropDownItems = 2;
+            this.TCCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.TCCB.Name = "TCCB";
+            this.TCCB.Size = new System.Drawing.Size(90, 49);
+            this.TCCB.TabIndex = 12;
+            this.TCCB.Tag = "";
+            // 
+            // TYPOGRAPHY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Controls.Add(this.TCCB);
             this.Controls.Add(this.BTTB);
             this.Controls.Add(this.CYB);
             this.Controls.Add(this.HFBD);
@@ -290,12 +323,12 @@ namespace Conforyon.UX.UC
             this.Controls.Add(this.HFN);
             this.Controls.Add(this.CSS);
             this.Controls.Add(this.CTB);
-            this.Controls.Add(this.URTB);
-            this.Controls.Add(this.UVTB);
+            this.Controls.Add(this.TRTB);
+            this.Controls.Add(this.TVTB);
             this.Controls.Add(this.TTB);
             this.Controls.Add(this.TBCB);
             this.Controls.Add(this.TACB);
-            this.Name = "UNICODE";
+            this.Name = "TYPOGRAPHY";
             this.Size = new System.Drawing.Size(306, 296);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -307,7 +340,7 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox UVTB;
+        private ReaLTaiizor.Controls.MaterialTextBox TVTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification HFN;
@@ -315,6 +348,7 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialDivider HFBD;
         private ReaLTaiizor.Controls.MaterialButton CYB;
         private ReaLTaiizor.Controls.MaterialTextBox BTTB;
-        private ReaLTaiizor.Controls.MaterialTextBox URTB;
+        private ReaLTaiizor.Controls.MaterialTextBox TRTB;
+        private ReaLTaiizor.Controls.MaterialComboBox TCCB;
     }
 }

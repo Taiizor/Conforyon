@@ -23,7 +23,7 @@ namespace Conforyon.UX.UI
                 MM.EnforceBackcolorOnAllComponents = true;
                 MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
 
-                //SetControl("Clipboard");
+                SetControl("Typography");
             }
             catch
             {
@@ -66,7 +66,7 @@ namespace Conforyon.UX.UI
                         MessageBox.Show(Control + "!");
                         break;
                     case "Typography":
-                        MessageBox.Show(Control + "!");
+                        UC = new UC.TYPOGRAPHY() { Anchor = AnchorStyles.None };
                         break;
                     case "Speed":
                         MessageBox.Show(Control + "!");

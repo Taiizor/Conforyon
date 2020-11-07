@@ -64,7 +64,7 @@ namespace Conforyon.UX.UC
             this.TACB.Items.AddRange(new object[] {
             "FILE"});
             this.TACB.Location = new System.Drawing.Point(3, 4);
-            this.TACB.MaxDropDownItems = 4;
+            this.TACB.MaxDropDownItems = 1;
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
