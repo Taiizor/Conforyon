@@ -23,7 +23,7 @@ namespace Conforyon.UX.UI
                 MM.EnforceBackcolorOnAllComponents = true;
                 MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
 
-                //SetControl("Unicode");
+                //SetControl("Clipboard");
             }
             catch
             {
@@ -75,7 +75,7 @@ namespace Conforyon.UX.UI
                         MessageBox.Show(Control + "!");
                         break;
                     case "Clipboard":
-                        MessageBox.Show(Control + "!");
+                        UC = new UC.CLIPBOARD() { Anchor = AnchorStyles.None };
                         break;
                     case "Crypto":
                         UC = new UC.CRYPTO() { Anchor = AnchorStyles.None };
