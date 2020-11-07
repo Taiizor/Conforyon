@@ -32,6 +32,13 @@ namespace Conforyon.UX.UC
                 string TB = TBCB.SelectedItem.ToString();
                 TACB.SelectedItem = TB;
                 TBCB.SelectedItem = TA;
+
+                string CV = CRTB.Text;
+                string CR = CVTB.Text;
+
+                CRTB.Text = CR;
+                CVTB.Text = CV;
+
                 Refresh();
             }
             catch

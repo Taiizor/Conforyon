@@ -60,6 +60,12 @@
     <Compile Include="UC\COLOR.Designer.cs">
       <DependentUpon>COLOR.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC\UNICODE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC\UNICODE.Designer.cs">
+      <DependentUpon>UNICODE.cs</DependentUpon>
+    </Compile>
     <Compile Include="UC\CRYPTO.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UC\COLOR.resx">
       <DependentUpon>COLOR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC\UNICODE.resx">
+      <DependentUpon>UNICODE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC\CRYPTO.resx">
       <DependentUpon>CRYPTO.cs</DependentUpon>

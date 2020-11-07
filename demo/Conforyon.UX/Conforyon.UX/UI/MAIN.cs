@@ -23,7 +23,7 @@ namespace Conforyon.UX.UI
                 MM.EnforceBackcolorOnAllComponents = true;
                 MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
 
-                //SetControl("Crypto");
+                //SetControl("Unicode");
             }
             catch
             {
@@ -84,7 +84,7 @@ namespace Conforyon.UX.UI
                         UC = new UC.HASH() { Anchor = AnchorStyles.None };
                         break;
                     case "Unicode":
-                        MessageBox.Show(Control + "!");
+                        UC = new UC.UNICODE() { Anchor = AnchorStyles.None };
                         break;
                     default:
                         MessageBox.Show("Unknown!");

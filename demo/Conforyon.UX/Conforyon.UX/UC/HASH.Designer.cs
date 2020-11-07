@@ -109,7 +109,7 @@ namespace Conforyon.UX.UC
             this.FLTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.FLTB.Hint = "File Location";
             this.FLTB.Location = new System.Drawing.Point(3, 45);
-            this.FLTB.MaxLength = 2500;
+            this.FLTB.MaxLength = 5000;
             this.FLTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.FLTB.Multiline = false;
             this.FLTB.Name = "FLTB";
@@ -125,7 +125,7 @@ namespace Conforyon.UX.UC
             this.FRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.FRTB.Hint = "File Result";
             this.FRTB.Location = new System.Drawing.Point(3, 101);
-            this.FRTB.MaxLength = 512;
+            this.FRTB.MaxLength = 5000;
             this.FRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.FRTB.Multiline = false;
             this.FRTB.Name = "FRTB";

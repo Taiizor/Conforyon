@@ -1,7 +1,7 @@
 ﻿
 namespace Conforyon.UX.UC
 {
-    partial class CRYPTO
+    partial class UNICODE
     {
         /// <summary> 
         ///Gerekli tasarımcı değişkeni.
@@ -31,8 +31,8 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.CVTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.CRTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.UVTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.URTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.HFN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
@@ -40,7 +40,7 @@ namespace Conforyon.UX.UC
             this.CYB = new ReaLTaiizor.Controls.MaterialButton();
             this.CTB = new ReaLTaiizor.Controls.MaterialButton();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
-            this.CRCB = new ReaLTaiizor.Controls.MaterialButton();
+            this.BTTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.SuspendLayout();
             // 
             // TACB
@@ -60,8 +60,8 @@ namespace Conforyon.UX.UC
             this.TACB.IntegralHeight = false;
             this.TACB.ItemHeight = 29;
             this.TACB.Items.AddRange(new object[] {
-            "TEXT",
-            "BASE64"});
+            "CHAR",
+            "ASCII"});
             this.TACB.Location = new System.Drawing.Point(3, 4);
             this.TACB.MaxDropDownItems = 2;
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -88,13 +88,8 @@ namespace Conforyon.UX.UC
             this.TBCB.IntegralHeight = false;
             this.TBCB.ItemHeight = 29;
             this.TBCB.Items.AddRange(new object[] {
-            "BASE64",
-            "TEXT",
-            "MD5",
-            "SHA1",
-            "SHA256",
-            "SHA384",
-            "SHA512"});
+            "ASCII",
+            "CHAR"});
             this.TBCB.Location = new System.Drawing.Point(182, 4);
             this.TBCB.MaxDropDownItems = 7;
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -104,38 +99,38 @@ namespace Conforyon.UX.UC
             this.TBCB.UseTallSize = false;
             this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
-            // CVTB
+            // UVTB
             // 
-            this.CVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CVTB.Depth = 0;
-            this.CVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CVTB.Hint = "Crypto Value";
-            this.CVTB.Location = new System.Drawing.Point(3, 45);
-            this.CVTB.MaxLength = 5000;
-            this.CVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.CVTB.Multiline = false;
-            this.CVTB.Name = "CVTB";
-            this.CVTB.Size = new System.Drawing.Size(300, 50);
-            this.CVTB.TabIndex = 3;
-            this.CVTB.Text = "Taiizor";
+            this.UVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.UVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UVTB.Depth = 0;
+            this.UVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UVTB.Hint = "Unicode Value";
+            this.UVTB.Location = new System.Drawing.Point(3, 45);
+            this.UVTB.MaxLength = 5000;
+            this.UVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.UVTB.Multiline = false;
+            this.UVTB.Name = "UVTB";
+            this.UVTB.Size = new System.Drawing.Size(300, 50);
+            this.UVTB.TabIndex = 3;
+            this.UVTB.Text = "Taiizor";
             // 
-            // CRTB
+            // URTB
             // 
-            this.CRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.CRTB.Depth = 0;
-            this.CRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CRTB.Hint = "Crypto Result";
-            this.CRTB.Location = new System.Drawing.Point(3, 101);
-            this.CRTB.MaxLength = 5000;
-            this.CRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.CRTB.Multiline = false;
-            this.CRTB.Name = "CRTB";
-            this.CRTB.ReadOnly = true;
-            this.CRTB.Size = new System.Drawing.Size(249, 50);
-            this.CRTB.TabIndex = 4;
-            this.CRTB.Text = "VGFpaXpvcg==";
+            this.URTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.URTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.URTB.Depth = 0;
+            this.URTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.URTB.Hint = "Unicode Result";
+            this.URTB.Location = new System.Drawing.Point(71, 101);
+            this.URTB.MaxLength = 5000;
+            this.URTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.URTB.Multiline = false;
+            this.URTB.Name = "URTB";
+            this.URTB.ReadOnly = true;
+            this.URTB.Size = new System.Drawing.Size(232, 50);
+            this.URTB.TabIndex = 5;
+            this.URTB.Text = "84,97,105,105,122,111,114";
             // 
             // CSS
             // 
@@ -265,44 +260,42 @@ namespace Conforyon.UX.UC
             this.TTB.UseVisualStyleBackColor = true;
             this.TTB.Click += new System.EventHandler(this.TTB_Click);
             // 
-            // CRCB
+            // BTTB
             // 
-            this.CRCB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CRCB.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CRCB.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CRCB.Depth = 0;
-            this.CRCB.DrawShadows = false;
-            this.CRCB.HighEmphasis = true;
-            this.CRCB.Icon = global::Conforyon.UX.Properties.Resources.Lowercase;
-            this.CRCB.Location = new System.Drawing.Point(259, 108);
-            this.CRCB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CRCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.CRCB.Name = "CRCB";
-            this.CRCB.Size = new System.Drawing.Size(44, 36);
-            this.CRCB.TabIndex = 5;
-            this.CRCB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.CRCB.UseAccentColor = false;
-            this.CRCB.UseVisualStyleBackColor = true;
-            this.CRCB.Click += new System.EventHandler(this.FRCB_Click);
+            this.BTTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BTTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.BTTB.Depth = 0;
+            this.BTTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BTTB.Hint = "Split";
+            this.BTTB.Location = new System.Drawing.Point(3, 101);
+            this.BTTB.MaxLength = 1;
+            this.BTTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.BTTB.Multiline = false;
+            this.BTTB.Name = "BTTB";
+            this.BTTB.Size = new System.Drawing.Size(62, 50);
+            this.BTTB.TabIndex = 4;
+            this.BTTB.Text = ",";
+            this.BTTB.TextChanged += new System.EventHandler(this.BTTB_TextChanged);
+            this.BTTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTTB_KeyPress);
             // 
-            // CRYPTO
+            // UNICODE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.Controls.Add(this.CRCB);
+            this.Controls.Add(this.BTTB);
             this.Controls.Add(this.CYB);
             this.Controls.Add(this.HFBD);
             this.Controls.Add(this.HFTD);
             this.Controls.Add(this.HFN);
             this.Controls.Add(this.CSS);
             this.Controls.Add(this.CTB);
-            this.Controls.Add(this.CRTB);
-            this.Controls.Add(this.CVTB);
+            this.Controls.Add(this.URTB);
+            this.Controls.Add(this.UVTB);
             this.Controls.Add(this.TTB);
             this.Controls.Add(this.TBCB);
             this.Controls.Add(this.TACB);
-            this.Name = "CRYPTO";
+            this.Name = "UNICODE";
             this.Size = new System.Drawing.Size(306, 296);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -314,14 +307,14 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox CVTB;
-        private ReaLTaiizor.Controls.MaterialTextBox CRTB;
+        private ReaLTaiizor.Controls.MaterialTextBox UVTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification HFN;
         private ReaLTaiizor.Controls.MaterialDivider HFTD;
         private ReaLTaiizor.Controls.MaterialDivider HFBD;
         private ReaLTaiizor.Controls.MaterialButton CYB;
-        private ReaLTaiizor.Controls.MaterialButton CRCB;
+        private ReaLTaiizor.Controls.MaterialTextBox BTTB;
+        private ReaLTaiizor.Controls.MaterialTextBox URTB;
     }
 }
