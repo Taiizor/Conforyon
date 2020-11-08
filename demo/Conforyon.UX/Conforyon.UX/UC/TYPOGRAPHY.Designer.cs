@@ -42,6 +42,9 @@ namespace Conforyon.UX.UC
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
             this.BTTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.TCCB = new ReaLTaiizor.Controls.MaterialComboBox();
+            this.materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // TACB
@@ -51,7 +54,7 @@ namespace Conforyon.UX.UC
             this.TACB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TACB.Depth = 0;
             this.TACB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TACB.DropDownHeight = 60;
+            this.TACB.DropDownHeight = 89;
             this.TACB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TACB.DropDownWidth = 121;
             this.TACB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -80,7 +83,7 @@ namespace Conforyon.UX.UC
             this.TBCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TBCB.Depth = 0;
             this.TBCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TBCB.DropDownHeight = 205;
+            this.TBCB.DropDownHeight = 89;
             this.TBCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TBCB.DropDownWidth = 121;
             this.TBCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -107,16 +110,16 @@ namespace Conforyon.UX.UC
             this.TVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TVTB.Depth = 0;
-            this.TVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TVTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TVTB.Hint = "Typography Value";
             this.TVTB.Location = new System.Drawing.Point(3, 45);
             this.TVTB.MaxLength = 15;
             this.TVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TVTB.Multiline = false;
             this.TVTB.Name = "TVTB";
-            this.TVTB.Size = new System.Drawing.Size(172, 50);
+            this.TVTB.Size = new System.Drawing.Size(165, 50);
             this.TVTB.TabIndex = 3;
-            this.TVTB.Text = "999999999999999";
+            this.TVTB.Text = "1";
             this.TVTB.TextChanged += new System.EventHandler(this.TVTB_TextChanged);
             this.TVTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TVTB_KeyPress);
             // 
@@ -125,7 +128,7 @@ namespace Conforyon.UX.UC
             this.TRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.TRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TRTB.Depth = 0;
-            this.TRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TRTB.Hint = "Typography Result";
             this.TRTB.Location = new System.Drawing.Point(71, 101);
             this.TRTB.MaxLength = 500;
@@ -270,7 +273,7 @@ namespace Conforyon.UX.UC
             this.BTTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BTTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BTTB.Depth = 0;
-            this.BTTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BTTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BTTB.Hint = "Split";
             this.BTTB.Location = new System.Drawing.Point(3, 101);
             this.BTTB.MaxLength = 1;
@@ -310,11 +313,63 @@ namespace Conforyon.UX.UC
             this.TCCB.TabIndex = 12;
             this.TCCB.Tag = "";
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
+            this.materialLabel1.HighEmphasis = true;
+            this.materialLabel1.Location = new System.Drawing.Point(12, 261);
+            this.materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialLabel1.Size = new System.Drawing.Size(70, 24);
+            this.materialLabel1.TabIndex = 13;
+            this.materialLabel1.Text = "INCH";
+            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.materialLabel1.UseAccent = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Roboto Medium", 16F);
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
+            this.textBox1.Location = new System.Drawing.Point(88, 260);
+            this.textBox1.MaxLength = 25;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(130, 26);
+            this.textBox1.TabIndex = 16;
+            this.textBox1.Text = "2,54";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
+            this.materialLabel2.HighEmphasis = true;
+            this.materialLabel2.Location = new System.Drawing.Point(232, 261);
+            this.materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialLabel2.Size = new System.Drawing.Size(70, 24);
+            this.materialLabel2.TabIndex = 17;
+            this.materialLabel2.Text = "CM";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.materialLabel2.UseAccent = true;
+            // 
             // TYPOGRAPHY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.TCCB);
             this.Controls.Add(this.BTTB);
             this.Controls.Add(this.CYB);
@@ -350,5 +405,8 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialTextBox BTTB;
         private ReaLTaiizor.Controls.MaterialTextBox TRTB;
         private ReaLTaiizor.Controls.MaterialComboBox TCCB;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
+        private System.Windows.Forms.TextBox textBox1;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
     }
 }
