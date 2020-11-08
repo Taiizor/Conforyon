@@ -55,7 +55,8 @@ namespace Conforyon.UX.UC
             {
                 string TA = TACB.SelectedItem.ToString();
                 string TB = TBCB.SelectedItem.ToString();
-                int PC = Convert.ToInt32(BTTB.Text);
+                int PC = string.IsNullOrEmpty(BTTB.Text) ? 2 : Convert.ToInt32(BTTB.Text);
+                BTTB.Text = PC.ToString();
 
                 if (TA == "INCH")
                 {

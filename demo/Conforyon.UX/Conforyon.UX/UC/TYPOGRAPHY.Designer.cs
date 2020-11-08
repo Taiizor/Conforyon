@@ -306,7 +306,7 @@ namespace Conforyon.UX.UC
             this.TDCB.Items.AddRange(new object[] {
             "On",
             "Off"});
-            this.TDCB.Location = new System.Drawing.Point(212, 45);
+            this.TDCB.Location = new System.Drawing.Point(213, 45);
             this.TDCB.MaxDropDownItems = 2;
             this.TDCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TDCB.Name = "TDCB";

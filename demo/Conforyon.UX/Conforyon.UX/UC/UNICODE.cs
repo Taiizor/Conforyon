@@ -50,13 +50,16 @@ namespace Conforyon.UX.UC
         {
             try
             {
+                char BT = string.IsNullOrEmpty(BTTB.Text) ? ',' : BTTB.Text.ToCharArray()[0];
+                BTTB.Text = BT.ToString();
+
                 if (TACB.SelectedItem.ToString() == "CHAR")
                 {
-                    URTB.Text = Unicode.CHARtoASCII(UVTB.Text, BTTB.Text.ToCharArray()[0]);
+                    URTB.Text = Unicode.CHARtoASCII(UVTB.Text, BT);
                 }
                 else
                 {
-                    URTB.Text = Unicode.ASCIItoCHAR(UVTB.Text, BTTB.Text.ToCharArray()[0]);
+                    URTB.Text = Unicode.ASCIItoCHAR(UVTB.Text, BT);
                 }
             }
             catch
