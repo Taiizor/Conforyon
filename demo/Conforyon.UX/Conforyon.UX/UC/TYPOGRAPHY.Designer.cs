@@ -118,7 +118,7 @@ namespace Conforyon.UX.UC
             this.TVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TVTB.Multiline = false;
             this.TVTB.Name = "TVTB";
-            this.TVTB.Size = new System.Drawing.Size(165, 50);
+            this.TVTB.Size = new System.Drawing.Size(172, 50);
             this.TVTB.TabIndex = 3;
             this.TVTB.Text = "1";
             this.TVTB.TextChanged += new System.EventHandler(this.TVTB_TextChanged);
