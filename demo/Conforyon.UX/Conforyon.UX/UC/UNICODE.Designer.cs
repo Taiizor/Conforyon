@@ -78,7 +78,7 @@ namespace Conforyon.UX.UC
             this.TBCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TBCB.Depth = 0;
             this.TBCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TBCB.DropDownHeight = 205;
+            this.TBCB.DropDownHeight = 60;
             this.TBCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TBCB.DropDownWidth = 121;
             this.TBCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -104,7 +104,7 @@ namespace Conforyon.UX.UC
             this.UVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.UVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UVTB.Depth = 0;
-            this.UVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.UVTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.UVTB.Hint = "Unicode Value";
             this.UVTB.Location = new System.Drawing.Point(3, 45);
             this.UVTB.MaxLength = 5000;
@@ -120,7 +120,7 @@ namespace Conforyon.UX.UC
             this.URTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.URTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.URTB.Depth = 0;
-            this.URTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.URTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.URTB.Hint = "Unicode Result";
             this.URTB.Location = new System.Drawing.Point(71, 101);
             this.URTB.MaxLength = 5000;
@@ -265,7 +265,7 @@ namespace Conforyon.UX.UC
             this.BTTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BTTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BTTB.Depth = 0;
-            this.BTTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BTTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BTTB.Hint = "Split";
             this.BTTB.Location = new System.Drawing.Point(3, 101);
             this.BTTB.MaxLength = 1;

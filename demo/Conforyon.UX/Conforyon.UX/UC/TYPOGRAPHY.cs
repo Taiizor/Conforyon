@@ -1,5 +1,6 @@
 ﻿using System;
 using Conforyon;
+using System.Drawing;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.Text.RegularExpressions;
@@ -10,7 +11,6 @@ namespace Conforyon.UX.UC
     {
         private bool DL = true;
         private bool CA = true;
-        private int PC = 2;
 
         public TYPOGRAPHY()
         {
@@ -19,6 +19,7 @@ namespace Conforyon.UX.UC
                 InitializeComponent();
                 TACB.SelectedIndex = 0;
                 TBCB.SelectedIndex = 1;
+                TDCB.SelectedIndex = 0;
                 TCCB.SelectedIndex = 0;
                 Height = 244;
             }
@@ -37,6 +38,9 @@ namespace Conforyon.UX.UC
                 TACB.SelectedItem = TB;
                 TBCB.SelectedItem = TA;
 
+                CFTB.Hint = "Core Formula [" + TB + " - " + TA + "]";
+                CFTB.Text = Conforyon.GetValues("Typography", TB, TA);
+
                 Refresh();
             }
             catch
@@ -51,6 +55,7 @@ namespace Conforyon.UX.UC
             {
                 string TA = TACB.SelectedItem.ToString();
                 string TB = TBCB.SelectedItem.ToString();
+                int PC = Convert.ToInt32(BTTB.Text);
 
                 if (TA == "INCH")
                 {
@@ -151,6 +156,51 @@ namespace Conforyon.UX.UC
                 }
 
                 Refresh();
+
+                CFTB.Hint = "Core Formula [" + TACB.SelectedItem.ToString() + " - " + TBCB.SelectedItem.ToString() + "]";
+                CFTB.Text = Conforyon.GetValues("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString());
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void TDCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TDCB.SelectedItem.ToString() == "On")
+                {
+                    DL = true;
+                }
+                else
+                {
+                    DL = false;
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void TCCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TCCB.SelectedItem.ToString() == "On")
+                {
+                    CA = true;
+                    BTTB.Visible = CA;
+                    CTB.Location = new Point(95, CTB.Location.Y);
+                }
+                else
+                {
+                    CA = false;
+                    BTTB.Visible = CA;
+                    CTB.Location = new Point(3, CTB.Location.Y);
+                }
             }
             catch
             {
@@ -190,7 +240,7 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                e.Handled = char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }
             catch
             {
@@ -202,10 +252,33 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (!Regex.IsMatch(BTTB.Text, "[^0-9]"))
+                if (Regex.IsMatch(BTTB.Text, "[^0-9]"))
                 {
                     BTTB.Text = BTTB.Text.Remove(BTTB.Text.Length - 1);
                     BTTB_TextChanged(sender, e);
+                }
+                else if (Convert.ToInt32(BTTB.Text) > 99)
+                {
+                    BTTB.Text = "99";
+                }
+                else if (Convert.ToInt32(BTTB.Text) < 0)
+                {
+                    BTTB.Text = "0";
+                }
+            }
+            catch
+            {
+                //
+            }
+        }
+
+        private void CFTB_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Conforyon.GetValues("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString()) != CFTB.Text.Replace(".", ","))
+                {
+                    Conforyon.SetValues("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString(), CFTB.Text.Replace(".", ","));
                 }
             }
             catch
@@ -220,7 +293,7 @@ namespace Conforyon.UX.UC
             {
                 if (CSS.Checked)
                 {
-                    Height = 296;
+                    Height = 333;
                 }
                 else
                 {

@@ -34,17 +34,18 @@ namespace Conforyon.UX.UC
             this.TVTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.TRTB = new ReaLTaiizor.Controls.MaterialTextBox();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
-            this.HFN = new ReaLTaiizor.Controls.FoxNotification();
+            this.CFAN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
             this.HFBD = new ReaLTaiizor.Controls.MaterialDivider();
             this.CYB = new ReaLTaiizor.Controls.MaterialButton();
             this.CTB = new ReaLTaiizor.Controls.MaterialButton();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
             this.BTTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.TDCB = new ReaLTaiizor.Controls.MaterialComboBox();
+            this.CFTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.CFBN = new ReaLTaiizor.Controls.FoxNotification();
+            this.HFMD = new ReaLTaiizor.Controls.MaterialDivider();
             this.TCCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // TACB
@@ -72,7 +73,7 @@ namespace Conforyon.UX.UC
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
-            this.TACB.TabIndex = 3;
+            this.TACB.TabIndex = 0;
             this.TACB.UseTallSize = false;
             this.TACB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
@@ -101,7 +102,7 @@ namespace Conforyon.UX.UC
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
-            this.TBCB.TabIndex = 3;
+            this.TBCB.TabIndex = 2;
             this.TBCB.UseTallSize = false;
             this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
             // 
@@ -130,14 +131,14 @@ namespace Conforyon.UX.UC
             this.TRTB.Depth = 0;
             this.TRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TRTB.Hint = "Typography Result";
-            this.TRTB.Location = new System.Drawing.Point(71, 101);
-            this.TRTB.MaxLength = 500;
+            this.TRTB.Location = new System.Drawing.Point(99, 101);
+            this.TRTB.MaxLength = 200;
             this.TRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TRTB.Multiline = false;
             this.TRTB.Name = "TRTB";
             this.TRTB.ReadOnly = true;
-            this.TRTB.Size = new System.Drawing.Size(232, 50);
-            this.TRTB.TabIndex = 5;
+            this.TRTB.Size = new System.Drawing.Size(204, 50);
+            this.TRTB.TabIndex = 6;
             this.TRTB.Text = "2,54";
             // 
             // CSS
@@ -152,35 +153,35 @@ namespace Conforyon.UX.UC
             this.CSS.Name = "CSS";
             this.CSS.Ripple = true;
             this.CSS.Size = new System.Drawing.Size(152, 37);
-            this.CSS.TabIndex = 8;
+            this.CSS.TabIndex = 10;
             this.CSS.Text = "Core Settings";
             this.CSS.UseAccentColor = true;
             this.CSS.UseVisualStyleBackColor = true;
             this.CSS.CheckedChanged += new System.EventHandler(this.CSS_CheckedChanged);
             // 
-            // HFN
+            // CFAN
             // 
-            this.HFN.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HFN.BlueBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(248)))));
-            this.HFN.BlueBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
-            this.HFN.BlueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(143)))), ((int)(((byte)(184)))));
-            this.HFN.Cursor = System.Windows.Forms.Cursors.Default;
-            this.HFN.EnabledCalc = true;
-            this.HFN.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.HFN.GreenBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(214)))));
-            this.HFN.GreenBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(182)))));
-            this.HFN.GreenTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(140)))), ((int)(((byte)(69)))));
-            this.HFN.Location = new System.Drawing.Point(3, 253);
-            this.HFN.Name = "HFN";
-            this.HFN.RedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.HFN.RedBarColor = System.Drawing.Color.Orange;
-            this.HFN.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
-            this.HFN.Size = new System.Drawing.Size(300, 40);
-            this.HFN.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Red;
-            this.HFN.TabIndex = 10;
-            this.HFN.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
-            this.HFN.YellowBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(235)))), ((int)(((byte)(200)))));
-            this.HFN.YellowTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(131)))), ((int)(((byte)(88)))));
+            this.CFAN.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CFAN.BlueBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(248)))));
+            this.CFAN.BlueBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
+            this.CFAN.BlueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(143)))), ((int)(((byte)(184)))));
+            this.CFAN.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CFAN.EnabledCalc = true;
+            this.CFAN.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.CFAN.GreenBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(214)))));
+            this.CFAN.GreenBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(182)))));
+            this.CFAN.GreenTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(140)))), ((int)(((byte)(69)))));
+            this.CFAN.Location = new System.Drawing.Point(3, 253);
+            this.CFAN.Name = "CFAN";
+            this.CFAN.RedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.CFAN.RedBarColor = System.Drawing.Color.Orange;
+            this.CFAN.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
+            this.CFAN.Size = new System.Drawing.Size(300, 40);
+            this.CFAN.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Red;
+            this.CFAN.TabIndex = 12;
+            this.CFAN.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
+            this.CFAN.YellowBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(235)))), ((int)(((byte)(200)))));
+            this.CFAN.YellowTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(131)))), ((int)(((byte)(88)))));
             // 
             // HFTD
             // 
@@ -191,7 +192,7 @@ namespace Conforyon.UX.UC
             this.HFTD.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.HFTD.Name = "HFTD";
             this.HFTD.Size = new System.Drawing.Size(75, 1);
-            this.HFTD.TabIndex = 9;
+            this.HFTD.TabIndex = 11;
             this.HFTD.Text = "HFTD";
             // 
             // HFBD
@@ -202,8 +203,8 @@ namespace Conforyon.UX.UC
             this.HFBD.Location = new System.Drawing.Point(3, 292);
             this.HFBD.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.HFBD.Name = "HFBD";
-            this.HFBD.Size = new System.Drawing.Size(175, 1);
-            this.HFBD.TabIndex = 11;
+            this.HFBD.Size = new System.Drawing.Size(6, 1);
+            this.HFBD.TabIndex = 14;
             this.HFBD.Text = "HFBD";
             // 
             // CYB
@@ -221,7 +222,7 @@ namespace Conforyon.UX.UC
             this.CYB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
-            this.CYB.TabIndex = 7;
+            this.CYB.TabIndex = 9;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = false;
@@ -236,12 +237,12 @@ namespace Conforyon.UX.UC
             this.CTB.DrawShadows = false;
             this.CTB.HighEmphasis = true;
             this.CTB.Icon = global::Conforyon.UX.Properties.Resources.Merge;
-            this.CTB.Location = new System.Drawing.Point(3, 160);
+            this.CTB.Location = new System.Drawing.Point(95, 160);
             this.CTB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.CTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.CTB.Name = "CTB";
             this.CTB.Size = new System.Drawing.Size(116, 36);
-            this.CTB.TabIndex = 6;
+            this.CTB.TabIndex = 8;
             this.CTB.Text = "CONVERT";
             this.CTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CTB.UseAccentColor = false;
@@ -274,17 +275,98 @@ namespace Conforyon.UX.UC
             this.BTTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BTTB.Depth = 0;
             this.BTTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BTTB.Hint = "Split";
-            this.BTTB.Location = new System.Drawing.Point(3, 101);
-            this.BTTB.MaxLength = 1;
+            this.BTTB.Location = new System.Drawing.Point(23, 160);
+            this.BTTB.MaxLength = 2;
             this.BTTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.BTTB.Multiline = false;
             this.BTTB.Name = "BTTB";
-            this.BTTB.Size = new System.Drawing.Size(62, 50);
-            this.BTTB.TabIndex = 4;
-            this.BTTB.Text = ",";
+            this.BTTB.Size = new System.Drawing.Size(50, 36);
+            this.BTTB.TabIndex = 7;
+            this.BTTB.Text = "2";
+            this.BTTB.UseTallSize = false;
             this.BTTB.TextChanged += new System.EventHandler(this.BTTB_TextChanged);
             this.BTTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BTTB_KeyPress);
+            // 
+            // TDCB
+            // 
+            this.TDCB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TDCB.AutoResize = false;
+            this.TDCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.TDCB.Depth = 0;
+            this.TDCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.TDCB.DropDownHeight = 88;
+            this.TDCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TDCB.DropDownWidth = 121;
+            this.TDCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.TDCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TDCB.FormattingEnabled = true;
+            this.TDCB.Hint = "Decimal";
+            this.TDCB.IntegralHeight = false;
+            this.TDCB.ItemHeight = 43;
+            this.TDCB.Items.AddRange(new object[] {
+            "On",
+            "Off"});
+            this.TDCB.Location = new System.Drawing.Point(212, 45);
+            this.TDCB.MaxDropDownItems = 2;
+            this.TDCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.TDCB.Name = "TDCB";
+            this.TDCB.Size = new System.Drawing.Size(90, 49);
+            this.TDCB.TabIndex = 4;
+            this.TDCB.Tag = "";
+            this.TDCB.SelectedIndexChanged += new System.EventHandler(this.TDCB_SelectedIndexChanged);
+            // 
+            // CFTB
+            // 
+            this.CFTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CFTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CFTB.Depth = 0;
+            this.CFTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CFTB.Hint = "Core Formula [INCH - CM]";
+            this.CFTB.Location = new System.Drawing.Point(16, 268);
+            this.CFTB.MaxLength = 25;
+            this.CFTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            this.CFTB.Multiline = false;
+            this.CFTB.Name = "CFTB";
+            this.CFTB.Size = new System.Drawing.Size(286, 50);
+            this.CFTB.TabIndex = 13;
+            this.CFTB.Text = "2,54";
+            this.CFTB.TextChanged += new System.EventHandler(this.CFTB_TextChanged);
+            // 
+            // CFBN
+            // 
+            this.CFBN.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CFBN.BlueBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(237)))), ((int)(((byte)(248)))));
+            this.CFBN.BlueBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(217)))), ((int)(((byte)(240)))));
+            this.CFBN.BlueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(143)))), ((int)(((byte)(184)))));
+            this.CFBN.Cursor = System.Windows.Forms.Cursors.Default;
+            this.CFBN.EnabledCalc = true;
+            this.CFBN.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.CFBN.GreenBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(240)))), ((int)(((byte)(214)))));
+            this.CFBN.GreenBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(229)))), ((int)(((byte)(182)))));
+            this.CFBN.GreenTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(140)))), ((int)(((byte)(69)))));
+            this.CFBN.Location = new System.Drawing.Point(3, 292);
+            this.CFBN.Name = "CFBN";
+            this.CFBN.RedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.CFBN.RedBarColor = System.Drawing.Color.Orange;
+            this.CFBN.RedTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
+            this.CFBN.Size = new System.Drawing.Size(300, 40);
+            this.CFBN.Style = ReaLTaiizor.Controls.FoxNotification.Styles.Red;
+            this.CFBN.TabIndex = 15;
+            this.CFBN.YellowBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(248)))), ((int)(((byte)(225)))));
+            this.CFBN.YellowBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(235)))), ((int)(((byte)(200)))));
+            this.CFBN.YellowTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(131)))), ((int)(((byte)(88)))));
+            // 
+            // HFMD
+            // 
+            this.HFMD.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.HFMD.BackColor = System.Drawing.Color.Orange;
+            this.HFMD.Depth = 0;
+            this.HFMD.Location = new System.Drawing.Point(3, 330);
+            this.HFMD.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            this.HFMD.Name = "HFMD";
+            this.HFMD.Size = new System.Drawing.Size(175, 1);
+            this.HFMD.TabIndex = 16;
+            this.HFMD.Text = "HFMD";
             // 
             // TCCB
             // 
@@ -299,83 +381,36 @@ namespace Conforyon.UX.UC
             this.TCCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.TCCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TCCB.FormattingEnabled = true;
-            this.TCCB.Hint = "Decimal";
+            this.TCCB.Hint = "Comma";
             this.TCCB.IntegralHeight = false;
             this.TCCB.ItemHeight = 43;
             this.TCCB.Items.AddRange(new object[] {
             "On",
             "Off"});
-            this.TCCB.Location = new System.Drawing.Point(212, 45);
+            this.TCCB.Location = new System.Drawing.Point(3, 101);
             this.TCCB.MaxDropDownItems = 2;
             this.TCCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TCCB.Name = "TCCB";
             this.TCCB.Size = new System.Drawing.Size(90, 49);
-            this.TCCB.TabIndex = 12;
+            this.TCCB.TabIndex = 5;
             this.TCCB.Tag = "";
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
-            this.materialLabel1.HighEmphasis = true;
-            this.materialLabel1.Location = new System.Drawing.Point(12, 261);
-            this.materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialLabel1.Size = new System.Drawing.Size(70, 24);
-            this.materialLabel1.TabIndex = 13;
-            this.materialLabel1.Text = "INCH";
-            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.materialLabel1.UseAccent = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Roboto Medium", 16F);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
-            this.textBox1.Location = new System.Drawing.Point(88, 260);
-            this.textBox1.MaxLength = 25;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 26);
-            this.textBox1.TabIndex = 16;
-            this.textBox1.Text = "2,54";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // materialLabel2
-            // 
-            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.FontType = ReaLTaiizor.Util.MaterialManager.fontType.H6;
-            this.materialLabel2.HighEmphasis = true;
-            this.materialLabel2.Location = new System.Drawing.Point(232, 261);
-            this.materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialLabel2.Size = new System.Drawing.Size(70, 24);
-            this.materialLabel2.TabIndex = 17;
-            this.materialLabel2.Text = "CM";
-            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.materialLabel2.UseAccent = true;
+            this.TCCB.SelectedIndexChanged += new System.EventHandler(this.TCCB_SelectedIndexChanged);
             // 
             // TYPOGRAPHY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.Controls.Add(this.materialLabel2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.TCCB);
+            this.Controls.Add(this.HFMD);
+            this.Controls.Add(this.HFBD);
+            this.Controls.Add(this.CFTB);
+            this.Controls.Add(this.CFBN);
+            this.Controls.Add(this.TDCB);
             this.Controls.Add(this.BTTB);
             this.Controls.Add(this.CYB);
-            this.Controls.Add(this.HFBD);
             this.Controls.Add(this.HFTD);
-            this.Controls.Add(this.HFN);
+            this.Controls.Add(this.CFAN);
             this.Controls.Add(this.CSS);
             this.Controls.Add(this.CTB);
             this.Controls.Add(this.TRTB);
@@ -384,7 +419,7 @@ namespace Conforyon.UX.UC
             this.Controls.Add(this.TBCB);
             this.Controls.Add(this.TACB);
             this.Name = "TYPOGRAPHY";
-            this.Size = new System.Drawing.Size(306, 296);
+            this.Size = new System.Drawing.Size(306, 333);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -398,15 +433,16 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialTextBox TVTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
-        private ReaLTaiizor.Controls.FoxNotification HFN;
+        private ReaLTaiizor.Controls.FoxNotification CFAN;
         private ReaLTaiizor.Controls.MaterialDivider HFTD;
         private ReaLTaiizor.Controls.MaterialDivider HFBD;
         private ReaLTaiizor.Controls.MaterialButton CYB;
         private ReaLTaiizor.Controls.MaterialTextBox BTTB;
         private ReaLTaiizor.Controls.MaterialTextBox TRTB;
+        private ReaLTaiizor.Controls.MaterialComboBox TDCB;
+        private ReaLTaiizor.Controls.MaterialTextBox CFTB;
+        private ReaLTaiizor.Controls.FoxNotification CFBN;
+        private ReaLTaiizor.Controls.MaterialDivider HFMD;
         private ReaLTaiizor.Controls.MaterialComboBox TCCB;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
     }
 }
