@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // denetlenir. Bütünleştirilmiş kod ile ilişkili bilgileri değiştirmek için
 // bu öznitelik değerlerini değiştirin.
 [assembly: AssemblyTitle("Conforyon UI")]
-[assembly: AssemblyDescription("Conforyon UI v1.3.7.3")]
+[assembly: AssemblyDescription("Conforyon UI v1.3.7.4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Taiizor")]
 [assembly: AssemblyProduct("Conforyon UI")]
-[assembly: AssemblyCopyright("Copyright © 2020 Taiizor")]
+[assembly: AssemblyCopyright("Copyright © 2021 Taiizor")]
 [assembly: AssemblyTrademark("Conforyon")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // Tüm değerleri belirtebilir veya varsayılan Derleme ve Düzeltme Numaralarını kullanmak için
 // aşağıda gösterildiği gibi '*' kullanabilirsiniz:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.7.3")]
-[assembly: AssemblyFileVersion("1.3.7.3")]
+[assembly: AssemblyVersion("1.3.7.4")]
+[assembly: AssemblyFileVersion("1.3.7.4")]
