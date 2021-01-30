@@ -12,8 +12,8 @@
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
     <Description>C# Insanely Fast Unit Converter - $(PackageId)</Description>
-    <PackageLicenseFile></PackageLicenseFile>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageLicenseExpression></PackageLicenseExpression>
     <PackageReleaseNotes>Bugs have also been fixed with the addition of new conversions.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor Soferity C# CSharp DotNet Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
@@ -64,6 +64,10 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="Resources\CUBE.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
