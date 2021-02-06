@@ -12,7 +12,7 @@ using System.Web.Script.Serialization;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 30.Jan.2021
+//     Changed: 06.Jan.2021
 //     Version: 1.4.7.5
 //
 // |---------DO-NOT-REMOVE---------|
@@ -384,7 +384,7 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        private static readonly Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
+        private static readonly Dictionary<string, Dictionary<string, Dictionary<string, string>>> Values = new()
         {
             {
                 "DataStorage", new Dictionary<string, Dictionary<string, string>>()
@@ -1484,7 +1484,7 @@ namespace Conforyon
                         }
                         else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
                         {
-                            Result.Replace("0", "");
+                            _ = Result.Replace("0", "");
                         }
 
                         return Result + "," + Variables[1];
