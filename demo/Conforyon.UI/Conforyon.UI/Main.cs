@@ -1,13 +1,14 @@
 ﻿using System;
+using Conforyon.Enum;
 using Conforyon.Time;
 using Conforyon.Hash;
 using Conforyon.Color;
 using Conforyon.Speed;
 using Conforyon.Board;
-using Conforyon.Crypto;
 using Conforyon.Unicode;
 using Conforyon.Storage;
-using Conforyon.Typography;
+using Conforyon.Typology;
+using Conforyon.Cryptology;
 using System.Windows.Forms;
 using Conforyon.Temperature;
 using System.Text.RegularExpressions;
@@ -21,8 +22,8 @@ namespace Conforyon.UI
             InitializeComponent();
         }
 
-        Enum.Enum.StorageType Selection1, Selection2;
-        Enum.Enum.TimeType Selection18, Selection19;
+        Enums.StorageType Selection1, Selection2;
+        Enums.TimeType Selection18, Selection19;
         string Selection6, Selection12, Selection13, Selection14, Selection17, Selection26;
         bool Selection3, Selection4, Selection5, Selection7, Selection8, Selection9, Selection10, Selection11, Selection15, Selection16, Selection20, Selection21, Selection22, Selection23, Selection24, Selection25;
 
@@ -31,45 +32,45 @@ namespace Conforyon.UI
             try
             {
                 if (comboBox1.SelectedIndex == 0)
-                    Selection1 = Enum.Enum.StorageType.Bit;
+                    Selection1 = Enums.StorageType.Bit;
                 else if (comboBox1.SelectedIndex == 1)
-                    Selection1 = Enum.Enum.StorageType.Byte;
+                    Selection1 = Enums.StorageType.Byte;
                 else if (comboBox1.SelectedIndex == 2)
-                    Selection1 = Enum.Enum.StorageType.KB;
+                    Selection1 = Enums.StorageType.KB;
                 else if (comboBox1.SelectedIndex == 3)
-                    Selection1 = Enum.Enum.StorageType.MB;
+                    Selection1 = Enums.StorageType.MB;
                 else if (comboBox1.SelectedIndex == 4)
-                    Selection1 = Enum.Enum.StorageType.GB;
+                    Selection1 = Enums.StorageType.GB;
                 else if (comboBox1.SelectedIndex == 5)
-                    Selection1 = Enum.Enum.StorageType.TB;
+                    Selection1 = Enums.StorageType.TB;
                 else if (comboBox1.SelectedIndex == 6)
-                    Selection1 = Enum.Enum.StorageType.PB;
+                    Selection1 = Enums.StorageType.PB;
                 else if (comboBox1.SelectedIndex == 7)
-                    Selection1 = Enum.Enum.StorageType.EB;
+                    Selection1 = Enums.StorageType.EB;
                 else if (comboBox1.SelectedIndex == 8)
-                    Selection1 = Enum.Enum.StorageType.ZB;
+                    Selection1 = Enums.StorageType.ZB;
                 else if (comboBox1.SelectedIndex == 9)
-                    Selection1 = Enum.Enum.StorageType.YB;
+                    Selection1 = Enums.StorageType.YB;
                 if (comboBox2.SelectedIndex == 0)
-                    Selection2 = Enum.Enum.StorageType.Bit;
+                    Selection2 = Enums.StorageType.Bit;
                 else if (comboBox2.SelectedIndex == 1)
-                    Selection2 = Enum.Enum.StorageType.Byte;
+                    Selection2 = Enums.StorageType.Byte;
                 else if (comboBox2.SelectedIndex == 2)
-                    Selection2 = Enum.Enum.StorageType.KB;
+                    Selection2 = Enums.StorageType.KB;
                 else if (comboBox2.SelectedIndex == 3)
-                    Selection2 = Enum.Enum.StorageType.MB;
+                    Selection2 = Enums.StorageType.MB;
                 else if (comboBox2.SelectedIndex == 4)
-                    Selection2 = Enum.Enum.StorageType.GB;
+                    Selection2 = Enums.StorageType.GB;
                 else if (comboBox2.SelectedIndex == 5)
-                    Selection2 = Enum.Enum.StorageType.TB;
+                    Selection2 = Enums.StorageType.TB;
                 else if (comboBox2.SelectedIndex == 6)
-                    Selection2 = Enum.Enum.StorageType.PB;
+                    Selection2 = Enums.StorageType.PB;
                 else if (comboBox2.SelectedIndex == 7)
-                    Selection2 = Enum.Enum.StorageType.EB;
+                    Selection2 = Enums.StorageType.EB;
                 else if (comboBox2.SelectedIndex == 8)
-                    Selection2 = Enum.Enum.StorageType.ZB;
+                    Selection2 = Enums.StorageType.ZB;
                 else if (comboBox2.SelectedIndex == 9)
-                    Selection2 = Enum.Enum.StorageType.YB;
+                    Selection2 = Enums.StorageType.YB;
                 if (comboBox3.SelectedIndex == 0)
                     Selection3 = true;
                 else
@@ -151,49 +152,49 @@ namespace Conforyon.UI
                 else if (comboBox14.SelectedIndex == 4)
                     Selection17 = "FILE=>SHA512";
                 if (comboBox22.SelectedIndex == 0)
-                    Selection18 = Enum.Enum.TimeType.Nanosecond;
+                    Selection18 = Enums.TimeType.Nanosecond;
                 else if (comboBox22.SelectedIndex == 1)
-                    Selection18 = Enum.Enum.TimeType.Microsecond;
+                    Selection18 = Enums.TimeType.Microsecond;
                 else if (comboBox22.SelectedIndex == 2)
-                    Selection18 = Enum.Enum.TimeType.Millisecond;
+                    Selection18 = Enums.TimeType.Millisecond;
                 else if (comboBox22.SelectedIndex == 3)
-                    Selection18 = Enum.Enum.TimeType.Second;
+                    Selection18 = Enums.TimeType.Second;
                 else if (comboBox22.SelectedIndex == 4)
-                    Selection18 = Enum.Enum.TimeType.Minute;
+                    Selection18 = Enums.TimeType.Minute;
                 else if (comboBox22.SelectedIndex == 5)
-                    Selection18 = Enum.Enum.TimeType.Hour;
+                    Selection18 = Enums.TimeType.Hour;
                 else if (comboBox22.SelectedIndex == 6)
-                    Selection18 = Enum.Enum.TimeType.Day;
+                    Selection18 = Enums.TimeType.Day;
                 else if (comboBox22.SelectedIndex == 7)
-                    Selection18 = Enum.Enum.TimeType.Week;
+                    Selection18 = Enums.TimeType.Week;
                 else if (comboBox22.SelectedIndex == 8)
-                    Selection18 = Enum.Enum.TimeType.Year;
+                    Selection18 = Enums.TimeType.Year;
                 else if (comboBox22.SelectedIndex == 9)
-                    Selection18 = Enum.Enum.TimeType.Century;
+                    Selection18 = Enums.TimeType.Century;
                 else if (comboBox22.SelectedIndex == 10)
-                    Selection18 = Enum.Enum.TimeType.Millennium;
+                    Selection18 = Enums.TimeType.Millennium;
                 if (comboBox19.SelectedIndex == 0)
-                    Selection19 = Enum.Enum.TimeType.Nanosecond;
+                    Selection19 = Enums.TimeType.Nanosecond;
                 else if (comboBox19.SelectedIndex == 1)
-                    Selection19 = Enum.Enum.TimeType.Microsecond;
+                    Selection19 = Enums.TimeType.Microsecond;
                 else if (comboBox19.SelectedIndex == 2)
-                    Selection19 = Enum.Enum.TimeType.Millisecond;
+                    Selection19 = Enums.TimeType.Millisecond;
                 else if (comboBox19.SelectedIndex == 3)
-                    Selection19 = Enum.Enum.TimeType.Second;
+                    Selection19 = Enums.TimeType.Second;
                 else if (comboBox19.SelectedIndex == 4)
-                    Selection19 = Enum.Enum.TimeType.Minute;
+                    Selection19 = Enums.TimeType.Minute;
                 else if (comboBox19.SelectedIndex == 5)
-                    Selection19 = Enum.Enum.TimeType.Hour;
+                    Selection19 = Enums.TimeType.Hour;
                 else if (comboBox19.SelectedIndex == 6)
-                    Selection19 = Enum.Enum.TimeType.Day;
+                    Selection19 = Enums.TimeType.Day;
                 else if (comboBox19.SelectedIndex == 7)
-                    Selection19 = Enum.Enum.TimeType.Week;
+                    Selection19 = Enums.TimeType.Week;
                 else if (comboBox19.SelectedIndex == 8)
-                    Selection19 = Enum.Enum.TimeType.Year;
+                    Selection19 = Enums.TimeType.Year;
                 else if (comboBox19.SelectedIndex == 9)
-                    Selection19 = Enum.Enum.TimeType.Century;
+                    Selection19 = Enums.TimeType.Century;
                 else if (comboBox19.SelectedIndex == 10)
-                    Selection19 = Enum.Enum.TimeType.Millennium;
+                    Selection19 = Enums.TimeType.Millennium;
                 if (comboBox21.SelectedIndex == 0)
                     Selection20 = true;
                 else
@@ -352,9 +353,9 @@ namespace Conforyon.UI
                 if (string.IsNullOrEmpty(textBox5.Text))
                     textBox5.Text = "1";
                 if (Selection6 == "C=>F")
-                    textBox2.Text = Temperature.Temperature.CtoF(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                    textBox2.Text = Temperatures.CtoF(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 else
-                    textBox2.Text = Temperature.Temperature.FtoC(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                    textBox2.Text = Temperatures.FtoC(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 button6.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -432,7 +433,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox21.Text))
                     textBox21.Text = "1";
-                textBox22.Text = Time.Time.AutoTimeConvert(textBox23.Text, Selection18, Selection22, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
+                textBox22.Text = Times.AutoTimeConvert(textBox23.Text, Selection18, Selection22, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
                 button24.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -464,9 +465,9 @@ namespace Conforyon.UI
                 if (string.IsNullOrEmpty(textBox24.Text))
                     textBox24.Text = "1";
                 if (Selection26 == "MPH => KPH")
-                    textBox25.Text = Speed.Speed.MPHtoKPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
+                    textBox25.Text = Speeding.MPHtoKPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
                 else
-                    textBox25.Text = Speed.Speed.KPHtoMPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
+                    textBox25.Text = Speeding.KPHtoMPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
                 button29.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -513,7 +514,7 @@ namespace Conforyon.UI
                 ComboBox();
                 if (string.IsNullOrEmpty(textBox21.Text))
                     textBox21.Text = "1";
-                textBox22.Text = Time.Time.TimeConvert(textBox23.Text, Selection18, Selection19, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
+                textBox22.Text = Times.TimeConvert(textBox23.Text, Selection18, Selection19, Selection20, Selection21, Convert.ToInt32(textBox21.Text), "Error!");
                 button24.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -544,15 +545,15 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Selection17 == "FILE=>MD5")
-                    textBox19.Text = Hash.Hash.FILEtoMD5(textBox20.Text, false, "Error!");
+                    textBox19.Text = Hashing.FILEtoMD5(textBox20.Text, false, "Error!");
                 else if (Selection17 == "FILE=>SHA1")
-                    textBox19.Text = Hash.Hash.FILEtoSHA1(textBox20.Text, false, "Error!");
+                    textBox19.Text = Hashing.FILEtoSHA1(textBox20.Text, false, "Error!");
                 else if (Selection17 == "FILE=>SHA256")
-                    textBox19.Text = Hash.Hash.FILEtoSHA256(textBox20.Text, false, "Error!");
+                    textBox19.Text = Hashing.FILEtoSHA256(textBox20.Text, false, "Error!");
                 else if (Selection17 == "FILE=>SHA384")
-                    textBox19.Text = Hash.Hash.FILEtoSHA384(textBox20.Text, false, "Error!");
+                    textBox19.Text = Hashing.FILEtoSHA384(textBox20.Text, false, "Error!");
                 else if (Selection17 == "FILE=>SHA512")
-                    textBox19.Text = Hash.Hash.FILEtoSHA512(textBox20.Text, false, "Error!");
+                    textBox19.Text = Hashing.FILEtoSHA512(textBox20.Text, false, "Error!");
                 button23.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -582,12 +583,12 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Selection10)
-                    textBox8.Text = Color.Color.RGBtoHEX(Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), false, "Error!");
+                    textBox8.Text = Colorful.RGBtoHEX(Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), false, "Error!");
                 else
                 {
-                    textBox6.Text = Color.Color.HEXtoRGB(textBox8.Text, Enum.Enum.ColorType.OnlyR, "Error!");
-                    textBox9.Text = Color.Color.HEXtoRGB(textBox8.Text, Enum.Enum.ColorType.OnlyG, "Error!");
-                    textBox10.Text = Color.Color.HEXtoRGB(textBox8.Text, Enum.Enum.ColorType.OnlyB, "Error!");
+                    textBox6.Text = Colorful.HEXtoRGB(textBox8.Text, Enums.ColorType.OnlyR, "Error!");
+                    textBox9.Text = Colorful.HEXtoRGB(textBox8.Text, Enums.ColorType.OnlyG, "Error!");
+                    textBox10.Text = Colorful.HEXtoRGB(textBox8.Text, Enums.ColorType.OnlyB, "Error!");
                 }
 
                 button9.Cursor = Cursors.Hand;
@@ -645,9 +646,9 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Selection11)
-                    textBox12.Text = Unicode.Unicode.CHARtoASCII(textBox11.Text, textBox18.Text.ToCharArray()[0], "Error!");
+                    textBox12.Text = Unicodes.CHARtoASCII(textBox11.Text, textBox18.Text.ToCharArray()[0], "Error!");
                 else
-                    textBox11.Text = Unicode.Unicode.ASCIItoCHAR(textBox12.Text, textBox18.Text.ToCharArray()[0], "Error!");
+                    textBox11.Text = Unicodes.ASCIItoCHAR(textBox12.Text, textBox18.Text.ToCharArray()[0], "Error!");
                 button13.Cursor = Cursors.Hand;
                 button14.Cursor = Cursors.Hand;
             }
@@ -663,19 +664,19 @@ namespace Conforyon.UI
             {
                 ComboBox();
                 if (Selection12 == "Text=>Base64")
-                    textBox13.Text = Crypto.Crypto.TEXTtoBASE64(textBox14.Text, "Error!");
+                    textBox13.Text = Cryptography.TEXTtoBASE64(textBox14.Text, "Error!");
                 else if (Selection12 == "Text=>MD5")
-                    textBox13.Text = Crypto.Crypto.TEXTtoMD5(textBox14.Text, false, "Error!");
+                    textBox13.Text = Cryptography.TEXTtoMD5(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA1")
-                    textBox13.Text = Crypto.Crypto.TEXTtoSHA1(textBox14.Text, false, "Error!");
+                    textBox13.Text = Cryptography.TEXTtoSHA1(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA256")
-                    textBox13.Text = Crypto.Crypto.TEXTtoSHA256(textBox14.Text, false, "Error!");
+                    textBox13.Text = Cryptography.TEXTtoSHA256(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA384")
-                    textBox13.Text = Crypto.Crypto.TEXTtoSHA384(textBox14.Text, false, "Error!");
+                    textBox13.Text = Cryptography.TEXTtoSHA384(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Text=>SHA512")
-                    textBox13.Text = Crypto.Crypto.TEXTtoSHA512(textBox14.Text, false, "Error!");
+                    textBox13.Text = Cryptography.TEXTtoSHA512(textBox14.Text, false, "Error!");
                 else if (Selection12 == "Base64=>Text")
-                    textBox13.Text = Crypto.Crypto.BASE64toTEXT(textBox14.Text, "Error!");
+                    textBox13.Text = Cryptography.BASE64toTEXT(textBox14.Text, "Error!");
                 button17.Cursor = Cursors.Hand;
             }
             catch (Exception Ex)
@@ -735,27 +736,27 @@ namespace Conforyon.UI
                 if (Selection13 == "INCH")
                 {
                     if (Selection14 == "CM")
-                        textBox16.Text = Typography.Typography.INCHtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = Typography.INCHtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else if (Selection14 == "PX")
-                        textBox16.Text = Typography.Typography.INCHtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = Typography.INCHtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else
                         textBox16.Text = "Error!";
                 }
                 else if (Selection13 == "CM")
                 {
                     if (Selection14 == "INCH")
-                        textBox16.Text = Typography.Typography.CMtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = Typography.CMtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else if (Selection14 == "PX")
-                        textBox16.Text = Typography.Typography.CMtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = Typography.CMtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else
                         textBox16.Text = "Error!";
                 }
                 else if (Selection13 == "PX")
                 {
                     if (Selection14 == "INCH")
-                        textBox16.Text = Typography.Typography.PXtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = Typography.PXtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else if (Selection14 == "CM")
-                        textBox16.Text = Typography.Typography.PXtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = Typography.PXtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     else
                         textBox16.Text = "Error!";
                 }

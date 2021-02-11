@@ -1,5 +1,7 @@
 ﻿#region Imports
 
+using Conforyon.Array;
+using Conforyon.Constant;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
@@ -10,7 +12,7 @@ namespace Conforyon.Value
     /// <summary>
     /// 
     /// </summary>
-    public class Value
+    public class Values
     {
         #region Values
         /// <summary>
@@ -21,17 +23,17 @@ namespace Conforyon.Value
         /// <param name="Key3"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = Constant.Constant.ErrorMessage)
+        public static string GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = Constants.ErrorMessage)
         {
             try
             {
-                if (Array.Array.UnitValues.ContainsKey(Key1))
+                if (Arrays.UnitValues.ContainsKey(Key1))
                 {
-                    if (Array.Array.UnitValues[Key1].ContainsKey(Key2))
+                    if (Arrays.UnitValues[Key1].ContainsKey(Key2))
                     {
-                        if (Array.Array.UnitValues[Key1][Key2].ContainsKey(Key3))
+                        if (Arrays.UnitValues[Key1][Key2].ContainsKey(Key3))
                         {
-                            return Array.Array.UnitValues[Key1][Key2][Key3];
+                            return Arrays.UnitValues[Key1][Key2][Key3];
                         }
                         else
                         {
@@ -50,7 +52,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constant.Constant.ErrorTitle + "CN-GV1!)";
+                return Error + Constants.ErrorTitle + "CN-GV1!)";
             }
         }
 
@@ -63,18 +65,18 @@ namespace Conforyon.Value
         /// <param name="Value"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = Constant.Constant.ErrorMessage)
+        public static string SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = Constants.ErrorMessage)
         {
             try
             {
-                if (Array.Array.UnitValues.ContainsKey(Key1))
+                if (Arrays.UnitValues.ContainsKey(Key1))
                 {
-                    if (Array.Array.UnitValues[Key1].ContainsKey(Key2))
+                    if (Arrays.UnitValues[Key1].ContainsKey(Key2))
                     {
-                        if (Array.Array.UnitValues[Key1][Key2].ContainsKey(Key3))
+                        if (Arrays.UnitValues[Key1][Key2].ContainsKey(Key3))
                         {
-                            Array.Array.UnitValues[Key1][Key2][Key3] = Value;
-                            return Array.Array.UnitValues[Key1][Key2][Key3];
+                            Arrays.UnitValues[Key1][Key2][Key3] = Value;
+                            return Arrays.UnitValues[Key1][Key2][Key3];
                         }
                         else
                         {
@@ -93,7 +95,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constant.Constant.ErrorTitle + "CN-GV1!)";
+                return Error + Constants.ErrorTitle + "CN-GV1!)";
             }
         }
 
@@ -107,7 +109,7 @@ namespace Conforyon.Value
         {
             try
             {
-                return Array.Array.UnitValues;
+                return Arrays.UnitValues;
             }
             catch
             {
@@ -135,7 +137,7 @@ namespace Conforyon.Value
         /// </summary>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ListValueJson(string Error = Constant.Constant.ErrorMessage)
+        public static string ListValueJson(string Error = Constants.ErrorMessage)
         {
             try
             {
@@ -143,7 +145,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constant.Constant.ErrorTitle + "CN-LVJ1!)";
+                return Error + Constants.ErrorTitle + "CN-LVJ1!)";
             }
         }
         #endregion

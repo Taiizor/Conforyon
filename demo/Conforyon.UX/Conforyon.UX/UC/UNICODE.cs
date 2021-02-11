@@ -1,5 +1,6 @@
 ﻿using System;
 using Conforyon.Board;
+using Conforyon.Unicode;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.Text.RegularExpressions;
@@ -55,11 +56,11 @@ namespace Conforyon.UX.UC
 
                 if (TACB.SelectedItem.ToString() == "CHAR")
                 {
-                    URTB.Text = Unicode.Unicode.CHARtoASCII(UVTB.Text, BT);
+                    URTB.Text = Unicodes.CHARtoASCII(UVTB.Text, BT);
                 }
                 else
                 {
-                    URTB.Text = Unicode.Unicode.ASCIItoCHAR(UVTB.Text, BT);
+                    URTB.Text = Unicodes.ASCIItoCHAR(UVTB.Text, BT);
                 }
             }
             catch

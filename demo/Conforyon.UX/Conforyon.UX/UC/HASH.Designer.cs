@@ -51,7 +51,7 @@ namespace Conforyon.UX.UC
             this.TACB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TACB.Depth = 0;
             this.TACB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TACB.DropDownHeight = 118;
+            this.TACB.DropDownHeight = 31;
             this.TACB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TACB.DropDownWidth = 121;
             this.TACB.Enabled = false;
@@ -106,7 +106,7 @@ namespace Conforyon.UX.UC
             this.FLTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.FLTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FLTB.Depth = 0;
-            this.FLTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.FLTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FLTB.Hint = "File Location";
             this.FLTB.Location = new System.Drawing.Point(3, 45);
             this.FLTB.MaxLength = 5000;
@@ -122,7 +122,7 @@ namespace Conforyon.UX.UC
             this.FRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.FRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FRTB.Depth = 0;
-            this.FRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.FRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FRTB.Hint = "File Result";
             this.FRTB.Location = new System.Drawing.Point(3, 101);
             this.FRTB.MaxLength = 5000;
@@ -132,7 +132,7 @@ namespace Conforyon.UX.UC
             this.FRTB.ReadOnly = true;
             this.FRTB.Size = new System.Drawing.Size(249, 50);
             this.FRTB.TabIndex = 5;
-            this.FRTB.Text = "02b1be171e92fdadd1f6e086e70e05a2";
+            this.FRTB.Text = "f19ed6865ea272f38f7a1815283f6078";
             // 
             // CSS
             // 

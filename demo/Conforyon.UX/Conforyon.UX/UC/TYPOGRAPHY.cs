@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using Conforyon.Value;
 using Conforyon.Board;
+using Conforyon.Typology;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.Text.RegularExpressions;
@@ -39,7 +41,7 @@ namespace Conforyon.UX.UC
                 TBCB.SelectedItem = TA;
 
                 CFTB.Hint = "Core Formula [" + TB + " - " + TA + "]";
-                CFTB.Text = Value.Value.GetValue("Typography", TB, TA);
+                CFTB.Text = Values.GetValue("Typography", TB, TA);
 
                 Refresh();
             }
@@ -62,33 +64,33 @@ namespace Conforyon.UX.UC
                 {
                     if (TB == "CM")
                     {
-                        TRTB.Text = Typography.Typography.INCHtoCM(TVTB.Text, DL, CA, PC);
+                        TRTB.Text = Typography.INCHtoCM(TVTB.Text, DL, CA, PC);
                     }
                     else if (TB == "PX")
                     {
-                        TRTB.Text = Typography.Typography.INCHtoPX(TVTB.Text, DL, CA, PC);
+                        TRTB.Text = Typography.INCHtoPX(TVTB.Text, DL, CA, PC);
                     }
                 }
                 else if (TA == "CM")
                 {
                     if (TB == "INCH")
                     {
-                        TRTB.Text = Typography.Typography.CMtoINCH(TVTB.Text, DL, CA, PC);
+                        TRTB.Text = Typography.CMtoINCH(TVTB.Text, DL, CA, PC);
                     }
                     else if (TB == "PX")
                     {
-                        TRTB.Text = Typography.Typography.CMtoPX(TVTB.Text, DL, CA, PC);
+                        TRTB.Text = Typography.CMtoPX(TVTB.Text, DL, CA, PC);
                     }
                 }
                 else if (TA == "PX")
                 {
                     if (TB == "INCH")
                     {
-                        TRTB.Text = Typography.Typography.PXtoINCH(TVTB.Text, DL, CA, PC);
+                        TRTB.Text = Typography.PXtoINCH(TVTB.Text, DL, CA, PC);
                     }
                     else if (TB == "CM")
                     {
-                        TRTB.Text = Typography.Typography.PXtoCM(TVTB.Text, DL, CA, PC);
+                        TRTB.Text = Typography.PXtoCM(TVTB.Text, DL, CA, PC);
                     }
                 }
             }
@@ -159,7 +161,7 @@ namespace Conforyon.UX.UC
                 Refresh();
 
                 CFTB.Hint = "Core Formula [" + TACB.SelectedItem.ToString() + " - " + TBCB.SelectedItem.ToString() + "]";
-                CFTB.Text = Value.Value.GetValue("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString());
+                CFTB.Text = Values.GetValue("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString());
             }
             catch
             {
@@ -277,9 +279,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Value.Value.GetValue("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString()) != CFTB.Text.Replace(".", ","))
+                if (Values.GetValue("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString()) != CFTB.Text.Replace(".", ","))
                 {
-                    Value.Value.SetValue("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString(), CFTB.Text.Replace(".", ","));
+                    Values.SetValue("Typography", TACB.SelectedItem.ToString(), TBCB.SelectedItem.ToString(), CFTB.Text.Replace(".", ","));
                 }
             }
             catch

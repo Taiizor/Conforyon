@@ -9,7 +9,7 @@ namespace Conforyon.Array
     /// <summary>
     /// 
     /// </summary>
-    internal class Array
+    internal class Arrays
     {
         #region Arrays
         /// <summary>

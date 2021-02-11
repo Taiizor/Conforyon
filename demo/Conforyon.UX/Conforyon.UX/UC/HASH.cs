@@ -1,4 +1,5 @@
 ﻿using System;
+using Conforyon.Hash;
 using Conforyon.Board;
 using System.Windows.Forms;
 
@@ -29,23 +30,23 @@ namespace Conforyon.UX.UC
             {
                 if (TBCB.SelectedItem.ToString() == "MD5")
                 {
-                    FRTB.Text = Hash.Hash.FILEtoMD5(FLTB.Text, HRC);
+                    FRTB.Text = Hashing.FILEtoMD5(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA1")
                 {
-                    FRTB.Text = Hash.Hash.FILEtoSHA1(FLTB.Text, HRC);
+                    FRTB.Text = Hashing.FILEtoSHA1(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA256")
                 {
-                    FRTB.Text = Hash.Hash.FILEtoSHA256(FLTB.Text, HRC);
+                    FRTB.Text = Hashing.FILEtoSHA256(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA384")
                 {
-                    FRTB.Text = Hash.Hash.FILEtoSHA384(FLTB.Text, HRC);
+                    FRTB.Text = Hashing.FILEtoSHA384(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA512")
                 {
-                    FRTB.Text = Hash.Hash.FILEtoSHA512(FLTB.Text, HRC);
+                    FRTB.Text = Hashing.FILEtoSHA512(FLTB.Text, HRC);
                 }
             }
             catch

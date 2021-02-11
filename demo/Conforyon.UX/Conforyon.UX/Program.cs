@@ -1,4 +1,5 @@
 ﻿using System;
+using Conforyon.UX.UI;
 using System.Windows.Forms;
 
 namespace Conforyon.UX
@@ -13,7 +14,7 @@ namespace Conforyon.UX
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new UI.MAIN());
+            Application.Run(new MAIN());
         }
     }
 }

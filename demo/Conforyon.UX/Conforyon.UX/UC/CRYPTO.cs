@@ -2,6 +2,7 @@
 using Conforyon.Board;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
+using Conforyon.Cryptology;
 
 namespace Conforyon.UX.UC
 {
@@ -56,33 +57,33 @@ namespace Conforyon.UX.UC
 
                 if (TA == "BASE64")
                 {
-                    CRTB.Text = Crypto.Crypto.BASE64toTEXT(CVTB.Text);
+                    CRTB.Text = Cryptography.BASE64toTEXT(CVTB.Text);
                 }
                 else
                 {
                     if (TB == "BASE64")
                     {
-                        CRTB.Text = Crypto.Crypto.TEXTtoBASE64(CVTB.Text);
+                        CRTB.Text = Cryptography.TEXTtoBASE64(CVTB.Text);
                     }
                     else if (TB == "MD5")
                     {
-                        CRTB.Text = Crypto.Crypto.TEXTtoMD5(CVTB.Text, CRC);
+                        CRTB.Text = Cryptography.TEXTtoMD5(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA1")
                     {
-                        CRTB.Text = Crypto.Crypto.TEXTtoSHA1(CVTB.Text, CRC);
+                        CRTB.Text = Cryptography.TEXTtoSHA1(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA256")
                     {
-                        CRTB.Text = Crypto.Crypto.TEXTtoSHA256(CVTB.Text, CRC);
+                        CRTB.Text = Cryptography.TEXTtoSHA256(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA384")
                     {
-                        CRTB.Text = Crypto.Crypto.TEXTtoSHA384(CVTB.Text, CRC);
+                        CRTB.Text = Cryptography.TEXTtoSHA384(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA512")
                     {
-                        CRTB.Text = Crypto.Crypto.TEXTtoSHA512(CVTB.Text, CRC);
+                        CRTB.Text = Cryptography.TEXTtoSHA512(CVTB.Text, CRC);
                     }
                 }
             }

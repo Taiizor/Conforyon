@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    internal class Constant
+    internal class Constants
     {
         #region Constants
         /// <summary>

@@ -4,13 +4,13 @@ using Conforyon.Hash;
 using Conforyon.Value;
 using Conforyon.Color;
 using Conforyon.Speed;
-using Conforyon.Crypto;
 using Conforyon.Storage;
 using Conforyon.Unicode;
+using Conforyon.Typology;
+using Conforyon.Cryptology;
 using System.Windows.Forms;
-using Conforyon.Typography;
 using Conforyon.Temperature;
-using static Conforyon.Enum.Enum;
+using static Conforyon.Enum.Enums;
 
 namespace Conforyon_CR
 {
@@ -34,8 +34,8 @@ namespace Conforyon_CR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            textBox3.Text = Hash.FILEtoSHA512(textBox2.Text, false, "Error!");
-            textBox4.Text = Hash.FILEtoSHA512(textBox2.Text, true, "Error!");
+            textBox3.Text = Hashing.FILEtoSHA512(textBox2.Text, false, "Error!");
+            textBox4.Text = Hashing.FILEtoSHA512(textBox2.Text, true, "Error!");
         }
 
         private async void Button5_Click(object sender, EventArgs e)
@@ -44,8 +44,8 @@ namespace Conforyon_CR
             {
                 MessageBox.Show("Coming Soon!");
 
-                textBox3.Text = await Hash.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, false, "Error!");
-                textBox4.Text = await Hash.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, true, "Error!");
+                textBox3.Text = await Hashing.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, false, "Error!");
+                textBox4.Text = await Hashing.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, true, "Error!");
             }
             catch (Exception Ex)
             {
@@ -55,19 +55,19 @@ namespace Conforyon_CR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Crypto.TEXTtoMD5(textBox5.Text, false, "Error!") + "\n" + Crypto.TEXTtoMD5(textBox5.Text, true, "Error!"));
-            MessageBox.Show(Crypto.TEXTtoSHA1(textBox5.Text, false, "Error!") + "\n" + Crypto.TEXTtoSHA1(textBox5.Text, true, "Error!"));
+            MessageBox.Show(Cryptography.TEXTtoMD5(textBox5.Text, false, "Error!") + "\n" + Cryptography.TEXTtoMD5(textBox5.Text, true, "Error!"));
+            MessageBox.Show(Cryptography.TEXTtoSHA1(textBox5.Text, false, "Error!") + "\n" + Cryptography.TEXTtoSHA1(textBox5.Text, true, "Error!"));
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             if (Unicoder)
             {
-                textBox7.Text = Unicode.CHARtoASCII(textBox6.Text, textBox8.Text.ToCharArray()[0], "Error!");
+                textBox7.Text = Unicodes.CHARtoASCII(textBox6.Text, textBox8.Text.ToCharArray()[0], "Error!");
             }
             else
             {
-                textBox6.Text = Unicode.ASCIItoCHAR(textBox7.Text, textBox8.Text.ToCharArray()[0], "Error!");
+                textBox6.Text = Unicodes.ASCIItoCHAR(textBox7.Text, textBox8.Text.ToCharArray()[0], "Error!");
             }
 
             Unicoder = !Unicoder;
@@ -75,19 +75,19 @@ namespace Conforyon_CR
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Color.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), true, "Error!"));
-            MessageBox.Show(Color.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), false, "Error!"));
+            MessageBox.Show(Colorful.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), true, "Error!"));
+            MessageBox.Show(Colorful.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), false, "Error!"));
         }
 
         private void Button7_Click(object sender, EventArgs e)
         {
             if (Temperaturer)
             {
-                textBox13.Text = Temperature.CtoF(textBox12.Text, false, false, 0, false, "Error!");
+                textBox13.Text = Temperatures.CtoF(textBox12.Text, false, false, 0, false, "Error!");
             }
             else
             {
-                textBox12.Text = Temperature.FtoC(textBox13.Text, false, false, 0, false, "Error!");
+                textBox12.Text = Temperatures.FtoC(textBox13.Text, false, false, 0, false, "Error!");
             }
 
             Temperaturer = !Temperaturer;
@@ -97,11 +97,11 @@ namespace Conforyon_CR
         {
             if (Speeder)
             {
-                textBox15.Text = Speed.MPHtoKPH(textBox14.Text, false, false, 0, false, "Error!");
+                textBox15.Text = Speeding.MPHtoKPH(textBox14.Text, false, false, 0, false, "Error!");
             }
             else
             {
-                textBox14.Text = Speed.KPHtoMPH(textBox15.Text, false, false, 0, false, "Error!");
+                textBox14.Text = Speeding.KPHtoMPH(textBox15.Text, false, false, 0, false, "Error!");
             }
 
             Speeder = !Speeder;
@@ -109,17 +109,17 @@ namespace Conforyon_CR
 
         private void Button9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Time.AutoTimeConvert(textBox16.Text, TimeType.Second, true, true, true, 2, "Error!"));
-            MessageBox.Show(Time.TimeConvert(textBox16.Text, TimeType.Second, TimeType.Day, true, true, 2, "Error!"));
+            MessageBox.Show(Times.AutoTimeConvert(textBox16.Text, TimeType.Second, true, true, true, 2, "Error!"));
+            MessageBox.Show(Times.TimeConvert(textBox16.Text, TimeType.Second, TimeType.Day, true, true, 2, "Error!"));
         }
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Value.GetValue("DataStorage", "PB", "EB", "Error!"));
-            MessageBox.Show(Value.SetValue("DataStorage", "PB", "EB", "3333", "Error!"));
+            MessageBox.Show(Values.GetValue("DataStorage", "PB", "EB", "Error!"));
+            MessageBox.Show(Values.SetValue("DataStorage", "PB", "EB", "3333", "Error!"));
 
-            MessageBox.Show(Value.GetValue("Temperature", "Celsius", "Multipy", "Error!"));
-            MessageBox.Show(Value.SetValue("Temperature", "Celsius", "Multipy", "18", "Error!"));
+            MessageBox.Show(Values.GetValue("Temperature", "Celsius", "Multipy", "Error!"));
+            MessageBox.Show(Values.SetValue("Temperature", "Celsius", "Multipy", "18", "Error!"));
         }
 
         private void Button11_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace Conforyon_CR
 
         private void Button12_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Value.ListValueJson());
+            MessageBox.Show(Values.ListValueJson());
         }
     }
 }

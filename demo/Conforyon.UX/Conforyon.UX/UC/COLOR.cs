@@ -1,6 +1,8 @@
 ﻿using System;
+using Conforyon.Enum;
 using System.Drawing;
 using Conforyon.Board;
+using Conforyon.Color;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.Text.RegularExpressions;
@@ -46,13 +48,13 @@ namespace Conforyon.UX.UC
             {
                 if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    CHTB.Text = Color.Color.RGBtoHEX(Convert.ToInt32(CRTB.Text), Convert.ToInt32(CGTB.Text), Convert.ToInt32(CBTB.Text));
+                    CHTB.Text = Colorful.RGBtoHEX(Convert.ToInt32(CRTB.Text), Convert.ToInt32(CGTB.Text), Convert.ToInt32(CBTB.Text));
                 }
                 else
                 {
-                    CRTB.Text = Color.Color.HEXtoRGB(CHTB.Text, Enum.Enum.ColorType.OnlyR);
-                    CGTB.Text = Color.Color.HEXtoRGB(CHTB.Text, Enum.Enum.ColorType.OnlyG);
-                    CBTB.Text = Color.Color.HEXtoRGB(CHTB.Text, Enum.Enum.ColorType.OnlyB);
+                    CRTB.Text = Colorful.HEXtoRGB(CHTB.Text, Enums.ColorType.OnlyR);
+                    CGTB.Text = Colorful.HEXtoRGB(CHTB.Text, Enums.ColorType.OnlyG);
+                    CBTB.Text = Colorful.HEXtoRGB(CHTB.Text, Enums.ColorType.OnlyB);
                 }
             }
             catch
