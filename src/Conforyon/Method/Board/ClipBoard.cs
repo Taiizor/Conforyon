@@ -2,7 +2,7 @@
 
 using System.IO;
 using System.Windows.Forms;
-using static Conforyon.Conforyon;
+using static Conforyon.Constant.Constant;
 
 #endregion
 

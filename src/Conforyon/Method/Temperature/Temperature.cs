@@ -2,6 +2,7 @@
 
 using System;
 using static Conforyon.Conforyon;
+using static Conforyon.Constant.Constant;
 
 #endregion
 

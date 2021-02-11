@@ -4,6 +4,7 @@ using System;
 using System.Text;
 using static Conforyon.Conforyon;
 using System.Security.Cryptography;
+using static Conforyon.Constant.Constant;
 
 #endregion
 

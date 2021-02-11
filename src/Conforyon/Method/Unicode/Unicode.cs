@@ -3,6 +3,8 @@
 using System;
 using System.Text;
 using static Conforyon.Conforyon;
+using static Conforyon.Enum.Enum;
+using static Conforyon.Constant.Constant;
 
 #endregion
 

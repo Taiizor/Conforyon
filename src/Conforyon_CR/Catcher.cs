@@ -1,6 +1,8 @@
 ﻿using System;
 using Conforyon;
 using System.Windows.Forms;
+using static Conforyon.Conforyon;
+using static Conforyon.Enum.Enum;
 
 namespace Conforyon_CR
 {
@@ -18,8 +20,8 @@ namespace Conforyon_CR
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(DataStorage.AutoDataConvert(textBox1.Text, Conforyon.Conforyon.StorageType.PB, true, true, true, 2, "Error!"));
-            MessageBox.Show(DataStorage.DataConvert(textBox1.Text, Conforyon.Conforyon.StorageType.PB, Conforyon.Conforyon.StorageType.EB, true, true, 2, "Error!"));
+            MessageBox.Show(DataStorage.AutoDataConvert(textBox1.Text, StorageType.PB, true, true, true, 2, "Error!"));
+            MessageBox.Show(DataStorage.DataConvert(textBox1.Text, StorageType.PB, StorageType.EB, true, true, 2, "Error!"));
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -34,8 +36,8 @@ namespace Conforyon_CR
             {
                 MessageBox.Show("Coming Soon!");
 
-                textBox3.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, false, "Error!");
-                textBox4.Text = await Hash.FILEtoHASH_Async(Conforyon.Conforyon.HashType.SHA512, textBox2.Text, true, "Error!");
+                textBox3.Text = await Hash.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, false, "Error!");
+                textBox4.Text = await Hash.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, true, "Error!");
             }
             catch (Exception Ex)
             {
@@ -99,17 +101,17 @@ namespace Conforyon_CR
 
         private void Button9_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Time.AutoTimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Second, true, true, true, 2, "Error!"));
-            MessageBox.Show(Time.TimeConvert(textBox16.Text, Conforyon.Conforyon.TimeType.Second, Conforyon.Conforyon.TimeType.Day, true, true, 2, "Error!"));
+            MessageBox.Show(Time.AutoTimeConvert(textBox16.Text, TimeType.Second, true, true, true, 2, "Error!"));
+            MessageBox.Show(Time.TimeConvert(textBox16.Text, TimeType.Second, TimeType.Day, true, true, 2, "Error!"));
         }
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Conforyon.Conforyon.GetValues("DataStorage", "PB", "EB", "Error!"));
-            MessageBox.Show(Conforyon.Conforyon.SetValues("DataStorage", "PB", "EB", "3333", "Error!"));
+            MessageBox.Show(GetValues("DataStorage", "PB", "EB", "Error!"));
+            MessageBox.Show(SetValues("DataStorage", "PB", "EB", "3333", "Error!"));
 
-            MessageBox.Show(Conforyon.Conforyon.GetValues("Temperature", "Celsius", "Multipy", "Error!"));
-            MessageBox.Show(Conforyon.Conforyon.SetValues("Temperature", "Celsius", "Multipy", "18", "Error!"));
+            MessageBox.Show(GetValues("Temperature", "Celsius", "Multipy", "Error!"));
+            MessageBox.Show(SetValues("Temperature", "Celsius", "Multipy", "18", "Error!"));
         }
 
         private void Button11_Click(object sender, EventArgs e)
@@ -126,7 +128,7 @@ namespace Conforyon_CR
 
         private void Button12_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Conforyon.Conforyon.ListValuesJson());
+            MessageBox.Show(ListValuesJson());
         }
     }
 }

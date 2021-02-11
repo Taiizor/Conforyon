@@ -3,8 +3,9 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using static Conforyon.Conforyon;
+using static Conforyon.Enum.Enum;
 using System.Security.Cryptography;
+using static Conforyon.Constant.Constant;
 
 #endregion
 

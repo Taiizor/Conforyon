@@ -1,7 +1,9 @@
 ﻿#region Imports
 
 using static Conforyon.Conforyon;
+using static Conforyon.Enum.Enum;
 using System.Text.RegularExpressions;
+using static Conforyon.Constant.Constant;
 
 #endregion
 
