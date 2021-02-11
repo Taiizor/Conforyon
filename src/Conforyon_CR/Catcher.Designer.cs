@@ -189,7 +189,7 @@
             this.button5.TabIndex = 12;
             this.button5.Text = "HASH ASYNC";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_ClickAsync);
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // textBox9
             // 

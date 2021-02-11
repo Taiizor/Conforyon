@@ -7,17 +7,21 @@
     <Version>1.4.7.5</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Title>$(PackageId)</Title>
+    <Title>Conforyon</Title>
     <PackageId>Conforyon</PackageId>
     <Authors>Taiizor</Authors>
     <Copyright>Copyright © $([System.DateTime]::Today.ToString(yyyy)) $(Authors)</Copyright>
-    <Description>C# Insanely Fast Unit Converter - $(PackageId)</Description>
+    <Summary>Best with fast and convenient unit conversions.</Summary>
+    <Description>$(Summary)
+C# Insanely Fast Unit Converter - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Bugs have also been fixed with the addition of new conversions.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
-    <PackageTags>Conforyon Taiizor Soferity C# CSharp DotNet Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
-    <DocumentationFile>$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>
+    <PackageTags>Conforyon Taiizor Soferity C# CSharp DotNet Fast Convenient Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
@@ -51,13 +55,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     </Reference>
   </ItemGroup>
 
-  <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>5.0.1</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
+  <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard')) OR '$(TargetFramework)' == 'netcoreapp2.1'">
     <PackageReference Include="System.Drawing.Common">
       <Version>5.0.1</Version>
     </PackageReference>

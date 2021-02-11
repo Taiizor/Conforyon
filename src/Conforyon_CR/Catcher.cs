@@ -28,7 +28,7 @@ namespace Conforyon_CR
             textBox4.Text = Hash.FILEtoSHA512(textBox2.Text, true, "Error!");
         }
 
-        private async void Button5_ClickAsync(object sender, EventArgs e)
+        private async void Button5_Click(object sender, EventArgs e)
         {
             try
             {
