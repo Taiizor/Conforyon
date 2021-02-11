@@ -79,8 +79,8 @@ Step 2：Enjoy conversions
 #### Get
 
 ```CS
-/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
-GetValues("Time", "Minute", "Second", "Error!");
+/* GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValue("Time", "Minute", "Second", "Error!");
 ```
 ```XML
 <FunctionResult>
@@ -90,8 +90,8 @@ GetValues("Time", "Minute", "Second", "Error!");
 ```
 
 ```CS
-/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
-GetValues("Speed", "MPH", "KPH", "Error!");
+/* GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValue("Speed", "MPH", "KPH", "Error!");
 ```
 ```XML
 <FunctionResult>
@@ -103,8 +103,8 @@ GetValues("Speed", "MPH", "KPH", "Error!");
 #### Set
 
 ```CS
-/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
-SetValues("Time", "Minute", "Second", "30", "Error!");
+/* SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValue("Time", "Minute", "Second", "30", "Error!");
 ```
 ```XML
 <FunctionResult>
@@ -114,8 +114,8 @@ SetValues("Time", "Minute", "Second", "30", "Error!");
 ```
 
 ```CS
-/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
-SetValues("Speed", "MPH", "KPH", "2", "Error!");
+/* SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValue("Speed", "MPH", "KPH", "2", "Error!");
 ```
 ```XML
 <FunctionResult>
@@ -127,8 +127,8 @@ SetValues("Speed", "MPH", "KPH", "2", "Error!");
 #### List
 
 ```CS
-/* ListValues(string Error = "Error", string Title = "Title") */
-ListValues("Error", "Title");
+/* ListValue(string Error = "Error", string Title = "Title") */
+ListValue("Error", "Title");
 ```
 ```XML
 <FunctionResult>
@@ -138,8 +138,8 @@ ListValues("Error", "Title");
 ```
 
 ```CS
-/* ListValuesJson(string Error = ErrorMessage) */
-ListValuesJson("Error!");
+/* ListValueJson(string Error = ErrorMessage) */
+ListValueJson("Error!");
 ```
 ```XML
 <FunctionResult>

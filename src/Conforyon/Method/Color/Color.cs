@@ -2,18 +2,15 @@
 
 using System;
 using System.Drawing;
-using static Conforyon.Conforyon;
-using static Conforyon.Enum.Enum;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Color
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Color
+    public class Color
     {
         /// <summary>
         /// 
@@ -22,11 +19,11 @@ namespace Conforyon
         /// <param name="Type"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string HEXtoRGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage)
+        public static string HEXtoRGB(string Hex, Enum.Enum.ColorType Type = Enum.Enum.ColorType.RGB1, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if ((Hex.Length == 6 && UseCheck(Hex)) || (Hex.Length == 7 && Hex.StartsWith("#") && UseCheck(Hex.Substring(1, Hex.Length - 1))))
+                if ((Hex.Length == 6 && Core.UseCheck(Hex)) || (Hex.Length == 7 && Hex.StartsWith("#") && Core.UseCheck(Hex.Substring(1, Hex.Length - 1))))
                 {
                     System.Drawing.Color HexColor;
                     if (Hex.StartsWith("#"))
@@ -40,18 +37,18 @@ namespace Conforyon
 
                     return Type switch
                     {
-                        ColorType.RGB1 => HexColor.R + ", " + HexColor.G + ", " + HexColor.B,
-                        ColorType.RGB2 => HexColor.R + " " + HexColor.G + " " + HexColor.B,
-                        ColorType.RGB3 => HexColor.R + " - " + HexColor.G + " - " + HexColor.B,
-                        ColorType.RRGGBB1 => "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B,
-                        ColorType.RRGGBB2 => "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B,
-                        ColorType.RRGGBB3 => "R: " + HexColor.R + " - G: " + HexColor.G + " - B: " + HexColor.B,
-                        ColorType.RR => "R: " + HexColor.R,
-                        ColorType.GG => "G: " + HexColor.G,
-                        ColorType.BB => "B: " + HexColor.B,
-                        ColorType.OnlyR => HexColor.R.ToString(),
-                        ColorType.OnlyG => HexColor.G.ToString(),
-                        ColorType.OnlyB => HexColor.B.ToString(),
+                        Enum.Enum.ColorType.RGB1 => HexColor.R + ", " + HexColor.G + ", " + HexColor.B,
+                        Enum.Enum.ColorType.RGB2 => HexColor.R + " " + HexColor.G + " " + HexColor.B,
+                        Enum.Enum.ColorType.RGB3 => HexColor.R + " - " + HexColor.G + " - " + HexColor.B,
+                        Enum.Enum.ColorType.RRGGBB1 => "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B,
+                        Enum.Enum.ColorType.RRGGBB2 => "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B,
+                        Enum.Enum.ColorType.RRGGBB3 => "R: " + HexColor.R + " - G: " + HexColor.G + " - B: " + HexColor.B,
+                        Enum.Enum.ColorType.RR => "R: " + HexColor.R,
+                        Enum.Enum.ColorType.GG => "G: " + HexColor.G,
+                        Enum.Enum.ColorType.BB => "B: " + HexColor.B,
+                        Enum.Enum.ColorType.OnlyR => HexColor.R.ToString(),
+                        Enum.Enum.ColorType.OnlyG => HexColor.G.ToString(),
+                        Enum.Enum.ColorType.OnlyB => HexColor.B.ToString(),
                         _ => Error,
                     };
                 }
@@ -62,7 +59,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CR-HTR1!)";
+                return Error + Constant.Constant.ErrorTitle + "CR-HTR1!)";
             }
         }
 
@@ -75,7 +72,7 @@ namespace Conforyon
         /// <param name="Sharp"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string RGBtoHEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage)
+        public static string RGBtoHEX(int R, int G, int B, bool Sharp = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -98,7 +95,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CR-RTH1!)";
+                return Error + Constant.Constant.ErrorTitle + "CR-RTH1!)";
             }
         }
     }

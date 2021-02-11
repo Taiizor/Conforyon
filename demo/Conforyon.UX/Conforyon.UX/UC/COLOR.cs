@@ -1,6 +1,6 @@
 ﻿using System;
-using Conforyon;
 using System.Drawing;
+using Conforyon.Board;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.Text.RegularExpressions;
@@ -46,13 +46,13 @@ namespace Conforyon.UX.UC
             {
                 if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    CHTB.Text = Color.RGBtoHEX(Convert.ToInt32(CRTB.Text), Convert.ToInt32(CGTB.Text), Convert.ToInt32(CBTB.Text));
+                    CHTB.Text = Color.Color.RGBtoHEX(Convert.ToInt32(CRTB.Text), Convert.ToInt32(CGTB.Text), Convert.ToInt32(CBTB.Text));
                 }
                 else
                 {
-                    CRTB.Text = Color.HEXtoRGB(CHTB.Text, Conforyon.ColorType.OnlyR);
-                    CGTB.Text = Color.HEXtoRGB(CHTB.Text, Conforyon.ColorType.OnlyG);
-                    CBTB.Text = Color.HEXtoRGB(CHTB.Text, Conforyon.ColorType.OnlyB);
+                    CRTB.Text = Color.Color.HEXtoRGB(CHTB.Text, Enum.Enum.ColorType.OnlyR);
+                    CGTB.Text = Color.Color.HEXtoRGB(CHTB.Text, Enum.Enum.ColorType.OnlyG);
+                    CBTB.Text = Color.Color.HEXtoRGB(CHTB.Text, Enum.Enum.ColorType.OnlyB);
                 }
             }
             catch
@@ -67,7 +67,7 @@ namespace Conforyon.UX.UC
             {
                 if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    if (Clipboard.GetText() != CHTB.Text)
+                    if (ClipBoard.GetText() != CHTB.Text)
                     {
                         ClipBoard.CopyText(CHTB.Text);
                         CHTB.Focus();
@@ -75,7 +75,7 @@ namespace Conforyon.UX.UC
                 }
                 else
                 {
-                    if (Clipboard.GetText() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
+                    if (ClipBoard.GetText() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
                     {
                         ClipBoard.CopyText(CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text);
                         CGTB.Focus();

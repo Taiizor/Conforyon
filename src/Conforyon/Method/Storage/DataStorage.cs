@@ -1,18 +1,15 @@
 ﻿#region Imports
 
-using static Conforyon.Conforyon;
-using static Conforyon.Enum.Enum;
 using System.Text.RegularExpressions;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Storage
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class DataStorage
+    public class DataStorage
     {
         /// <summary>
         /// 
@@ -25,31 +22,31 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string AutoDataConvert(string InputVariable, StorageType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string AutoDataConvert(string InputVariable, Enum.Enum.StorageType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && InputType >= StorageType.Bit && InputType <= StorageType.YB && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= Constant.Constant.VariableLength && InputType >= Enum.Enum.StorageType.Bit && InputType <= Enum.Enum.StorageType.YB && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Core.UseCheck(InputVariable))
                 {
-                    StorageType Type = InputType;
-                    if (InputType == StorageType.YB)
+                    Enum.Enum.StorageType Type = InputType;
+                    if (InputType == Enum.Enum.StorageType.YB)
                     {
-                        Type = StorageType.YB;
+                        Type = Enum.Enum.StorageType.YB;
                     }
                     else
                     {
-                        for (int i = (int)InputType; i <= (int)StorageType.YB; i++)
+                        for (int i = (int)InputType; i <= (int)Enum.Enum.StorageType.YB; i++)
                         {
-                            if (DataConvert(InputVariable, InputType, (StorageType)i, false, false, 0, Error) == "0")
+                            if (DataConvert(InputVariable, InputType, (Enum.Enum.StorageType)i, false, false, 0, Error) == "0")
                             {
-                                Type = (StorageType)i - 1;
+                                Type = (Enum.Enum.StorageType)i - 1;
                                 break;
                             }
                             else
                             {
-                                if ((StorageType)i == StorageType.YB)
+                                if ((Enum.Enum.StorageType)i == Enum.Enum.StorageType.YB)
                                 {
-                                    Type = (StorageType)i;
+                                    Type = (Enum.Enum.StorageType)i;
                                 }
                             }
                         }
@@ -78,15 +75,15 @@ namespace Conforyon
                         {
                             if (Decimal && !Comma)
                             {
-                                Result = UseDecimal(InputVariable);
+                                Result = Core.UseDecimal(InputVariable);
                             }
                             else if (!Decimal && Comma)
                             {
-                                Result = UseComma(InputVariable, PostComma);
+                                Result = Core.UseComma(InputVariable, PostComma);
                             }
                             else
                             {
-                                Result = DecimalComma(InputVariable, PostComma);
+                                Result = Core.DecimalComma(InputVariable, PostComma);
                             }
                         }
                         if (!TypeText || Result == Error)
@@ -106,7 +103,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "SE-ADC1!)";
+                return Error + Constant.Constant.ErrorTitle + "SE-ADC1!)";
             }
         }
 
@@ -121,24 +118,24 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string DataConvert(string InputVariable, StorageType InputType, StorageType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string DataConvert(string InputVariable, Enum.Enum.StorageType InputType, Enum.Enum.StorageType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && InputType >= StorageType.Bit && InputType <= StorageType.YB && TypeConvert >= StorageType.Bit && TypeConvert <= StorageType.YB && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= Constant.Constant.VariableLength && InputType >= Enum.Enum.StorageType.Bit && InputType <= Enum.Enum.StorageType.YB && TypeConvert >= Enum.Enum.StorageType.Bit && TypeConvert <= Enum.Enum.StorageType.YB && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Core.UseCheck(InputVariable))
                 {
                     switch (InputType)
                     {
-                        case StorageType.Bit:
+                        case Enum.Enum.StorageType.Bit:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "Byte", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "Byte", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -146,10 +143,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "KB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "KB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -157,10 +154,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "MB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "MB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -168,10 +165,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "GB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -179,10 +176,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "TB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -190,10 +187,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "PB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -201,10 +198,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -212,10 +209,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -223,10 +220,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Bit", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Bit", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -238,13 +235,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.Byte:
+                        case Enum.Enum.StorageType.Byte:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -252,12 +249,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "KB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "KB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -265,10 +262,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "MB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "MB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -276,10 +273,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "GB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -287,10 +284,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "TB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -298,10 +295,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "PB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -309,10 +306,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -320,10 +317,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -331,10 +328,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "Byte", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "Byte", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -346,13 +343,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.KB:
+                        case Enum.Enum.StorageType.KB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -360,10 +357,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -371,12 +368,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "MB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "MB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -384,10 +381,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "GB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -395,10 +392,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "TB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -406,10 +403,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -417,10 +414,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -428,10 +425,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -439,10 +436,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "KB", "YB", Error).ToString(), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "KB", "YB", Error).ToString(), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -454,13 +451,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.MB:
+                        case Enum.Enum.StorageType.MB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -468,10 +465,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -479,10 +476,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -490,12 +487,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "GB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -503,10 +500,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "TB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -514,10 +511,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -525,10 +522,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -536,10 +533,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -547,10 +544,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "MB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "MB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -562,13 +559,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.GB:
+                        case Enum.Enum.StorageType.GB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -576,10 +573,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -587,10 +584,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -598,10 +595,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -609,12 +606,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "TB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -622,10 +619,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -633,10 +630,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -644,10 +641,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -655,10 +652,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "GB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "GB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -670,13 +667,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.TB:
+                        case Enum.Enum.StorageType.TB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -684,10 +681,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -695,10 +692,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -706,10 +703,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -717,10 +714,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -728,12 +725,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -741,10 +738,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -752,10 +749,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -763,10 +760,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "TB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "TB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -778,13 +775,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.PB:
+                        case Enum.Enum.StorageType.PB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -792,10 +789,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -803,10 +800,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -814,10 +811,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -825,10 +822,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -836,10 +833,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -847,12 +844,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -860,10 +857,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -871,10 +868,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "PB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "PB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -886,13 +883,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.EB:
+                        case Enum.Enum.StorageType.EB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "Bit", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "Bit", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -900,10 +897,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -911,10 +908,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -922,10 +919,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -933,10 +930,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -944,10 +941,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -955,10 +952,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "PB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "PB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -966,12 +963,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -979,10 +976,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "EB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "EB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -994,13 +991,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.ZB:
+                        case Enum.Enum.StorageType.ZB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "Bit", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "Bit", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1008,10 +1005,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "Byte", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "Byte", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1019,10 +1016,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "KB", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "KB", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1030,10 +1027,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1041,10 +1038,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1052,10 +1049,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1063,10 +1060,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "PB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "PB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1074,10 +1071,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "EB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "EB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1085,12 +1082,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case StorageType.YB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.YB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "ZB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "ZB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -1102,13 +1099,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case StorageType.YB:
+                        case Enum.Enum.StorageType.YB:
                             switch (TypeConvert)
                             {
-                                case StorageType.Bit:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Bit:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "Bit", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "Bit", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1116,10 +1113,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.Byte:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.Byte:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "Byte", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "Byte", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1127,10 +1124,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.KB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.KB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "KB", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "KB", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1138,10 +1135,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.MB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.MB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1149,10 +1146,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.GB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.GB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1160,10 +1157,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.TB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.TB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1171,10 +1168,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.PB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.PB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "PB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "PB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1182,10 +1179,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.EB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.EB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "EB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "EB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1193,10 +1190,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.ZB:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.StorageType.ZB:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("DataStorage", "YB", "ZB", Error), Comma, false, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("DataStorage", "YB", "ZB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1204,8 +1201,8 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case StorageType.YB:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.StorageType.YB:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 default:
                                     return Error;
                             }
@@ -1213,7 +1210,7 @@ namespace Conforyon
                         default:
                             return Error;
                     }
-                    return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                    return Core.LastCheck(Variable, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -1222,7 +1219,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "SE-DC1!)";
+                return Error + Constant.Constant.ErrorTitle + "SE-DC1!)";
             }
         }
     }

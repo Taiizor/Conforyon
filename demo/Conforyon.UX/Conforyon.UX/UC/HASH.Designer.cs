@@ -132,7 +132,7 @@ namespace Conforyon.UX.UC
             this.FRTB.ReadOnly = true;
             this.FRTB.Size = new System.Drawing.Size(249, 50);
             this.FRTB.TabIndex = 5;
-            this.FRTB.Text = "3f76e37d03810bed3ccc128f21321b5e";
+            this.FRTB.Text = "02b1be171e92fdadd1f6e086e70e05a2";
             // 
             // CSS
             // 

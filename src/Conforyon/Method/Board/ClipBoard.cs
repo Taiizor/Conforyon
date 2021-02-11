@@ -2,16 +2,15 @@
 
 using System.IO;
 using System.Windows.Forms;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Board
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class ClipBoard
+    public class ClipBoard
     {
         /// <summary>
         /// 
@@ -53,7 +52,7 @@ namespace Conforyon
         /// <param name="Back"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage)
+        public static string GetText(bool Clear = false, string Back = Constant.Constant.EmptyMessage, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -75,7 +74,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CB-PT1!)";
+                return Error + Constant.Constant.ErrorTitle + "CB-PT1!)";
             }
         }
 

@@ -1,7 +1,15 @@
 ﻿using System;
-using Conforyon;
+using Conforyon.Time;
+using Conforyon.Hash;
+using Conforyon.Value;
+using Conforyon.Color;
+using Conforyon.Speed;
+using Conforyon.Crypto;
+using Conforyon.Storage;
+using Conforyon.Unicode;
 using System.Windows.Forms;
-using static Conforyon.Conforyon;
+using Conforyon.Typography;
+using Conforyon.Temperature;
 using static Conforyon.Enum.Enum;
 
 namespace Conforyon_CR
@@ -107,11 +115,11 @@ namespace Conforyon_CR
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(GetValues("DataStorage", "PB", "EB", "Error!"));
-            MessageBox.Show(SetValues("DataStorage", "PB", "EB", "3333", "Error!"));
+            MessageBox.Show(Value.GetValue("DataStorage", "PB", "EB", "Error!"));
+            MessageBox.Show(Value.SetValue("DataStorage", "PB", "EB", "3333", "Error!"));
 
-            MessageBox.Show(GetValues("Temperature", "Celsius", "Multipy", "Error!"));
-            MessageBox.Show(SetValues("Temperature", "Celsius", "Multipy", "18", "Error!"));
+            MessageBox.Show(Value.GetValue("Temperature", "Celsius", "Multipy", "Error!"));
+            MessageBox.Show(Value.SetValue("Temperature", "Celsius", "Multipy", "18", "Error!"));
         }
 
         private void Button11_Click(object sender, EventArgs e)
@@ -128,7 +136,7 @@ namespace Conforyon_CR
 
         private void Button12_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(ListValuesJson());
+            MessageBox.Show(Value.ListValueJson());
         }
     }
 }

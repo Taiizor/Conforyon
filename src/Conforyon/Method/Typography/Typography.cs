@@ -1,17 +1,15 @@
 ﻿#region Imports
 
 using System;
-using static Conforyon.Conforyon;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Typography
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Typography
+    public class Typography
     {
         /// <summary>
         /// 
@@ -22,13 +20,13 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string INCHtoCM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string INCHtoCM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Inch.Length <= VariableLength && NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Inch))
+                if (Inch.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Inch))
                 {
-                    return LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(GetValues("Typography", "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    return Core.LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(Value.Value.GetValue("Typography", "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -37,7 +35,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TY-ITC1!)";
+                return Error + Constant.Constant.ErrorTitle + "TY-ITC1!)";
             }
         }
 
@@ -50,14 +48,14 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string INCHtoPX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string INCHtoPX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Inch.Length <= VariableLength && NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Inch))
+                if (Inch.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Inch))
                 {
-                    string Result = (Convert.ToInt64(Inch) * Convert.ToDouble(GetValues("Typography", "INCH", "PX", Error))).ToString();
-                    return LastCheck2(Result, Decimal, Comma, PostComma, Error);
+                    string Result = (Convert.ToInt64(Inch) * Convert.ToDouble(Value.Value.GetValue("Typography", "INCH", "PX", Error))).ToString();
+                    return Core.LastCheck2(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -66,7 +64,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TY-ITP1!)";
+                return Error + Constant.Constant.ErrorTitle + "TY-ITP1!)";
             }
         }
 
@@ -79,19 +77,19 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CMtoINCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string CMtoINCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Centimeter.Length <= VariableLength && NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Centimeter))
+                if (Centimeter.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Centimeter))
                 {
                     if (Convert.ToInt64(Centimeter) >= 3)
                     {
-                        return LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(GetValues("Typography", "CM", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Value.Value.GetValue("Typography", "CM", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {
-                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2("0", Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -101,7 +99,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TY-CTI1!)";
+                return Error + Constant.Constant.ErrorTitle + "TY-CTI1!)";
             }
         }
 
@@ -114,13 +112,13 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CMtoPX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string CMtoPX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Centimeter.Length <= VariableLength && NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Centimeter))
+                if (Centimeter.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Centimeter))
                 {
-                    return LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(GetValues("Typography", "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    return Core.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Value.Value.GetValue("Typography", "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -129,7 +127,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TY-CTP1!)";
+                return Error + Constant.Constant.ErrorTitle + "TY-CTP1!)";
             }
         }
 
@@ -142,19 +140,19 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string PXtoCM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string PXtoCM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Pixel.Length <= VariableLength && NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Pixel))
+                if (Pixel.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 38)
                     {
-                        return LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(GetValues("Typography", "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(Value.Value.GetValue("Typography", "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {
-                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2("0", Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -164,7 +162,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TY-PTC1!)";
+                return Error + Constant.Constant.ErrorTitle + "TY-PTC1!)";
             }
         }
 
@@ -177,19 +175,19 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string PXtoINCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string PXtoINCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Pixel.Length <= VariableLength && NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Pixel))
+                if (Pixel.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 96)
                     {
-                        return LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(GetValues("Typography", "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(Value.Value.GetValue("Typography", "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {
-                        return LastCheck2("0", Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2("0", Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -199,7 +197,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TY-PTI1!)";
+                return Error + Constant.Constant.ErrorTitle + "TY-PTI1!)";
             }
         }
     }

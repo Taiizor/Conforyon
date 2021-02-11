@@ -2,18 +2,15 @@
 
 using System;
 using System.Text;
-using static Conforyon.Conforyon;
-using static Conforyon.Enum.Enum;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Unicode
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Unicode
+    public class Unicode
     {
         /// <summary>
         /// 
@@ -22,11 +19,11 @@ namespace Conforyon
         /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string CHARtoASCII(string CHAR, char Bracket = ',', string Error = ErrorMessage)
+        public static string CHARtoASCII(string CHAR, char Bracket = ',', string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (CHAR.Length <= TextLength && UseCheck(CHAR, true))
+                if (CHAR.Length <= Constant.Constant.TextLength && Core.UseCheck(CHAR, true))
                 {
                     string Result = string.Empty;
                     byte[] LetterByte;
@@ -51,7 +48,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "UE-CTA1!)";
+                return Error + Constant.Constant.ErrorTitle + "UE-CTA1!)";
             }
         }
 
@@ -62,11 +59,11 @@ namespace Conforyon
         /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ASCIItoCHAR(string ASCII, char Bracket = ',', string Error = ErrorMessage)
+        public static string ASCIItoCHAR(string ASCII, char Bracket = ',', string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (ASCII.Length <= TextLength && UseCheck(ASCII, Bracket == ' '))
+                if (ASCII.Length <= Constant.Constant.TextLength && Core.UseCheck(ASCII, Bracket == ' '))
                 {
                     string Result = string.Empty;
                     if (ASCII.Contains(Bracket.ToString()))
@@ -74,7 +71,7 @@ namespace Conforyon
                         string[] Letters = ASCII.Split(Bracket);
                         for (int i = 0; i < Letters.Length; i++)
                         {
-                            if (NumberCheck(Letters[i], false, IntType.Int32) && Letters[i].Length >= 1 && Letters[i].Length <= 3 && Convert.ToInt32(Letters[i]) >= 0 && Convert.ToInt32(Letters[i]) <= 255)
+                            if (Core.NumberCheck(Letters[i], false, Enum.Enum.IntType.Int32) && Letters[i].Length >= 1 && Letters[i].Length <= 3 && Convert.ToInt32(Letters[i]) >= 0 && Convert.ToInt32(Letters[i]) <= 255)
                             {
                                 Result += UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(Letters[i]) }); //Encoding.ASCII
                             }
@@ -86,7 +83,7 @@ namespace Conforyon
                     }
                     else
                     {
-                        if (NumberCheck(ASCII, false, IntType.Int32) && ASCII.Length >= 1 && ASCII.Length <= 3 && Convert.ToInt32(ASCII) >= 0 && Convert.ToInt32(ASCII) <= 255)
+                        if (Core.NumberCheck(ASCII, false, Enum.Enum.IntType.Int32) && ASCII.Length >= 1 && ASCII.Length <= 3 && Convert.ToInt32(ASCII) >= 0 && Convert.ToInt32(ASCII) <= 255)
                         {
                             Result = UTF8Encoding.UTF8.GetString(new byte[] { Convert.ToByte(ASCII) }); //Encoding.ASCII
                         }
@@ -104,7 +101,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "UE-ATC1!)";
+                return Error + Constant.Constant.ErrorTitle + "UE-ATC1!)";
             }
         }
     }

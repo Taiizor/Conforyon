@@ -1,5 +1,5 @@
 ﻿using System;
-using Conforyon;
+using Conforyon.Board;
 using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
@@ -23,7 +23,7 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Clipboard.GetText() != CVTB.Text)
+                if (ClipBoard.GetText() != CVTB.Text)
                 {
                     ClipBoard.CopyText(CVTB.Text);
                     CVTB.Focus();
@@ -39,7 +39,7 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Clipboard.GetText() != CRTB.Text)
+                if (ClipBoard.GetText() != CRTB.Text)
                 {
                     CRTB.Text = ClipBoard.GetText();
                     CRTB.Focus();

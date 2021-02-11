@@ -2,18 +2,16 @@
 
 using System;
 using System.Text;
-using static Conforyon.Conforyon;
 using System.Security.Cryptography;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Crypto
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Crypto
+    public class Crypto
     {
         /// <summary>
         /// 
@@ -21,11 +19,11 @@ namespace Conforyon
         /// <param name="Base64"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string BASE64toTEXT(string Base64, string Error = ErrorMessage)
+        public static string BASE64toTEXT(string Base64, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Base64.Length <= TextLength && UseCheck(Base64))
+                if (Base64.Length <= Constant.Constant.TextLength && Core.UseCheck(Base64))
                 {
                     if (Base64.EndsWith("="))
                     {
@@ -78,7 +76,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-BTT1!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-BTT1!)";
             }
         }
 
@@ -88,11 +86,11 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoBASE64(string Text, string Error = ErrorMessage)
+        public static string TEXTtoBASE64(string Text, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Text.Length <= TextLength && UseCheck(Text, true))
+                if (Text.Length <= Constant.Constant.TextLength && Core.UseCheck(Text, true))
                 {
                     return Convert.ToBase64String(Encoding.UTF8.GetBytes(Text));
                 }
@@ -103,7 +101,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-TTB1!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-TTB1!)";
             }
         }
 
@@ -114,11 +112,11 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoMD5(string Text, bool Uppercase = false, string Error = ErrorMessage)
+        public static string TEXTtoMD5(string Text, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Text.Length <= TextLength && UseCheck(Text, true))
+                if (Text.Length <= Constant.Constant.TextLength && Core.UseCheck(Text, true))
                 {
                     using MD5 MD5 = MD5.Create();
                     MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -138,7 +136,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-TTM1!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-TTM1!)";
             }
         }
 
@@ -149,11 +147,11 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA1(string Text, bool Uppercase = false, string Error = ErrorMessage)
+        public static string TEXTtoSHA1(string Text, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Text.Length <= TextLength && UseCheck(Text, true))
+                if (Text.Length <= Constant.Constant.TextLength && Core.UseCheck(Text, true))
                 {
                     using SHA1 SHA1 = SHA1.Create();
                     byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -172,7 +170,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-TTS1!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-TTS1!)";
             }
         }
 
@@ -183,11 +181,11 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA256(string Text, bool Uppercase = false, string Error = ErrorMessage)
+        public static string TEXTtoSHA256(string Text, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Text.Length <= TextLength && UseCheck(Text, true))
+                if (Text.Length <= Constant.Constant.TextLength && Core.UseCheck(Text, true))
                 {
                     using SHA256 SHA256 = SHA256.Create();
                     byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -206,7 +204,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-TTS2!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-TTS2!)";
             }
         }
 
@@ -217,11 +215,11 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA384(string Text, bool Uppercase = false, string Error = ErrorMessage)
+        public static string TEXTtoSHA384(string Text, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Text.Length <= TextLength && UseCheck(Text, true))
+                if (Text.Length <= Constant.Constant.TextLength && Core.UseCheck(Text, true))
                 {
                     using SHA384 SHA384 = SHA384.Create();
                     byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -240,7 +238,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-TTS3!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-TTS3!)";
             }
         }
 
@@ -251,11 +249,11 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TEXTtoSHA512(string Text, bool Uppercase = false, string Error = ErrorMessage)
+        public static string TEXTtoSHA512(string Text, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Text.Length <= TextLength && UseCheck(Text, true))
+                if (Text.Length <= Constant.Constant.TextLength && Core.UseCheck(Text, true))
                 {
                     using SHA512 SHA512 = SHA512.Create();
                     byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -274,7 +272,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CO-TTS4!)";
+                return Error + Constant.Constant.ErrorTitle + "CO-TTS4!)";
             }
         }
     }

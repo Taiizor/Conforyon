@@ -1,17 +1,15 @@
 ﻿#region Imports
 
 using System;
-using static Conforyon.Conforyon;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Speed
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Speed
+    public class Speed
     {
         /// <summary>
         /// 
@@ -23,19 +21,19 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Miles.Length <= VariableLength && NumberCheck(Miles) && !Miles.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Miles))
+                if (Miles.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Miles) && !Miles.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Miles))
                 {
                     if (Text)
                     {
-                        return LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(GetValues("Speed", "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
+                        return Core.LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(Value.Value.GetValue("Speed", "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
                     }
                     else
                     {
-                        return LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(GetValues("Speed", "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(Value.Value.GetValue("Speed", "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -45,7 +43,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "SD-MTK1!)";
+                return Error + Constant.Constant.ErrorTitle + "SD-MTK1!)";
             }
         }
 
@@ -59,19 +57,19 @@ namespace Conforyon
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage)
+        public static string KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Kilometers.Length <= VariableLength && NumberCheck(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && UseCheck(Kilometers))
+                if (Kilometers.Length <= Constant.Constant.VariableLength && Core.NumberCheck(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && Core.UseCheck(Kilometers))
                 {
                     if (Text)
                     {
-                        return LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(GetValues("Speed", "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
+                        return Core.LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(Value.Value.GetValue("Speed", "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
                     }
                     else
                     {
-                        return LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(GetValues("Speed", "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(Value.Value.GetValue("Speed", "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -81,7 +79,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "SD-KTM1!)";
+                return Error + Constant.Constant.ErrorTitle + "SD-KTM1!)";
             }
         }
     }

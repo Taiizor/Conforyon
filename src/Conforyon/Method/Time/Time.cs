@@ -1,18 +1,15 @@
 ﻿#region Imports
 
-using static Conforyon.Conforyon;
-using static Conforyon.Enum.Enum;
 using System.Text.RegularExpressions;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Time
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Time
+    public class Time
     {
         /// <summary>
         /// 
@@ -25,31 +22,31 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string AutoTimeConvert(string InputVariable, TimeType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string AutoTimeConvert(string InputVariable, Enum.Enum.TimeType InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (InputVariable.Length <= VariableLength && InputType >= TimeType.Nanosecond && InputType <= TimeType.Millennium && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= Constant.Constant.VariableLength && InputType >= Enum.Enum.TimeType.Nanosecond && InputType <= Enum.Enum.TimeType.Millennium && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Core.UseCheck(InputVariable))
                 {
-                    TimeType Type = InputType;
-                    if (InputType == TimeType.Millennium)
+                    Enum.Enum.TimeType Type = InputType;
+                    if (InputType == Enum.Enum.TimeType.Millennium)
                     {
-                        Type = TimeType.Millennium;
+                        Type = Enum.Enum.TimeType.Millennium;
                     }
                     else
                     {
-                        for (int i = (int)InputType; i <= (int)TimeType.Millennium; i++)
+                        for (int i = (int)InputType; i <= (int)Enum.Enum.TimeType.Millennium; i++)
                         {
-                            if (TimeConvert(InputVariable, InputType, (TimeType)i, true, true, 0, Error) == "0")
+                            if (TimeConvert(InputVariable, InputType, (Enum.Enum.TimeType)i, true, true, 0, Error) == "0")
                             {
-                                Type = (TimeType)i - 1;
+                                Type = (Enum.Enum.TimeType)i - 1;
                                 break;
                             }
                             else
                             {
-                                if ((TimeType)i == TimeType.Millennium)
+                                if ((Enum.Enum.TimeType)i == Enum.Enum.TimeType.Millennium)
                                 {
-                                    Type = (TimeType)i;
+                                    Type = (Enum.Enum.TimeType)i;
                                 }
                             }
                         }
@@ -78,15 +75,15 @@ namespace Conforyon
                         {
                             if (Decimal && !Comma)
                             {
-                                Result = UseDecimal(InputVariable);
+                                Result = Core.UseDecimal(InputVariable);
                             }
                             else if (!Decimal && Comma)
                             {
-                                Result = UseComma(InputVariable, PostComma);
+                                Result = Core.UseComma(InputVariable, PostComma);
                             }
                             else
                             {
-                                Result = DecimalComma(InputVariable, PostComma);
+                                Result = Core.DecimalComma(InputVariable, PostComma);
                             }
                         }
                         if (!TypeText || Result == Error)
@@ -106,7 +103,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TE-ATC1!)";
+                return Error + Constant.Constant.ErrorTitle + "TE-ATC1!)";
             }
         }
 
@@ -121,24 +118,24 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string TimeConvert(string InputVariable, TimeType InputType, TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = ErrorMessage)
+        public static string TimeConvert(string InputVariable, Enum.Enum.TimeType InputType, Enum.Enum.TimeType TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
                 string Variable;
-                if (InputVariable.Length <= VariableLength && InputType >= TimeType.Nanosecond && InputType <= TimeType.Millennium && TypeConvert >= TimeType.Nanosecond && TypeConvert <= TimeType.Millennium && PostComma >= PostCommaMinimum && PostComma <= PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && UseCheck(InputVariable))
+                if (InputVariable.Length <= Constant.Constant.VariableLength && InputType >= Enum.Enum.TimeType.Nanosecond && InputType <= Enum.Enum.TimeType.Millennium && TypeConvert >= Enum.Enum.TimeType.Nanosecond && TypeConvert <= Enum.Enum.TimeType.Millennium && PostComma >= Constant.Constant.PostCommaMinimum && PostComma <= Constant.Constant.PostCommaMaximum && !Regex.IsMatch(InputVariable, "[^0-9]") && !InputVariable.StartsWith("0") && Core.UseCheck(InputVariable))
                 {
                     switch (InputType)
                     {
-                        case TimeType.Nanosecond:
+                        case Enum.Enum.TimeType.Nanosecond:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -146,10 +143,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -157,10 +154,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -168,10 +165,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -179,10 +176,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -190,10 +187,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -201,10 +198,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -212,10 +209,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -223,10 +220,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -234,10 +231,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Nanosecond", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Nanosecond", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -249,13 +246,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Microsecond:
+                        case Enum.Enum.TimeType.Microsecond:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -263,12 +260,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -276,10 +273,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -287,10 +284,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -298,10 +295,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -309,10 +306,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -320,10 +317,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -331,10 +328,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -342,10 +339,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -353,10 +350,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Microsecond", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Microsecond", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -368,13 +365,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Millisecond:
+                        case Enum.Enum.TimeType.Millisecond:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -382,10 +379,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -393,12 +390,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -406,10 +403,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -417,10 +414,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -428,10 +425,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -439,10 +436,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -450,10 +447,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -461,10 +458,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -472,10 +469,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millisecond", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millisecond", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -487,13 +484,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Second:
+                        case Enum.Enum.TimeType.Second:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -501,10 +498,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -512,10 +509,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -523,12 +520,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -536,10 +533,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -547,10 +544,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -558,10 +555,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -569,10 +566,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -580,10 +577,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -591,10 +588,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Second", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Second", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -606,13 +603,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Minute:
+                        case Enum.Enum.TimeType.Minute:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -620,10 +617,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -631,10 +628,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -642,10 +639,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -653,12 +650,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -666,10 +663,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -677,10 +674,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -688,10 +685,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -699,10 +696,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -710,10 +707,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Minute", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Minute", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -725,13 +722,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Hour:
+                        case Enum.Enum.TimeType.Hour:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -739,10 +736,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -750,10 +747,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -761,10 +758,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -772,10 +769,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -783,12 +780,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -796,10 +793,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -807,10 +804,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -818,10 +815,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -829,10 +826,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Hour", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Hour", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -844,13 +841,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Day:
+                        case Enum.Enum.TimeType.Day:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -858,10 +855,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -869,10 +866,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -880,10 +877,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -891,10 +888,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -902,10 +899,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -913,12 +910,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -926,10 +923,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -937,10 +934,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -948,10 +945,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Day", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Day", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -963,13 +960,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Week:
+                        case Enum.Enum.TimeType.Week:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -977,10 +974,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -988,10 +985,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -999,10 +996,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1010,10 +1007,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1021,10 +1018,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1032,10 +1029,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1043,12 +1040,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1056,10 +1053,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1067,10 +1064,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Week", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Week", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1082,13 +1079,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Year:
+                        case Enum.Enum.TimeType.Year:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1096,10 +1093,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1107,10 +1104,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1118,10 +1115,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1129,10 +1126,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1140,10 +1137,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1151,10 +1148,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1162,10 +1159,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1173,12 +1170,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1186,10 +1183,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Year", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Year", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1201,13 +1198,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Century:
+                        case Enum.Enum.TimeType.Century:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1215,10 +1212,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1226,10 +1223,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1237,10 +1234,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1248,10 +1245,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1259,10 +1256,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1270,10 +1267,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1281,10 +1278,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1292,10 +1289,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1303,12 +1300,12 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
-                                case TimeType.Millennium:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Millennium:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Century", "Millennium", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Century", "Millennium", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1320,13 +1317,13 @@ namespace Conforyon
                                     return Error;
                             }
                             break;
-                        case TimeType.Millennium:
+                        case Enum.Enum.TimeType.Millennium:
                             switch (TypeConvert)
                             {
-                                case TimeType.Nanosecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Nanosecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Nanosecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Nanosecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1334,10 +1331,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Microsecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Microsecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Microsecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Microsecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1345,10 +1342,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millisecond:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Millisecond:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Millisecond", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Millisecond", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1356,10 +1353,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Second:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Second:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Second", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Second", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1367,10 +1364,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Minute:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Minute:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Minute", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Minute", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1378,10 +1375,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Hour:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Hour:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Hour", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Hour", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1389,10 +1386,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Day:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Day:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Day", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Day", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1400,10 +1397,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Week:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Week:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Week", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Week", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1411,10 +1408,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Year:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Year:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Year", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Year", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1422,10 +1419,10 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Century:
-                                    if (NumberCheck(InputVariable))
+                                case Enum.Enum.TimeType.Century:
+                                    if (Core.NumberCheck(InputVariable))
                                     {
-                                        Variable = VariableFormat(InputVariable, GetValues("Time", "Millennium", "Century", Error), Comma, true, false, Error);
+                                        Variable = Core.VariableFormat(InputVariable, Value.Value.GetValue("Time", "Millennium", "Century", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1433,8 +1430,8 @@ namespace Conforyon
                                     }
 
                                     break;
-                                case TimeType.Millennium:
-                                    return LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
+                                case Enum.Enum.TimeType.Millennium:
+                                    return Core.LastCheck(InputVariable, Decimal, Comma, PostComma, Error);
                                 default:
                                     return Error;
                             }
@@ -1444,11 +1441,11 @@ namespace Conforyon
                     }
                     if (!Comma)
                     {
-                        return LastCheck(Variable, Decimal, !Comma, 0, Error);
+                        return Core.LastCheck(Variable, Decimal, !Comma, 0, Error);
                     }
                     else
                     {
-                        return LastCheck(Variable, Decimal, Comma, PostComma, Error);
+                        return Core.LastCheck(Variable, Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -1458,7 +1455,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "TE-TC1!)";
+                return Error + Constant.Constant.ErrorTitle + "TE-TC1!)";
             }
         }
     }

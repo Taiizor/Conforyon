@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿#region Imports
+
+using System.Collections.Generic;
+
+#endregion
 
 namespace Conforyon.Array
 {
     /// <summary>
     /// 
     /// </summary>
-    public class Array
+    internal class Array
     {
         #region Arrays
         /// <summary>
@@ -29,7 +33,7 @@ namespace Conforyon.Array
         /// <summary>
         /// 
         /// </summary>
-        internal static readonly Dictionary<string, Dictionary<string, Dictionary<string, string>>> UnitValues = new()
+        public static readonly Dictionary<string, Dictionary<string, Dictionary<string, string>>> UnitValues = new()
         {
             {
                 "DataStorage",

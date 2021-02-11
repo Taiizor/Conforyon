@@ -79,8 +79,8 @@ Adım 2：Dönüşümlerin tadını çıkarın
 #### Alma
 
 ```CS
-/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
-GetValues("Time", "Minute", "Second", "Hata!");
+/* GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValue("Time", "Minute", "Second", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -90,8 +90,8 @@ GetValues("Time", "Minute", "Second", "Hata!");
 ```
 
 ```CS
-/* GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
-GetValues("Speed", "MPH", "KPH", "Hata!");
+/* GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValue("Speed", "MPH", "KPH", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -103,8 +103,8 @@ GetValues("Speed", "MPH", "KPH", "Hata!");
 #### Ayarlama
 
 ```CS
-/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
-SetValues("Time", "Minute", "Second", "30", "Hata!");
+/* SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValue("Time", "Minute", "Second", "30", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -114,8 +114,8 @@ SetValues("Time", "Minute", "Second", "30", "Hata!");
 ```
 
 ```CS
-/* SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
-SetValues("Speed", "MPH", "KPH", "2", "Hata!");
+/* SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValue("Speed", "MPH", "KPH", "2", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -127,8 +127,8 @@ SetValues("Speed", "MPH", "KPH", "2", "Hata!");
 #### Liste
 
 ```CS
-/* ListValues(string Error = "Error", string Title = "Title") */
-ListValues("Hata", "Başlık");
+/* ListValue(string Error = "Error", string Title = "Title") */
+ListValue("Hata", "Başlık");
 ```
 ```XML
 <FunctionResult>
@@ -138,8 +138,8 @@ ListValues("Hata", "Başlık");
 ```
 
 ```CS
-/* ListValuesJson(string Error = ErrorMessage) */
-ListValuesJson("Hata!");
+/* ListValueJson(string Error = ErrorMessage) */
+ListValueJson("Hata!");
 ```
 ```XML
 <FunctionResult>

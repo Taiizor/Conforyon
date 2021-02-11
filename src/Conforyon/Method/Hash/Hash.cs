@@ -3,18 +3,16 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using static Conforyon.Enum.Enum;
 using System.Security.Cryptography;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
-namespace Conforyon
+namespace Conforyon.Hash
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class Hash
+    public class Hash
     {
         /// <summary>
         /// 
@@ -23,7 +21,7 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static string FILEtoMD5(string Path, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -41,7 +39,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "HH-FTM1!)";
+                return Error + Constant.Constant.ErrorTitle + "HH-FTM1!)";
             }
         }
 
@@ -52,7 +50,7 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static string FILEtoSHA1(string Path, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -70,7 +68,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "HH-FTS1!)";
+                return Error + Constant.Constant.ErrorTitle + "HH-FTS1!)";
             }
         }
 
@@ -81,7 +79,7 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static string FILEtoSHA256(string Path, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -99,7 +97,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "HH-FTS2!)";
+                return Error + Constant.Constant.ErrorTitle + "HH-FTS2!)";
             }
         }
 
@@ -110,7 +108,7 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static string FILEtoSHA384(string Path, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -128,7 +126,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "HH-FTS3!)";
+                return Error + Constant.Constant.ErrorTitle + "HH-FTS3!)";
             }
         }
 
@@ -139,7 +137,7 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static string FILEtoSHA512(string Path, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -157,7 +155,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "HH-FTS4!)";
+                return Error + Constant.Constant.ErrorTitle + "HH-FTS4!)";
             }
         }
 
@@ -169,23 +167,23 @@ namespace Conforyon
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static Task<string> FILEtoHASH_Async(HashType Type, string Path, bool Uppercase = false, string Error = ErrorMessage)
+        public static Task<string> FILEtoHASH_Async(Enum.Enum.HashType Type, string Path, bool Uppercase = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
                 return Type switch
                 {
-                    HashType.MD5 => new Task<string>(() => FILEtoMD5(Path, Uppercase, Error)),
-                    HashType.SHA1 => new Task<string>(() => FILEtoSHA1(Path, Uppercase, Error)),
-                    HashType.SHA256 => new Task<string>(() => FILEtoSHA256(Path, Uppercase, Error)),
-                    HashType.SHA384 => new Task<string>(() => FILEtoSHA384(Path, Uppercase, Error)),
-                    HashType.SHA512 => new Task<string>(() => FILEtoSHA512(Path, Uppercase, Error)),
+                    Enum.Enum.HashType.MD5 => new Task<string>(() => FILEtoMD5(Path, Uppercase, Error)),
+                    Enum.Enum.HashType.SHA1 => new Task<string>(() => FILEtoSHA1(Path, Uppercase, Error)),
+                    Enum.Enum.HashType.SHA256 => new Task<string>(() => FILEtoSHA256(Path, Uppercase, Error)),
+                    Enum.Enum.HashType.SHA384 => new Task<string>(() => FILEtoSHA384(Path, Uppercase, Error)),
+                    Enum.Enum.HashType.SHA512 => new Task<string>(() => FILEtoSHA512(Path, Uppercase, Error)),
                     _ => new Task<string>(() => Error),
                 };
             }
             catch
             {
-                return new Task<string>(() => Error + ErrorTitle + "HH-FTH1!)");
+                return new Task<string>(() => Error + Constant.Constant.ErrorTitle + "HH-FTH1!)");
             }
         }
     }

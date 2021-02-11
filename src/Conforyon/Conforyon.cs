@@ -1,12 +1,7 @@
 ﻿#region Imports
 
 using System;
-using System.Collections.Generic;
-using static Conforyon.Enum.Enum;
-using static Conforyon.Array.Array;
 using System.Text.RegularExpressions;
-using System.Web.Script.Serialization;
-using static Conforyon.Constant.Constant;
 
 #endregion
 
@@ -25,7 +20,7 @@ namespace Conforyon
     /// <summary>
     /// 
     /// </summary>
-    public static class Conforyon
+    internal class Core
     {
         #region Cores
         /// <summary>
@@ -35,7 +30,7 @@ namespace Conforyon
         /// <param name="TypePass"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static bool NumberCheck(string Variable, bool TypePass = false, IntType Type = IntType.Int64)
+        public static bool NumberCheck(string Variable, bool TypePass = false, Enum.Enum.IntType Type = Enum.Enum.IntType.Int64)
         {
             try
             {
@@ -53,22 +48,22 @@ namespace Conforyon
                     {
                         switch (Type)
                         {
-                            case IntType.Int16:
+                            case Enum.Enum.IntType.Int16:
                                 Convert.ToInt16(Variable);
                                 break;
-                            case IntType.Int32:
+                            case Enum.Enum.IntType.Int32:
                                 Convert.ToInt32(Variable);
                                 break;
-                            case IntType.Int64:
+                            case Enum.Enum.IntType.Int64:
                                 Convert.ToInt64(Variable);
                                 break;
-                            case IntType.UInt16:
+                            case Enum.Enum.IntType.UInt16:
                                 Convert.ToUInt16(Variable);
                                 break;
-                            case IntType.UInt32:
+                            case Enum.Enum.IntType.UInt32:
                                 Convert.ToUInt32(Variable);
                                 break;
-                            case IntType.UInt64:
+                            case Enum.Enum.IntType.UInt64:
                                 Convert.ToUInt64(Variable);
                                 break;
                             default:
@@ -91,13 +86,13 @@ namespace Conforyon
         /// <param name="Words"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static bool Searching(string Text, string[] Words, SearchType Type = SearchType.Contains)
+        public static bool Searching(string Text, string[] Words, Enum.Enum.SearchType Type = Enum.Enum.SearchType.Contains)
         {
             try
             {
                 switch (Type)
                 {
-                    case SearchType.Starts:
+                    case Enum.Enum.SearchType.Starts:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
@@ -114,7 +109,7 @@ namespace Conforyon
                         }
 
                         break;
-                    case SearchType.Contains:
+                    case Enum.Enum.SearchType.Contains:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
@@ -131,7 +126,7 @@ namespace Conforyon
                         }
 
                         break;
-                    case SearchType.Ends:
+                    case Enum.Enum.SearchType.Ends:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
@@ -167,7 +162,7 @@ namespace Conforyon
         /// <param name="Mod2"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = ErrorMessage)
+        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -200,9 +195,9 @@ namespace Conforyon
                                 Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
                             }
 
-                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
+                            if (Searching(Variable2, Array.Array.SymbolsCalc, Enum.Enum.SearchType.Contains))
                             {
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                if (Searching(Variable3, Array.Array.SymbolsMath, Enum.Enum.SearchType.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -211,9 +206,9 @@ namespace Conforyon
                                     Variable1 = Variable3;
                                 }
                             }
-                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                            else if (Searching(Variable3, Array.Array.SymbolsMath, Enum.Enum.SearchType.Starts))
                             {
-                                if (Searching(Variable2, SymbolsMath, SearchType.Starts))
+                                if (Searching(Variable2, Array.Array.SymbolsMath, Enum.Enum.SearchType.Starts))
                                 {
                                     Variable1 = Variable3;
                                 }
@@ -240,9 +235,9 @@ namespace Conforyon
                                 Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
                             }
 
-                            if (Searching(Variable2, SymbolsCalc, SearchType.Contains))
+                            if (Searching(Variable2, Array.Array.SymbolsCalc, Enum.Enum.SearchType.Contains))
                             {
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                if (Searching(Variable3, Array.Array.SymbolsMath, Enum.Enum.SearchType.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -251,9 +246,9 @@ namespace Conforyon
                                     Variable1 = Variable3;
                                 }
                             }
-                            else if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                            else if (Searching(Variable3, Array.Array.SymbolsMath, Enum.Enum.SearchType.Starts))
                             {
-                                if (Searching(Variable3, SymbolsMath, SearchType.Starts))
+                                if (Searching(Variable3, Array.Array.SymbolsMath, Enum.Enum.SearchType.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -284,7 +279,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-VF1!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-VF1!)";
             }
         }
 
@@ -294,11 +289,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string UseDecimal(string Variable, string Error = ErrorMessage)
+        public static string UseDecimal(string Variable, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Searching(Variable, SymbolsCalc))
+                if (Searching(Variable, Array.Array.SymbolsCalc))
                 {
                     return Variable;
                 }
@@ -342,7 +337,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-UD1!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-UD1!)";
             }
         }
 
@@ -352,11 +347,11 @@ namespace Conforyon
         /// <param name="Variable"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string UseDecimal2(string Variable, string Error = ErrorMessage)
+        public static string UseDecimal2(string Variable, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Searching(Variable, SymbolsCalc))
+                if (Searching(Variable, Array.Array.SymbolsCalc))
                 {
                     return Variable;
                 }
@@ -402,7 +397,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-UD2!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-UD2!)";
             }
         }
 
@@ -413,11 +408,11 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string UseComma(string Variable, int PostComma = 0, string Error = ErrorMessage)
+        public static string UseComma(string Variable, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Searching(Variable, SymbolsCalc))
+                if (Searching(Variable, Array.Array.SymbolsCalc))
                 {
                     return Variable;
                 }
@@ -466,7 +461,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-UC1!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-UC1!)";
             }
         }
 
@@ -477,11 +472,11 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string UseComma2(string Variable, int PostComma = 0, string Error = ErrorMessage)
+        public static string UseComma2(string Variable, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Searching(Variable, SymbolsCalc))
+                if (Searching(Variable, Array.Array.SymbolsCalc))
                 {
                     return Variable;
                 }
@@ -523,7 +518,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-UC2!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-UC2!)";
             }
         }
 
@@ -534,11 +529,11 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string DecimalComma(string Variable, int PostComma = 0, string Error = ErrorMessage)
+        public static string DecimalComma(string Variable, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
-                if (Searching(Variable, SymbolsCalc))
+                if (Searching(Variable, Array.Array.SymbolsCalc))
                 {
                     return Variable;
                 }
@@ -565,7 +560,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-DC1!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-DC1!)";
             }
         }
 
@@ -578,7 +573,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -611,7 +606,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-LC1!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-LC1!)";
             }
         }
 
@@ -624,7 +619,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage)
+        public static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = Constant.Constant.ErrorMessage)
         {
             try
             {
@@ -657,7 +652,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + ErrorTitle + "CN-LC2!)";
+                return Error + Constant.Constant.ErrorTitle + "CN-LC2!)";
             }
         }
 
@@ -697,140 +692,6 @@ namespace Conforyon
             catch
             {
                 return false;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Key1"></param>
-        /// <param name="Key2"></param>
-        /// <param name="Key3"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string GetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage)
-        {
-            try
-            {
-                if (UnitValues.ContainsKey(Key1))
-                {
-                    if (UnitValues[Key1].ContainsKey(Key2))
-                    {
-                        if (UnitValues[Key1][Key2].ContainsKey(Key3))
-                        {
-                            return UnitValues[Key1][Key2][Key3];
-                        }
-                        else
-                        {
-                            return Error;
-                        }
-                    }
-                    else
-                    {
-                        return Error;
-                    }
-                }
-                else
-                {
-                    return Error;
-                }
-            }
-            catch
-            {
-                return Error + ErrorTitle + "CN-GV1!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Key1"></param>
-        /// <param name="Key2"></param>
-        /// <param name="Key3"></param>
-        /// <param name="Value"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string SetValues(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage)
-        {
-            try
-            {
-                if (UnitValues.ContainsKey(Key1))
-                {
-                    if (UnitValues[Key1].ContainsKey(Key2))
-                    {
-                        if (UnitValues[Key1][Key2].ContainsKey(Key3))
-                        {
-                            UnitValues[Key1][Key2][Key3] = Value;
-                            return UnitValues[Key1][Key2][Key3];
-                        }
-                        else
-                        {
-                            return Error;
-                        }
-                    }
-                    else
-                    {
-                        return Error;
-                    }
-                }
-                else
-                {
-                    return Error;
-                }
-            }
-            catch
-            {
-                return Error + ErrorTitle + "CN-GV1!)";
-            }
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Error"></param>
-        /// <param name="Title"></param>
-        /// <returns></returns>
-        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValues(string Error = "Error", string Title = "Title")
-        {
-            try
-            {
-                return UnitValues;
-            }
-            catch
-            {
-                return new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
-                {
-                    {
-                        Error, new Dictionary<string, Dictionary<string, string>>()
-                        {
-                            {
-                                Title, new Dictionary<string, string>()
-                                {
-                                    {
-                                        "CN", "LV1!"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                };
-            }
-        }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string ListValuesJson(string Error = ErrorMessage)
-        {
-            try
-            {
-                return new JavaScriptSerializer().Serialize(ListValues());
-            }
-            catch
-            {
-                return Error + ErrorTitle + "CN-LVJ1!)";
             }
         }
         #endregion

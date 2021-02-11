@@ -1,5 +1,5 @@
 ﻿using System;
-using Conforyon;
+using Conforyon.Board;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 
@@ -56,33 +56,33 @@ namespace Conforyon.UX.UC
 
                 if (TA == "BASE64")
                 {
-                    CRTB.Text = Crypto.BASE64toTEXT(CVTB.Text);
+                    CRTB.Text = Crypto.Crypto.BASE64toTEXT(CVTB.Text);
                 }
                 else
                 {
                     if (TB == "BASE64")
                     {
-                        CRTB.Text = Crypto.TEXTtoBASE64(CVTB.Text);
+                        CRTB.Text = Crypto.Crypto.TEXTtoBASE64(CVTB.Text);
                     }
                     else if (TB == "MD5")
                     {
-                        CRTB.Text = Crypto.TEXTtoMD5(CVTB.Text, CRC);
+                        CRTB.Text = Crypto.Crypto.TEXTtoMD5(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA1")
                     {
-                        CRTB.Text = Crypto.TEXTtoSHA1(CVTB.Text, CRC);
+                        CRTB.Text = Crypto.Crypto.TEXTtoSHA1(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA256")
                     {
-                        CRTB.Text = Crypto.TEXTtoSHA256(CVTB.Text, CRC);
+                        CRTB.Text = Crypto.Crypto.TEXTtoSHA256(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA384")
                     {
-                        CRTB.Text = Crypto.TEXTtoSHA384(CVTB.Text, CRC);
+                        CRTB.Text = Crypto.Crypto.TEXTtoSHA384(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA512")
                     {
-                        CRTB.Text = Crypto.TEXTtoSHA512(CVTB.Text, CRC);
+                        CRTB.Text = Crypto.Crypto.TEXTtoSHA512(CVTB.Text, CRC);
                     }
                 }
             }
@@ -96,7 +96,7 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Clipboard.GetText() != CRTB.Text)
+                if (ClipBoard.GetText() != CRTB.Text)
                 {
                     ClipBoard.CopyText(CRTB.Text);
                     CRTB.Focus();

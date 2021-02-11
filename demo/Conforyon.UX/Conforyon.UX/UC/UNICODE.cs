@@ -1,5 +1,5 @@
 ﻿using System;
-using Conforyon;
+using Conforyon.Board;
 using System.Windows.Forms;
 using ReaLTaiizor.Controls;
 using System.Text.RegularExpressions;
@@ -55,11 +55,11 @@ namespace Conforyon.UX.UC
 
                 if (TACB.SelectedItem.ToString() == "CHAR")
                 {
-                    URTB.Text = Unicode.CHARtoASCII(UVTB.Text, BT);
+                    URTB.Text = Unicode.Unicode.CHARtoASCII(UVTB.Text, BT);
                 }
                 else
                 {
-                    URTB.Text = Unicode.ASCIItoCHAR(UVTB.Text, BT);
+                    URTB.Text = Unicode.Unicode.ASCIItoCHAR(UVTB.Text, BT);
                 }
             }
             catch
@@ -72,7 +72,7 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Clipboard.GetText() != URTB.Text)
+                if (ClipBoard.GetText() != URTB.Text)
                 {
                     ClipBoard.CopyText(URTB.Text);
                     URTB.Focus();
