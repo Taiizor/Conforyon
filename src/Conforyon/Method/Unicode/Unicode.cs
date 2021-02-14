@@ -1,9 +1,9 @@
 ﻿#region Imports
 
+using Conforyon.Constant;
+using Conforyon.Enum;
 using System;
 using System.Text;
-using Conforyon.Enum;
-using Conforyon.Constant;
 
 #endregion
 

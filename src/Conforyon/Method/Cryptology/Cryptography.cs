@@ -1,9 +1,9 @@
 ﻿#region Imports
 
-using System;
-using System.Text;
 using Conforyon.Constant;
+using System;
 using System.Security.Cryptography;
+using System.Text;
 
 #endregion
 

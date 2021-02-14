@@ -1,11 +1,11 @@
 ﻿#region Imports
 
+using Conforyon.Constant;
+using Conforyon.Enum;
 using System;
 using System.IO;
-using Conforyon.Enum;
-using Conforyon.Constant;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 #endregion
 

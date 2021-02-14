@@ -1,8 +1,8 @@
 ﻿#region Imports
 
+using Conforyon.Constant;
 using Conforyon.Enum;
 using Conforyon.Value;
-using Conforyon.Constant;
 using System.Text.RegularExpressions;
 
 #endregion

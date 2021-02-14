@@ -1,9 +1,9 @@
 ﻿#region Imports
 
-using System;
-using Conforyon.Enum;
-using System.Drawing;
 using Conforyon.Constant;
+using Conforyon.Enum;
+using System;
+using System.Drawing;
 
 #endregion
 

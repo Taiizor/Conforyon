@@ -1,8 +1,8 @@
 ﻿#region Imports
 
-using System;
-using Conforyon.Value;
 using Conforyon.Constant;
+using Conforyon.Value;
+using System;
 
 #endregion
 
