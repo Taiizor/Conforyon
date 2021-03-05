@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Conforyon.Board;
 using Conforyon.Hash;
-using Conforyon.Board;
+using System;
 using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
@@ -59,7 +59,7 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                OpenFileDialog OFD = new OpenFileDialog
+                OpenFileDialog OFD = new()
                 {
                     RestoreDirectory = true,
                     CheckFileExists = true

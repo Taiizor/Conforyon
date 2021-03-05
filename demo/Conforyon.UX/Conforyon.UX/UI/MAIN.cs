@@ -1,10 +1,10 @@
-﻿using System;
-using System.Drawing;
-using ReaLTaiizor.Util;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Colors;
-using System.Windows.Forms;
+﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Util;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace Conforyon.UX.UI
 {

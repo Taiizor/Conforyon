@@ -1,11 +1,11 @@
-﻿using System;
-using System.Drawing;
-using Conforyon.Value;
-using Conforyon.Board;
+﻿using Conforyon.Board;
 using Conforyon.Typology;
-using System.Windows.Forms;
+using Conforyon.Value;
 using ReaLTaiizor.Controls;
+using System;
+using System.Drawing;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
 {

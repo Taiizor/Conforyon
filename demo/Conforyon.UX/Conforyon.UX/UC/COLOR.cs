@@ -1,11 +1,11 @@
-﻿using System;
-using Conforyon.Enum;
-using System.Drawing;
-using Conforyon.Board;
+﻿using Conforyon.Board;
 using Conforyon.Color;
-using System.Windows.Forms;
+using Conforyon.Enum;
 using ReaLTaiizor.Controls;
+using System;
+using System.Drawing;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
 {

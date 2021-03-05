@@ -1,9 +1,9 @@
-﻿using System;
-using Conforyon.Board;
+﻿using Conforyon.Board;
 using Conforyon.Unicode;
-using System.Windows.Forms;
 using ReaLTaiizor.Controls;
+using System;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
 {

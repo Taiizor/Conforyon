@@ -1,8 +1,8 @@
-﻿using System;
-using Conforyon.Board;
-using System.Windows.Forms;
-using ReaLTaiizor.Controls;
+﻿using Conforyon.Board;
 using Conforyon.Cryptology;
+using ReaLTaiizor.Controls;
+using System;
+using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
 {

@@ -1,5 +1,5 @@
-﻿using System;
-using Conforyon.Board;
+﻿using Conforyon.Board;
+using System;
 using System.Windows.Forms;
 
 namespace Conforyon.UX.UC
