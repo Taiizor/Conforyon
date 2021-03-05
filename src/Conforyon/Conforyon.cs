@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 18.Feb.2021
+//     Changed: 05.Mar.2021
 //     Version: 1.4.7.7
 //
 // |---------DO-NOT-REMOVE---------|

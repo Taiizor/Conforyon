@@ -830,7 +830,7 @@
             this.button28.ForeColor = System.Drawing.Color.Transparent;
             this.button28.Name = "button28";
             this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.button28.Click += new System.EventHandler(this.Button28_Click);
             // 
             // comboBox23
             // 
@@ -892,7 +892,7 @@
             resources.ApplyResources(this.button30, "button30");
             this.button30.Name = "button30";
             this.button30.UseVisualStyleBackColor = true;
-            this.button30.Click += new System.EventHandler(this.button30_Click);
+            this.button30.Click += new System.EventHandler(this.Button30_Click);
             // 
             // textBox26
             // 
@@ -914,7 +914,7 @@
             // Main
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.comboBox25);
             this.Controls.Add(this.button28);
             this.Controls.Add(this.comboBox23);
