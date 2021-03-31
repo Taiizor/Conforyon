@@ -1,4 +1,5 @@
-﻿using Conforyon.UX.UI;
+﻿using Conforyon.Culture;
+using Conforyon.UX.UI;
 using System;
 using System.Windows.Forms;
 
@@ -12,6 +13,10 @@ namespace Conforyon.UX
         [STAThread]
         private static void Main()
         {
+            Cultures.SetCulture();
+            Cultures.SetUICulture();
+            Cultures.SetThreadCulture();
+            Cultures.SetThreadUICulture();
             Application.EnableVisualStyles();
 #if NET5_0 || NET6_0
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
