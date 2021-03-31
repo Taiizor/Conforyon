@@ -67,7 +67,7 @@ namespace Conforyon.Board
 
                 if (IData.GetDataPresent(DataFormats.Text))
                 {
-                    return (string)IData.GetData(DataFormats.Text);
+                    return IData.GetData(DataFormats.Text) as string;
                 }
                 else
                 {

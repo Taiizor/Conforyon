@@ -122,7 +122,7 @@ namespace Conforyon.Value
                                 Title, new Dictionary<string, string>()
                                 {
                                     {
-                                        "VS", "LV1!"
+                                        "CN", "VS-LV1!"
                                     }
                                 }
                             }

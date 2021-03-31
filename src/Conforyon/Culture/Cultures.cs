@@ -199,8 +199,12 @@ namespace Conforyon.Culture
         {
             try
             {
+#if !NET40 && !NET45 && !NET451 && !NET452
                 CultureInfo.CurrentCulture = Culture;
                 return true;
+#else
+                return false;
+#endif
             }
             catch
             {
@@ -217,8 +221,12 @@ namespace Conforyon.Culture
         {
             try
             {
+#if !NET40 && !NET45 && !NET451 && !NET452
                 CultureInfo.CurrentUICulture = Culture;
                 return true;
+#else
+                return false;
+#endif
             }
             catch
             {
