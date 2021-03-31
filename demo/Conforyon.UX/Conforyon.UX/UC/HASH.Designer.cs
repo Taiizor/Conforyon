@@ -68,6 +68,7 @@ namespace Conforyon.UX.UC
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
+            this.TACB.StartIndex = 0;
             this.TACB.TabIndex = 0;
             this.TACB.UseTallSize = false;
             // 
@@ -98,6 +99,7 @@ namespace Conforyon.UX.UC
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
+            this.TBCB.StartIndex = 0;
             this.TBCB.TabIndex = 2;
             this.TBCB.UseTallSize = false;
             // 
@@ -132,7 +134,7 @@ namespace Conforyon.UX.UC
             this.FRTB.ReadOnly = true;
             this.FRTB.Size = new System.Drawing.Size(249, 50);
             this.FRTB.TabIndex = 5;
-            this.FRTB.Text = "f19ed6865ea272f38f7a1815283f6078";
+            this.FRTB.Text = "93b90cb95a3326a46591a3d5b82559a1";
             // 
             // CSS
             // 
@@ -216,6 +218,7 @@ namespace Conforyon.UX.UC
             this.FRCB.Name = "FRCB";
             this.FRCB.Size = new System.Drawing.Size(44, 36);
             this.FRCB.TabIndex = 6;
+            this.FRCB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.FRCB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.FRCB.UseAccentColor = false;
             this.FRCB.UseVisualStyleBackColor = true;
@@ -236,6 +239,7 @@ namespace Conforyon.UX.UC
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
             this.CYB.TabIndex = 8;
+            this.CYB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = true;
@@ -256,6 +260,7 @@ namespace Conforyon.UX.UC
             this.OFLB.Name = "OFLB";
             this.OFLB.Size = new System.Drawing.Size(44, 36);
             this.OFLB.TabIndex = 4;
+            this.OFLB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.OFLB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.OFLB.UseAccentColor = false;
             this.OFLB.UseVisualStyleBackColor = true;
@@ -277,6 +282,7 @@ namespace Conforyon.UX.UC
             this.CTB.Size = new System.Drawing.Size(116, 36);
             this.CTB.TabIndex = 7;
             this.CTB.Text = "CONVERT";
+            this.CTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CTB.UseAccentColor = false;
             this.CTB.UseVisualStyleBackColor = true;
@@ -298,6 +304,7 @@ namespace Conforyon.UX.UC
             this.TTB.Name = "TTB";
             this.TTB.Size = new System.Drawing.Size(44, 36);
             this.TTB.TabIndex = 1;
+            this.TTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.TTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;
