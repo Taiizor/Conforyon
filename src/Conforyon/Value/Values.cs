@@ -52,7 +52,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CN-GV1!)";
+                return Error + Constants.ErrorTitle + "VS-GV1!)";
             }
         }
 
@@ -95,7 +95,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CN-GV1!)";
+                return Error + Constants.ErrorTitle + "VS-SV1!)";
             }
         }
 
@@ -122,7 +122,7 @@ namespace Conforyon.Value
                                 Title, new Dictionary<string, string>()
                                 {
                                     {
-                                        "CN", "LV1!"
+                                        "VS", "LV1!"
                                     }
                                 }
                             }
@@ -145,7 +145,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CN-LVJ1!)";
+                return Error + Constants.ErrorTitle + "VS-LVJ1!)";
             }
         }
         #endregion

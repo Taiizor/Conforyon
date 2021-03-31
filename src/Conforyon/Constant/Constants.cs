@@ -40,6 +40,11 @@
         /// 
         /// </summary>
         public const int TextLength = 32767;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string CultureName = "tr-TR";
         #endregion
     }
 }
