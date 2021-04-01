@@ -51,7 +51,7 @@ namespace Conforyon.Unicode
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "UE-CTA1!)";
+                return Error + Constants.ErrorTitle + "US-CTA1!)";
             }
         }
 
@@ -104,7 +104,7 @@ namespace Conforyon.Unicode
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "UE-ATC1!)";
+                return Error + Constants.ErrorTitle + "US-ATC1!)";
             }
         }
         #endregion

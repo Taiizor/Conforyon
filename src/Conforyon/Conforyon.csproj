@@ -4,7 +4,7 @@
     <!--<TargetFramework>net48</TargetFramework>-->
     <TargetFrameworks>net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;netstandard2.0;netstandard2.1;netcoreapp2.1;netcoreapp3.1;net5.0;net6.0</TargetFrameworks>
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
-    <Version>1.4.7.7</Version>
+    <Version>1.4.7.8</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Title>Conforyon</Title>
@@ -17,7 +17,7 @@ C# Insanely Fast Unit Converter - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Major changes have been made.
+    <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor Soferity C# CSharp DotNet Fast Convenient Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

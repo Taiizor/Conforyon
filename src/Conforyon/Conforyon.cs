@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 //     Website: www.Taiizor.com
 //     Created: 04.Jul.2019
 //     Changed: 01.Apr.2021
-//     Version: 1.4.7.7
+//     Version: 1.4.7.8
 //
 // |---------DO-NOT-REMOVE---------|
 

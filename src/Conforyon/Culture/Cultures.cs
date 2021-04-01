@@ -124,6 +124,31 @@ namespace Conforyon.Culture
         /// <param name="Name"></param>
         /// <param name="Override"></param>
         /// <returns></returns>
+        public static bool SetAllCulture(string Name = Constants.CultureName, bool Override = false)
+        {
+            try
+            {
+                if (SetCulture(Name, Override) && SetUICulture(Name, Override) && SetThreadCulture(Name, Override) && SetThreadUICulture(Name, Override))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Override"></param>
+        /// <returns></returns>
         public static bool SetCulture(string Name = Constants.CultureName, bool Override = false)
         {
             try
@@ -183,6 +208,30 @@ namespace Conforyon.Culture
             try
             {
                 return SetThreadUICulture(new(Name, Override));
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Culture"></param>
+        /// <returns></returns>
+        public static bool SetAllCulture(CultureInfo Culture)
+        {
+            try
+            {
+                if (SetCulture(Culture) && SetUICulture(Culture) && SetThreadCulture(Culture) && SetThreadUICulture(Culture))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch
             {
