@@ -67,6 +67,7 @@ namespace Conforyon.UX.UC
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
+            this.TACB.StartIndex = 0;
             this.TACB.TabIndex = 0;
             this.TACB.UseTallSize = false;
             this.TACB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
@@ -100,6 +101,7 @@ namespace Conforyon.UX.UC
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
+            this.TBCB.StartIndex = 0;
             this.TBCB.TabIndex = 2;
             this.TBCB.UseTallSize = false;
             this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
@@ -109,7 +111,7 @@ namespace Conforyon.UX.UC
             this.CVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CVTB.Depth = 0;
-            this.CVTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CVTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CVTB.Hint = "Crypto Value";
             this.CVTB.Location = new System.Drawing.Point(3, 45);
             this.CVTB.MaxLength = 5000;
@@ -125,7 +127,7 @@ namespace Conforyon.UX.UC
             this.CRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CRTB.Depth = 0;
-            this.CRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CRTB.Hint = "Crypto Result";
             this.CRTB.Location = new System.Drawing.Point(3, 101);
             this.CRTB.MaxLength = 5000;
@@ -219,6 +221,7 @@ namespace Conforyon.UX.UC
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
             this.CYB.TabIndex = 7;
+            this.CYB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = true;
@@ -240,6 +243,7 @@ namespace Conforyon.UX.UC
             this.CTB.Size = new System.Drawing.Size(116, 36);
             this.CTB.TabIndex = 6;
             this.CTB.Text = "CONVERT";
+            this.CTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CTB.UseAccentColor = false;
             this.CTB.UseVisualStyleBackColor = true;
@@ -260,6 +264,7 @@ namespace Conforyon.UX.UC
             this.TTB.Name = "TTB";
             this.TTB.Size = new System.Drawing.Size(44, 36);
             this.TTB.TabIndex = 1;
+            this.TTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.TTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;
@@ -280,6 +285,7 @@ namespace Conforyon.UX.UC
             this.CRCB.Name = "CRCB";
             this.CRCB.Size = new System.Drawing.Size(44, 36);
             this.CRCB.TabIndex = 5;
+            this.CRCB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CRCB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CRCB.UseAccentColor = false;
             this.CRCB.UseVisualStyleBackColor = true;

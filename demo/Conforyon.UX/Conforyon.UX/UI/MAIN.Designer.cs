@@ -421,6 +421,8 @@
             this.UOTS.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.UOTS.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             this.UOTS.Name = "UOTS";
+            this.UOTS.SelectorHideTabName = new string[] {};
+            this.UOTS.SelectorNonClickTabPage = new System.Windows.Forms.TabPage[] {};
             this.UOTS.Size = new System.Drawing.Size(189, 62);
             this.UOTS.TabIndex = 0;
             this.UOTS.Text = "materialTabSelector1";

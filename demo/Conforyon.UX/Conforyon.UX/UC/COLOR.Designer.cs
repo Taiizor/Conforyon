@@ -51,7 +51,7 @@ namespace Conforyon.UX.UC
             this.TACB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TACB.Depth = 0;
             this.TACB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TACB.DropDownHeight = 118;
+            this.TACB.DropDownHeight = 60;
             this.TACB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TACB.DropDownWidth = 121;
             this.TACB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -68,6 +68,7 @@ namespace Conforyon.UX.UC
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
+            this.TACB.StartIndex = 0;
             this.TACB.TabIndex = 0;
             this.TACB.UseTallSize = false;
             this.TACB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
@@ -79,7 +80,7 @@ namespace Conforyon.UX.UC
             this.TBCB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.TBCB.Depth = 0;
             this.TBCB.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.TBCB.DropDownHeight = 118;
+            this.TBCB.DropDownHeight = 60;
             this.TBCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TBCB.DropDownWidth = 121;
             this.TBCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
@@ -96,6 +97,7 @@ namespace Conforyon.UX.UC
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
+            this.TBCB.StartIndex = 0;
             this.TBCB.TabIndex = 2;
             this.TBCB.UseTallSize = false;
             this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
@@ -105,7 +107,7 @@ namespace Conforyon.UX.UC
             this.CRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CRTB.Depth = 0;
-            this.CRTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CRTB.Hint = "R";
             this.CRTB.Location = new System.Drawing.Point(3, 48);
             this.CRTB.MaxLength = 3;
@@ -123,7 +125,7 @@ namespace Conforyon.UX.UC
             this.CGTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CGTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CGTB.Depth = 0;
-            this.CGTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CGTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CGTB.Hint = "G";
             this.CGTB.Location = new System.Drawing.Point(65, 48);
             this.CGTB.MaxLength = 3;
@@ -141,7 +143,7 @@ namespace Conforyon.UX.UC
             this.CBTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CBTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CBTB.Depth = 0;
-            this.CBTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CBTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CBTB.Hint = "B";
             this.CBTB.Location = new System.Drawing.Point(127, 48);
             this.CBTB.MaxLength = 3;
@@ -159,7 +161,7 @@ namespace Conforyon.UX.UC
             this.CHTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CHTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CHTB.Depth = 0;
-            this.CHTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CHTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CHTB.Hint = "HEX";
             this.CHTB.Location = new System.Drawing.Point(217, 48);
             this.CHTB.MaxLength = 6;
@@ -185,6 +187,7 @@ namespace Conforyon.UX.UC
             this.TTB.Name = "TTB";
             this.TTB.Size = new System.Drawing.Size(44, 36);
             this.TTB.TabIndex = 1;
+            this.TTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.TTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;
@@ -206,6 +209,7 @@ namespace Conforyon.UX.UC
             this.CTB.Size = new System.Drawing.Size(116, 36);
             this.CTB.TabIndex = 7;
             this.CTB.Text = "CONVERT";
+            this.CTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CTB.UseAccentColor = false;
             this.CTB.UseVisualStyleBackColor = true;
@@ -226,6 +230,7 @@ namespace Conforyon.UX.UC
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
             this.CYB.TabIndex = 8;
+            this.CYB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = true;

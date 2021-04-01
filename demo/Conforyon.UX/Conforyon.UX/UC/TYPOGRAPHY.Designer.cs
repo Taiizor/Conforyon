@@ -73,6 +73,7 @@ namespace Conforyon.UX.UC
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TACB.Name = "TACB";
             this.TACB.Size = new System.Drawing.Size(121, 35);
+            this.TACB.StartIndex = 0;
             this.TACB.TabIndex = 0;
             this.TACB.UseTallSize = false;
             this.TACB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
@@ -102,6 +103,7 @@ namespace Conforyon.UX.UC
             this.TBCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TBCB.Name = "TBCB";
             this.TBCB.Size = new System.Drawing.Size(121, 35);
+            this.TBCB.StartIndex = 0;
             this.TBCB.TabIndex = 2;
             this.TBCB.UseTallSize = false;
             this.TBCB.SelectedIndexChanged += new System.EventHandler(this.TCB_SelectedIndexChanged);
@@ -223,6 +225,7 @@ namespace Conforyon.UX.UC
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
             this.CYB.TabIndex = 9;
+            this.CYB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = false;
@@ -244,6 +247,7 @@ namespace Conforyon.UX.UC
             this.CTB.Size = new System.Drawing.Size(116, 36);
             this.CTB.TabIndex = 8;
             this.CTB.Text = "CONVERT";
+            this.CTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.CTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CTB.UseAccentColor = false;
             this.CTB.UseVisualStyleBackColor = true;
@@ -264,6 +268,7 @@ namespace Conforyon.UX.UC
             this.TTB.Name = "TTB";
             this.TTB.Size = new System.Drawing.Size(44, 36);
             this.TTB.TabIndex = 1;
+            this.TTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
             this.TTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;
@@ -311,6 +316,7 @@ namespace Conforyon.UX.UC
             this.TDCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TDCB.Name = "TDCB";
             this.TDCB.Size = new System.Drawing.Size(90, 49);
+            this.TDCB.StartIndex = 0;
             this.TDCB.TabIndex = 4;
             this.TDCB.Tag = "";
             this.TDCB.SelectedIndexChanged += new System.EventHandler(this.TDCB_SelectedIndexChanged);
@@ -392,6 +398,7 @@ namespace Conforyon.UX.UC
             this.TCCB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             this.TCCB.Name = "TCCB";
             this.TCCB.Size = new System.Drawing.Size(90, 49);
+            this.TCCB.StartIndex = 0;
             this.TCCB.TabIndex = 5;
             this.TCCB.Tag = "";
             this.TCCB.SelectedIndexChanged += new System.EventHandler(this.TCCB_SelectedIndexChanged);
