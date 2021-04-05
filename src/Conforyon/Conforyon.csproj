@@ -19,7 +19,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Minor changes have been made.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
-    <PackageTags>Conforyon Taiizor Soferity C# CSharp VBC VB VisualBasic DotNET NET Fast Convenient Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
+    <PackageTags>Conforyon Taiizor Soferity C# CSharp VBC VB VisualBasic DotNET .NET NET Fast Convenient Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!--<DocumentationFile>..\$(PackageId)\bin$(OutputPath)\$(Configuration)\$(TargetFramework)\$(PackageId).xml</DocumentationFile>-->
     <PackageProjectUrl>https://github.com/Taiizor/Conforyon</PackageProjectUrl>
