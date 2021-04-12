@@ -26,7 +26,6 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Taiizor/Conforyon</RepositoryUrl>
     <PackageDescription>$(Description)</PackageDescription>
-    <RepositoryUrl>https://github.com/Taiizor/Conforyon</RepositoryUrl>
     <PackageIcon>CUBE.png</PackageIcon>
     <Company>$(Authors)</Company>
     <Owners>$(Authors)</Owners>

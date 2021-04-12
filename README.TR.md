@@ -66,11 +66,11 @@ Adım 2：Dönüşümlerin tadını çıkarın
 
 ### Conforyon UI
 
-![ConforyonUIDemo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.screenshots/UI.png)
+[![ConforyonUIDemo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.screenshots/UI.png)](https://github.com/Taiizor/Conforyon/tree/develop/demo/Conforyon.UI "ConforyonUIDemo")
 
 ### Conforyon UX
 
-![ConforyonUXDemo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.screenshots/UX.gif)
+[![ConforyonUXDemo](https://raw.githubusercontent.com/Taiizor/Conforyon/develop/.screenshots/UX.gif)](https://github.com/Taiizor/Conforyon/tree/develop/demo/Conforyon.UX "ConforyonUXDemo")
 
 ## Ayrıntılı Kullanım
 
