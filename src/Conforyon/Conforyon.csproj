@@ -62,7 +62,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard')) OR '$(TargetFramework)' == 'netcoreapp2.1'">
     <PackageReference Include="System.Drawing.Common">
-      <Version>6.0.0-preview.3.21201.4</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
   </ItemGroup>
 
