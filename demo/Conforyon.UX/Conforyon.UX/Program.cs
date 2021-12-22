@@ -15,7 +15,7 @@ namespace Conforyon.UX
         {
             Cultures.SetAllCulture();
             Application.EnableVisualStyles();
-#if NET5_0 || NET6_0
+#if NETCOREAPP3_1 || NET5_0 || NET6_0
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
 #endif
             Application.SetCompatibleTextRenderingDefault(false);
