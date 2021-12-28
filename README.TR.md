@@ -172,7 +172,7 @@ GetText(true, "Boş!", "Hata!");
 
 ```CS
 /* CopyAudio(string Path) */
-CopyAudio(FilePath);
+CopyAudio(Path);
 
 /* CopyAudio(byte[] Bytes) */
 CopyAudio(File.ReadAllBytes(Path));
