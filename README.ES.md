@@ -171,8 +171,11 @@ GetText(true, "¡Vacío!", "¡Error!");
 #### Audio
 
 ```CS
+/* CopyAudio(string Path) */
+CopyAudio(FilePath);
+
 /* CopyAudio(byte[] Bytes) */
-CopyAudio(File.ReadAllBytes(FilePath));
+CopyAudio(File.ReadAllBytes(Path));
 ```
 
 ```CS

@@ -1,4 +1,6 @@
-﻿#region Imports
+﻿#if !NETSTANDARD
+
+#region Imports
 
 using Conforyon.Constant;
 using System.IO;
@@ -24,6 +26,22 @@ namespace Conforyon.Board
             try
             {
                 Clipboard.SetDataObject(Text, Copy);
+            }
+            catch
+            {
+                return;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Path"></param>
+        public static void CopyAudio(string Path)
+        {
+            try
+            {
+                CopyAudio(File.ReadAllBytes(Path));
             }
             catch
             {
@@ -105,3 +123,4 @@ namespace Conforyon.Board
         #endregion
     }
 }
+#endif

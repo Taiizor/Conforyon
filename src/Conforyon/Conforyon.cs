@@ -13,13 +13,14 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Website: www.Taiizor.com
 //     Created: 04.Jul.2019
-//     Changed: 22.Dec.2021
+//     Changed: 28.Dec.2021
 //     Version: 1.4.7.8
 //
 // |---------DO-NOT-REMOVE---------|
 
 namespace Conforyon
 {
+    #region Core
     /// <summary>
     /// 
     /// </summary>
@@ -699,4 +700,5 @@ namespace Conforyon
         }
         #endregion
     }
+    #endregion
 }

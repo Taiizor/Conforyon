@@ -52,7 +52,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="System.Windows.Forms">
+    <Reference Condition="!$(TargetFramework.StartsWith('netstandard'))" Include="System.Windows.Forms">
       <HintPath>Library\System.Windows.Forms.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Extensions">
