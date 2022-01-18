@@ -10,6 +10,8 @@
 [![FuGet-Version](https://www.fuget.org/packages/Conforyon/badge.svg)](https://www.fuget.org/packages/Conforyon)
 [![NuGet](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/api/v2/package/Conforyon)
 
+[![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
+
 # Welcome to Conforyon
 Conforyon is a Unit Converter library. It allows the conversion of various unit conversions it offers.
 

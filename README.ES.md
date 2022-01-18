@@ -10,6 +10,8 @@
 [![FuGet-Version](https://www.fuget.org/packages/Conforyon/badge.svg)](https://www.fuget.org/packages/Conforyon)
 [![NuGet](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/api/v2/package/Conforyon)
 
+[![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
+
 # Bienvenido a Conforyon
 Conforion es una biblioteca de Convertidor de Unidades. Permite la conversión de varias conversiones de unidades que ofrece.
 
