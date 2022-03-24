@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--<TargetFramework>net48</TargetFramework>-->
-    <TargetFrameworks>net452;net46;net461;net462;net47;net471;net472;net48;netstandard2.0;netstandard2.1;netcoreapp3.0;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net48;netstandard2.1;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
     <Version>1.4.7.8</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
@@ -49,15 +49,6 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
       <Version>1.1.1</Version>
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Condition="!$(TargetFramework.StartsWith('netstandard'))" Include="System.Windows.Forms">
-      <HintPath>Library\System.Windows.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Extensions">
-      <HintPath>Library\System.Web.Extensions.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">

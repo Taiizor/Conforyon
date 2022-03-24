@@ -2,8 +2,12 @@
 
 using Conforyon.Array;
 using Conforyon.Constant;
+using System;
 using System.Collections.Generic;
-using System.Web.Script.Serialization;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text;
 
 #endregion
 
@@ -141,12 +145,34 @@ namespace Conforyon.Value
         {
             try
             {
-                return new JavaScriptSerializer().Serialize(ListValue());
+                return DataToJson(ListValue());
             }
             catch
             {
                 return Error + Constants.ErrorTitle + "VS-LVJ1!)";
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Data"></param>
+        /// <returns></returns>
+        private static string DataToJson<T>(T Data)
+        {
+            MemoryStream MemoryStream = new();
+
+            DataContractJsonSerializer Serializer = new(
+                Data.GetType(),
+                new DataContractJsonSerializerSettings()
+                {
+                    UseSimpleDictionaryFormat = true
+                });
+
+            Serializer.WriteObject(MemoryStream, Data);
+
+            return Encoding.UTF8.GetString(MemoryStream.ToArray());
         }
         #endregion
     }

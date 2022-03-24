@@ -4,7 +4,6 @@
 
 using Conforyon.Constant;
 using System.IO;
-using System.Windows.Forms;
 
 #endregion
 
@@ -16,16 +15,19 @@ namespace Conforyon.Board
     public class ClipBoard
     {
         #region ClipBoard
+        private static string Board = string.Empty;
+
+        private static byte[] Audio = System.Array.Empty<byte>();
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="Text"></param>
-        /// <param name="Copy"></param>
-        public static void CopyText(string Text, bool Copy = true)
+        public static void CopyText(string Text)
         {
             try
             {
-                Clipboard.SetDataObject(Text, Copy);
+                Board = Text;
             }
             catch
             {
@@ -57,7 +59,7 @@ namespace Conforyon.Board
         {
             try
             {
-                Clipboard.SetAudio(Bytes);
+                Audio = Bytes;
             }
             catch
             {
@@ -76,20 +78,20 @@ namespace Conforyon.Board
         {
             try
             {
-                IDataObject IData = Clipboard.GetDataObject();
+                string Text = Board;
 
                 if (Clear)
                 {
-                    Clipboard.Clear();
+                    Board = string.Empty; ;
                 }
 
-                if (IData.GetDataPresent(DataFormats.Text))
+                if (string.IsNullOrEmpty(Text))
                 {
-                    return IData.GetData(DataFormats.Text) as string;
+                    return Back;
                 }
                 else
                 {
-                    return Back;
+                    return Text;
                 }
             }
             catch
@@ -106,14 +108,15 @@ namespace Conforyon.Board
         {
             try
             {
-                Stream Audio = Clipboard.GetAudioStream();
+                Stream Stream = new MemoryStream(Audio);
+
 
                 if (Clear)
                 {
-                    Clipboard.Clear();
+                    Audio = System.Array.Empty<byte>();
                 }
 
-                return Audio;
+                return Stream;
             }
             catch
             {

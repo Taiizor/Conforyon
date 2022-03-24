@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 // |---------DO-NOT-REMOVE---------|
 //
 //     Creator: Taiizor
-//     Website: www.Taiizor.com
+//     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
 //     Changed: 24.Mar.2022
 //     Version: 1.4.7.8
