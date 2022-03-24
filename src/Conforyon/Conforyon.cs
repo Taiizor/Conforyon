@@ -4,6 +4,9 @@ using Conforyon.Array;
 using Conforyon.Constant;
 using Conforyon.Enum;
 using System;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Text.RegularExpressions;
 
 #endregion
@@ -697,6 +700,30 @@ namespace Conforyon
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Data"></param>
+        /// <returns></returns>
+        public static string DataToJson<T>(T Data)
+        {
+            MemoryStream MemoryStream = new();
+
+            DataContractJsonSerializer Serializer = new
+            (
+                Data.GetType(),
+                new DataContractJsonSerializerSettings()
+                {
+                    UseSimpleDictionaryFormat = true
+                }
+            );
+
+            Serializer.WriteObject(MemoryStream, Data);
+
+            return Encoding.UTF8.GetString(MemoryStream.ToArray());
         }
         #endregion
     }

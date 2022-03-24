@@ -1,6 +1,4 @@
-﻿#if !NETSTANDARD
-
-#region Imports
+﻿#region Imports
 
 using Conforyon.Constant;
 using System.IO;
@@ -126,4 +124,3 @@ namespace Conforyon.Board
         #endregion
     }
 }
-#endif
