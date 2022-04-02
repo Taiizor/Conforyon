@@ -45,6 +45,26 @@
         /// <summary>
         /// 
         /// </summary>
+        public const int ASCIIMinimum = 1;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ASCIIMaximum = 3;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ASCIINumberMinimum = 0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ASCIINumberMaximum = 255;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int TextLength = 32767;
 
         #endregion

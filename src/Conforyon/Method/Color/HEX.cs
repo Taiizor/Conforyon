@@ -19,41 +19,41 @@ namespace Conforyon.Color
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Hex"></param>
+        /// <param name="HEX"></param>
         /// <param name="Type"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string RGB(string Hex, CEECT Type = CEECT.RGB1, string Error = CCC.ErrorMessage)
+        public static string RGB(string HEX, CEECT Type = CEECT.RGB1, string Error = CCC.ErrorMessage)
         {
             try
             {
-                if ((Hex.Length == 6 && Cores.UseCheck(Hex)) || (Hex.Length == 7 && Hex.StartsWith("#") && Cores.UseCheck(Hex.Substring(1, Hex.Length - 1))))
+                if ((HEX.Length == 6 && Cores.TextControl(HEX)) || (HEX.Length == 7 && HEX.StartsWith("#") && Cores.TextControl(HEX.Substring(1, HEX.Length - 1))))
                 {
                     SDC HexColor;
 
-                    if (Hex.StartsWith("#"))
+                    if (HEX.StartsWith("#"))
                     {
-                        HexColor = SDCT.FromHtml(Hex);
+                        HexColor = SDCT.FromHtml(HEX);
                     }
                     else
                     {
-                        HexColor = SDCT.FromHtml("#" + Hex);
+                        HexColor = SDCT.FromHtml("#" + HEX);
                     }
 
                     return Type switch
                     {
-                        CEECT.RGB1 => HexColor.R + ", " + HexColor.G + ", " + HexColor.B,
-                        CEECT.RGB2 => HexColor.R + " " + HexColor.G + " " + HexColor.B,
-                        CEECT.RGB3 => HexColor.R + " - " + HexColor.G + " - " + HexColor.B,
-                        CEECT.RRGGBB1 => "R: " + HexColor.R + ", G: " + HexColor.G + ", B: " + HexColor.B,
-                        CEECT.RRGGBB2 => "R: " + HexColor.R + " G: " + HexColor.G + " B: " + HexColor.B,
-                        CEECT.RRGGBB3 => "R: " + HexColor.R + " - G: " + HexColor.G + " - B: " + HexColor.B,
-                        CEECT.RR => "R: " + HexColor.R,
-                        CEECT.GG => "G: " + HexColor.G,
-                        CEECT.BB => "B: " + HexColor.B,
-                        CEECT.OnlyR => HexColor.R.ToString(),
-                        CEECT.OnlyG => HexColor.G.ToString(),
-                        CEECT.OnlyB => HexColor.B.ToString(),
+                        CEECT.RGB1 => $"{HexColor.R}, {HexColor.G}, {HexColor.B}",
+                        CEECT.RGB2 => $"{HexColor.R} {HexColor.G} {HexColor.B}",
+                        CEECT.RGB3 => $"{HexColor.R} - {HexColor.G} - {HexColor.B}",
+                        CEECT.RRGGBB1 => $"R: {HexColor.R}, G: {HexColor.G}, B: {HexColor.B}",
+                        CEECT.RRGGBB2 => $"R: {HexColor.R} G: {HexColor.G} B: {HexColor.B}",
+                        CEECT.RRGGBB3 => $"R: {HexColor.R} - G: {HexColor.G} - B: {HexColor.B}",
+                        CEECT.RR => $"R: {HexColor.R}",
+                        CEECT.GG => $"G: {HexColor.G}",
+                        CEECT.BB => $"B: {HexColor.B}",
+                        CEECT.OnlyR => $"{HexColor.R}",
+                        CEECT.OnlyG => $"{HexColor.G}",
+                        CEECT.OnlyB => $"{HexColor.B}",
                         _ => Error,
                     };
                 }
@@ -64,7 +64,7 @@ namespace Conforyon.Color
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "CR-HEX1!)";
+                return Error + CCC.ErrorTitle + "CR-RGB1!)";
             }
         }
 

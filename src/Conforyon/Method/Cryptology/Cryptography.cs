@@ -25,7 +25,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Base64.Length <= Constants.TextLength && Cores.UseCheck(Base64))
+                if (Base64.Length <= Constants.TextLength && Cores.TextControl(Base64))
                 {
                     if (Base64.EndsWith("="))
                     {
@@ -92,7 +92,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Text.Length <= Constants.TextLength && Cores.UseCheck(Text, true))
+                if (Text.Length <= Constants.TextLength && Cores.TextControl(Text, true))
                 {
                     return Convert.ToBase64String(Encoding.UTF8.GetBytes(Text));
                 }
@@ -118,7 +118,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Text.Length <= Constants.TextLength && Cores.UseCheck(Text, true))
+                if (Text.Length <= Constants.TextLength && Cores.TextControl(Text, true))
                 {
                     using MD5 MD5 = MD5.Create();
                     MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -153,7 +153,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Text.Length <= Constants.TextLength && Cores.UseCheck(Text, true))
+                if (Text.Length <= Constants.TextLength && Cores.TextControl(Text, true))
                 {
                     using SHA1 SHA1 = SHA1.Create();
                     byte[] Result = SHA1.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -187,7 +187,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Text.Length <= Constants.TextLength && Cores.UseCheck(Text, true))
+                if (Text.Length <= Constants.TextLength && Cores.TextControl(Text, true))
                 {
                     using SHA256 SHA256 = SHA256.Create();
                     byte[] Result = SHA256.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -221,7 +221,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Text.Length <= Constants.TextLength && Cores.UseCheck(Text, true))
+                if (Text.Length <= Constants.TextLength && Cores.TextControl(Text, true))
                 {
                     using SHA384 SHA384 = SHA384.Create();
                     byte[] Result = SHA384.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));
@@ -255,7 +255,7 @@ namespace Conforyon.Cryptology
         {
             try
             {
-                if (Text.Length <= Constants.TextLength && Cores.UseCheck(Text, true))
+                if (Text.Length <= Constants.TextLength && Cores.TextControl(Text, true))
                 {
                     using SHA512 SHA512 = SHA512.Create();
                     byte[] Result = SHA512.ComputeHash(ASCIIEncoding.ASCII.GetBytes(Text));

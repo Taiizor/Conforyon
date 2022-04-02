@@ -28,7 +28,7 @@ namespace Conforyon.Speed
         {
             try
             {
-                if (Miles.Length <= Constants.VariableLength && Cores.NumberCheck(Miles) && !Miles.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Miles))
+                if (Miles.Length <= Constants.VariableLength && Cores.NumberControl(Miles) && !Miles.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Miles))
                 {
                     if (Text)
                     {
@@ -64,7 +64,7 @@ namespace Conforyon.Speed
         {
             try
             {
-                if (Kilometers.Length <= Constants.VariableLength && Cores.NumberCheck(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Kilometers))
+                if (Kilometers.Length <= Constants.VariableLength && Cores.NumberControl(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Kilometers))
                 {
                     if (Text)
                     {

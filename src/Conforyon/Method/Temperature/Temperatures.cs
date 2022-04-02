@@ -28,7 +28,7 @@ namespace Conforyon.Temperature
         {
             try
             {
-                if (Celsius.Length <= Constants.VariableLength && Cores.NumberCheck(Celsius) && !Celsius.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Celsius))
+                if (Celsius.Length <= Constants.VariableLength && Cores.NumberControl(Celsius) && !Celsius.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Celsius))
                 {
                     if (Text)
                     {
@@ -64,7 +64,7 @@ namespace Conforyon.Temperature
         {
             try
             {
-                if (Fahrenheit.Length <= Constants.VariableLength && Cores.NumberCheck(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Fahrenheit))
+                if (Fahrenheit.Length <= Constants.VariableLength && Cores.NumberControl(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Fahrenheit))
                 {
                     if (Convert.ToInt64(Fahrenheit) >= 32)
                     {

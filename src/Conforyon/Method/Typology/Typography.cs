@@ -27,7 +27,7 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Inch.Length <= Constants.VariableLength && Cores.NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Inch))
+                if (Inch.Length <= Constants.VariableLength && Cores.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Inch))
                 {
                     return Cores.LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(Values.GetValue("Typography", "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 }
@@ -55,7 +55,7 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Inch.Length <= Constants.VariableLength && Cores.NumberCheck(Inch) && !Inch.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Inch))
+                if (Inch.Length <= Constants.VariableLength && Cores.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Inch))
                 {
                     string Result = (Convert.ToInt64(Inch) * Convert.ToDouble(Values.GetValue("Typography", "INCH", "PX", Error))).ToString();
                     return Cores.LastCheck2(Result, Decimal, Comma, PostComma, Error);
@@ -84,7 +84,7 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Centimeter.Length <= Constants.VariableLength && Cores.NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Centimeter))
+                if (Centimeter.Length <= Constants.VariableLength && Cores.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Centimeter))
                 {
                     if (Convert.ToInt64(Centimeter) >= 3)
                     {
@@ -119,7 +119,7 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Centimeter.Length <= Constants.VariableLength && Cores.NumberCheck(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Centimeter))
+                if (Centimeter.Length <= Constants.VariableLength && Cores.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Centimeter))
                 {
                     return Cores.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Values.GetValue("Typography", "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 }
@@ -147,7 +147,7 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Pixel.Length <= Constants.VariableLength && Cores.NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Pixel))
+                if (Pixel.Length <= Constants.VariableLength && Cores.NumberControl(Pixel) && !Pixel.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 38)
                     {
@@ -182,7 +182,7 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Pixel.Length <= Constants.VariableLength && Cores.NumberCheck(Pixel) && !Pixel.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.UseCheck(Pixel))
+                if (Pixel.Length <= Constants.VariableLength && Cores.NumberControl(Pixel) && !Pixel.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Pixel))
                 {
                     if (Convert.ToInt64(Pixel) >= 96)
                     {

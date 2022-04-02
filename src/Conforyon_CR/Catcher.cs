@@ -63,11 +63,11 @@ namespace Conforyon_CR
         {
             if (Unicoder)
             {
-                textBox7.Text = Unicodes.CHARtoASCII(textBox6.Text, textBox8.Text.ToCharArray()[0], "Error!");
+                textBox7.Text = CHAR.ASCII(textBox6.Text, textBox8.Text.ToCharArray()[0], "Error!");
             }
             else
             {
-                textBox6.Text = Unicodes.ASCIItoCHAR(textBox7.Text, textBox8.Text.ToCharArray()[0], "Error!");
+                textBox6.Text = ASCII.CHAR(textBox7.Text, textBox8.Text.ToCharArray()[0], "Error!");
             }
 
             Unicoder = !Unicoder;
@@ -75,8 +75,8 @@ namespace Conforyon_CR
 
         private void Button6_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Colorful.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), true, "Error!"));
-            MessageBox.Show(Colorful.RGBtoHEX(Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), Convert.ToInt32(textBox11.Text), false, "Error!"));
+            MessageBox.Show(RGB.HEX(textBox9.Text, textBox10.Text, textBox11.Text, true, "Error!"));
+            MessageBox.Show(RGB.HEX(textBox9.Text, textBox10.Text, textBox11.Text, false, "Error!"));
         }
 
         private void Button7_Click(object sender, EventArgs e)

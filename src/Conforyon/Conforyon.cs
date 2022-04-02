@@ -35,21 +35,60 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="TypePass"></param>
-        /// <param name="Type"></param>
+        /// <param name="Text"></param>
+        /// <param name="Spaces"></param>
         /// <returns></returns>
-        public static bool NumberCheck(string Variable, bool TypePass = false, Enums.IntType Type = Enums.IntType.Int64)
+        public static bool TextControl(string Text, bool Spaces = false)
         {
             try
             {
-                if (Regex.IsMatch(Variable, "[^0-9]"))
+                if (Text != "" && !string.IsNullOrEmpty(Text))
+                {
+                    if (Spaces)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        if (Text.Contains(" ") || string.IsNullOrWhiteSpace(Text))
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <param name="Pass"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool NumberControl(string Number, bool Pass = false, Enums.IntType Type = Enums.IntType.Int64)
+        {
+            try
+            {
+                if (Regex.IsMatch(Number, "[^0-9]"))
                 {
                     return false;
                 }
                 else
                 {
-                    if (TypePass)
+                    if (Pass)
                     {
                         return true;
                     }
@@ -58,26 +97,27 @@ namespace Conforyon
                         switch (Type)
                         {
                             case Enums.IntType.Int16:
-                                Convert.ToInt16(Variable);
+                                Convert.ToInt16(Number);
                                 break;
                             case Enums.IntType.Int32:
-                                Convert.ToInt32(Variable);
+                                Convert.ToInt32(Number);
                                 break;
                             case Enums.IntType.Int64:
-                                Convert.ToInt64(Variable);
+                                Convert.ToInt64(Number);
                                 break;
                             case Enums.IntType.UInt16:
-                                Convert.ToUInt16(Variable);
+                                Convert.ToUInt16(Number);
                                 break;
                             case Enums.IntType.UInt32:
-                                Convert.ToUInt32(Variable);
+                                Convert.ToUInt32(Number);
                                 break;
                             case Enums.IntType.UInt64:
-                                Convert.ToUInt64(Variable);
+                                Convert.ToUInt64(Number);
                                 break;
                             default:
                                 return false;
                         }
+
                         return true;
                     }
                 }
@@ -188,7 +228,7 @@ namespace Conforyon
                 }
                 else
                 {
-                    if (NumberCheck(Coefficient.ToString()))
+                    if (NumberControl(Coefficient.ToString()))
                     {
                         string Variable1, Variable2, Variable3;
                         if (Comma)
@@ -328,7 +368,7 @@ namespace Conforyon
                     {
                         if (Variable.Length > 2)
                         {
-                            if (NumberCheck(Variable))
+                            if (NumberControl(Variable))
                             {
                                 return string.Format("{0:0,0}", Convert.ToInt64(Variable));
                             }
@@ -388,7 +428,7 @@ namespace Conforyon
                     {
                         if (Variable.Length > 2)
                         {
-                            if (NumberCheck(Variable))
+                            if (NumberControl(Variable))
                             {
                                 return string.Format("{0:0,0}", Convert.ToInt64(Variable));
                             }
@@ -662,45 +702,6 @@ namespace Conforyon
             catch
             {
                 return Error + Constants.ErrorTitle + "CN-LC2!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Spaces"></param>
-        /// <returns></returns>
-        public static bool UseCheck(string Variable, bool Spaces = false)
-        {
-            try
-            {
-                if (Variable != "" && !string.IsNullOrEmpty(Variable))
-                {
-                    if (Spaces)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        if (Variable.Contains(" ") || string.IsNullOrWhiteSpace(Variable))
-                        {
-                            return false;
-                        }
-                        else
-                        {
-                            return true;
-                        }
-                    }
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch
-            {
-                return false;
             }
         }
 
