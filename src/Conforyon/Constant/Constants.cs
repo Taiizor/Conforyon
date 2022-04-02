@@ -6,6 +6,7 @@
     internal class Constants
     {
         #region Constants
+
         /// <summary>
         /// 
         /// </summary>
@@ -24,7 +25,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public const string CultureName = "tr-TR";
+        public const string CultureName = "en-GB";
 
         /// <summary>
         /// 
@@ -45,6 +46,7 @@
         /// 
         /// </summary>
         public const int TextLength = 32767;
+
         #endregion
     }
 }

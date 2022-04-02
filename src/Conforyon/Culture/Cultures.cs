@@ -1,8 +1,8 @@
 ﻿#region Imports
 
-using Conforyon.Constant;
-using System.Globalization;
-using System.Threading;
+using CCC = Conforyon.Constant.Constants;
+using SGCI = System.Globalization.CultureInfo;
+using STT = System.Threading.Thread;
 
 #endregion
 
@@ -14,57 +14,41 @@ namespace Conforyon.Culture
     public class Cultures
     {
         #region Cultures
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public static CultureInfo GetCulture()
+        public static SGCI GetCulture()
         {
-            return CultureInfo.CurrentCulture;
+            return SGCI.CurrentCulture;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public static CultureInfo GetUICulture()
+        public static SGCI GetUICulture()
         {
-            return CultureInfo.CurrentUICulture;
+            return SGCI.CurrentUICulture;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public static CultureInfo GetThreadCulture()
+        public static SGCI GetThreadCulture()
         {
-            return Thread.CurrentThread.CurrentCulture;
+            return STT.CurrentThread.CurrentCulture;
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public static CultureInfo GetThreadUICulture()
+        public static SGCI GetThreadUICulture()
         {
-            return Thread.CurrentThread.CurrentUICulture;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string GetCultureName(string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                return CultureInfo.CurrentCulture.Name;
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CS-GCN1!)";
-            }
+            return STT.CurrentThread.CurrentUICulture;
         }
 
         /// <summary>
@@ -72,15 +56,15 @@ namespace Conforyon.Culture
         /// </summary>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetUICultureName(string Error = Constants.ErrorMessage)
+        public static string GetCultureName(string Error = CCC.ErrorMessage)
         {
             try
             {
-                return CultureInfo.CurrentUICulture.Name;
+                return SGCI.CurrentCulture.Name;
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CS-GCN2!)";
+                return Error + CCC.ErrorTitle + "CS-GCN1!)";
             }
         }
 
@@ -89,15 +73,15 @@ namespace Conforyon.Culture
         /// </summary>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetThreadCultureName(string Error = Constants.ErrorMessage)
+        public static string GetUICultureName(string Error = CCC.ErrorMessage)
         {
             try
             {
-                return Thread.CurrentThread.CurrentCulture.Name;
+                return SGCI.CurrentUICulture.Name;
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CS-GCN3!)";
+                return Error + CCC.ErrorTitle + "CS-GCN2!)";
             }
         }
 
@@ -106,15 +90,32 @@ namespace Conforyon.Culture
         /// </summary>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetThreadUICultureName(string Error = Constants.ErrorMessage)
+        public static string GetThreadCultureName(string Error = CCC.ErrorMessage)
         {
             try
             {
-                return Thread.CurrentThread.CurrentUICulture.Name;
+                return STT.CurrentThread.CurrentCulture.Name;
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CS-GCN4!)";
+                return Error + CCC.ErrorTitle + "CS-GCN3!)";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string GetThreadUICultureName(string Error = CCC.ErrorMessage)
+        {
+            try
+            {
+                return STT.CurrentThread.CurrentUICulture.Name;
+            }
+            catch
+            {
+                return Error + CCC.ErrorTitle + "CS-GCN4!)";
             }
         }
 
@@ -124,7 +125,7 @@ namespace Conforyon.Culture
         /// <param name="Name"></param>
         /// <param name="Override"></param>
         /// <returns></returns>
-        public static bool SetAllCulture(string Name = Constants.CultureName, bool Override = false)
+        public static bool SetAllCulture(string Name = CCC.CultureName, bool Override = false)
         {
             try
             {
@@ -149,7 +150,7 @@ namespace Conforyon.Culture
         /// <param name="Name"></param>
         /// <param name="Override"></param>
         /// <returns></returns>
-        public static bool SetCulture(string Name = Constants.CultureName, bool Override = false)
+        public static bool SetCulture(string Name = CCC.CultureName, bool Override = false)
         {
             try
             {
@@ -167,7 +168,7 @@ namespace Conforyon.Culture
         /// <param name="Name"></param>
         /// <param name="Override"></param>
         /// <returns></returns>
-        public static bool SetUICulture(string Name = Constants.CultureName, bool Override = false)
+        public static bool SetUICulture(string Name = CCC.CultureName, bool Override = false)
         {
             try
             {
@@ -185,7 +186,7 @@ namespace Conforyon.Culture
         /// <param name="Name"></param>
         /// <param name="Override"></param>
         /// <returns></returns>
-        public static bool SetThreadCulture(string Name = Constants.CultureName, bool Override = false)
+        public static bool SetThreadCulture(string Name = CCC.CultureName, bool Override = false)
         {
             try
             {
@@ -203,7 +204,7 @@ namespace Conforyon.Culture
         /// <param name="Name"></param>
         /// <param name="Override"></param>
         /// <returns></returns>
-        public static bool SetThreadUICulture(string Name = Constants.CultureName, bool Override = false)
+        public static bool SetThreadUICulture(string Name = CCC.CultureName, bool Override = false)
         {
             try
             {
@@ -220,7 +221,7 @@ namespace Conforyon.Culture
         /// </summary>
         /// <param name="Culture"></param>
         /// <returns></returns>
-        public static bool SetAllCulture(CultureInfo Culture)
+        public static bool SetAllCulture(SGCI Culture)
         {
             try
             {
@@ -244,55 +245,11 @@ namespace Conforyon.Culture
         /// </summary>
         /// <param name="Culture"></param>
         /// <returns></returns>
-        public static bool SetCulture(CultureInfo Culture)
+        public static bool SetCulture(SGCI Culture)
         {
             try
             {
-#if !NET40 && !NET45 && !NET451 && !NET452
-                CultureInfo.CurrentCulture = Culture;
-                return true;
-#else
-                return false;
-#endif
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Culture"></param>
-        /// <returns></returns>
-        public static bool SetUICulture(CultureInfo Culture)
-        {
-            try
-            {
-#if !NET40 && !NET45 && !NET451 && !NET452
-                CultureInfo.CurrentUICulture = Culture;
-                return true;
-#else
-                return false;
-#endif
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Culture"></param>
-        /// <returns></returns>
-        public static bool SetThreadCulture(CultureInfo Culture)
-        {
-            try
-            {
-                Thread.CurrentThread.CurrentCulture = Culture;
+                SGCI.CurrentCulture = Culture;
                 return true;
             }
             catch
@@ -306,11 +263,11 @@ namespace Conforyon.Culture
         /// </summary>
         /// <param name="Culture"></param>
         /// <returns></returns>
-        public static bool SetThreadUICulture(CultureInfo Culture)
+        public static bool SetUICulture(SGCI Culture)
         {
             try
             {
-                Thread.CurrentThread.CurrentUICulture = Culture;
+                SGCI.CurrentUICulture = Culture;
                 return true;
             }
             catch
@@ -318,6 +275,43 @@ namespace Conforyon.Culture
                 return false;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Culture"></param>
+        /// <returns></returns>
+        public static bool SetThreadCulture(SGCI Culture)
+        {
+            try
+            {
+                STT.CurrentThread.CurrentCulture = Culture;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Culture"></param>
+        /// <returns></returns>
+        public static bool SetThreadUICulture(SGCI Culture)
+        {
+            try
+            {
+                STT.CurrentThread.CurrentUICulture = Culture;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         #endregion
     }
 }

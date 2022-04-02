@@ -6,6 +6,7 @@
     public class Enums
     {
         #region Enums
+
         /// <summary>
         /// 
         /// </summary>
@@ -304,6 +305,7 @@
             /// </summary>
             Ends
         }
+
         #endregion
     }
 }

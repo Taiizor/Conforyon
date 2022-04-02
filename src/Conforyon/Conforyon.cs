@@ -16,20 +16,22 @@ using System.Text.RegularExpressions;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
-//     Changed: 24.Mar.2022
-//     Version: 1.4.7.8
+//     Changed: 03.Apr.2022
+//     Version: 2.0.0.0
 //
 // |---------DO-NOT-REMOVE---------|
 
 namespace Conforyon
 {
     #region Core
+
     /// <summary>
     /// 
     /// </summary>
     internal class Cores
     {
         #region Cores
+
         /// <summary>
         /// 
         /// </summary>
@@ -725,7 +727,9 @@ namespace Conforyon
 
             return Encoding.UTF8.GetString(MemoryStream.ToArray());
         }
+
         #endregion
     }
+
     #endregion
 }

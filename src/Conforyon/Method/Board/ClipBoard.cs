@@ -1,7 +1,10 @@
 ﻿#region Imports
 
-using Conforyon.Constant;
-using System.IO;
+using CCC = Conforyon.Constant.Constants;
+using CVC = Conforyon.Value.Caches;
+using SIOF = System.IO.File;
+using SIOS = System.IO.Stream;
+using SIOMS = System.IO.MemoryStream;
 
 #endregion
 
@@ -13,9 +16,6 @@ namespace Conforyon.Board
     public class ClipBoard
     {
         #region ClipBoard
-        private static string Board = string.Empty;
-
-        private static byte[] Audio = System.Array.Empty<byte>();
 
         /// <summary>
         /// 
@@ -25,7 +25,7 @@ namespace Conforyon.Board
         {
             try
             {
-                Board = Text;
+                CVC.Board = Text;
             }
             catch
             {
@@ -41,7 +41,7 @@ namespace Conforyon.Board
         {
             try
             {
-                CopyAudio(File.ReadAllBytes(Path));
+                CopyAudio(SIOF.ReadAllBytes(Path));
             }
             catch
             {
@@ -57,7 +57,7 @@ namespace Conforyon.Board
         {
             try
             {
-                Audio = Bytes;
+                CVC.Audio = Bytes;
             }
             catch
             {
@@ -72,15 +72,15 @@ namespace Conforyon.Board
         /// <param name="Back"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetText(bool Clear = false, string Back = Constants.EmptyMessage, string Error = Constants.ErrorMessage)
+        public static string GetText(bool Clear = false, string Back = CCC.EmptyMessage, string Error = CCC.ErrorMessage)
         {
             try
             {
-                string Text = Board;
+                string Text = CVC.Board;
 
                 if (Clear)
                 {
-                    Board = string.Empty; ;
+                    CVC.Board = string.Empty; ;
                 }
 
                 if (string.IsNullOrEmpty(Text))
@@ -94,7 +94,7 @@ namespace Conforyon.Board
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "BD-PT1!)";
+                return Error + CCC.ErrorTitle + "BD-PT1!)";
             }
         }
 
@@ -102,23 +102,23 @@ namespace Conforyon.Board
         /// 
         /// </summary>
         /// <param name="Clear"></param>
-        public static Stream GetAudio(bool Clear = false)
+        public static SIOS GetAudio(bool Clear = false)
         {
             try
             {
-                Stream Stream = new MemoryStream(Audio);
+                SIOS Stream = new SIOMS(CVC.Audio);
 
 
                 if (Clear)
                 {
-                    Audio = System.Array.Empty<byte>();
+                    CVC.Audio = System.Array.Empty<byte>();
                 }
 
                 return Stream;
             }
             catch
             {
-                return Stream.Null;
+                return SIOS.Null;
             }
         }
         #endregion

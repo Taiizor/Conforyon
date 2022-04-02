@@ -1,8 +1,9 @@
 ﻿#region Imports
 
-using Conforyon.Array;
-using Conforyon.Constant;
-using System.Collections.Generic;
+using CAA = Conforyon.Array.Arrays;
+using CCC = Conforyon.Constant.Constants;
+using SCG = System.Collections.Generic;
+using SCGD = System.Collections.Generic.Dictionary<string, string>;
 
 #endregion
 
@@ -14,6 +15,7 @@ namespace Conforyon.Value
     public class Values
     {
         #region Values
+
         /// <summary>
         /// 
         /// </summary>
@@ -22,17 +24,17 @@ namespace Conforyon.Value
         /// <param name="Key3"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = Constants.ErrorMessage)
+        public static string GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Arrays.UnitValues.ContainsKey(Key1))
+                if (CAA.UnitValues.ContainsKey(Key1))
                 {
-                    if (Arrays.UnitValues[Key1].ContainsKey(Key2))
+                    if (CAA.UnitValues[Key1].ContainsKey(Key2))
                     {
-                        if (Arrays.UnitValues[Key1][Key2].ContainsKey(Key3))
+                        if (CAA.UnitValues[Key1][Key2].ContainsKey(Key3))
                         {
-                            return Arrays.UnitValues[Key1][Key2][Key3];
+                            return CAA.UnitValues[Key1][Key2][Key3];
                         }
                         else
                         {
@@ -51,7 +53,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "VS-GV1!)";
+                return Error + CCC.ErrorTitle + "VS-GV1!)";
             }
         }
 
@@ -64,18 +66,18 @@ namespace Conforyon.Value
         /// <param name="Value"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = Constants.ErrorMessage)
+        public static string SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Arrays.UnitValues.ContainsKey(Key1))
+                if (CAA.UnitValues.ContainsKey(Key1))
                 {
-                    if (Arrays.UnitValues[Key1].ContainsKey(Key2))
+                    if (CAA.UnitValues[Key1].ContainsKey(Key2))
                     {
-                        if (Arrays.UnitValues[Key1][Key2].ContainsKey(Key3))
+                        if (CAA.UnitValues[Key1][Key2].ContainsKey(Key3))
                         {
-                            Arrays.UnitValues[Key1][Key2][Key3] = Value;
-                            return Arrays.UnitValues[Key1][Key2][Key3];
+                            CAA.UnitValues[Key1][Key2][Key3] = Value;
+                            return CAA.UnitValues[Key1][Key2][Key3];
                         }
                         else
                         {
@@ -94,7 +96,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "VS-SV1!)";
+                return Error + CCC.ErrorTitle + "VS-SV1!)";
             }
         }
 
@@ -104,24 +106,27 @@ namespace Conforyon.Value
         /// <param name="Error"></param>
         /// <param name="Title"></param>
         /// <returns></returns>
-        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> ListValue(string Error = "Error", string Title = "Title")
+        public static SCG.Dictionary<string, SCG.Dictionary<string, SCGD>> ListValue(string Error = "Error", string Title = "Title")
         {
             try
             {
-                return Arrays.UnitValues;
+                return CAA.UnitValues;
             }
             catch
             {
-                return new Dictionary<string, Dictionary<string, Dictionary<string, string>>>()
+                return new()
                 {
                     {
-                        Error, new Dictionary<string, Dictionary<string, string>>()
+                        Error,
+                        new()
                         {
                             {
-                                Title, new Dictionary<string, string>()
+                                Title,
+                                new()
                                 {
                                     {
-                                        "CN", "VS-LV1!"
+                                        "CN",
+                                        "VS-LV1!"
                                     }
                                 }
                             }
@@ -136,7 +141,7 @@ namespace Conforyon.Value
         /// </summary>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ListValueJson(string Error = Constants.ErrorMessage)
+        public static string ListValueJson(string Error = CCC.ErrorMessage)
         {
             try
             {
@@ -144,9 +149,10 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "VS-LVJ1!)";
+                return Error + CCC.ErrorTitle + "VS-LVJ1!)";
             }
         }
+
         #endregion
     }
 }
