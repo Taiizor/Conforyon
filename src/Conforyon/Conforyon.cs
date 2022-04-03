@@ -4,13 +4,14 @@ using Conforyon.Array;
 using Conforyon.Constant;
 using Conforyon.Enum;
 using System;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
 using CCC = Conforyon.Constant.Constants;
+using CHD = Conforyon.Helper.Detect;
+using CEEDT = Conforyon.Enum.Enums.DetectType;
 
 #endregion
 
@@ -140,6 +141,48 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string ResultFormat(double Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        {
+            return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ResultFormat(float Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        {
+            return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ResultFormat(int Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        {
+            return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string ResultFormat(string Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
         {
             try
@@ -171,23 +214,16 @@ namespace Conforyon
                     {
                         string First = string.Empty;
                         string Second = string.Empty;
-                        char Char = '.';
 
-                        if (Result.Contains("."))
+                        switch (CHD.Enum)
                         {
-                            Char = '.';
-                            First = Result.Split(Char).First();
-                            Second = Result.Split(Char).Last();
-                        }
-                        else if (Result.Contains(","))
-                        {
-                            Char = ',';
-                            First = Result.Split(Char).First();
-                            Second = Result.Split(Char).Last();
-                        }
-                        else
-                        {
-                            First = Result;
+                            case CEEDT.Dot or CEEDT.Comma:
+                                First = Result.Split(CHD.Char).First();
+                                Second = Result.Split(CHD.Char).Last();
+                                break;
+                            default:
+                                First = Result;
+                                break;
                         }
 
                         if (Second.Length < PostComma)
@@ -202,7 +238,7 @@ namespace Conforyon
                             Second = Second.Substring(0, PostComma);
                         }
 
-                        return $"{First}{Char}{Second}";
+                        return $"{First}{CHD.Char}{Second}";
                     }
                     else if (!Decimal && Comma && PostComma <= 0)
                     {
@@ -212,23 +248,16 @@ namespace Conforyon
                     {
                         string First = string.Empty;
                         string Second = string.Empty;
-                        char Char = '.';
 
-                        if (Result.Contains("."))
+                        switch (CHD.Enum)
                         {
-                            Char = '.';
-                            First = Result.Split(Char).First();
-                            Second = Result.Split(Char).Last();
-                        }
-                        else if (Result.Contains(","))
-                        {
-                            Char = ',';
-                            First = Result.Split(Char).First();
-                            Second = Result.Split(Char).Last();
-                        }
-                        else
-                        {
-                            First = Result;
+                            case CEEDT.Dot or CEEDT.Comma:
+                                First = Result.Split(CHD.Char).First();
+                                Second = Result.Split(CHD.Char).Last();
+                                break;
+                            default:
+                                First = Result;
+                                break;
                         }
 
                         if (First.Length > 3)
@@ -248,7 +277,7 @@ namespace Conforyon
                             Second = Second.Substring(0, PostComma);
                         }
 
-                        return $"{First}{Char}{Second}";
+                        return $"{First}{CHD.Char}{Second}";
                     }
                 }
             }
@@ -265,18 +294,11 @@ namespace Conforyon
         /// <returns></returns>
         public static string RemoveResult(string Result)
         {
-            if (Result.Contains("."))
+            return CHD.Enum switch
             {
-                return Result.Split('.').First();
-            }
-            else if (Result.Contains(","))
-            {
-                return Result.Split(',').First();
-            }
-            else
-            {
-                return Result;
-            }
+                CEEDT.Dot or CEEDT.Comma => Result.Split(CHD.Char).First(),
+                _ => Result,
+            };
         }
 
         /// <summary>
@@ -292,7 +314,14 @@ namespace Conforyon
             {
                 if (Result.Substring(Count, Result.Length - Count - 1).Length % 3 == 0)
                 {
-                    Temp += Result.Substring(Count, 1) + ".";
+                    if (CHD.Enum == CEEDT.Dot)
+                    {
+                        Temp += Result.Substring(Count, 1) + ",";
+                    }
+                    else
+                    {
+                        Temp += Result.Substring(Count, 1) + ".";
+                    }
                 }
                 else
                 {

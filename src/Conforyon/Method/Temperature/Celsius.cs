@@ -1,6 +1,6 @@
 ﻿#region Imports
 
-using System;
+using SC = System.Convert;
 using CCC = Conforyon.Constant.Constants;
 using CVV = Conforyon.Value.Values;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
@@ -47,9 +47,9 @@ namespace Conforyon.Temperature
             {
                 if (Celsius.Length <= CCC.VariableLength && Cores.NumberControl(Celsius) && !Celsius.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Celsius))
                 {
-                    double Fahrenheit = ((Convert.ToDouble(Celsius) * Convert.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Multiply", Error))) / Convert.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Divide", Error))) + Convert.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Add", Error));
+                    double Fahrenheit = ((SC.ToDouble(Celsius) * SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Multiply", Error))) / SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Divide", Error))) + SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Add", Error));
 
-                    string Result = Cores.ResultFormat($"{Fahrenheit}", Decimal, Comma, PostComma, Error);
+                    string Result = Cores.ResultFormat(Fahrenheit, Decimal, Comma, PostComma, Error);
 
                     if (Text)
                     {

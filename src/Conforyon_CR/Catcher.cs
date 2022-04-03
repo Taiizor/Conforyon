@@ -12,6 +12,7 @@ using System;
 using System.Windows.Forms;
 using static Conforyon.Enum.Enums;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
+using CCC = Conforyon.Culture.Cultures;
 
 namespace Conforyon_CR
 {
@@ -21,6 +22,7 @@ namespace Conforyon_CR
         {
             InitializeComponent();
             textBox2.Text = Application.ExecutablePath;
+            CCC.SetAllCulture("en-GB");
         }
 
         private bool Unicoder = true;
@@ -84,11 +86,11 @@ namespace Conforyon_CR
         {
             if (Temperaturer)
             {
-                textBox13.Text = Celsius.Fahrenheit(textBox12.Text, true, true, 3, false, "Error!");
+                textBox13.Text = Celsius.Fahrenheit(textBox12.Text, false, false, 0, false, "Error!");
             }
             else
             {
-                textBox12.Text = Fahrenheit.Celsius(textBox13.Text, true, true, 3, false, "Error!");
+                textBox12.Text = Fahrenheit.Celsius(textBox13.Text, false, false, 0, false, "Error!");
             }
 
             Temperaturer = !Temperaturer;
@@ -125,14 +127,14 @@ namespace Conforyon_CR
 
         private void Button11_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Typography.INCHtoCM(textBox17.Text, true, true, 2, "Error!") + " - INCH => CM");
-            MessageBox.Show(Typography.INCHtoPX(textBox17.Text, true, true, 2, "Error!") + " - INCH => PX");
+            MessageBox.Show(INCH.CM(textBox17.Text, true, true, 2, "Error!") + " - INCH => CM");
+            MessageBox.Show(INCH.PX(textBox17.Text, true, true, 2, "Error!") + " - INCH => PX");
 
-            MessageBox.Show(Typography.CMtoINCH(textBox17.Text, true, true, 2, "Error!") + " - CM => INCH");
-            MessageBox.Show(Typography.CMtoPX(textBox17.Text, true, true, 2, "Error!") + " - CM => PX");
+            MessageBox.Show(CM.INCH(textBox17.Text, true, true, 2, "Error!") + " - CM => INCH");
+            MessageBox.Show(CM.PX(textBox17.Text, true, true, 2, "Error!") + " - CM => PX");
 
-            MessageBox.Show(Typography.PXtoINCH(textBox17.Text, true, true, 2, "Error!") + " - PX => INCH");
-            MessageBox.Show(Typography.PXtoCM(textBox17.Text, true, true, 2, "Error!") + " - PX => CM");
+            MessageBox.Show(PX.INCH(textBox17.Text, true, true, 2, "Error!") + " - PX => INCH");
+            MessageBox.Show(PX.CM(textBox17.Text, true, true, 2, "Error!") + " - PX => CM");
         }
 
         private void Button12_Click(object sender, EventArgs e)

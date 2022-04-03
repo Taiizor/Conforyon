@@ -5,6 +5,8 @@ using CCC = Conforyon.Constant.Constants;
 using SCG = System.Collections.Generic;
 using SCGD = System.Collections.Generic.Dictionary<string, string>;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
+using CEEDT = Conforyon.Enum.Enums.DetectType;
+using CHD = Conforyon.Helper.Detect;
 
 #endregion
 
@@ -35,7 +37,12 @@ namespace Conforyon.Value
                     {
                         if (CAA.UnitValues[Method][Key2].ContainsKey(Key3))
                         {
-                            return CAA.UnitValues[Method][Key2][Key3];
+                            return CHD.Enum switch
+                            {
+                                CEEDT.Dot => CAA.UnitValues[Method][Key2][Key3].Replace(",", "."),
+                                CEEDT.Comma => CAA.UnitValues[Method][Key2][Key3].Replace(".", ","),
+                                _ => CAA.UnitValues[Method][Key2][Key3],
+                            };
                         }
                         else
                         {
@@ -77,7 +84,13 @@ namespace Conforyon.Value
                     {
                         if (CAA.UnitValues[Method][Key2].ContainsKey(Key3))
                         {
-                            CAA.UnitValues[Method][Key2][Key3] = Value;
+                            CAA.UnitValues[Method][Key2][Key3] = CHD.Enum switch
+                            {
+                                CEEDT.Dot => Value.Replace(",", "."),
+                                CEEDT.Comma => Value.Replace(".", ","),
+                                _ => Value,
+                            };
+
                             return CAA.UnitValues[Method][Key2][Key3];
                         }
                         else

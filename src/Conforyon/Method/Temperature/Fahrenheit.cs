@@ -1,8 +1,8 @@
 ﻿#region Imports
 
-using Conforyon.Constant;
-using Conforyon.Value;
-using System;
+using CCC = Conforyon.Constant.Constants;
+using CVV = Conforyon.Value.Values;
+using SC = System.Convert;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
@@ -26,33 +26,50 @@ namespace Conforyon.Temperature
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Celsius(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = Constants.ErrorMessage)
+        public static string Celsius(int Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        {
+            return Celsius($"{Fahrenheit}", Decimal, Comma, PostComma, Text, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fahrenheit"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string Celsius(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Fahrenheit.Length <= Constants.VariableLength && Cores.NumberControl(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Fahrenheit))
+                if (Fahrenheit.Length <= CCC.VariableLength && Cores.NumberControl(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Fahrenheit))
                 {
-                    if (Convert.ToInt64(Fahrenheit) >= 32)
+                    if (SC.ToInt64(Fahrenheit) >= SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error)))
                     {
+                        double Celsius = (SC.ToDouble(Fahrenheit) - SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error))) * SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) / SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error));
+
+                        string Result = Cores.ResultFormat(Celsius, Decimal, Comma, PostComma, Error);
+
                         if (Text)
                         {
-                            return Cores.LastCheck2(((Convert.ToDouble(Fahrenheit) - Convert.ToInt32(Values.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error))) * Convert.ToInt32(Values.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) / Convert.ToInt32(Values.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error))).ToString(), Decimal, Comma, PostComma, Error) + " C";
+                            Result = $"{Celsius} C";
                         }
-                        else
-                        {
-                            return Cores.LastCheck2(((Convert.ToDouble(Fahrenheit) - Convert.ToInt32(Values.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error))) * Convert.ToInt32(Values.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) / Convert.ToInt32(Values.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error))).ToString(), Decimal, Comma, PostComma, Error);
-                        }
+
+                        return Result;
                     }
                     else
                     {
+                        string Result = Cores.ResultFormat(0, Decimal, Comma, PostComma, Error);
+
                         if (Text)
                         {
-                            return Cores.LastCheck2("0", Decimal, Comma, PostComma, Error) + " C";
+                            Result = $"{Result} C";
                         }
-                        else
-                        {
-                            return Cores.LastCheck2("0", Decimal, Comma, PostComma, Error);
-                        }
+
+                        return Result;
                     }
                 }
                 else
@@ -62,7 +79,7 @@ namespace Conforyon.Temperature
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "TE-C1!)";
+                return Error + CCC.ErrorTitle + "TE-C1!)";
             }
         }
 

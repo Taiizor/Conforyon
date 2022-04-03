@@ -343,6 +343,25 @@
         /// <summary>
         /// 
         /// </summary>
+        public enum DetectType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            Dot,
+            /// <summary>
+            /// 
+            /// </summary>
+            Comma,
+            /// <summary>
+            /// 
+            /// </summary>
+            None
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum MethodType
         {
             /// <summary>
