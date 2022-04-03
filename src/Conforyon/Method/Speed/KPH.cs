@@ -1,8 +1,5 @@
 ﻿#region Imports
 
-using Conforyon.Constant;
-using Conforyon.Value;
-using System;
 using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
@@ -30,20 +27,22 @@ namespace Conforyon.Speed
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string MPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = Constants.ErrorMessage)
+        public static string MPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Kilometers.Length <= Constants.VariableLength && Cores.NumberControl(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Kilometers))
+                if (Kilometers.Length <= CCC.VariableLength && CC.NumberControl(Kilometers) && !Kilometers.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Kilometers))
                 {
+                    double Miles = SC.ToDouble(Kilometers) * SC.ToDouble(CVV.GetValue(CEEMT.Speed, "KPH", "MPH", Error));
+
+                    string Result = CC.ResultFormat(Miles, Decimal, Comma, PostComma, Error);
+
                     if (Text)
                     {
-                        return Cores.ResultFormat((Convert.ToDouble(Kilometers) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
+                        Result = $"{Miles} MPH";
                     }
-                    else
-                    {
-                        return Cores.ResultFormat((Convert.ToDouble(Kilometers) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
-                    }
+
+                    return Result;
                 }
                 else
                 {
@@ -52,7 +51,7 @@ namespace Conforyon.Speed
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "SD-MPH1!)";
+                return Error + CCC.ErrorTitle + "SD-MPH1!)";
             }
         }
 

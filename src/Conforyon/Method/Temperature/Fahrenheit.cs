@@ -48,30 +48,16 @@ namespace Conforyon.Temperature
             {
                 if (Fahrenheit.Length <= CCC.VariableLength && CC.NumberControl(Fahrenheit) && !Fahrenheit.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Fahrenheit))
                 {
-                    if (SC.ToInt64(Fahrenheit) >= SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error)))
+                    double Celsius = (SC.ToDouble(Fahrenheit) - SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error))) * SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) / SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error));
+
+                    string Result = CC.ResultFormat(Celsius, Decimal, Comma, PostComma, Error);
+
+                    if (Text)
                     {
-                        double Celsius = (SC.ToDouble(Fahrenheit) - SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error))) * SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) / SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error));
-
-                        string Result = CC.ResultFormat(Celsius, Decimal, Comma, PostComma, Error);
-
-                        if (Text)
-                        {
-                            Result = $"{Celsius} C";
-                        }
-
-                        return Result;
+                        Result = $"{Celsius} C";
                     }
-                    else
-                    {
-                        string Result = CC.ResultFormat(0, Decimal, Comma, PostComma, Error);
 
-                        if (Text)
-                        {
-                            Result = $"{Result} C";
-                        }
-
-                        return Result;
-                    }
+                    return Result;
                 }
                 else
                 {

@@ -1,4 +1,10 @@
-﻿namespace Conforyon.Constant
+﻿#region Imports
+
+using SSCCM = System.Security.Cryptography.CipherMode;
+
+#endregion
+
+namespace Conforyon.Constant
 {
     /// <summary>
     /// 
@@ -26,6 +32,21 @@
         /// 
         /// </summary>
         public const string CultureName = "en-GB";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string IV = "QxQsRoZQws61N46H";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Key = "uS830kWPrPSPyZK0pS7Pgw3wP3SvLOGr";
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const SSCCM Mode = SSCCM.CBC;
 
         /// <summary>
         /// 
@@ -61,6 +82,16 @@
         /// 
         /// </summary>
         public const int ASCIINumberMaximum = 255;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int IVLength = 16;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int KeyLength = 32;
 
         /// <summary>
         /// 

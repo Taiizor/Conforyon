@@ -30,20 +30,22 @@ namespace Conforyon.Speed
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string KPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = Constants.ErrorMessage)
+        public static string KPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Miles.Length <= Constants.VariableLength && Cores.NumberControl(Miles) && !Miles.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Miles))
+                if (Miles.Length <= CCC.VariableLength && CC.NumberControl(Miles) && !Miles.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Miles))
                 {
+                    double Kilometers = SC.ToDouble(Miles) * SC.ToDouble(CVV.GetValue(CEEMT.Speed, "MPH", "KPH", Error));
+
+                    string Result = CC.ResultFormat(Kilometers, Decimal, Comma, PostComma, Error);
+
                     if (Text)
                     {
-                        return Cores.ResultFormat((Convert.ToDouble(Miles) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
+                        Result = $"{Kilometers} KPH";
                     }
-                    else
-                    {
-                        return Cores.ResultFormat((Convert.ToDouble(Miles) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
-                    }
+
+                    return Result;
                 }
                 else
                 {
@@ -52,7 +54,7 @@ namespace Conforyon.Speed
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "SD-KPH1!)";
+                return Error + CCC.ErrorTitle + "SD-KPH1!)";
             }
         }
 

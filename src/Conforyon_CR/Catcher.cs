@@ -58,8 +58,13 @@ namespace Conforyon_CR
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Cryptography.TEXTtoMD5(textBox5.Text, false, "Error!") + "\n" + Cryptography.TEXTtoMD5(textBox5.Text, true, "Error!"));
-            MessageBox.Show(Cryptography.TEXTtoSHA1(textBox5.Text, false, "Error!") + "\n" + Cryptography.TEXTtoSHA1(textBox5.Text, true, "Error!"));
+            MessageBox.Show(AES.Encrypt("Taiizor"));
+            MessageBox.Show(AES.Decrypt(AES.Encrypt("Taiizor")));
+
+            MessageBox.Show(TEXT.BASE(textBox5.Text, "Error!"));
+
+            MessageBox.Show(TEXT.MD5(textBox5.Text, false, "Error!") + "\n" + TEXT.MD5(textBox5.Text, true, "Error!"));
+            MessageBox.Show(TEXT.SHA1(textBox5.Text, false, "Error!") + "\n" + TEXT.SHA1(textBox5.Text, true, "Error!"));
         }
 
         private void Button4_Click(object sender, EventArgs e)

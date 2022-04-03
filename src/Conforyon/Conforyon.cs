@@ -2,16 +2,18 @@
 
 using Conforyon.Array;
 using Conforyon.Constant;
-using Conforyon.Enum;
 using System;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Json;
-using System.Text;
 using System.Text.RegularExpressions;
 using CCC = Conforyon.Constant.Constants;
 using CEEDT = Conforyon.Enum.Enums.DetectType;
+using CEEIT = Conforyon.Enum.Enums.IntType;
+using CEEST = Conforyon.Enum.Enums.SearchType;
 using CHD = Conforyon.Helper.Detect;
+using SIOMS = System.IO.MemoryStream;
+using SRSJDCJS = System.Runtime.Serialization.Json.DataContractJsonSerializer;
+using SRSJDCJSS = System.Runtime.Serialization.Json.DataContractJsonSerializerSettings;
+using STE = System.Text.Encoding;
 
 #endregion
 
@@ -82,7 +84,7 @@ namespace Conforyon
         /// <param name="Pass"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static bool NumberControl(int Number, bool Pass = false, Enums.IntType Type = Enums.IntType.Int64)
+        public static bool NumberControl(int Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
         {
             return NumberControl($"{Number}", Pass, Type);
         }
@@ -94,7 +96,7 @@ namespace Conforyon
         /// <param name="Pass"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static bool NumberControl(string Number, bool Pass = false, Enums.IntType Type = Enums.IntType.Int64)
+        public static bool NumberControl(string Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
         {
             try
             {
@@ -112,22 +114,22 @@ namespace Conforyon
                     {
                         switch (Type)
                         {
-                            case Enums.IntType.Int16:
+                            case CEEIT.Int16:
                                 Convert.ToInt16(Number);
                                 break;
-                            case Enums.IntType.Int32:
+                            case CEEIT.Int32:
                                 Convert.ToInt32(Number);
                                 break;
-                            case Enums.IntType.Int64:
+                            case CEEIT.Int64:
                                 Convert.ToInt64(Number);
                                 break;
-                            case Enums.IntType.UInt16:
+                            case CEEIT.UInt16:
                                 Convert.ToUInt16(Number);
                                 break;
-                            case Enums.IntType.UInt32:
+                            case CEEIT.UInt32:
                                 Convert.ToUInt32(Number);
                                 break;
-                            case Enums.IntType.UInt64:
+                            case CEEIT.UInt64:
                                 Convert.ToUInt64(Number);
                                 break;
                             default:
@@ -352,12 +354,12 @@ namespace Conforyon
         /// <returns></returns>
         public static string DataToJson<T>(T Data)
         {
-            MemoryStream MemoryStream = new();
+            SIOMS MemoryStream = new();
 
-            DataContractJsonSerializer Serializer = new
+            SRSJDCJS Serializer = new
             (
                 Data.GetType(),
-                new DataContractJsonSerializerSettings()
+                new SRSJDCJSS()
                 {
                     UseSimpleDictionaryFormat = true
                 }
@@ -365,7 +367,7 @@ namespace Conforyon
 
             Serializer.WriteObject(MemoryStream, Data);
 
-            return Encoding.UTF8.GetString(MemoryStream.ToArray());
+            return STE.UTF8.GetString(MemoryStream.ToArray());
         }
 
         /// <summary>
@@ -375,13 +377,13 @@ namespace Conforyon
         /// <param name="Words"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static bool Searching(string Text, string[] Words, Enums.SearchType Type = Enums.SearchType.Contains)
+        public static bool Searching(string Text, string[] Words, CEEST Type = CEEST.Contains)
         {
             try
             {
                 switch (Type)
                 {
-                    case Enums.SearchType.Starts:
+                    case CEEST.Starts:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
@@ -398,7 +400,7 @@ namespace Conforyon
                         }
 
                         break;
-                    case Enums.SearchType.Contains:
+                    case CEEST.Contains:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
@@ -415,7 +417,7 @@ namespace Conforyon
                         }
 
                         break;
-                    case Enums.SearchType.Ends:
+                    case CEEST.Ends:
                         if (Words.Length > 1)
                         {
                             foreach (string Letter in Words)
@@ -433,6 +435,7 @@ namespace Conforyon
 
                         break;
                 }
+
                 return false;
             }
             catch
@@ -484,9 +487,9 @@ namespace Conforyon
                                 Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
                             }
 
-                            if (Searching(Variable2, Arrays.SymbolsCalc, Enums.SearchType.Contains))
+                            if (Searching(Variable2, Arrays.SymbolsCalc, CEEST.Contains))
                             {
-                                if (Searching(Variable3, Arrays.SymbolsMath, Enums.SearchType.Starts))
+                                if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -495,9 +498,9 @@ namespace Conforyon
                                     Variable1 = Variable3;
                                 }
                             }
-                            else if (Searching(Variable3, Arrays.SymbolsMath, Enums.SearchType.Starts))
+                            else if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
                             {
-                                if (Searching(Variable2, Arrays.SymbolsMath, Enums.SearchType.Starts))
+                                if (Searching(Variable2, Arrays.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable3;
                                 }
@@ -524,9 +527,9 @@ namespace Conforyon
                                 Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
                             }
 
-                            if (Searching(Variable2, Arrays.SymbolsCalc, Enums.SearchType.Contains))
+                            if (Searching(Variable2, Arrays.SymbolsCalc, CEEST.Contains))
                             {
-                                if (Searching(Variable3, Arrays.SymbolsMath, Enums.SearchType.Starts))
+                                if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -535,9 +538,9 @@ namespace Conforyon
                                     Variable1 = Variable3;
                                 }
                             }
-                            else if (Searching(Variable3, Arrays.SymbolsMath, Enums.SearchType.Starts))
+                            else if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
                             {
-                                if (Searching(Variable3, Arrays.SymbolsMath, Enums.SearchType.Starts))
+                                if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -896,52 +899,6 @@ namespace Conforyon
             catch
             {
                 return Error + Constants.ErrorTitle + "CN-LC1!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string LastCheck2(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (!Decimal && !Comma)
-                {
-                    if (string.IsNullOrEmpty(Variable))
-                    {
-                        return Error;
-                    }
-                    else
-                    {
-                        return LastCheck(Variable, false, true, 0, Error);
-                    }
-                }
-                else
-                {
-                    if (Decimal && !Comma)
-                    {
-                        return LastCheck(Variable, true, true, 0, Error);
-                    }
-                    else if (!Decimal && Comma)
-                    {
-                        return LastCheck(Variable, false, true, PostComma, Error);
-                    }
-                    else
-                    {
-                        return DecimalComma(Variable, PostComma);
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-LC2!)";
             }
         }
 

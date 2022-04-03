@@ -65,6 +65,45 @@
         /// <summary>
         /// 
         /// </summary>
+        public enum CryptologyType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            AES,
+            /// <summary>
+            /// 
+            /// </summary>
+            MD5,
+            /// <summary>
+            /// 
+            /// </summary>
+            SHA1,
+            /// <summary>
+            /// 
+            /// </summary>
+            SHA256,
+            /// <summary>
+            /// 
+            /// </summary>
+            SHA384,
+            /// <summary>
+            /// 
+            /// </summary>
+            SHA512,
+            /// <summary>
+            /// 
+            /// </summary>
+            TEXT,
+            /// <summary>
+            /// 
+            /// </summary>
+            BASE
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum HashType
         {
             /// <summary>
