@@ -4,10 +4,13 @@ using Conforyon.Array;
 using Conforyon.Constant;
 using Conforyon.Enum;
 using System;
+using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
+using CCC = Conforyon.Constant.Constants;
 
 #endregion
 
@@ -126,6 +129,178 @@ namespace Conforyon
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ResultFormat(string Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Result))
+                {
+                    return Error;
+                }
+                else
+                {
+                    if (!Decimal && !Comma)
+                    {
+                        return RemoveResult(Result);
+                    }
+                    else if ((Decimal && !Comma) || (Decimal && Comma && PostComma <= 0))
+                    {
+                        Result = RemoveResult(Result);
+
+                        if (Result.Length > 3)
+                        {
+                            return FormatResult(Result);
+                        }
+                        else
+                        {
+                            return Result;
+                        }
+                    }
+                    else if (!Decimal && Comma && PostComma > 0)
+                    {
+                        string First = string.Empty;
+                        string Second = string.Empty;
+                        char Char = '.';
+
+                        if (Result.Contains("."))
+                        {
+                            Char = '.';
+                            First = Result.Split(Char).First();
+                            Second = Result.Split(Char).Last();
+                        }
+                        else if (Result.Contains(","))
+                        {
+                            Char = ',';
+                            First = Result.Split(Char).First();
+                            Second = Result.Split(Char).Last();
+                        }
+                        else
+                        {
+                            First = Result;
+                        }
+
+                        if (Second.Length < PostComma)
+                        {
+                            for (int Count = Second.Length; Count < PostComma; Count++)
+                            {
+                                Second += "0";
+                            }
+                        }
+                        else if (Second.Length > PostComma)
+                        {
+                            Second = Second.Substring(0, PostComma);
+                        }
+
+                        return $"{First}{Char}{Second}";
+                    }
+                    else if (!Decimal && Comma && PostComma <= 0)
+                    {
+                        return RemoveResult(Result);
+                    }
+                    else
+                    {
+                        string First = string.Empty;
+                        string Second = string.Empty;
+                        char Char = '.';
+
+                        if (Result.Contains("."))
+                        {
+                            Char = '.';
+                            First = Result.Split(Char).First();
+                            Second = Result.Split(Char).Last();
+                        }
+                        else if (Result.Contains(","))
+                        {
+                            Char = ',';
+                            First = Result.Split(Char).First();
+                            Second = Result.Split(Char).Last();
+                        }
+                        else
+                        {
+                            First = Result;
+                        }
+
+                        if (First.Length > 3)
+                        {
+                            First = FormatResult(First);
+                        }
+
+                        if (Second.Length < PostComma)
+                        {
+                            for (int Count = Second.Length; Count < PostComma; Count++)
+                            {
+                                Second += "0";
+                            }
+                        }
+                        else if (Second.Length > PostComma)
+                        {
+                            Second = Second.Substring(0, PostComma);
+                        }
+
+                        return $"{First}{Char}{Second}";
+                    }
+                }
+            }
+            catch
+            {
+                return Error + CCC.ErrorTitle + "CN-RF1!)";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string RemoveResult(string Result)
+        {
+            if (Result.Contains("."))
+            {
+                return Result.Split('.').First();
+            }
+            else if (Result.Contains(","))
+            {
+                return Result.Split(',').First();
+            }
+            else
+            {
+                return Result;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string FormatResult(string Result)
+        {
+            string Temp = string.Empty;
+
+            for (int Count = 0; Count < Result.Length; Count++)
+            {
+                if (Result.Substring(Count, Result.Length - Count - 1).Length % 3 == 0)
+                {
+                    Temp += Result.Substring(Count, 1) + ".";
+                }
+                else
+                {
+                    Temp += Result.Substring(Count, 1);
+                }
+            }
+
+            return Temp.Substring(0, Temp.Length - 1);
         }
 
         /// <summary>

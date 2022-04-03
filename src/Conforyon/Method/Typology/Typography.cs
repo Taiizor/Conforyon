@@ -3,6 +3,7 @@
 using Conforyon.Constant;
 using Conforyon.Value;
 using System;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -29,7 +30,7 @@ namespace Conforyon.Typology
             {
                 if (Inch.Length <= Constants.VariableLength && Cores.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Inch))
                 {
-                    return Cores.LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(Values.GetValue("Typography", "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    return Cores.LastCheck2((Convert.ToInt64(Inch) * Convert.ToDouble(Values.GetValue(CEEMT.Typography, "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -57,7 +58,7 @@ namespace Conforyon.Typology
             {
                 if (Inch.Length <= Constants.VariableLength && Cores.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Inch))
                 {
-                    string Result = (Convert.ToInt64(Inch) * Convert.ToDouble(Values.GetValue("Typography", "INCH", "PX", Error))).ToString();
+                    string Result = (Convert.ToInt64(Inch) * Convert.ToDouble(Values.GetValue(CEEMT.Typography, "INCH", "PX", Error))).ToString();
                     return Cores.LastCheck2(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
@@ -88,7 +89,7 @@ namespace Conforyon.Typology
                 {
                     if (Convert.ToInt64(Centimeter) >= 3)
                     {
-                        return Cores.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Values.GetValue("Typography", "CM", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Cores.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Values.GetValue(CEEMT.Typography, "CM", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {
@@ -121,7 +122,7 @@ namespace Conforyon.Typology
             {
                 if (Centimeter.Length <= Constants.VariableLength && Cores.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= Constants.PostCommaMinimum && PostComma <= Constants.PostCommaMaximum && Cores.TextControl(Centimeter))
                 {
-                    return Cores.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Values.GetValue("Typography", "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    return Cores.LastCheck2((Convert.ToInt64(Centimeter) * Convert.ToDouble(Values.GetValue(CEEMT.Typography, "CM", "PX", Error))).ToString(), Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -151,7 +152,7 @@ namespace Conforyon.Typology
                 {
                     if (Convert.ToInt64(Pixel) >= 38)
                     {
-                        return Cores.LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(Values.GetValue("Typography", "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Cores.LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(Values.GetValue(CEEMT.Typography, "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {
@@ -186,7 +187,7 @@ namespace Conforyon.Typology
                 {
                     if (Convert.ToInt64(Pixel) >= 96)
                     {
-                        return Cores.LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(Values.GetValue("Typography", "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Cores.LastCheck2((Convert.ToInt64(Pixel) * Convert.ToDouble(Values.GetValue(CEEMT.Typography, "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                     else
                     {

@@ -11,6 +11,7 @@ using Conforyon.Value;
 using System;
 using System.Windows.Forms;
 using static Conforyon.Enum.Enums;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 namespace Conforyon_CR
 {
@@ -83,11 +84,11 @@ namespace Conforyon_CR
         {
             if (Temperaturer)
             {
-                textBox13.Text = Temperatures.CtoF(textBox12.Text, false, false, 0, false, "Error!");
+                textBox13.Text = Celsius.Fahrenheit(textBox12.Text, true, true, 3, false, "Error!");
             }
             else
             {
-                textBox12.Text = Temperatures.FtoC(textBox13.Text, false, false, 0, false, "Error!");
+                textBox12.Text = Fahrenheit.Celsius(textBox13.Text, true, true, 3, false, "Error!");
             }
 
             Temperaturer = !Temperaturer;
@@ -115,11 +116,11 @@ namespace Conforyon_CR
 
         private void Button10_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Values.GetValue("DataStorage", "PB", "EB", "Error!"));
-            MessageBox.Show(Values.SetValue("DataStorage", "PB", "EB", "3333", "Error!"));
+            MessageBox.Show(Values.GetValue(CEEMT.DataStorage, "PB", "EB", "Error!"));
+            MessageBox.Show(Values.SetValue(CEEMT.DataStorage, "PB", "EB", "3333", "Error!"));
 
-            MessageBox.Show(Values.GetValue("Temperature", "Celsius", "Multipy", "Error!"));
-            MessageBox.Show(Values.SetValue("Temperature", "Celsius", "Multipy", "18", "Error!"));
+            MessageBox.Show(Values.GetValue(CEEMT.Temperature, "Celsius", "Multipy", "Error!"));
+            MessageBox.Show(Values.SetValue(CEEMT.Temperature, "Celsius", "Multipy", "18", "Error!"));
         }
 
         private void Button11_Click(object sender, EventArgs e)

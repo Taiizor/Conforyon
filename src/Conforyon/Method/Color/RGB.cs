@@ -60,9 +60,9 @@ namespace Conforyon.Color
             {
                 if (R <= 255 && R >= 0 && G <= 255 && G >= 0 && B <= 255 && B >= 0)
                 {
-                    SDC RGBColor = SDC.FromArgb(SC.ToInt32(R), SC.ToInt32(G), SC.ToInt32(B));
+                    SDC Color = SDC.FromArgb(SC.ToInt32(R), SC.ToInt32(G), SC.ToInt32(B));
 
-                    string Result = $"{RGBColor.R:X2}{RGBColor.G:X2}{RGBColor.B:X2}";
+                    string Result = $"{Color.R:X2}{Color.G:X2}{Color.B:X2}";
 
                     if (Sharp)
                     {

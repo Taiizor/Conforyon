@@ -2,6 +2,7 @@
 
 using SCG = System.Collections.Generic;
 using SCGD = System.Collections.Generic.Dictionary<string, string>;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -35,10 +36,10 @@ namespace Conforyon.Array
         /// <summary>
         /// 
         /// </summary>
-        public static readonly SCG.Dictionary<string, SCG.Dictionary<string, SCGD>> UnitValues = new()
+        public static readonly SCG.Dictionary<CEEMT, SCG.Dictionary<string, SCGD>> UnitValues = new()
         {
             {
-                "DataStorage",
+                CEEMT.DataStorage,
                 new()
                 {
                     {
@@ -464,7 +465,7 @@ namespace Conforyon.Array
                 }
             },
             {
-                "Speed",
+                CEEMT.Speed,
                 new()
                 {
                     {
@@ -490,7 +491,7 @@ namespace Conforyon.Array
                 }
             },
             {
-                "Temperature",
+                CEEMT.Temperature,
                 new()
                 {
                     {
@@ -502,7 +503,7 @@ namespace Conforyon.Array
                                 "5"
                             },
                             {
-                                "Multipy",
+                                "Multiply",
                                 "9"
                             },
                             {
@@ -520,7 +521,7 @@ namespace Conforyon.Array
                                 "32"
                             },
                             {
-                                "Multipy",
+                                "Multiply",
                                 "5"
                             },
                             {
@@ -532,7 +533,7 @@ namespace Conforyon.Array
                 }
             },
             {
-                "Time",
+                CEEMT.Time,
                 new()
                 {
                     {
@@ -1044,7 +1045,7 @@ namespace Conforyon.Array
                 }
             },
             {
-                "Typography",
+                CEEMT.Typography,
                 new()
                 {
                     {

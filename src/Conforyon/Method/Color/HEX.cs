@@ -29,31 +29,31 @@ namespace Conforyon.Color
             {
                 if ((HEX.Length == 6 && Cores.TextControl(HEX)) || (HEX.Length == 7 && HEX.StartsWith("#") && Cores.TextControl(HEX.Substring(1, HEX.Length - 1))))
                 {
-                    SDC HexColor;
+                    SDC Color;
 
                     if (HEX.StartsWith("#"))
                     {
-                        HexColor = SDCT.FromHtml(HEX);
+                        Color = SDCT.FromHtml(HEX);
                     }
                     else
                     {
-                        HexColor = SDCT.FromHtml("#" + HEX);
+                        Color = SDCT.FromHtml("#" + HEX);
                     }
 
                     return Type switch
                     {
-                        CEECT.RGB1 => $"{HexColor.R}, {HexColor.G}, {HexColor.B}",
-                        CEECT.RGB2 => $"{HexColor.R} {HexColor.G} {HexColor.B}",
-                        CEECT.RGB3 => $"{HexColor.R} - {HexColor.G} - {HexColor.B}",
-                        CEECT.RRGGBB1 => $"R: {HexColor.R}, G: {HexColor.G}, B: {HexColor.B}",
-                        CEECT.RRGGBB2 => $"R: {HexColor.R} G: {HexColor.G} B: {HexColor.B}",
-                        CEECT.RRGGBB3 => $"R: {HexColor.R} - G: {HexColor.G} - B: {HexColor.B}",
-                        CEECT.RR => $"R: {HexColor.R}",
-                        CEECT.GG => $"G: {HexColor.G}",
-                        CEECT.BB => $"B: {HexColor.B}",
-                        CEECT.OnlyR => $"{HexColor.R}",
-                        CEECT.OnlyG => $"{HexColor.G}",
-                        CEECT.OnlyB => $"{HexColor.B}",
+                        CEECT.RGB1 => $"{Color.R}, {Color.G}, {Color.B}",
+                        CEECT.RGB2 => $"{Color.R} {Color.G} {Color.B}",
+                        CEECT.RGB3 => $"{Color.R} - {Color.G} - {Color.B}",
+                        CEECT.RRGGBB1 => $"R: {Color.R}, G: {Color.G}, B: {Color.B}",
+                        CEECT.RRGGBB2 => $"R: {Color.R} G: {Color.G} B: {Color.B}",
+                        CEECT.RRGGBB3 => $"R: {Color.R} - G: {Color.G} - B: {Color.B}",
+                        CEECT.RR => $"R: {Color.R}",
+                        CEECT.GG => $"G: {Color.G}",
+                        CEECT.BB => $"B: {Color.B}",
+                        CEECT.OnlyR => $"{Color.R}",
+                        CEECT.OnlyG => $"{Color.G}",
+                        CEECT.OnlyB => $"{Color.B}",
                         _ => Error,
                     };
                 }

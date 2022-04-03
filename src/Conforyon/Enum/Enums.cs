@@ -136,7 +136,7 @@
             /// <summary>
             /// 
             /// </summary>
-            KMH
+            KPH
         }
 
         /// <summary>
@@ -259,6 +259,40 @@
         /// <summary>
         /// 
         /// </summary>
+        public enum TypographyType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            INCH,
+            /// <summary>
+            /// 
+            /// </summary>
+            CM,
+            /// <summary>
+            /// 
+            /// </summary>
+            PX
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum TemperatureType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            Celsius,
+            /// <summary>
+            /// 
+            /// </summary>
+            Fahrenheit
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public enum IntType
         {
             /// <summary>
@@ -304,6 +338,39 @@
             /// 
             /// </summary>
             Ends
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public enum MethodType
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            DataStorage,
+            /// <summary>
+            /// 
+            /// </summary>
+            Temperature,
+            /// <summary>
+            /// 
+            /// </summary>
+            Typography,
+            /// <summary>
+            /// 
+            /// </summary>
+            Speed,
+#if CONFORYON
+            /// <summary>
+            /// 
+            /// </summary>
+            Error,
+#endif
+            /// <summary>
+            /// 
+            /// </summary>
+            Time
         }
 
         #endregion

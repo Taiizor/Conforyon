@@ -4,6 +4,7 @@ using CAA = Conforyon.Array.Arrays;
 using CCC = Conforyon.Constant.Constants;
 using SCG = System.Collections.Generic;
 using SCGD = System.Collections.Generic.Dictionary<string, string>;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -19,22 +20,22 @@ namespace Conforyon.Value
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Key1"></param>
+        /// <param name="Method"></param>
         /// <param name="Key2"></param>
         /// <param name="Key3"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = CCC.ErrorMessage)
+        public static string GetValue(CEEMT Method = CEEMT.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (CAA.UnitValues.ContainsKey(Key1))
+                if (CAA.UnitValues.ContainsKey(Method))
                 {
-                    if (CAA.UnitValues[Key1].ContainsKey(Key2))
+                    if (CAA.UnitValues[Method].ContainsKey(Key2))
                     {
-                        if (CAA.UnitValues[Key1][Key2].ContainsKey(Key3))
+                        if (CAA.UnitValues[Method][Key2].ContainsKey(Key3))
                         {
-                            return CAA.UnitValues[Key1][Key2][Key3];
+                            return CAA.UnitValues[Method][Key2][Key3];
                         }
                         else
                         {
@@ -60,24 +61,24 @@ namespace Conforyon.Value
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Key1"></param>
+        /// <param name="Method"></param>
         /// <param name="Key2"></param>
         /// <param name="Key3"></param>
         /// <param name="Value"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = CCC.ErrorMessage)
+        public static string SetValue(CEEMT Method = CEEMT.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (CAA.UnitValues.ContainsKey(Key1))
+                if (CAA.UnitValues.ContainsKey(Method))
                 {
-                    if (CAA.UnitValues[Key1].ContainsKey(Key2))
+                    if (CAA.UnitValues[Method].ContainsKey(Key2))
                     {
-                        if (CAA.UnitValues[Key1][Key2].ContainsKey(Key3))
+                        if (CAA.UnitValues[Method][Key2].ContainsKey(Key3))
                         {
-                            CAA.UnitValues[Key1][Key2][Key3] = Value;
-                            return CAA.UnitValues[Key1][Key2][Key3];
+                            CAA.UnitValues[Method][Key2][Key3] = Value;
+                            return CAA.UnitValues[Method][Key2][Key3];
                         }
                         else
                         {
@@ -106,7 +107,7 @@ namespace Conforyon.Value
         /// <param name="Error"></param>
         /// <param name="Title"></param>
         /// <returns></returns>
-        public static SCG.Dictionary<string, SCG.Dictionary<string, SCGD>> ListValue(string Error = "Error", string Title = "Title")
+        public static SCG.Dictionary<CEEMT, SCG.Dictionary<string, SCGD>> ListValue(CEEMT Error = CEEMT.Error, string Title = "Title")
         {
             try
             {

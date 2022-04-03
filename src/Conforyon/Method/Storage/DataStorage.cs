@@ -4,6 +4,7 @@ using Conforyon.Constant;
 using Conforyon.Enum;
 using Conforyon.Value;
 using System.Text.RegularExpressions;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -139,7 +140,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "Byte", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "Byte", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -150,7 +151,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "KB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "KB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -161,7 +162,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "MB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "MB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -172,7 +173,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "GB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -183,7 +184,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "TB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -194,7 +195,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "PB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -205,7 +206,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -216,7 +217,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -227,7 +228,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Bit", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Bit", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -245,7 +246,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -258,7 +259,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "KB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "KB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -269,7 +270,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "MB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "MB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -280,7 +281,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "GB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -291,7 +292,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "TB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -302,7 +303,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "PB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -313,7 +314,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -324,7 +325,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -335,7 +336,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "Byte", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "Byte", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -353,7 +354,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -364,7 +365,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -377,7 +378,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "MB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "MB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -388,7 +389,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "GB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -399,7 +400,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "TB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -410,7 +411,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -421,7 +422,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -432,7 +433,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -443,7 +444,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "KB", "YB", Error).ToString(), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "KB", "YB", Error).ToString(), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -461,7 +462,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -472,7 +473,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -483,7 +484,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -496,7 +497,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "GB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "GB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -507,7 +508,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "TB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -518,7 +519,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -529,7 +530,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -540,7 +541,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -551,7 +552,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "MB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "MB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -569,7 +570,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -580,7 +581,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -591,7 +592,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -602,7 +603,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -615,7 +616,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "TB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "TB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -626,7 +627,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -637,7 +638,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -648,7 +649,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -659,7 +660,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "GB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "GB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -677,7 +678,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -688,7 +689,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -699,7 +700,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -710,7 +711,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -721,7 +722,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -734,7 +735,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "PB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "PB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -745,7 +746,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -756,7 +757,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -767,7 +768,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "TB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "TB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -785,7 +786,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "Bit", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "Bit", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -796,7 +797,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -807,7 +808,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -818,7 +819,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -829,7 +830,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -840,7 +841,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -853,7 +854,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "EB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "EB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -864,7 +865,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -875,7 +876,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "PB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "PB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -893,7 +894,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "Bit", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "Bit", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -904,7 +905,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "Byte", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "Byte", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -915,7 +916,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "KB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "KB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -926,7 +927,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -937,7 +938,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -948,7 +949,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -959,7 +960,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "PB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "PB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -972,7 +973,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "ZB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "ZB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -983,7 +984,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "EB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "EB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -1001,7 +1002,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "Bit", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "Bit", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1012,7 +1013,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "Byte", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "Byte", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1023,7 +1024,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "KB", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "KB", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1034,7 +1035,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1045,7 +1046,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1056,7 +1057,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1067,7 +1068,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "PB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "PB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1078,7 +1079,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "EB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "EB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1091,7 +1092,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.YB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "ZB", "YB", Error), Comma, false, true, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "ZB", "YB", Error), Comma, false, true, Error);
                                     }
                                     else
                                     {
@@ -1109,7 +1110,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Bit:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "Bit", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "Bit", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1120,7 +1121,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.Byte:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "Byte", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "Byte", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1131,7 +1132,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.KB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "KB", Error), Comma, true, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "KB", Error), Comma, true, false, Error);
                                     }
                                     else
                                     {
@@ -1142,7 +1143,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.MB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "MB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "MB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1153,7 +1154,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.GB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "GB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "GB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1164,7 +1165,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.TB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "TB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "TB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1175,7 +1176,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.PB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "PB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "PB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1186,7 +1187,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.EB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "EB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "EB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {
@@ -1197,7 +1198,7 @@ namespace Conforyon.Storage
                                 case Enums.StorageType.ZB:
                                     if (Cores.NumberControl(InputVariable))
                                     {
-                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue("DataStorage", "YB", "ZB", Error), Comma, false, false, Error);
+                                        Variable = Cores.VariableFormat(InputVariable, Values.GetValue(CEEMT.DataStorage, "YB", "ZB", Error), Comma, false, false, Error);
                                     }
                                     else
                                     {

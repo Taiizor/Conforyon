@@ -3,6 +3,7 @@
 using Conforyon.Constant;
 using Conforyon.Value;
 using System;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -32,11 +33,11 @@ namespace Conforyon.Speed
                 {
                     if (Text)
                     {
-                        return Cores.LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(Values.GetValue("Speed", "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
+                        return Cores.LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " KPH";
                     }
                     else
                     {
-                        return Cores.LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(Values.GetValue("Speed", "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Cores.LastCheck2((Convert.ToDouble(Miles) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "MPH", "KPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
@@ -68,11 +69,11 @@ namespace Conforyon.Speed
                 {
                     if (Text)
                     {
-                        return Cores.LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(Values.GetValue("Speed", "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
+                        return Cores.LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error) + " MPH";
                     }
                     else
                     {
-                        return Cores.LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(Values.GetValue("Speed", "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                        return Cores.LastCheck2((Convert.ToDouble(Kilometers) * Convert.ToDouble(Values.GetValue(CEEMT.Speed, "KPH", "MPH", Error))).ToString(), Decimal, Comma, PostComma, Error);
                     }
                 }
                 else
