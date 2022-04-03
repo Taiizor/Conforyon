@@ -126,8 +126,8 @@ namespace Conforyon_CR
             MessageBox.Show(Values.GetValue(CEEMT.DataStorage, "PB", "EB", "Error!"));
             MessageBox.Show(Values.SetValue(CEEMT.DataStorage, "PB", "EB", "3333", "Error!"));
 
-            MessageBox.Show(Values.GetValue(CEEMT.Temperature, "Celsius", "Multipy", "Error!"));
-            MessageBox.Show(Values.SetValue(CEEMT.Temperature, "Celsius", "Multipy", "18", "Error!"));
+            MessageBox.Show(Values.GetValue(CEEMT.Temperature, "Celsius", "Multiply", "Error!"));
+            MessageBox.Show(Values.SetValue(CEEMT.Temperature, "Celsius", "Multiply", "18", "Error!"));
         }
 
         private void Button11_Click(object sender, EventArgs e)

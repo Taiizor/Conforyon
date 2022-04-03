@@ -30,6 +30,17 @@ namespace Conforyon.Helper
         /// <param name="Result"></param>
         /// <param name="Case"></param>
         /// <returns></returns>
+        public static string Format(object Result, bool Case)
+        {
+            return Format($"{Result}", Case);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Case"></param>
+        /// <returns></returns>
         public static string Format(string Result, bool Case)
         {
             return Case == false ? Result.ToLowerInvariant() : Result.ToUpperInvariant();

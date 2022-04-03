@@ -1,19 +1,18 @@
 ﻿#region Imports
 
-using Conforyon.Array;
-using Conforyon.Constant;
-using System;
-using System.Linq;
-using System.Text.RegularExpressions;
+using CAA = Conforyon.Array.Arrays;
 using CCC = Conforyon.Constant.Constants;
 using CEEDT = Conforyon.Enum.Enums.DetectType;
 using CEEIT = Conforyon.Enum.Enums.IntType;
 using CEEST = Conforyon.Enum.Enums.SearchType;
 using CHD = Conforyon.Helper.Detect;
+using SC = System.Convert;
 using SIOMS = System.IO.MemoryStream;
+using SLE = System.Linq.Enumerable;
 using SRSJDCJS = System.Runtime.Serialization.Json.DataContractJsonSerializer;
 using SRSJDCJSS = System.Runtime.Serialization.Json.DataContractJsonSerializerSettings;
 using STE = System.Text.Encoding;
+using STRER = System.Text.RegularExpressions.Regex;
 
 #endregion
 
@@ -22,7 +21,7 @@ using STE = System.Text.Encoding;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
-//     Changed: 03.Apr.2022
+//     Changed: 04.Apr.2022
 //     Version: 2.0.0.0
 //
 // |---------DO-NOT-REMOVE---------|
@@ -37,6 +36,50 @@ namespace Conforyon
     internal class Cores
     {
         #region Cores
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Spaces"></param>
+        /// <returns></returns>
+        public static bool TextControl(int Text, bool Spaces = false)
+        {
+            return TextControl($"{Text}", Spaces);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Spaces"></param>
+        /// <returns></returns>
+        public static bool TextControl(double Text, bool Spaces = false)
+        {
+            return TextControl($"{Text}", Spaces);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Spaces"></param>
+        /// <returns></returns>
+        public static bool TextControl(float Text, bool Spaces = false)
+        {
+            return TextControl($"{Text}", Spaces);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Spaces"></param>
+        /// <returns></returns>
+        public static bool TextControl(object Text, bool Spaces = false)
+        {
+            return TextControl($"{Text}", Spaces);
+        }
 
         /// <summary>
         /// 
@@ -96,11 +139,47 @@ namespace Conforyon
         /// <param name="Pass"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
+        public static bool NumberControl(double Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
+        {
+            return NumberControl($"{Number}", Pass, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <param name="Pass"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool NumberControl(float Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
+        {
+            return NumberControl($"{Number}", Pass, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <param name="Pass"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool NumberControl(object Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
+        {
+            return NumberControl($"{Number}", Pass, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <param name="Pass"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
         public static bool NumberControl(string Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
         {
             try
             {
-                if (Regex.IsMatch(Number, "[^0-9]"))
+                if (STRER.IsMatch(Number, "[^0-9]"))
                 {
                     return false;
                 }
@@ -115,22 +194,22 @@ namespace Conforyon
                         switch (Type)
                         {
                             case CEEIT.Int16:
-                                Convert.ToInt16(Number);
+                                SC.ToInt16(Number);
                                 break;
                             case CEEIT.Int32:
-                                Convert.ToInt32(Number);
+                                SC.ToInt32(Number);
                                 break;
                             case CEEIT.Int64:
-                                Convert.ToInt64(Number);
+                                SC.ToInt64(Number);
                                 break;
                             case CEEIT.UInt16:
-                                Convert.ToUInt16(Number);
+                                SC.ToUInt16(Number);
                                 break;
                             case CEEIT.UInt32:
-                                Convert.ToUInt32(Number);
+                                SC.ToUInt32(Number);
                                 break;
                             case CEEIT.UInt64:
-                                Convert.ToUInt64(Number);
+                                SC.ToUInt64(Number);
                                 break;
                             default:
                                 return false;
@@ -155,7 +234,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ResultFormat(double Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        public static string ResultFormat(int Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
         }
@@ -169,7 +248,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ResultFormat(float Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        public static string ResultFormat(double Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
         }
@@ -183,7 +262,7 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ResultFormat(int Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        public static string ResultFormat(float Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
         }
@@ -197,7 +276,21 @@ namespace Conforyon
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string ResultFormat(string Result, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
+        public static string ResultFormat(object Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ResultFormat(string Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             try
             {
@@ -232,8 +325,8 @@ namespace Conforyon
                         switch (CHD.Enum)
                         {
                             case CEEDT.Dot or CEEDT.Comma:
-                                First = Result.Split(CHD.Char).First();
-                                Second = Result.Split(CHD.Char).Last();
+                                First = SLE.First(Result.Split(CHD.Char));
+                                Second = SLE.Last(Result.Split(CHD.Char));
                                 break;
                             default:
                                 First = Result;
@@ -266,8 +359,8 @@ namespace Conforyon
                         switch (CHD.Enum)
                         {
                             case CEEDT.Dot or CEEDT.Comma:
-                                First = Result.Split(CHD.Char).First();
-                                Second = Result.Split(CHD.Char).Last();
+                                First = SLE.First(Result.Split(CHD.Char));
+                                Second = SLE.Last(Result.Split(CHD.Char));
                                 break;
                             default:
                                 First = Result;
@@ -306,13 +399,93 @@ namespace Conforyon
         /// </summary>
         /// <param name="Result"></param>
         /// <returns></returns>
+        public static string RemoveResult(int Result)
+        {
+            return RemoveResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string RemoveResult(double Result)
+        {
+            return RemoveResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string RemoveResult(float Result)
+        {
+            return RemoveResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string RemoveResult(object Result)
+        {
+            return RemoveResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
         public static string RemoveResult(string Result)
         {
             return CHD.Enum switch
             {
-                CEEDT.Dot or CEEDT.Comma => Result.Split(CHD.Char).First(),
+                CEEDT.Dot or CEEDT.Comma => SLE.First(Result.Split(CHD.Char)),
                 _ => Result,
             };
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string FormatResult(int Result)
+        {
+            return FormatResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string FormatResult(double Result)
+        {
+            return FormatResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string FormatResult(float Result)
+        {
+            return FormatResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string FormatResult(object Result)
+        {
+            return FormatResult($"{Result}");
         }
 
         /// <summary>
@@ -330,11 +503,11 @@ namespace Conforyon
                 {
                     if (CHD.Enum == CEEDT.Dot)
                     {
-                        Temp += Result.Substring(Count, 1) + ",";
+                        Temp += $"{Result.Substring(Count, 1)},";
                     }
                     else
                     {
-                        Temp += Result.Substring(Count, 1) + ".";
+                        Temp += $"{Result.Substring(Count, 1)}.";
                     }
                 }
                 else
@@ -349,25 +522,13 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="Data"></param>
+        /// <param name="Text"></param>
+        /// <param name="Words"></param>
+        /// <param name="Type"></param>
         /// <returns></returns>
-        public static string DataToJson<T>(T Data)
+        public static bool SearchResult(int Text, string[] Words, CEEST Type = CEEST.Contains)
         {
-            SIOMS MemoryStream = new();
-
-            SRSJDCJS Serializer = new
-            (
-                Data.GetType(),
-                new SRSJDCJSS()
-                {
-                    UseSimpleDictionaryFormat = true
-                }
-            );
-
-            Serializer.WriteObject(MemoryStream, Data);
-
-            return STE.UTF8.GetString(MemoryStream.ToArray());
+            return SearchResult($"{Text}", Words, Type);
         }
 
         /// <summary>
@@ -377,7 +538,43 @@ namespace Conforyon
         /// <param name="Words"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public static bool Searching(string Text, string[] Words, CEEST Type = CEEST.Contains)
+        public static bool SearchResult(double Text, string[] Words, CEEST Type = CEEST.Contains)
+        {
+            return SearchResult($"{Text}", Words, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Words"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool SearchResult(float Text, string[] Words, CEEST Type = CEEST.Contains)
+        {
+            return SearchResult($"{Text}", Words, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Words"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool SearchResult(object Text, string[] Words, CEEST Type = CEEST.Contains)
+        {
+            return SearchResult($"{Text}", Words, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Words"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool SearchResult(string Text, string[] Words, CEEST Type = CEEST.Contains)
         {
             try
             {
@@ -447,6 +644,30 @@ namespace Conforyon
         /// <summary>
         /// 
         /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Data"></param>
+        /// <returns></returns>
+        public static string DataToJson<T>(T Data)
+        {
+            SIOMS MemoryStream = new();
+
+            SRSJDCJS Serializer = new
+            (
+                Data.GetType(),
+                new SRSJDCJSS()
+                {
+                    UseSimpleDictionaryFormat = true
+                }
+            );
+
+            Serializer.WriteObject(MemoryStream, Data);
+
+            return STE.UTF8.GetString(MemoryStream.ToArray());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="InputVariable"></param>
         /// <param name="Coefficient"></param>
         /// <param name="Comma"></param>
@@ -454,7 +675,67 @@ namespace Conforyon
         /// <param name="Mod2"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = Constants.ErrorMessage)
+        public static string VariableFormat(int InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
+        {
+            return VariableFormat($"{InputVariable}", Coefficient, Comma, Mod, Mod2, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Comma"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string VariableFormat(double InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
+        {
+            return VariableFormat($"{InputVariable}", Coefficient, Comma, Mod, Mod2, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Comma"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string VariableFormat(float InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
+        {
+            return VariableFormat($"{InputVariable}", Coefficient, Comma, Mod, Mod2, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Comma"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string VariableFormat(object InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
+        {
+            return VariableFormat($"{InputVariable}", Coefficient, Comma, Mod, Mod2, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Comma"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string VariableFormat(string InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
         {
             try
             {
@@ -462,34 +743,35 @@ namespace Conforyon
                 {
                     if (Mod2)
                     {
-                        return (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
+                        return $"{SC.ToInt64(InputVariable) / SC.ToDouble(Coefficient)}";
                     }
                     else
                     {
-                        return (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
+                        return $"{SC.ToInt64(InputVariable) * SC.ToDouble(Coefficient)}";
                     }
                 }
                 else
                 {
-                    if (NumberControl(Coefficient.ToString()))
+                    if (NumberControl(Coefficient))
                     {
                         string Variable1, Variable2, Variable3;
+
                         if (Comma)
                         {
                             if (Mod2)
                             {
-                                Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
-                                Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
+                                Variable2 = $"{SC.ToInt64(InputVariable) / SC.ToDouble(Coefficient)}";
+                                Variable3 = $"{SC.ToInt64(InputVariable) / SC.ToInt64(Coefficient)}";
                             }
                             else
                             {
-                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
-                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
+                                Variable2 = $"{SC.ToInt64(InputVariable) * SC.ToDouble(Coefficient)}";
+                                Variable3 = $"{SC.ToInt64(InputVariable) * SC.ToInt64(Coefficient)}";
                             }
 
-                            if (Searching(Variable2, Arrays.SymbolsCalc, CEEST.Contains))
+                            if (SearchResult(Variable2, CAA.SymbolsCalc, CEEST.Contains))
                             {
-                                if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
+                                if (SearchResult(Variable3, CAA.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -498,9 +780,9 @@ namespace Conforyon
                                     Variable1 = Variable3;
                                 }
                             }
-                            else if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
+                            else if (SearchResult(Variable3, CAA.SymbolsMath, CEEST.Starts))
                             {
-                                if (Searching(Variable2, Arrays.SymbolsMath, CEEST.Starts))
+                                if (SearchResult(Variable2, CAA.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable3;
                                 }
@@ -518,18 +800,18 @@ namespace Conforyon
                         {
                             if (Mod2)
                             {
-                                Variable2 = (Convert.ToInt64(InputVariable) / Convert.ToDouble(Coefficient)).ToString();
-                                Variable3 = (Convert.ToInt64(InputVariable) / Convert.ToInt64(Coefficient)).ToString();
+                                Variable2 = $"{SC.ToInt64(InputVariable) / SC.ToDouble(Coefficient)}";
+                                Variable3 = $"{SC.ToInt64(InputVariable) / SC.ToInt64(Coefficient)}";
                             }
                             else
                             {
-                                Variable2 = (Convert.ToInt64(InputVariable) * Convert.ToDouble(Coefficient)).ToString();
-                                Variable3 = (Convert.ToInt64(InputVariable) * Convert.ToInt64(Coefficient)).ToString();
+                                Variable2 = $"{SC.ToInt64(InputVariable) * SC.ToDouble(Coefficient)}";
+                                Variable3 = $"{SC.ToInt64(InputVariable) * SC.ToInt64(Coefficient)}";
                             }
 
-                            if (Searching(Variable2, Arrays.SymbolsCalc, CEEST.Contains))
+                            if (SearchResult(Variable2, CAA.SymbolsCalc, CEEST.Contains))
                             {
-                                if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
+                                if (SearchResult(Variable3, CAA.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -538,9 +820,9 @@ namespace Conforyon
                                     Variable1 = Variable3;
                                 }
                             }
-                            else if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
+                            else if (SearchResult(Variable3, CAA.SymbolsMath, CEEST.Starts))
                             {
-                                if (Searching(Variable3, Arrays.SymbolsMath, CEEST.Starts))
+                                if (SearchResult(Variable3, CAA.SymbolsMath, CEEST.Starts))
                                 {
                                     Variable1 = Variable2;
                                 }
@@ -554,6 +836,7 @@ namespace Conforyon
                                 Variable1 = Variable3;
                             }
                         }
+
                         if (string.IsNullOrEmpty(Variable1) || string.IsNullOrWhiteSpace(Variable1))
                         {
                             return Error;
@@ -571,334 +854,7 @@ namespace Conforyon
             }
             catch
             {
-                return Error + Constants.ErrorTitle + "CN-VF1!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string UseDecimal(string Variable, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (Searching(Variable, Arrays.SymbolsCalc))
-                {
-                    return Variable;
-                }
-                else
-                {
-                    if (Variable.Contains(","))
-                    {
-                        char[] Brackets = { ',', '.' };
-                        string[] Variables = Variable.Split(Brackets);
-                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variables[0]));
-                        if (Result.Length == 2 && Result == "00")
-                        {
-                            Result = "0";
-                        }
-                        else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
-                        {
-                            Result = Result.Replace("0", "");
-                        }
-
-                        return Result + "," + Variables[1];
-                    }
-                    else
-                    {
-                        if (Variable.Length > 2)
-                        {
-                            if (NumberControl(Variable))
-                            {
-                                return string.Format("{0:0,0}", Convert.ToInt64(Variable));
-                            }
-                            else
-                            {
-                                return string.Format("{0:0,0}", Variable);
-                            }
-                        }
-                        else
-                        {
-                            return Variable;
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-UD1!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string UseDecimal2(string Variable, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (Searching(Variable, Arrays.SymbolsCalc))
-                {
-                    return Variable;
-                }
-                else
-                {
-                    if (Variable.Contains(","))
-                    {
-                        char[] Brackets = { ',' };
-                        string[] Variables = Variable.Split(Brackets);
-                        string Result = string.Format("{0:0,0}", Convert.ToInt64(Variables[0]));
-                        if (Result.Length == 2 && Result == "00")
-                        {
-                            return "0";
-                        }
-                        else if (Result.Length == 2 && Result.StartsWith("0") && !Result.EndsWith("0"))
-                        {
-                            return Result.Replace("0", "");
-                        }
-                        else
-                        {
-                            return Result;
-                        }
-                    }
-                    else
-                    {
-                        if (Variable.Length > 2)
-                        {
-                            if (NumberControl(Variable))
-                            {
-                                return string.Format("{0:0,0}", Convert.ToInt64(Variable));
-                            }
-                            else
-                            {
-                                return string.Format("{0:0,0}", Variable);
-                            }
-                        }
-                        else
-                        {
-                            return Variable;
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-UD2!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string UseComma(string Variable, int PostComma = 0, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (Searching(Variable, Arrays.SymbolsCalc))
-                {
-                    return Variable;
-                }
-                else
-                {
-                    if (Variable.Contains(",") && PostComma != 0)
-                    {
-                        char[] Brackets = { ',' };
-                        string[] Variables = Variable.Split(Brackets);
-                        if (PostComma <= Variables[1].Length)
-                        {
-                            return Variables[0] + "," + Variables[1].Substring(0, PostComma);
-                        }
-                        else
-                        {
-                            string Operation = Variables[0] + "," + Variables[1].Substring(0, Variables[1].Length);
-                            int Operation2 = PostComma - Variables[1].Length;
-                            for (int i = 0; i < Operation2; i++)
-                            {
-                                Operation += "0";
-                            }
-
-                            return Operation;
-                        }
-                    }
-                    else
-                    {
-                        if (PostComma == 0)
-                        {
-                            char[] Brackets = { ',' };
-                            string[] Variables = Variable.Split(Brackets);
-                            return Variables[0];
-                        }
-                        else
-                        {
-                            string Operation = ",";
-                            for (int i = 0; i < PostComma; i++)
-                            {
-                                Operation += "0";
-                            }
-
-                            return Variable + Operation;
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-UC1!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string UseComma2(string Variable, int PostComma = 0, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (Searching(Variable, Arrays.SymbolsCalc))
-                {
-                    return Variable;
-                }
-                else
-                {
-                    if (PostComma <= Variable.Length)
-                    {
-                        if (Variable == ",")
-                        {
-                            return Variable.Substring(0, PostComma) + "0";
-                        }
-                        else
-                        {
-                            return Variable.Substring(0, PostComma);
-                        }
-                    }
-                    else
-                    {
-                        string Operation = Variable.Substring(0, Variable.Length);
-                        int Operation2 = PostComma - Variable.Length;
-                        if (Variable == ",")
-                        {
-                            for (int i = 0; i <= Operation2; i++)
-                            {
-                                Operation += "0";
-                            }
-                        }
-                        else
-                        {
-                            for (int i = 0; i < Operation2; i++)
-                            {
-                                Operation += "0";
-                            }
-                        }
-
-                        return Operation;
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-UC2!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string DecimalComma(string Variable, int PostComma = 0, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (Searching(Variable, Arrays.SymbolsCalc))
-                {
-                    return Variable;
-                }
-                else
-                {
-                    if (PostComma == 0)
-                    {
-                        return UseDecimal2(Variable);
-                    }
-                    else
-                    {
-                        if (Variable.Contains(","))
-                        {
-                            char[] Brackets = { ',' };
-                            string[] Variables = Variable.Split(Brackets);
-                            return UseDecimal2(Variables[0]) + "," + UseComma2(Variables[1], PostComma);
-                        }
-                        else
-                        {
-                            return UseDecimal2(Variable) + UseComma2(",", PostComma);
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-DC1!)";
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="Variable"></param>
-        /// <param name="Decimal"></param>
-        /// <param name="Comma"></param>
-        /// <param name="PostComma"></param>
-        /// <param name="Error"></param>
-        /// <returns></returns>
-        public static string LastCheck(string Variable, bool Decimal, bool Comma, int PostComma = 0, string Error = Constants.ErrorMessage)
-        {
-            try
-            {
-                if (!Decimal && !Comma)
-                {
-                    if (string.IsNullOrEmpty(Variable))
-                    {
-                        return Error;
-                    }
-                    else
-                    {
-                        return Variable;
-                    }
-                }
-                else
-                {
-                    if (Decimal && !Comma)
-                    {
-                        return UseDecimal(Variable);
-                    }
-                    else if (!Decimal && Comma)
-                    {
-                        return UseComma(Variable, PostComma);
-                    }
-                    else
-                    {
-                        return DecimalComma(Variable, PostComma);
-                    }
-                }
-            }
-            catch
-            {
-                return Error + Constants.ErrorTitle + "CN-LC1!)";
+                return Error + CCC.ErrorTitle + "CN-VF1!)";
             }
         }
 

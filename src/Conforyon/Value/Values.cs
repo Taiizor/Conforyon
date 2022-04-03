@@ -61,7 +61,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "VS-GV1!)";
+                return Error + CCC.ErrorTitle + "VE-VSGV1!)";
             }
         }
 
@@ -110,7 +110,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "VS-SV1!)";
+                return Error + CCC.ErrorTitle + "VE-VSSV1!)";
             }
         }
 
@@ -140,7 +140,7 @@ namespace Conforyon.Value
                                 {
                                     {
                                         "CN",
-                                        "VS-LV1!"
+                                        "VE-VSLV1!"
                                     }
                                 }
                             }
@@ -163,7 +163,7 @@ namespace Conforyon.Value
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "VS-LVJ1!)";
+                return Error + CCC.ErrorTitle + "VE-VSLVJ1!)";
             }
         }
 

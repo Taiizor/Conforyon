@@ -13,8 +13,14 @@ namespace Conforyon.Value
     {
         #region Caches
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static string Board = string.Empty;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static byte[] Audio = SA.Empty<byte>();
 
         #endregion

@@ -13,25 +13,10 @@ namespace Conforyon.Helper
     {
         #region Detect
 
-        private static string Result => (10 / 3f).ToString();
-
         /// <summary>
         /// 
         /// </summary>
-        public static string String
-        {
-            get
-            {
-                if (Result.Contains("."))
-                {
-                    return ".";
-                }
-                else
-                {
-                    return ",";
-                }
-            }
-        }
+        private static string Example => $"{10 / 3f}";
 
         /// <summary>
         /// 
@@ -40,7 +25,7 @@ namespace Conforyon.Helper
         {
             get
             {
-                if (Result.Contains("."))
+                if (Example.Contains("."))
                 {
                     return '.';
                 }
@@ -54,10 +39,22 @@ namespace Conforyon.Helper
         /// <summary>
         /// 
         /// </summary>
+        public static object Object => Char;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static string String => $"{Char}";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static CEEDT Enum
         {
             get
             {
+                string Result = String;
+
                 if (Result.Contains("."))
                 {
                     return CEEDT.Dot;

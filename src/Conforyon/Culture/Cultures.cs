@@ -64,7 +64,7 @@ namespace Conforyon.Culture
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "CS-GCN1!)";
+                return Error + CCC.ErrorTitle + "CE-CSGCN1!)";
             }
         }
 
@@ -81,7 +81,7 @@ namespace Conforyon.Culture
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "CS-GCN2!)";
+                return Error + CCC.ErrorTitle + "CE-CSGUICN1!)";
             }
         }
 
@@ -98,7 +98,7 @@ namespace Conforyon.Culture
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "CS-GCN3!)";
+                return Error + CCC.ErrorTitle + "CE-CSGTCN1!)";
             }
         }
 
@@ -115,7 +115,7 @@ namespace Conforyon.Culture
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "CS-GCN4!)";
+                return Error + CCC.ErrorTitle + "CE-CSGTUICN1!)";
             }
         }
 
