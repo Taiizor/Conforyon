@@ -155,13 +155,13 @@ ListValueJson("¡Error!");
 #### Texto
 
 ```CS
-/* CopyText(string Text, bool Copy = true) */
-CopyText("Conforyon", false);
+/* Copy(string Text) */
+Copy("Conforyon");
 ```
 
 ```CS
-/* GetText(bool Clear = false, string Back = EmptyMessage, string Error = ErrorMessage) */
-GetText(true, "¡Vacío!", "¡Error!");
+/* Paste(bool Clear = false, string Back = EmptyMessage) */
+Paste(true, "¡Vacío!");
 ```
 ```XML
 <FunctionResult>
@@ -173,16 +173,16 @@ GetText(true, "¡Vacío!", "¡Error!");
 #### Audio
 
 ```CS
-/* CopyAudio(string Path) */
-CopyAudio(Path);
+/* Copy(string Path) */
+Copy(Path);
 
-/* CopyAudio(byte[] Bytes) */
-CopyAudio(File.ReadAllBytes(Path));
+/* Copy(byte[] Bytes) */
+Copy(File.ReadAllBytes(Path));
 ```
 
 ```CS
-/* GetAudio(bool Clear = false) */
-GetAudio(true);
+/* Paste(bool Clear = false) */
+Paste(true);
 ```
 ```XML
 <FunctionResult>
@@ -196,7 +196,7 @@ GetAudio(true);
 #### HEX -> RGB
 
 ```CS
-/* RGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
+/* RGB(string HEX, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
 RGB("FFFFFF", ColorType.RGB1, "¡Error!");
 ```
 ```XML
@@ -207,7 +207,7 @@ RGB("FFFFFF", ColorType.RGB1, "¡Error!");
 ```
 
 ```CS
-/* RGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
+/* RGB(string HEX, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
 RGB("#000000", ColorType.RRGGBB1, "¡Error!");
 ```
 ```XML
@@ -220,8 +220,8 @@ RGB("#000000", ColorType.RRGGBB1, "¡Error!");
 #### RGB -> HEX
 
 ```CS
-/* RGBtoHEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage) */
-RGBtoHEX(255, 255, 255, true, "¡Error!");
+/* HEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage) */
+HEX(255, 255, 255, true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -231,8 +231,8 @@ RGBtoHEX(255, 255, 255, true, "¡Error!");
 ```
 
 ```CS
-/* RGBtoHEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage) */
-RGBtoHEX(0, 0, 0, false, "¡Error!");
+/* HEX(int R, int G, int B, bool Sharp = false, string Error = ErrorMessage) */
+HEX(0, 0, 0, false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -246,8 +246,8 @@ RGBtoHEX(0, 0, 0, false, "¡Error!");
 #### TEXT -> BASE64
 
 ```CS
-/* TEXTtoBASE64(string Text, string Error = ErrorMessage) */
-TEXTtoBASE64("Conforyon", "¡Error!");
+/* BASE(string Text, string Error = ErrorMessage) */
+BASE("Conforyon", "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -259,8 +259,8 @@ TEXTtoBASE64("Conforyon", "¡Error!");
 #### BASE64 -> TEXT
 
 ```CS
-/* BASE64toTEXT(string Base64, string Error = ErrorMessage) */
-BASE64toTEXT("Q29uZm9yeW9u", "¡Error!");
+/* TEXT(string Base, string Error = ErrorMessage) */
+TEXT("Q29uZm9yeW9u", "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -272,8 +272,8 @@ BASE64toTEXT("Q29uZm9yeW9u", "¡Error!");
 #### TEXT -> MD5
 
 ```CS
-/* TEXTtoMD5(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoMD5("Conforyon", false, "¡Error!");
+/* MD5(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+MD5("Conforyon", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -283,8 +283,8 @@ TEXTtoMD5("Conforyon", false, "¡Error!");
 ```
 
 ```CS
-/* TEXTtoMD5(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoMD5("Conforyon", true, "¡Error!");
+/* MD5(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+MD5("Conforyon", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -296,8 +296,8 @@ TEXTtoMD5("Conforyon", true, "¡Error!");
 #### TEXT -> SHA1
 
 ```CS
-/* TEXTtoSHA1(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA1("Conforyon", false, "¡Error!");
+/* SHA1(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA1("Conforyon", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -307,8 +307,8 @@ TEXTtoSHA1("Conforyon", false, "¡Error!");
 ```
 
 ```CS
-/* TEXTtoSHA1(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA1("Conforyon", true, "¡Error!");
+/* SHA1(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA1("Conforyon", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -320,8 +320,8 @@ TEXTtoSHA1("Conforyon", true, "¡Error!");
 #### TEXT -> SHA256
 
 ```CS
-/* TEXTtoSHA256(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA256("Conforyon", false, "¡Error!");
+/* SHA256(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA256("Conforyon", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -331,8 +331,8 @@ TEXTtoSHA256("Conforyon", false, "¡Error!");
 ```
 
 ```CS
-/* TEXTtoSHA256(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA256("Conforyon", true, "¡Error!");
+/* SHA256(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA256("Conforyon", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -344,8 +344,8 @@ TEXTtoSHA256("Conforyon", true, "¡Error!");
 #### TEXT -> SHA384
 
 ```CS
-/* TEXTtoSHA384(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA384("Conforyon", false, "¡Error!");
+/* SHA384(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA384("Conforyon", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -355,8 +355,8 @@ TEXTtoSHA384("Conforyon", false, "¡Error!");
 ```
 
 ```CS
-/* TEXTtoSHA384(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA384("Conforyon", true, "¡Error!");
+/* SHA384(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA384("Conforyon", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -368,8 +368,8 @@ TEXTtoSHA384("Conforyon", true, "¡Error!");
 #### TEXT -> SHA512
 
 ```CS
-/* TEXTtoSHA512(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA512("Conforyon", false, "¡Error!");
+/* SHA512(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA512("Conforyon", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -379,8 +379,8 @@ TEXTtoSHA512("Conforyon", false, "¡Error!");
 ```
 
 ```CS
-/* TEXTtoSHA512(string Text, bool Uppercase = false, string Error = ErrorMessage) */
-TEXTtoSHA512("Conforyon", true, "¡Error!");
+/* SHA512(string Text, bool Uppercase = false, string Error = ErrorMessage) */
+SHA512("Conforyon", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -394,8 +394,8 @@ TEXTtoSHA512("Conforyon", true, "¡Error!");
 #### FILE -> MD5
 
 ```CS
-/* FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoMD5("C:\\Conforyon.dll", false, "¡Error!");
+/* MD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+MD5("C:\\Conforyon.dll", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -405,8 +405,8 @@ FILEtoMD5("C:\\Conforyon.dll", false, "¡Error!");
 ```
 
 ```CS
-/* FILEtoMD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoMD5("C:\\Conforyon.dll", true, "¡Error!");
+/* MD5(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+MD5("C:\\Conforyon.dll", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -418,8 +418,8 @@ FILEtoMD5("C:\\Conforyon.dll", true, "¡Error!");
 #### FILE -> SHA1
 
 ```CS
-/* FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA1("C:\\Conforyon.dll", false, "¡Error!");
+/* SHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA1("C:\\Conforyon.dll", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -429,8 +429,8 @@ FILEtoSHA1("C:\\Conforyon.dll", false, "¡Error!");
 ```
 
 ```CS
-/* FILEtoSHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA1("C:\\Conforyon.dll", true, "¡Error!");
+/* SHA1(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA1("C:\\Conforyon.dll", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -442,8 +442,8 @@ FILEtoSHA1("C:\\Conforyon.dll", true, "¡Error!");
 #### FILE -> SHA256
 
 ```CS
-/* FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA256("C:\\Conforyon.dll", false, "¡Error!");
+/* SHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA256("C:\\Conforyon.dll", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -453,8 +453,8 @@ FILEtoSHA256("C:\\Conforyon.dll", false, "¡Error!");
 ```
 
 ```CS
-/* FILEtoSHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA256("C:\\Conforyon.dll", true, "¡Error!");
+/* SHA256(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA256("C:\\Conforyon.dll", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -466,8 +466,8 @@ FILEtoSHA256("C:\\Conforyon.dll", true, "¡Error!");
 #### FILE -> SHA384
 
 ```CS
-/* FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA384("C:\\Conforyon.dll", false, "¡Error!");
+/* SHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA384("C:\\Conforyon.dll", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -477,8 +477,8 @@ FILEtoSHA384("C:\\Conforyon.dll", false, "¡Error!");
 ```
 
 ```CS
-/* FILEtoSHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA384("C:\\Conforyon.dll", true, "¡Error!");
+/* SHA384(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA384("C:\\Conforyon.dll", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -490,8 +490,8 @@ FILEtoSHA384("C:\\Conforyon.dll", true, "¡Error!");
 #### FILE -> SHA512
 
 ```CS
-/* FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA512("C:\\Conforyon.dll", false, "¡Error!");
+/* SHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA512("C:\\Conforyon.dll", false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -501,8 +501,8 @@ FILEtoSHA512("C:\\Conforyon.dll", false, "¡Error!");
 ```
 
 ```CS
-/* FILEtoSHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
-FILEtoSHA512("C:\\Conforyon.dll", true, "¡Error!");
+/* SHA512(string Path, bool Uppercase = false, string Error = ErrorMessage) */
+SHA512("C:\\Conforyon.dll", true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -566,8 +566,8 @@ DataConvert("987654321", StorageType.Byte, StorageType.GB, false, true, 5, "¡Er
 #### Celsius -> Fahrenheit
 
 ```CS
-/* CtoF(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-CtoF("12345", true, true, 1, true, "¡Error!");
+/* Fahrenheit(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Fahrenheit("12345", true, true, 1, true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -577,8 +577,8 @@ CtoF("12345", true, true, 1, true, "¡Error!");
 ```
 
 ```CS
-/* CtoF(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-CtoF("12345", false, false, 0, false, "¡Error!");
+/* Fahrenheit(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Fahrenheit("12345", false, false, 0, false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -590,8 +590,8 @@ CtoF("12345", false, false, 0, false, "¡Error!");
 #### Fahrenheit -> Celsius
 
 ```CS
-/* FtoC(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-FtoC("12345", true, true, 2, true, "¡Error!");
+/* Celsius(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Celsius("12345", true, true, 2, true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -601,8 +601,8 @@ FtoC("12345", true, true, 2, true, "¡Error!");
 ```
 
 ```CS
-/* FtoC(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-FtoC("12345", false, false, 0, false, "¡Error!");
+/* Celsius(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Celsius("12345", false, false, 0, false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -616,8 +616,8 @@ FtoC("12345", false, false, 0, false, "¡Error!");
 #### INCH -> CM
 
 ```CS
-/* INCHtoCM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-INCHtoCM("12345", true, true, 1, "¡Error!");
+/* CM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CM("12345", true, true, 1, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -627,8 +627,8 @@ INCHtoCM("12345", true, true, 1, "¡Error!");
 ```
 
 ```CS
-/* INCHtoCM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-INCHtoCM("12345", false, false, 0, "¡Error!");
+/* CM(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CM("12345", false, false, 0, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -640,8 +640,8 @@ INCHtoCM("12345", false, false, 0, "¡Error!");
 #### INCH -> PX
 
 ```CS
-/* INCHtoPX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-INCHtoPX("12345", true, true, 1, "¡Error!");
+/* PX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PX("12345", true, true, 1, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -651,8 +651,8 @@ INCHtoPX("12345", true, true, 1, "¡Error!");
 ```
 
 ```CS
-/* INCHtoPX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-INCHtoPX("12345", false, false, 0, "¡Error!");
+/* PX(string Inch, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PX("12345", false, false, 0, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -664,8 +664,8 @@ INCHtoPX("12345", false, false, 0, "¡Error!");
 #### CM -> INCH
 
 ```CS
-/* CMtoINCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-CMtoINCH("12345", true, true, 1, "¡Error!");
+/* INCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCH("12345", true, true, 1, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -675,8 +675,8 @@ CMtoINCH("12345", true, true, 1, "¡Error!");
 ```
 
 ```CS
-/* CMtoINCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-CMtoINCH("12345", false, false, 0, "¡Error!");
+/* INCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCH("12345", false, false, 0, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -688,8 +688,8 @@ CMtoINCH("12345", false, false, 0, "¡Error!");
 #### CM -> PX
 
 ```CS
-/* CMtoPX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-CMtoPX("12345", true, true, 1, "¡Error!");
+/* PX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PX("12345", true, true, 1, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -699,8 +699,8 @@ CMtoPX("12345", true, true, 1, "¡Error!");
 ```
 
 ```CS
-/* CMtoPX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-CMtoPX("12345", false, false, 0, "¡Error!");
+/* PX(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+PX("12345", false, false, 0, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -712,8 +712,8 @@ CMtoPX("12345", false, false, 0, "¡Error!");
 #### PX -> CM
 
 ```CS
-/* PXtoCM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-PXtoCM("12345", true, true, 1, "¡Error!");
+/* CM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CM("12345", true, true, 1, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -723,8 +723,8 @@ PXtoCM("12345", true, true, 1, "¡Error!");
 ```
 
 ```CS
-/* PXtoCM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-PXtoCM("12345", false, false, 0, "¡Error!");
+/* CM(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+CM("12345", false, false, 0, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -736,8 +736,8 @@ PXtoCM("12345", false, false, 0, "¡Error!");
 #### PX -> INCH
 
 ```CS
-/* PXtoINCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-PXtoINCH("12345", true, true, 1, "¡Error!");
+/* INCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCH("12345", true, true, 1, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -747,8 +747,8 @@ PXtoINCH("12345", true, true, 1, "¡Error!");
 ```
 
 ```CS
-/* PXtoINCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
-PXtoINCH("12345", false, false, 0, "¡Error!");
+/* INCH(string Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = ErrorMessage) */
+INCH("12345", false, false, 0, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -762,8 +762,8 @@ PXtoINCH("12345", false, false, 0, "¡Error!");
 #### CHAR -> ASCII
 
 ```CS
-/* CHARtoASCII(string CHAR, char Bracket = ',', string Error = ErrorMessage) */
-CHARtoASCII("Conforyon", ',', "¡Error!");
+/* ASCII(string CHAR, char Bracket = ',', string Error = ErrorMessage) */
+ASCII("Conforyon", ',', "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -775,8 +775,8 @@ CHARtoASCII("Conforyon", ',', "¡Error!");
 #### ASCII -> CHAR
 
 ```CS
-/* ASCIItoCHAR(string ASCII, char Bracket = ',', string Error = ErrorMessage) */
-ASCIItoCHAR("67,111,110,102,111,114,121,111,110", ',', "¡Error!");
+/* CHAR(string ASCII, char Bracket = ',', string Error = ErrorMessage) */
+CHAR("67,111,110,102,111,114,121,111,110", ',', "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -790,8 +790,8 @@ ASCIItoCHAR("67,111,110,102,111,114,121,111,110", ',', "¡Error!");
 #### Miles Per Hour -> Kilometers Per Hour
 
 ```CS
-/* MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-MPHtoKPH("12345", true, true, 1, true, "¡Error!");
+/* KPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+KPH("12345", true, true, 1, true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -801,8 +801,8 @@ MPHtoKPH("12345", true, true, 1, true, "¡Error!");
 ```
 
 ```CS
-/* MPHtoKPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-MPHtoKPH("12345", false, false, 0, false, "¡Error!");
+/* KPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+KPH("12345", false, false, 0, false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -814,8 +814,8 @@ MPHtoKPH("12345", false, false, 0, false, "¡Error!");
 #### Kilometers Per Hour -> Miles Per Hour
 
 ```CS
-/* KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-KPHtoMPH("12345", true, true, 1, true, "¡Error!");
+/* MPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+MPH("12345", true, true, 1, true, "¡Error!");
 ```
 ```XML
 <FunctionResult>
@@ -825,8 +825,8 @@ KPHtoMPH("12345", true, true, 1, true, "¡Error!");
 ```
 
 ```CS
-/* KPHtoMPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
-KPHtoMPH("12345", false, false, 0, false, "¡Error!");
+/* MPH(string Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+MPH("12345", false, false, 0, false, "¡Error!");
 ```
 ```XML
 <FunctionResult>
