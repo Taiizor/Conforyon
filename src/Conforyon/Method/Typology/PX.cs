@@ -1,9 +1,10 @@
 ﻿#region Imports
 
+using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 using CVV = Conforyon.Value.Values;
 using SC = System.Convert;
-using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -43,16 +44,11 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Pixel.Length <= CCC.VariableLength && Cores.NumberControl(Pixel) && !Pixel.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Pixel))
+                if (Pixel.Length <= CCC.VariableLength && CC.NumberControl(Pixel) && !Pixel.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Pixel))
                 {
-                    if (SC.ToInt64(Pixel) >= 38)
-                    {
-                        return Cores.ResultFormat((SC.ToInt64(Pixel) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "PX", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
-                    }
-                    else
-                    {
-                        return Cores.ResultFormat("0", Decimal, Comma, PostComma, Error);
-                    }
+                    double Result = SC.ToInt64(Pixel) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "PX", "CM", Error));
+
+                    return CC.ResultFormat(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -92,16 +88,11 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Pixel.Length <= CCC.VariableLength && Cores.NumberControl(Pixel) && !Pixel.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Pixel))
+                if (Pixel.Length <= CCC.VariableLength && CC.NumberControl(Pixel) && !Pixel.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Pixel))
                 {
-                    if (SC.ToInt64(Pixel) >= 96)
-                    {
-                        return Cores.ResultFormat((SC.ToInt64(Pixel) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "PX", "INCH", Error))).ToString(), Decimal, Comma, PostComma, Error);
-                    }
-                    else
-                    {
-                        return Cores.ResultFormat("0", Decimal, Comma, PostComma, Error);
-                    }
+                    double Result = SC.ToInt64(Pixel) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "PX", "INCH", Error));
+
+                    return CC.ResultFormat(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {

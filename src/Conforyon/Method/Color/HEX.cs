@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
 using CEECT = Conforyon.Enum.Enums.ColorType;
 using SDC = System.Drawing.Color;
@@ -27,7 +28,7 @@ namespace Conforyon.Color
         {
             try
             {
-                if ((HEX.Length == 6 && Cores.TextControl(HEX)) || (HEX.Length == 7 && HEX.StartsWith("#") && Cores.TextControl(HEX.Substring(1, HEX.Length - 1))))
+                if ((HEX.Length == 6 && CC.TextControl(HEX)) || (HEX.Length == 7 && HEX.StartsWith("#") && CC.TextControl(HEX.Substring(1, HEX.Length - 1))))
                 {
                     SDC Color;
 

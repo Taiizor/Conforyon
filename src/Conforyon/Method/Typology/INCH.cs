@@ -1,9 +1,10 @@
 ﻿#region Imports
 
+using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 using CVV = Conforyon.Value.Values;
 using SC = System.Convert;
-using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -43,9 +44,11 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Inch.Length <= CCC.VariableLength && Cores.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Inch))
+                if (Inch.Length <= CCC.VariableLength && CC.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Inch))
                 {
-                    return Cores.ResultFormat((SC.ToInt64(Inch) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "INCH", "CM", Error))).ToString(), Decimal, Comma, PostComma, Error);
+                    double Result = SC.ToInt64(Inch) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "INCH", "CM", Error));
+
+                    return CC.ResultFormat(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -85,10 +88,11 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Inch.Length <= CCC.VariableLength && Cores.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Inch))
+                if (Inch.Length <= CCC.VariableLength && CC.NumberControl(Inch) && !Inch.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Inch))
                 {
-                    string Result = (SC.ToInt64(Inch) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "INCH", "PX", Error))).ToString();
-                    return Cores.ResultFormat(Result, Decimal, Comma, PostComma, Error);
+                    double Result = SC.ToInt64(Inch) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "INCH", "PX", Error));
+
+                    return CC.ResultFormat(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {

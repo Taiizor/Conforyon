@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
 using CEEIT = Conforyon.Enum.Enums.IntType;
 using SC = System.Convert;
@@ -39,7 +40,7 @@ namespace Conforyon.Unicode
         {
             try
             {
-                if (ASCII.Length <= CCC.TextLength && Cores.TextControl(ASCII, Bracket == ' '))
+                if (ASCII.Length <= CCC.TextLength && CC.TextControl(ASCII, Bracket == ' '))
                 {
                     string Result = string.Empty;
 
@@ -49,7 +50,7 @@ namespace Conforyon.Unicode
 
                         for (int Count = 0; Count < Letters.Length; Count++)
                         {
-                            if (Cores.NumberControl(Letters[Count], false, CEEIT.Int32) && Letters[Count].Length >= CCC.ASCIIMinimum && Letters[Count].Length <= CCC.ASCIIMaximum && SC.ToInt32(Letters[Count]) >= CCC.ASCIINumberMinimum && SC.ToInt32(Letters[Count]) <= CCC.ASCIINumberMaximum)
+                            if (CC.NumberControl(Letters[Count], false, CEEIT.Int32) && Letters[Count].Length >= CCC.ASCIIMinimum && Letters[Count].Length <= CCC.ASCIIMaximum && SC.ToInt32(Letters[Count]) >= CCC.ASCIINumberMinimum && SC.ToInt32(Letters[Count]) <= CCC.ASCIINumberMaximum)
                             {
                                 Result += STE.UTF8.GetString(new byte[] { SC.ToByte(Letters[Count]) }); //STE.ASCII
                             }
@@ -61,7 +62,7 @@ namespace Conforyon.Unicode
                     }
                     else
                     {
-                        if (Cores.NumberControl(ASCII, false, CEEIT.Int32) && ASCII.Length >= CCC.ASCIIMinimum && ASCII.Length <= CCC.ASCIIMaximum && SC.ToInt32(ASCII) >= CCC.ASCIINumberMinimum && SC.ToInt32(ASCII) <= CCC.ASCIINumberMaximum)
+                        if (CC.NumberControl(ASCII, false, CEEIT.Int32) && ASCII.Length >= CCC.ASCIIMinimum && ASCII.Length <= CCC.ASCIIMaximum && SC.ToInt32(ASCII) >= CCC.ASCIINumberMinimum && SC.ToInt32(ASCII) <= CCC.ASCIINumberMaximum)
                         {
                             Result = STE.UTF8.GetString(new byte[] { SC.ToByte(ASCII) }); //STE.ASCII
                         }

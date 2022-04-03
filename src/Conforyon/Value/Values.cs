@@ -2,11 +2,11 @@
 
 using CAA = Conforyon.Array.Arrays;
 using CCC = Conforyon.Constant.Constants;
+using CEEDT = Conforyon.Enum.Enums.DetectType;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
+using CHD = Conforyon.Helper.Detect;
 using SCG = System.Collections.Generic;
 using SCGD = System.Collections.Generic.Dictionary<string, string>;
-using CEEMT = Conforyon.Enum.Enums.MethodType;
-using CEEDT = Conforyon.Enum.Enums.DetectType;
-using CHD = Conforyon.Helper.Detect;
 
 #endregion
 

@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
 using STE = System.Text.Encoding;
 
@@ -37,7 +38,7 @@ namespace Conforyon.Unicode
         {
             try
             {
-                if (CHAR.Length <= CCC.TextLength && Cores.TextControl(CHAR, true))
+                if (CHAR.Length <= CCC.TextLength && CC.TextControl(CHAR, true))
                 {
                     string Result = string.Empty;
 

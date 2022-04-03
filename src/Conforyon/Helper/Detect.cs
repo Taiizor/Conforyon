@@ -13,13 +13,7 @@ namespace Conforyon.Helper
     {
         #region Detect
 
-        private static string Result
-        {
-            get
-            {
-                return (10 / 3f).ToString();
-            }
-        }
+        private static string Result => (10 / 3f).ToString();
 
         /// <summary>
         /// 

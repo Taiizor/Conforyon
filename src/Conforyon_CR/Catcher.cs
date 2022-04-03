@@ -11,8 +11,8 @@ using Conforyon.Value;
 using System;
 using System.Windows.Forms;
 using static Conforyon.Enum.Enums;
-using CEEMT = Conforyon.Enum.Enums.MethodType;
 using CCC = Conforyon.Culture.Cultures;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 namespace Conforyon_CR
 {
@@ -100,11 +100,11 @@ namespace Conforyon_CR
         {
             if (Speeder)
             {
-                textBox15.Text = Speeding.MPHtoKPH(textBox14.Text, false, false, 0, false, "Error!");
+                textBox15.Text = MPH.KPH(textBox14.Text, false, false, 0, false, "Error!");
             }
             else
             {
-                textBox14.Text = Speeding.KPHtoMPH(textBox15.Text, false, false, 0, false, "Error!");
+                textBox14.Text = KPH.MPH(textBox15.Text, false, false, 0, false, "Error!");
             }
 
             Speeder = !Speeder;

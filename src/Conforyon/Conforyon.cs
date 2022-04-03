@@ -10,8 +10,8 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Text.RegularExpressions;
 using CCC = Conforyon.Constant.Constants;
-using CHD = Conforyon.Helper.Detect;
 using CEEDT = Conforyon.Enum.Enums.DetectType;
+using CHD = Conforyon.Helper.Detect;
 
 #endregion
 
@@ -73,6 +73,18 @@ namespace Conforyon
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <param name="Pass"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool NumberControl(int Number, bool Pass = false, Enums.IntType Type = Enums.IntType.Int64)
+        {
+            return NumberControl($"{Number}", Pass, Type);
         }
 
         /// <summary>
@@ -330,6 +342,30 @@ namespace Conforyon
             }
 
             return Temp.Substring(0, Temp.Length - 1);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="Data"></param>
+        /// <returns></returns>
+        public static string DataToJson<T>(T Data)
+        {
+            MemoryStream MemoryStream = new();
+
+            DataContractJsonSerializer Serializer = new
+            (
+                Data.GetType(),
+                new DataContractJsonSerializerSettings()
+                {
+                    UseSimpleDictionaryFormat = true
+                }
+            );
+
+            Serializer.WriteObject(MemoryStream, Data);
+
+            return Encoding.UTF8.GetString(MemoryStream.ToArray());
         }
 
         /// <summary>
@@ -907,30 +943,6 @@ namespace Conforyon
             {
                 return Error + Constants.ErrorTitle + "CN-LC2!)";
             }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="Data"></param>
-        /// <returns></returns>
-        public static string DataToJson<T>(T Data)
-        {
-            MemoryStream MemoryStream = new();
-
-            DataContractJsonSerializer Serializer = new
-            (
-                Data.GetType(),
-                new DataContractJsonSerializerSettings()
-                {
-                    UseSimpleDictionaryFormat = true
-                }
-            );
-
-            Serializer.WriteObject(MemoryStream, Data);
-
-            return Encoding.UTF8.GetString(MemoryStream.ToArray());
         }
 
         #endregion

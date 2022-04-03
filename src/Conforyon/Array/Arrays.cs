@@ -1,9 +1,9 @@
 ﻿#region Imports
 
-using SCG = System.Collections.Generic;
-using SCGD = System.Collections.Generic.Dictionary<string, string>;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
 using CHD = Conforyon.Helper.Detect;
+using SCG = System.Collections.Generic;
+using SCGD = System.Collections.Generic.Dictionary<string, string>;
 
 #endregion
 

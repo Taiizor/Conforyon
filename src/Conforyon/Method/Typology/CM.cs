@@ -1,9 +1,10 @@
 ﻿#region Imports
 
+using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
+using CEEMT = Conforyon.Enum.Enums.MethodType;
 using CVV = Conforyon.Value.Values;
 using SC = System.Convert;
-using CEEMT = Conforyon.Enum.Enums.MethodType;
 
 #endregion
 
@@ -43,9 +44,11 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Centimeter.Length <= CCC.VariableLength && Cores.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Centimeter))
+                if (Centimeter.Length <= CCC.VariableLength && CC.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Centimeter))
                 {
-                    return Cores.ResultFormat(SC.ToInt64(Centimeter) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "CM", "INCH", Error)), Decimal, Comma, PostComma, Error);
+                    double Result = SC.ToInt64(Centimeter) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "CM", "INCH", Error));
+
+                    return CC.ResultFormat(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
@@ -85,9 +88,11 @@ namespace Conforyon.Typology
         {
             try
             {
-                if (Centimeter.Length <= CCC.VariableLength && Cores.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && Cores.TextControl(Centimeter))
+                if (Centimeter.Length <= CCC.VariableLength && CC.NumberControl(Centimeter) && !Centimeter.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Centimeter))
                 {
-                    return Cores.ResultFormat(SC.ToInt64(Centimeter) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "CM", "PX", Error)), Decimal, Comma, PostComma, Error);
+                    double Result = SC.ToInt64(Centimeter) * SC.ToDouble(CVV.GetValue(CEEMT.Typography, "CM", "PX", Error));
+
+                    return CC.ResultFormat(Result, Decimal, Comma, PostComma, Error);
                 }
                 else
                 {
