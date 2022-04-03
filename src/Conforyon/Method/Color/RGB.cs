@@ -26,6 +26,20 @@ namespace Conforyon.Color
         /// <param name="Sharp"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string HEX(object R, object G, object B, bool Sharp = false, string Error = CCC.ErrorMessage)
+        {
+            return HEX($"{R}", $"{G}", $"{B}", Sharp, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="R"></param>
+        /// <param name="G"></param>
+        /// <param name="B"></param>
+        /// <param name="Sharp"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string HEX(string R, string G, string B, bool Sharp = false, string Error = CCC.ErrorMessage)
         {
             try

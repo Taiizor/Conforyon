@@ -42,6 +42,21 @@ namespace Conforyon.Temperature
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string Celsius(object Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        {
+            return Celsius($"{Fahrenheit}", Decimal, Comma, PostComma, Text, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Fahrenheit"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string Celsius(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try

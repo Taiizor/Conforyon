@@ -40,6 +40,20 @@ namespace Conforyon.Typology
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string INCH(object Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return INCH($"{Centimeter}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Centimeter"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string INCH(string Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             try
@@ -71,6 +85,20 @@ namespace Conforyon.Typology
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string PX(int Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return PX($"{Centimeter}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Centimeter"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string PX(object Centimeter, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return PX($"{Centimeter}", Decimal, Comma, PostComma, Error);
         }

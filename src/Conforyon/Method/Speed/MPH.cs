@@ -30,6 +30,36 @@ namespace Conforyon.Speed
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string KPH(int Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        {
+            return KPH($"{Miles}", Decimal, Comma, PostComma, Text, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Miles"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string KPH(object Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        {
+            return KPH($"{Miles}", Decimal, Comma, PostComma, Text, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Miles"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string KPH(string Miles, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try

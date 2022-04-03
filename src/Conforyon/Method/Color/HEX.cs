@@ -24,6 +24,18 @@ namespace Conforyon.Color
         /// <param name="Type"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string RGB(object HEX, CEECT Type = CEECT.RGB1, string Error = CCC.ErrorMessage)
+        {
+            return RGB($"{HEX}", Type, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="HEX"></param>
+        /// <param name="Type"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string RGB(string HEX, CEECT Type = CEECT.RGB1, string Error = CCC.ErrorMessage)
         {
             try

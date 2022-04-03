@@ -34,6 +34,54 @@ namespace Conforyon.Unicode
         /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string ASCII(double CHAR, char Bracket = ',', string Error = CCC.ErrorMessage)
+        {
+            return ASCII($"{CHAR}", Bracket, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CHAR"></param>
+        /// <param name="Bracket"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ASCII(float CHAR, char Bracket = ',', string Error = CCC.ErrorMessage)
+        {
+            return ASCII($"{CHAR}", Bracket, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CHAR"></param>
+        /// <param name="Bracket"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ASCII(char CHAR, char Bracket = ',', string Error = CCC.ErrorMessage)
+        {
+            return ASCII($"{CHAR}", Bracket, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CHAR"></param>
+        /// <param name="Bracket"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ASCII(object CHAR, char Bracket = ',', string Error = CCC.ErrorMessage)
+        {
+            return ASCII($"{CHAR}", Bracket, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="CHAR"></param>
+        /// <param name="Bracket"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string ASCII(string CHAR, char Bracket = ',', string Error = CCC.ErrorMessage)
         {
             try

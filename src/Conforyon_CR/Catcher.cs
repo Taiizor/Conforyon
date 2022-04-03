@@ -37,8 +37,8 @@ namespace Conforyon_CR
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            textBox3.Text = Hashing.FILEtoSHA512(textBox2.Text, false, "Error!");
-            textBox4.Text = Hashing.FILEtoSHA512(textBox2.Text, true, "Error!");
+            textBox3.Text = FILE.SHA512(textBox2.Text, false, "Error!");
+            textBox4.Text = FILE.SHA512(textBox2.Text, true, "Error!");
         }
 
         private async void Button5_Click(object sender, EventArgs e)
@@ -47,8 +47,8 @@ namespace Conforyon_CR
             {
                 MessageBox.Show("Coming Soon!");
 
-                textBox3.Text = await Hashing.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, false, "Error!");
-                textBox4.Text = await Hashing.FILEtoHASH_Async(HashType.SHA512, textBox2.Text, true, "Error!");
+                textBox3.Text = await FILE.HASH_Async(HashType.SHA512, textBox2.Text, false, "Error!");
+                textBox4.Text = await FILE.HASH_Async(HashType.SHA512, textBox2.Text, true, "Error!");
             }
             catch (Exception Ex)
             {

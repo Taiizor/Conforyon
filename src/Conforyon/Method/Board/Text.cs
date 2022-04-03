@@ -17,15 +17,6 @@ namespace Conforyon.Board
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Value"></param>
-        public static void Copy(object Value)
-        {
-            Copy($"{Value}");
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="Number"></param>
         public static void Copy(int Number)
         {
@@ -35,17 +26,37 @@ namespace Conforyon.Board
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="Number"></param>
+        public static void Copy(double Number)
+        {
+            Copy($"{Number}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        public static void Copy(float Number)
+        {
+            Copy($"{Number}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Value"></param>
+        public static void Copy(object Value)
+        {
+            Copy($"{Value}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="Text"></param>
         public static void Copy(string Text)
         {
-            try
-            {
-                CVC.Board = Text;
-            }
-            catch
-            {
-                return;
-            }
+            CVC.Board = Text;
         }
 
         /// <summary>
@@ -53,31 +64,23 @@ namespace Conforyon.Board
         /// </summary>
         /// <param name="Clear"></param>
         /// <param name="Back"></param>
-        /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Paste(bool Clear = false, string Back = CCC.EmptyMessage, string Error = CCC.ErrorMessage)
+        public static string Paste(bool Clear = false, string Back = CCC.EmptyMessage)
         {
-            try
+            string Text = CVC.Board;
+
+            if (Clear)
             {
-                string Text = CVC.Board;
-
-                if (Clear)
-                {
-                    CVC.Board = string.Empty;
-                }
-
-                if (string.IsNullOrEmpty(Text))
-                {
-                    return Back;
-                }
-                else
-                {
-                    return Text;
-                }
+                CVC.Board = string.Empty;
             }
-            catch
+
+            if (string.IsNullOrEmpty(Text))
             {
-                return Error + CCC.ErrorTitle + "BD-TP1!)";
+                return Back;
+            }
+            else
+            {
+                return Text;
             }
         }
 
