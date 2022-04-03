@@ -108,7 +108,7 @@ namespace Conforyon.Time
                     }
                     else
                     {
-                        return Result + " " + Type;
+                        return $"{Result} {Type}";
                     }
                 }
                 else
@@ -118,7 +118,7 @@ namespace Conforyon.Time
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "TS-ATC1!)";
+                return Error + CCC.ErrorTitle + "TE-ATC1!)";
             }
         }
 
@@ -1480,7 +1480,7 @@ namespace Conforyon.Time
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "TS-TC1!)";
+                return Error + CCC.ErrorTitle + "TE-TC1!)";
             }
         }
 

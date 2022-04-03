@@ -108,7 +108,7 @@ namespace Conforyon.Storage
                     }
                     else
                     {
-                        return Result + " " + Type;
+                        return $"{Result} {Type}";
                     }
                 }
                 else

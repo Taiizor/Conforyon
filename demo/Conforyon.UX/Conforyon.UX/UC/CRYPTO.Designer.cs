@@ -277,6 +277,7 @@ namespace Conforyon.UX.UC
             this.CRCB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CRCB.Depth = 0;
             this.CRCB.DrawShadows = false;
+            this.CRCB.Enabled = false;
             this.CRCB.HighEmphasis = true;
             this.CRCB.Icon = global::Conforyon.UX.Properties.Resources.Lowercase;
             this.CRCB.Location = new System.Drawing.Point(259, 108);

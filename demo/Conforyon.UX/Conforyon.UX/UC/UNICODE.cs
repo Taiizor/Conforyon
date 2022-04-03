@@ -56,11 +56,11 @@ namespace Conforyon.UX.UC
 
                 if (TACB.SelectedItem.ToString() == "CHAR")
                 {
-                    URTB.Text = Unicodes.CHARtoASCII(UVTB.Text, BT);
+                    URTB.Text = CHAR.ASCII(UVTB.Text, BT);
                 }
                 else
                 {
-                    URTB.Text = Unicodes.ASCIItoCHAR(UVTB.Text, BT);
+                    URTB.Text = ASCII.CHAR(UVTB.Text, BT);
                 }
             }
             catch
@@ -73,9 +73,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (ClipBoard.GetText() != URTB.Text)
+                if (Board.Text.Paste() != URTB.Text)
                 {
-                    ClipBoard.CopyText(URTB.Text);
+                    Board.Text.Copy(URTB.Text);
                     URTB.Focus();
                 }
             }

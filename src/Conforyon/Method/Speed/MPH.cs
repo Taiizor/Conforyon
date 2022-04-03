@@ -72,7 +72,7 @@ namespace Conforyon.Speed
 
                     if (Text)
                     {
-                        Result = $"{Kilometers} KPH";
+                        Result = $"{Result} KPH";
                     }
 
                     return Result;

@@ -48,13 +48,13 @@ namespace Conforyon.UX.UC
             {
                 if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    CHTB.Text = Colorful.RGBtoHEX(Convert.ToInt32(CRTB.Text), Convert.ToInt32(CGTB.Text), Convert.ToInt32(CBTB.Text));
+                    CHTB.Text = RGB.HEX(CRTB.Text, CGTB.Text, CBTB.Text);
                 }
                 else
                 {
-                    CRTB.Text = Colorful.HEXtoRGB(CHTB.Text, Enums.ColorType.OnlyR);
-                    CGTB.Text = Colorful.HEXtoRGB(CHTB.Text, Enums.ColorType.OnlyG);
-                    CBTB.Text = Colorful.HEXtoRGB(CHTB.Text, Enums.ColorType.OnlyB);
+                    CRTB.Text = HEX.RGB(CHTB.Text, Enums.ColorType.OnlyR);
+                    CGTB.Text = HEX.RGB(CHTB.Text, Enums.ColorType.OnlyG);
+                    CBTB.Text = HEX.RGB(CHTB.Text, Enums.ColorType.OnlyB);
                 }
             }
             catch
@@ -69,17 +69,17 @@ namespace Conforyon.UX.UC
             {
                 if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    if (ClipBoard.GetText() != CHTB.Text)
+                    if (Board.Text.Paste() != CHTB.Text)
                     {
-                        ClipBoard.CopyText(CHTB.Text);
+                        Board.Text.Copy(CHTB.Text);
                         CHTB.Focus();
                     }
                 }
                 else
                 {
-                    if (ClipBoard.GetText() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
+                    if (Board.Text.Paste() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
                     {
-                        ClipBoard.CopyText(CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text);
+                        Board.Text.Copy(CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text);
                         CGTB.Focus();
                     }
                 }

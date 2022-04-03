@@ -30,23 +30,23 @@ namespace Conforyon.UX.UC
             {
                 if (TBCB.SelectedItem.ToString() == "MD5")
                 {
-                    FRTB.Text = Hashing.FILEtoMD5(FLTB.Text, HRC);
+                    FRTB.Text = FILE.MD5(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA1")
                 {
-                    FRTB.Text = Hashing.FILEtoSHA1(FLTB.Text, HRC);
+                    FRTB.Text = FILE.SHA1(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA256")
                 {
-                    FRTB.Text = Hashing.FILEtoSHA256(FLTB.Text, HRC);
+                    FRTB.Text = FILE.SHA256(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA384")
                 {
-                    FRTB.Text = Hashing.FILEtoSHA384(FLTB.Text, HRC);
+                    FRTB.Text = FILE.SHA384(FLTB.Text, HRC);
                 }
                 else if (TBCB.SelectedItem.ToString() == "SHA512")
                 {
-                    FRTB.Text = Hashing.FILEtoSHA512(FLTB.Text, HRC);
+                    FRTB.Text = FILE.SHA512(FLTB.Text, HRC);
                 }
             }
             catch
@@ -103,9 +103,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (ClipBoard.GetText() != FRTB.Text)
+                if (Board.Text.Paste() != FRTB.Text)
                 {
-                    ClipBoard.CopyText(FRTB.Text);
+                    Board.Text.Copy(FRTB.Text);
                     FRTB.Focus();
                 }
             }

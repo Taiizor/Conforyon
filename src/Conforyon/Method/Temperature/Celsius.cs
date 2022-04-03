@@ -69,7 +69,7 @@ namespace Conforyon.Temperature
 
                     if (Text)
                     {
-                        Result = $"{Fahrenheit} F";
+                        Result = $"{Result} F";
                     }
 
                     return Result;

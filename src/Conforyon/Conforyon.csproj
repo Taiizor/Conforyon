@@ -16,8 +16,8 @@
 .NET Insanely Fast Unit Converter - $(PackageId)</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Minor changes have been made.
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>The project has been completely revised.
 Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageReleaseNotes>
     <PackageTags>Conforyon Taiizor Soferity Vegalya C# CSharp VBC VB VisualBasic DotNET .NET NET Fast Convenient Unit Convert Converts Converter Converters Converting Convertion</PackageTags>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>

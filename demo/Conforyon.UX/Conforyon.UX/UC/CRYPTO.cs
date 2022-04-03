@@ -57,33 +57,33 @@ namespace Conforyon.UX.UC
 
                 if (TA == "BASE64")
                 {
-                    CRTB.Text = Cryptography.BASE64toTEXT(CVTB.Text);
+                    CRTB.Text = BASE.TEXT(CVTB.Text);
                 }
                 else
                 {
                     if (TB == "BASE64")
                     {
-                        CRTB.Text = Cryptography.TEXTtoBASE64(CVTB.Text);
+                        CRTB.Text = TEXT.BASE(CVTB.Text);
                     }
                     else if (TB == "MD5")
                     {
-                        CRTB.Text = Cryptography.TEXTtoMD5(CVTB.Text, CRC);
+                        CRTB.Text = TEXT.MD5(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA1")
                     {
-                        CRTB.Text = Cryptography.TEXTtoSHA1(CVTB.Text, CRC);
+                        CRTB.Text = TEXT.SHA1(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA256")
                     {
-                        CRTB.Text = Cryptography.TEXTtoSHA256(CVTB.Text, CRC);
+                        CRTB.Text = TEXT.SHA256(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA384")
                     {
-                        CRTB.Text = Cryptography.TEXTtoSHA384(CVTB.Text, CRC);
+                        CRTB.Text = TEXT.SHA384(CVTB.Text, CRC);
                     }
                     else if (TB == "SHA512")
                     {
-                        CRTB.Text = Cryptography.TEXTtoSHA512(CVTB.Text, CRC);
+                        CRTB.Text = TEXT.SHA512(CVTB.Text, CRC);
                     }
                 }
             }
@@ -97,9 +97,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (ClipBoard.GetText() != CRTB.Text)
+                if (Board.Text.Paste() != CRTB.Text)
                 {
-                    ClipBoard.CopyText(CRTB.Text);
+                    Board.Text.Copy(CRTB.Text);
                     CRTB.Focus();
                 }
             }

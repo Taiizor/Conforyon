@@ -81,8 +81,8 @@ Adım 2：Dönüşümlerin tadını çıkarın
 #### Alma
 
 ```CS
-/* GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
-GetValue("Time", "Minute", "Second", "Hata!");
+/* GetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValue(MethodType.Time, "Minute", "Second", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -92,8 +92,8 @@ GetValue("Time", "Minute", "Second", "Hata!");
 ```
 
 ```CS
-/* GetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
-GetValue("Speed", "MPH", "KPH", "Hata!");
+/* GetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+GetValue(MethodType.Speed, "MPH", "KPH", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -105,8 +105,8 @@ GetValue("Speed", "MPH", "KPH", "Hata!");
 #### Ayarlama
 
 ```CS
-/* SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
-SetValue("Time", "Minute", "Second", "30", "Hata!");
+/* SetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValue(MethodType.Time, "Minute", "Second", "30", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -116,8 +116,8 @@ SetValue("Time", "Minute", "Second", "30", "Hata!");
 ```
 
 ```CS
-/* SetValue(string Key1 = "DataStorage", string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
-SetValue("Speed", "MPH", "KPH", "2", "Hata!");
+/* SetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+SetValue(MethodType.Speed, "MPH", "KPH", "2", "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -146,7 +146,7 @@ ListValueJson("Hata!");
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
-	<ReturnValue>(JS-Serialize)...</ReturnValue>
+	<ReturnValue>(Json)...</ReturnValue>
 </FunctionResult>
 ```
 
@@ -196,8 +196,8 @@ GetAudio(true);
 #### HEX -> RGB
 
 ```CS
-/* HEXtoRGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
-HEXtoRGB("FFFFFF", ColorType.RGB1, "Hata!");
+/* RGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
+RGB("FFFFFF", ColorType.RGB1, "Hata!");
 ```
 ```XML
 <FunctionResult>
@@ -207,8 +207,8 @@ HEXtoRGB("FFFFFF", ColorType.RGB1, "Hata!");
 ```
 
 ```CS
-/* HEXtoRGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
-HEXtoRGB("#000000", ColorType.RRGGBB1, "Hata!");
+/* RGB(string Hex, ColorType Type = ColorType.RGB1, string Error = ErrorMessage) */
+RGB("#000000", ColorType.RRGGBB1, "Hata!");
 ```
 ```XML
 <FunctionResult>

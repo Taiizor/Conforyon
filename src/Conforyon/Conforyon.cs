@@ -300,91 +300,96 @@ namespace Conforyon
                 }
                 else
                 {
-                    if (!Decimal && !Comma)
+                    if (SearchResult(Result, CAA.SymbolsCalc, CEEST.Contains))
                     {
-                        return RemoveResult(Result);
-                    }
-                    else if ((Decimal && !Comma) || (Decimal && Comma && PostComma <= 0))
-                    {
-                        Result = RemoveResult(Result);
-
-                        if (Result.Length > 3)
-                        {
-                            return FormatResult(Result);
-                        }
-                        else
-                        {
-                            return Result;
-                        }
-                    }
-                    else if (!Decimal && Comma && PostComma > 0)
-                    {
-                        string First = string.Empty;
-                        string Second = string.Empty;
-
-                        switch (CHD.Enum)
-                        {
-                            case CEEDT.Dot or CEEDT.Comma:
-                                First = SLE.First(Result.Split(CHD.Char));
-                                Second = SLE.Last(Result.Split(CHD.Char));
-                                break;
-                            default:
-                                First = Result;
-                                break;
-                        }
-
-                        if (Second.Length < PostComma)
-                        {
-                            for (int Count = Second.Length; Count < PostComma; Count++)
-                            {
-                                Second += "0";
-                            }
-                        }
-                        else if (Second.Length > PostComma)
-                        {
-                            Second = Second.Substring(0, PostComma);
-                        }
-
-                        return $"{First}{CHD.Char}{Second}";
-                    }
-                    else if (!Decimal && Comma && PostComma <= 0)
-                    {
-                        return RemoveResult(Result);
+                        return Result;
                     }
                     else
                     {
-                        string First = string.Empty;
-                        string Second = string.Empty;
-
-                        switch (CHD.Enum)
+                        if (!Decimal && !Comma)
                         {
-                            case CEEDT.Dot or CEEDT.Comma:
-                                First = SLE.First(Result.Split(CHD.Char));
-                                Second = SLE.Last(Result.Split(CHD.Char));
-                                break;
-                            default:
-                                First = Result;
-                                break;
+                            return RemoveResult(Result);
                         }
-
-                        if (First.Length > 3)
+                        else if ((Decimal && !Comma) || (Decimal && Comma && PostComma <= 0))
                         {
-                            First = FormatResult(First);
-                        }
+                            Result = RemoveResult(Result);
 
-                        if (Second.Length < PostComma)
-                        {
-                            for (int Count = Second.Length; Count < PostComma; Count++)
+                            if (Result.Length > 3)
                             {
-                                Second += "0";
+                                return FormatResult(Result);
+                            }
+                            else
+                            {
+                                return Result;
                             }
                         }
-                        else if (Second.Length > PostComma)
+                        else if (!Decimal && Comma && PostComma > 0)
                         {
-                            Second = Second.Substring(0, PostComma);
-                        }
+                            string First = string.Empty;
+                            string Second = string.Empty;
 
-                        return $"{First}{CHD.Char}{Second}";
+                            if (Result.Contains(CHD.String))
+                            {
+                                First = SLE.First(Result.Split(CHD.Char));
+                                Second = SLE.Last(Result.Split(CHD.Char));
+                            }
+                            else
+                            {
+                                First = Result;
+                            }
+
+                            if (Second.Length < PostComma)
+                            {
+                                for (int Count = Second.Length; Count < PostComma; Count++)
+                                {
+                                    Second += "0";
+                                }
+                            }
+                            else if (Second.Length > PostComma)
+                            {
+                                Second = Second.Substring(0, PostComma);
+                            }
+
+                            return $"{First}{CHD.Char}{Second}";
+                        }
+                        else if (!Decimal && Comma && PostComma <= 0)
+                        {
+                            return RemoveResult(Result);
+                        }
+                        else
+                        {
+                            string First = string.Empty;
+                            string Second = string.Empty;
+
+                            if (Result.Contains(CHD.String))
+                            {
+                                First = SLE.First(Result.Split(CHD.Char));
+                                Second = SLE.Last(Result.Split(CHD.Char));
+                            }
+                            else
+                            {
+                                First = Result;
+                            }
+
+                            if (First.Length > 3)
+                            {
+                                First = FormatResult(First);
+                            }
+
+                            if (Second.Length < PostComma)
+                            {
+                                for (int Count = Second.Length; Count < PostComma; Count++)
+                                {
+                                    Second += "0";
+                                }
+                            }
+                            else if (Second.Length > PostComma)
+                            {
+                                Second = Second.Substring(0, PostComma);
+                            }
+
+                            return $"{First}{CHD.Char}{Second}";
+                        }
                     }
                 }
             }

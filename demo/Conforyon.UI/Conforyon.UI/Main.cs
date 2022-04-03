@@ -573,7 +573,7 @@ namespace Conforyon.UI
                 if (button4.Cursor == Cursors.Hand)
                 {
                     button4.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox4.Text, false);
+                    Board.Text.Copy(textBox4.Text);
                 }
             }
             catch (Exception Ex)
@@ -594,11 +594,11 @@ namespace Conforyon.UI
 
                 if (Selection6 == "C=>F")
                 {
-                    textBox2.Text = Temperatures.CtoF(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                    textBox2.Text = Celsius.Fahrenheit(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 }
                 else
                 {
-                    textBox2.Text = Temperatures.FtoC(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                    textBox2.Text = Fahrenheit.Celsius(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 }
 
                 button6.Cursor = Cursors.Hand;
@@ -616,7 +616,7 @@ namespace Conforyon.UI
                 if (button6.Cursor == Cursors.Hand)
                 {
                     button6.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox2.Text, false);
+                    Board.Text.Copy(textBox2.Text);
                 }
             }
             catch (Exception Ex)
@@ -670,7 +670,7 @@ namespace Conforyon.UI
                 if (button9.Cursor == Cursors.Hand)
                 {
                     button9.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox8.Text, false);
+                    Board.Text.Copy(textBox8.Text);
                 }
             }
             catch (Exception Ex)
@@ -729,11 +729,11 @@ namespace Conforyon.UI
 
                 if (Selection26 == "MPH => KPH")
                 {
-                    textBox25.Text = Speeding.MPHtoKPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
+                    textBox25.Text = MPH.KPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
                 }
                 else
                 {
-                    textBox25.Text = Speeding.KPHtoMPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
+                    textBox25.Text = KPH.MPH(textBox26.Text, Selection23, Selection24, Convert.ToInt32(textBox24.Text), Selection25, "Error!");
                 }
 
                 button29.Cursor = Cursors.Hand;
@@ -751,7 +751,7 @@ namespace Conforyon.UI
                 if (button23.Cursor == Cursors.Hand)
                 {
                     button23.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox19.Text, false);
+                    Board.Text.Copy(textBox19.Text);
                 }
             }
             catch (Exception Ex)
@@ -801,7 +801,7 @@ namespace Conforyon.UI
                 if (button24.Cursor == Cursors.Hand)
                 {
                     button24.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox22.Text, false);
+                    Board.Text.Copy(textBox22.Text);
                 }
             }
             catch (Exception Ex)
@@ -817,23 +817,23 @@ namespace Conforyon.UI
                 ComboBox();
                 if (Selection17 == "FILE=>MD5")
                 {
-                    textBox19.Text = Hashing.FILEtoMD5(textBox20.Text, false, "Error!");
+                    textBox19.Text = FILE.MD5(textBox20.Text, false, "Error!");
                 }
                 else if (Selection17 == "FILE=>SHA1")
                 {
-                    textBox19.Text = Hashing.FILEtoSHA1(textBox20.Text, false, "Error!");
+                    textBox19.Text = FILE.SHA1(textBox20.Text, false, "Error!");
                 }
                 else if (Selection17 == "FILE=>SHA256")
                 {
-                    textBox19.Text = Hashing.FILEtoSHA256(textBox20.Text, false, "Error!");
+                    textBox19.Text = FILE.SHA256(textBox20.Text, false, "Error!");
                 }
                 else if (Selection17 == "FILE=>SHA384")
                 {
-                    textBox19.Text = Hashing.FILEtoSHA384(textBox20.Text, false, "Error!");
+                    textBox19.Text = FILE.SHA384(textBox20.Text, false, "Error!");
                 }
                 else if (Selection17 == "FILE=>SHA512")
                 {
-                    textBox19.Text = Hashing.FILEtoSHA512(textBox20.Text, false, "Error!");
+                    textBox19.Text = FILE.SHA512(textBox20.Text, false, "Error!");
                 }
 
                 button23.Cursor = Cursors.Hand;
@@ -851,7 +851,7 @@ namespace Conforyon.UI
                 if (button10.Cursor == Cursors.Hand)
                 {
                     button10.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text, false);
+                    Board.Text.Copy(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text);
                 }
             }
             catch (Exception Ex)
@@ -866,13 +866,13 @@ namespace Conforyon.UI
                 ComboBox();
                 if (Selection10)
                 {
-                    textBox8.Text = Colorful.RGBtoHEX(Convert.ToInt32(textBox6.Text), Convert.ToInt32(textBox9.Text), Convert.ToInt32(textBox10.Text), false, "Error!");
+                    textBox8.Text = RGB.HEX(textBox6.Text, textBox9.Text, textBox10.Text, false, "Error!");
                 }
                 else
                 {
-                    textBox6.Text = Colorful.HEXtoRGB(textBox8.Text, Enums.ColorType.OnlyR, "Error!");
-                    textBox9.Text = Colorful.HEXtoRGB(textBox8.Text, Enums.ColorType.OnlyG, "Error!");
-                    textBox10.Text = Colorful.HEXtoRGB(textBox8.Text, Enums.ColorType.OnlyB, "Error!");
+                    textBox6.Text = HEX.RGB(textBox8.Text, Enums.ColorType.OnlyR, "Error!");
+                    textBox9.Text = HEX.RGB(textBox8.Text, Enums.ColorType.OnlyG, "Error!");
+                    textBox10.Text = HEX.RGB(textBox8.Text, Enums.ColorType.OnlyB, "Error!");
                 }
 
                 button9.Cursor = Cursors.Hand;
@@ -903,7 +903,7 @@ namespace Conforyon.UI
                 if (button13.Cursor == Cursors.Hand)
                 {
                     button13.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox11.Text, false);
+                    Board.Text.Copy(textBox11.Text);
                 }
             }
             catch (Exception Ex)
@@ -919,7 +919,7 @@ namespace Conforyon.UI
                 if (button14.Cursor == Cursors.Hand)
                 {
                     button14.Cursor = Cursors.No;
-                    ClipBoard.CopyText(textBox12.Text, false);
+                    Board.Text.Copy(textBox12.Text);
                 }
             }
             catch (Exception Ex)
@@ -935,11 +935,11 @@ namespace Conforyon.UI
                 ComboBox();
                 if (Selection11)
                 {
-                    textBox12.Text = Unicodes.CHARtoASCII(textBox11.Text, textBox18.Text.ToCharArray()[0], "Error!");
+                    textBox12.Text = CHAR.ASCII(textBox11.Text, textBox18.Text.ToCharArray()[0], "Error!");
                 }
                 else
                 {
-                    textBox11.Text = Unicodes.ASCIItoCHAR(textBox12.Text, textBox18.Text.ToCharArray()[0], "Error!");
+                    textBox11.Text = ASCII.CHAR(textBox12.Text, textBox18.Text.ToCharArray()[0], "Error!");
                 }
 
                 button13.Cursor = Cursors.Hand;
@@ -958,31 +958,31 @@ namespace Conforyon.UI
                 ComboBox();
                 if (Selection12 == "Text=>Base64")
                 {
-                    textBox13.Text = Cryptography.TEXTtoBASE64(textBox14.Text, "Error!");
+                    textBox13.Text = TEXT.BASE(textBox14.Text, "Error!");
                 }
                 else if (Selection12 == "Text=>MD5")
                 {
-                    textBox13.Text = Cryptography.TEXTtoMD5(textBox14.Text, false, "Error!");
+                    textBox13.Text = TEXT.MD5(textBox14.Text, false, "Error!");
                 }
                 else if (Selection12 == "Text=>SHA1")
                 {
-                    textBox13.Text = Cryptography.TEXTtoSHA1(textBox14.Text, false, "Error!");
+                    textBox13.Text = TEXT.SHA1(textBox14.Text, false, "Error!");
                 }
                 else if (Selection12 == "Text=>SHA256")
                 {
-                    textBox13.Text = Cryptography.TEXTtoSHA256(textBox14.Text, false, "Error!");
+                    textBox13.Text = TEXT.SHA256(textBox14.Text, false, "Error!");
                 }
                 else if (Selection12 == "Text=>SHA384")
                 {
-                    textBox13.Text = Cryptography.TEXTtoSHA384(textBox14.Text, false, "Error!");
+                    textBox13.Text = TEXT.SHA384(textBox14.Text, false, "Error!");
                 }
                 else if (Selection12 == "Text=>SHA512")
                 {
-                    textBox13.Text = Cryptography.TEXTtoSHA512(textBox14.Text, false, "Error!");
+                    textBox13.Text = TEXT.SHA512(textBox14.Text, false, "Error!");
                 }
                 else if (Selection12 == "Base64=>Text")
                 {
-                    textBox13.Text = Cryptography.BASE64toTEXT(textBox14.Text, "Error!");
+                    textBox13.Text = BASE.TEXT(textBox14.Text, "Error!");
                 }
 
                 button17.Cursor = Cursors.Hand;
@@ -998,7 +998,7 @@ namespace Conforyon.UI
             if (button17.Cursor == Cursors.Hand)
             {
                 button17.Cursor = Cursors.No;
-                ClipBoard.CopyText(textBox13.Text, false);
+                Board.Text.Copy(textBox13.Text);
             }
         }
 
@@ -1007,7 +1007,7 @@ namespace Conforyon.UI
             if (button18.Cursor == Cursors.Hand)
             {
                 button18.Cursor = Cursors.No;
-                ClipBoard.CopyText(textBox16.Text, false);
+                Board.Text.Copy(textBox16.Text);
             }
         }
 
@@ -1052,11 +1052,11 @@ namespace Conforyon.UI
                 {
                     if (Selection14 == "CM")
                     {
-                        textBox16.Text = Typography.INCHtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = INCH.CM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     }
                     else if (Selection14 == "PX")
                     {
-                        textBox16.Text = Typography.INCHtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = INCH.PX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     }
                     else
                     {
@@ -1067,11 +1067,11 @@ namespace Conforyon.UI
                 {
                     if (Selection14 == "INCH")
                     {
-                        textBox16.Text = Typography.CMtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = CM.INCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     }
                     else if (Selection14 == "PX")
                     {
-                        textBox16.Text = Typography.CMtoPX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = CM.PX(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     }
                     else
                     {
@@ -1082,11 +1082,11 @@ namespace Conforyon.UI
                 {
                     if (Selection14 == "INCH")
                     {
-                        textBox16.Text = Typography.PXtoINCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = PX.INCH(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     }
                     else if (Selection14 == "CM")
                     {
-                        textBox16.Text = Typography.PXtoCM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
+                        textBox16.Text = PX.CM(textBox17.Text, Selection15, Selection16, Convert.ToInt32(textBox15.Text), "Error!");
                     }
                     else
                     {
