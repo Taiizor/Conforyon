@@ -587,6 +587,30 @@ Celsius("12345", false, false, 0, false, "Hata!");
 </FunctionResult>
 ```
 
+#### Kelvin -> Fahrenheit
+
+```CS
+/* Fahrenheit(string Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Fahrenheit("12345", true, true, 1, true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>21.761,3 F</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* Fahrenheit(string Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Fahrenheit("12345", false, false, 0, false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>21761</ReturnValue>
+</FunctionResult>
+```
+
 #### Celsius -> Kelvin
 
 ```CS
