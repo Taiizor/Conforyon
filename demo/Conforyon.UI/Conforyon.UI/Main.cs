@@ -10,8 +10,10 @@ using Conforyon.Time;
 using Conforyon.Typology;
 using Conforyon.Unicode;
 using System;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UI
 {
@@ -142,7 +144,23 @@ namespace Conforyon.UI
 
                 if (comboBox6.SelectedIndex == 0)
                 {
+                    Selection6 = "K=>C";
+                }
+                else if (comboBox6.SelectedIndex == 1)
+                {
+                    Selection6 = "K=>F";
+                }
+                else if (comboBox6.SelectedIndex == 2)
+                {
+                    Selection6 = "C=>K";
+                }
+                else if (comboBox6.SelectedIndex == 3)
+                {
                     Selection6 = "C=>F";
+                }
+                else if (comboBox6.SelectedIndex == 4)
+                {
+                    Selection6 = "F=>K";
                 }
                 else
                 {
@@ -196,7 +214,7 @@ namespace Conforyon.UI
 
                 if (comboBox12.SelectedIndex == 0)
                 {
-                    Selection12 = "Text=>Base64";
+                    Selection12 = "Text=>Base";
                 }
                 else if (comboBox12.SelectedIndex == 1)
                 {
@@ -220,7 +238,15 @@ namespace Conforyon.UI
                 }
                 else if (comboBox12.SelectedIndex == 6)
                 {
-                    Selection12 = "Base64=>Text";
+                    Selection12 = "Base=>Text";
+                }
+                else if (comboBox12.SelectedIndex == 7)
+                {
+                    Selection12 = "Aes=>Encrypt";
+                }
+                else
+                {
+                    Selection12 = "Aes=>Decrypt";
                 }
 
                 if (comboBox17.SelectedIndex == 0)
@@ -573,7 +599,9 @@ namespace Conforyon.UI
                 if (button4.Cursor == Cursors.Hand)
                 {
                     button4.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox4.Text);
+                    Board.Text.Copy(textBox4);
+                    ClipboardService.SetText(textBox4.Text);
+
                 }
             }
             catch (Exception Ex)
@@ -592,9 +620,25 @@ namespace Conforyon.UI
                     textBox5.Text = "1";
                 }
 
-                if (Selection6 == "C=>F")
+                if (Selection6 == "K=>C")
+                {
+                    textBox2.Text = Kelvin.Celsius(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                }
+                else if (Selection6 == "K=>F")
+                {
+                    textBox2.Text = Kelvin.Fahrenheit(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                }
+                else if (Selection6 == "C=>K")
+                {
+                    textBox2.Text = Celsius.Kelvin(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                }
+                else if (Selection6 == "C=>F")
                 {
                     textBox2.Text = Celsius.Fahrenheit(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
+                }
+                else if (Selection6 == "F=>K")
+                {
+                    textBox2.Text = Fahrenheit.Kelvin(textBox1.Text, Selection9, Selection8, Convert.ToInt32(textBox5.Text), Selection7, "Error!");
                 }
                 else
                 {
@@ -616,7 +660,7 @@ namespace Conforyon.UI
                 if (button6.Cursor == Cursors.Hand)
                 {
                     button6.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox2.Text);
+                    ClipboardService.SetText(textBox2.Text);
                 }
             }
             catch (Exception Ex)
@@ -631,11 +675,27 @@ namespace Conforyon.UI
             {
                 if (comboBox6.SelectedIndex == 0)
                 {
+                    comboBox6.SelectedIndex = 2;
+                }
+                else if (comboBox6.SelectedIndex == 1)
+                {
+                    comboBox6.SelectedIndex = 4;
+                }
+                else if (comboBox6.SelectedIndex == 2)
+                {
+                    comboBox6.SelectedIndex = 0;
+                }
+                else if (comboBox6.SelectedIndex == 3)
+                {
+                    comboBox6.SelectedIndex = 5;
+                }
+                else if (comboBox6.SelectedIndex == 4)
+                {
                     comboBox6.SelectedIndex = 1;
                 }
                 else
                 {
-                    comboBox6.SelectedIndex = 0;
+                    comboBox6.SelectedIndex = 3;
                 }
             }
             catch (Exception Ex)
@@ -670,7 +730,7 @@ namespace Conforyon.UI
                 if (button9.Cursor == Cursors.Hand)
                 {
                     button9.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox8.Text);
+                    ClipboardService.SetText(textBox8.Text);
                 }
             }
             catch (Exception Ex)
@@ -751,7 +811,7 @@ namespace Conforyon.UI
                 if (button23.Cursor == Cursors.Hand)
                 {
                     button23.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox19.Text);
+                    ClipboardService.SetText(textBox19.Text);
                 }
             }
             catch (Exception Ex)
@@ -801,7 +861,7 @@ namespace Conforyon.UI
                 if (button24.Cursor == Cursors.Hand)
                 {
                     button24.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox22.Text);
+                    ClipboardService.SetText(textBox22.Text);
                 }
             }
             catch (Exception Ex)
@@ -851,7 +911,7 @@ namespace Conforyon.UI
                 if (button10.Cursor == Cursors.Hand)
                 {
                     button10.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text);
+                    ClipboardService.SetText(textBox6.Text + ", " + textBox9.Text + ", " + textBox10.Text);
                 }
             }
             catch (Exception Ex)
@@ -903,7 +963,7 @@ namespace Conforyon.UI
                 if (button13.Cursor == Cursors.Hand)
                 {
                     button13.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox11.Text);
+                    ClipboardService.SetText(textBox11.Text);
                 }
             }
             catch (Exception Ex)
@@ -919,7 +979,7 @@ namespace Conforyon.UI
                 if (button14.Cursor == Cursors.Hand)
                 {
                     button14.Cursor = Cursors.No;
-                    Board.Text.Copy(textBox12.Text);
+                    ClipboardService.SetText(textBox12.Text);
                 }
             }
             catch (Exception Ex)
@@ -956,7 +1016,7 @@ namespace Conforyon.UI
             try
             {
                 ComboBox();
-                if (Selection12 == "Text=>Base64")
+                if (Selection12 == "Text=>Base")
                 {
                     textBox13.Text = TEXT.BASE(textBox14.Text, "Error!");
                 }
@@ -980,9 +1040,17 @@ namespace Conforyon.UI
                 {
                     textBox13.Text = TEXT.SHA512(textBox14.Text, false, "Error!");
                 }
-                else if (Selection12 == "Base64=>Text")
+                else if (Selection12 == "Base=>Text")
                 {
                     textBox13.Text = BASE.TEXT(textBox14.Text, "Error!");
+                }
+                else if (Selection12 == "Aes=>Encrypt")
+                {
+                    textBox13.Text = AES.Encrypt(textBox14.Text, textBox27.Text, textBox28.Text, (CipherMode)comboBox27.SelectedIndex + 1, "Error!");
+                }
+                else if (Selection12 == "Aes=>Decrypt")
+                {
+                    textBox13.Text = AES.Decrypt(textBox14.Text, textBox27.Text, textBox28.Text, (CipherMode)comboBox27.SelectedIndex + 1, "Error!");
                 }
 
                 button17.Cursor = Cursors.Hand;
@@ -998,7 +1066,7 @@ namespace Conforyon.UI
             if (button17.Cursor == Cursors.Hand)
             {
                 button17.Cursor = Cursors.No;
-                Board.Text.Copy(textBox13.Text);
+                ClipboardService.SetText(textBox13.Text);
             }
         }
 
@@ -1007,7 +1075,7 @@ namespace Conforyon.UI
             if (button18.Cursor == Cursors.Hand)
             {
                 button18.Cursor = Cursors.No;
-                Board.Text.Copy(textBox16.Text);
+                ClipboardService.SetText(textBox16.Text);
             }
         }
 
@@ -1020,6 +1088,14 @@ namespace Conforyon.UI
             else if (comboBox12.SelectedIndex == 6)
             {
                 comboBox12.SelectedIndex = 0;
+            }
+            else if (comboBox12.SelectedIndex == 7)
+            {
+                comboBox12.SelectedIndex = 8;
+            }
+            else if (comboBox12.SelectedIndex == 8)
+            {
+                comboBox12.SelectedIndex = 7;
             }
         }
 
@@ -1117,7 +1193,7 @@ namespace Conforyon.UI
                 comboBox9.SelectedIndex = comboBox9.Items.IndexOf("Decimal On");
                 comboBox10.SelectedIndex = comboBox10.Items.IndexOf("RGB => HEX");
                 comboBox11.SelectedIndex = comboBox11.Items.IndexOf("Char => ASCII");
-                comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Text => Base64");
+                comboBox12.SelectedIndex = comboBox12.Items.IndexOf("Text => Base");
                 comboBox14.SelectedIndex = comboBox14.Items.IndexOf("FILE => MD5");
                 comboBox13.SelectedIndex = comboBox13.Items.IndexOf("CM");
                 comboBox17.SelectedIndex = comboBox17.Items.IndexOf("INCH");
@@ -1132,6 +1208,7 @@ namespace Conforyon.UI
                 comboBox24.SelectedIndex = comboBox24.Items.IndexOf("Fraction Off");
                 comboBox25.SelectedIndex = comboBox25.Items.IndexOf("Type On");
                 comboBox26.SelectedIndex = comboBox26.Items.IndexOf("Miles Per Hour => Kilometers Per Hour");
+                comboBox27.SelectedIndex = comboBox27.Items.IndexOf("CBC");
             }
             catch (Exception Ex)
             {

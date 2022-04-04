@@ -114,6 +114,9 @@
             this.button30 = new System.Windows.Forms.Button();
             this.textBox26 = new System.Windows.Forms.TextBox();
             this.comboBox25 = new System.Windows.Forms.ComboBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.comboBox27 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textBox3
@@ -268,7 +271,11 @@
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             resources.GetString("comboBox6.Items"),
-            resources.GetString("comboBox6.Items1")});
+            resources.GetString("comboBox6.Items1"),
+            resources.GetString("comboBox6.Items2"),
+            resources.GetString("comboBox6.Items3"),
+            resources.GetString("comboBox6.Items4"),
+            resources.GetString("comboBox6.Items5")});
             resources.ApplyResources(this.comboBox6, "comboBox6");
             this.comboBox6.Name = "comboBox6";
             // 
@@ -547,7 +554,9 @@
             resources.GetString("comboBox12.Items3"),
             resources.GetString("comboBox12.Items4"),
             resources.GetString("comboBox12.Items5"),
-            resources.GetString("comboBox12.Items6")});
+            resources.GetString("comboBox12.Items6"),
+            resources.GetString("comboBox12.Items7"),
+            resources.GetString("comboBox12.Items8")});
             resources.ApplyResources(this.comboBox12, "comboBox12");
             this.comboBox12.Name = "comboBox12";
             // 
@@ -911,10 +920,39 @@
             resources.ApplyResources(this.comboBox25, "comboBox25");
             this.comboBox25.Name = "comboBox25";
             // 
+            // textBox27
+            // 
+            this.textBox27.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.textBox27, "textBox27");
+            this.textBox27.Name = "textBox27";
+            // 
+            // textBox28
+            // 
+            this.textBox28.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.textBox28, "textBox28");
+            this.textBox28.Name = "textBox28";
+            // 
+            // comboBox27
+            // 
+            this.comboBox27.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox27.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox27.FormattingEnabled = true;
+            this.comboBox27.Items.AddRange(new object[] {
+            resources.GetString("comboBox27.Items"),
+            resources.GetString("comboBox27.Items1"),
+            resources.GetString("comboBox27.Items2"),
+            resources.GetString("comboBox27.Items3"),
+            resources.GetString("comboBox27.Items4")});
+            resources.ApplyResources(this.comboBox27, "comboBox27");
+            this.comboBox27.Name = "comboBox27";
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.comboBox27);
+            this.Controls.Add(this.textBox28);
+            this.Controls.Add(this.textBox27);
             this.Controls.Add(this.comboBox25);
             this.Controls.Add(this.button28);
             this.Controls.Add(this.comboBox23);
@@ -1095,5 +1133,8 @@
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.TextBox textBox26;
         private System.Windows.Forms.ComboBox comboBox25;
+        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.ComboBox comboBox27;
     }
 }

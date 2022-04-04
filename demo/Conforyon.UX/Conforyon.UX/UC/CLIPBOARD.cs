@@ -1,6 +1,6 @@
-﻿using Conforyon.Board;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UX.UC
 {
@@ -23,8 +23,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Board.Text.Paste() != CVTB.Text)
+                if (ClipboardService.GetText() != CVTB.Text)
                 {
+                    ClipboardService.SetText(CVTB.Text);
                     Board.Text.Copy(CVTB.Text);
                     CVTB.Focus();
                 }
@@ -39,9 +40,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Board.Text.Paste() != CRTB.Text)
+                if (ClipboardService.GetText() != CRTB.Text)
                 {
-                    CRTB.Text = Board.Text.Paste();
+                    CRTB.Text = ClipboardService.GetText();
                     CRTB.Focus();
                 }
             }

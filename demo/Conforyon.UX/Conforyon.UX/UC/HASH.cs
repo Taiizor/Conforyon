@@ -1,7 +1,7 @@
-﻿using Conforyon.Board;
-using Conforyon.Hash;
+﻿using Conforyon.Hash;
 using System;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UX.UC
 {
@@ -103,9 +103,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Board.Text.Paste() != FRTB.Text)
+                if (ClipboardService.GetText() != FRTB.Text)
                 {
-                    Board.Text.Copy(FRTB.Text);
+                    ClipboardService.SetText(FRTB.Text);
                     FRTB.Focus();
                 }
             }

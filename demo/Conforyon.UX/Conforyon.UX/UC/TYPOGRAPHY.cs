@@ -1,5 +1,4 @@
-﻿using Conforyon.Board;
-using Conforyon.Enum;
+﻿using Conforyon.Enum;
 using Conforyon.Typology;
 using Conforyon.Value;
 using ReaLTaiizor.Controls;
@@ -7,6 +6,7 @@ using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UX.UC
 {
@@ -105,9 +105,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Board.Text.Paste() != TRTB.Text)
+                if (ClipboardService.GetText() != TRTB.Text)
                 {
-                    Board.Text.Copy(TRTB.Text);
+                    ClipboardService.SetText(TRTB.Text);
                     TRTB.Focus();
                 }
             }

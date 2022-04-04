@@ -1,11 +1,11 @@
-﻿using Conforyon.Board;
-using Conforyon.Color;
+﻿using Conforyon.Color;
 using Conforyon.Enum;
 using ReaLTaiizor.Controls;
 using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UX.UC
 {
@@ -69,17 +69,17 @@ namespace Conforyon.UX.UC
             {
                 if (TACB.SelectedItem.ToString() == "RGB")
                 {
-                    if (Board.Text.Paste() != CHTB.Text)
+                    if (ClipboardService.GetText() != CHTB.Text)
                     {
-                        Board.Text.Copy(CHTB.Text);
+                        ClipboardService.SetText(CHTB.Text);
                         CHTB.Focus();
                     }
                 }
                 else
                 {
-                    if (Board.Text.Paste() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
+                    if (ClipboardService.GetText() != CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text)
                     {
-                        Board.Text.Copy(CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text);
+                        ClipboardService.SetText(CRTB.Text + ", " + CGTB.Text + ", " + CBTB.Text);
                         CGTB.Focus();
                     }
                 }

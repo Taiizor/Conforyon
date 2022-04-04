@@ -1,8 +1,8 @@
-﻿using Conforyon.Board;
-using Conforyon.Cryptology;
+﻿using Conforyon.Cryptology;
 using ReaLTaiizor.Controls;
 using System;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UX.UC
 {
@@ -55,13 +55,13 @@ namespace Conforyon.UX.UC
                 string TA = TACB.SelectedItem.ToString();
                 string TB = TBCB.SelectedItem.ToString();
 
-                if (TA == "BASE64")
+                if (TA == "BASE")
                 {
                     CRTB.Text = BASE.TEXT(CVTB.Text);
                 }
                 else
                 {
-                    if (TB == "BASE64")
+                    if (TB == "BASE")
                     {
                         CRTB.Text = TEXT.BASE(CVTB.Text);
                     }
@@ -97,9 +97,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Board.Text.Paste() != CRTB.Text)
+                if (ClipboardService.GetText() != CRTB.Text)
                 {
-                    Board.Text.Copy(CRTB.Text);
+                    ClipboardService.SetText(CRTB.Text);
                     CRTB.Focus();
                 }
             }
@@ -118,22 +118,22 @@ namespace Conforyon.UX.UC
                 {
                     if (TACB.SelectedItem.ToString() == "TEXT" && TBCB.SelectedItem.ToString() == "TEXT")
                     {
-                        TBCB.SelectedItem = "BASE64";
+                        TBCB.SelectedItem = "BASE";
                     }
-                    else if (TACB.SelectedItem.ToString() == "BASE64")
+                    else if (TACB.SelectedItem.ToString() == "BASE")
                     {
                         TBCB.SelectedItem = "TEXT";
                     }
                 }
                 else
                 {
-                    if (TBCB.SelectedItem.ToString() == "BASE64" && TACB.SelectedItem.ToString() == "BASE64")
+                    if (TBCB.SelectedItem.ToString() == "BASE" && TACB.SelectedItem.ToString() == "BASE")
                     {
                         TACB.SelectedItem = "TEXT";
                     }
                     else if (TBCB.SelectedItem.ToString() == "TEXT")
                     {
-                        TACB.SelectedItem = "BASE64";
+                        TACB.SelectedItem = "BASE";
                     }
                     else
                     {
@@ -143,7 +143,7 @@ namespace Conforyon.UX.UC
 
                 Refresh();
 
-                if ((TACB.SelectedItem.ToString() == "TEXT" || TACB.SelectedItem.ToString() == "BASE64") && (TBCB.SelectedItem.ToString() == "TEXT" || TBCB.SelectedItem.ToString() == "BASE64"))
+                if ((TACB.SelectedItem.ToString() == "TEXT" || TACB.SelectedItem.ToString() == "BASE") && (TBCB.SelectedItem.ToString() == "TEXT" || TBCB.SelectedItem.ToString() == "BASE"))
                 {
                     TTB.Enabled = true;
                     CRCB.Enabled = false;

@@ -61,7 +61,7 @@ namespace Conforyon.UX.UC
             this.TACB.ItemHeight = 29;
             this.TACB.Items.AddRange(new object[] {
             "TEXT",
-            "BASE64"});
+            "BASE"});
             this.TACB.Location = new System.Drawing.Point(3, 4);
             this.TACB.MaxDropDownItems = 2;
             this.TACB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -89,7 +89,7 @@ namespace Conforyon.UX.UC
             this.TBCB.IntegralHeight = false;
             this.TBCB.ItemHeight = 29;
             this.TBCB.Items.AddRange(new object[] {
-            "BASE64",
+            "BASE",
             "TEXT",
             "MD5",
             "SHA1",

@@ -1,9 +1,9 @@
-﻿using Conforyon.Board;
-using Conforyon.Unicode;
+﻿using Conforyon.Unicode;
 using ReaLTaiizor.Controls;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using TextCopy;
 
 namespace Conforyon.UX.UC
 {
@@ -73,9 +73,9 @@ namespace Conforyon.UX.UC
         {
             try
             {
-                if (Board.Text.Paste() != URTB.Text)
+                if (ClipboardService.GetText() != URTB.Text)
                 {
-                    Board.Text.Copy(URTB.Text);
+                    ClipboardService.SetText(URTB.Text);
                     URTB.Focus();
                 }
             }
