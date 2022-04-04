@@ -44,7 +44,7 @@ namespace Conforyon.Array
         /// <summary>
         /// 
         /// </summary>
-        public static SCG.Dictionary<CEEMT, SCG.Dictionary<string, SCGD>> UnitValues = new()
+        public static SCG.Dictionary<CEEMT, SCG.Dictionary<string, SCGD>> DefaultValues => new()
         {
             {
                 CEEMT.DataStorage,
@@ -1123,6 +1123,11 @@ namespace Conforyon.Array
                 }
             }
         };
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static SCG.Dictionary<CEEMT, SCG.Dictionary<string, SCGD>> UnitValues = DefaultValues;
 
         #endregion
     }

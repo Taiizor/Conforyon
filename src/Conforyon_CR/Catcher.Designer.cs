@@ -58,6 +58,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -357,12 +358,23 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(306, 287);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(282, 23);
+            this.button13.TabIndex = 29;
+            this.button13.Text = "RESET VALUE";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.Button13_Click);
+            // 
             // Catcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(42)))), ((int)(((byte)(53)))));
             this.ClientSize = new System.Drawing.Size(894, 322);
+            this.Controls.Add(this.button13);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.textBox17);
@@ -434,5 +446,6 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }

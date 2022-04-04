@@ -81,7 +81,7 @@ Adım 2：Dönüşümlerin tadını çıkarın
 #### Alma
 
 ```CS
-/* GetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+/* GetValue(MethodType Method = MethodType.DataStorage, string First = "Bit", string Last = "Byte", string Error = ErrorMessage) */
 GetValue(MethodType.Time, "Minute", "Second", "Hata!");
 ```
 ```XML
@@ -92,7 +92,7 @@ GetValue(MethodType.Time, "Minute", "Second", "Hata!");
 ```
 
 ```CS
-/* GetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Error = ErrorMessage) */
+/* GetValue(MethodType Method = MethodType.DataStorage, string First = "Bit", string Last = "Byte", string Error = ErrorMessage) */
 GetValue(MethodType.Speed, "MPH", "KPH", "Hata!");
 ```
 ```XML
@@ -105,24 +105,37 @@ GetValue(MethodType.Speed, "MPH", "KPH", "Hata!");
 #### Ayarlama
 
 ```CS
-/* SetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+/* SetValue(MethodType Method = MethodType.DataStorage, string First = "Bit", string Last = "Byte", string Value = "8", string Error = ErrorMessage) */
 SetValue(MethodType.Time, "Minute", "Second", "30", "Hata!");
 ```
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
-	<ReturnValue>30</ReturnValue>
+	<ReturnValue>Time->Minute->Second->30</ReturnValue>
 </FunctionResult>
 ```
 
 ```CS
-/* SetValue(MethodType Method = MethodType.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = ErrorMessage) */
+/* SetValue(MethodType Method = MethodType.DataStorage, string First = "Bit", string Last = "Byte", string Value = "8", string Error = ErrorMessage) */
 SetValue(MethodType.Speed, "MPH", "KPH", "2", "Hata!");
 ```
 ```XML
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
-	<ReturnValue>2</ReturnValue>
+	<ReturnValue>Speed->MPH->KPH->2</ReturnValue>
+</FunctionResult>
+```
+
+#### Sıfırlama
+
+```CS
+/* ResetValue() */
+ResetValue();
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.Boolean</ReturnType>
+	<ReturnValue>True</ReturnValue>
 </FunctionResult>
 ```
 
@@ -135,7 +148,7 @@ ListValue("Hata", "Başlık");
 ```XML
 <FunctionResult>
 	<ReturnType>System.Collections.Generic.Dictionary</ReturnType>
-	<ReturnValue>(Dictionary<string, Dictionary<string, Dictionary<string, string>>>)...</ReturnValue>
+	<ReturnValue>(Dictionary<MethodType, Dictionary<string, Dictionary<string, string>>>)...</ReturnValue>
 </FunctionResult>
 ```
 

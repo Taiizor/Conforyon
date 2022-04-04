@@ -5,6 +5,7 @@ using CCC = Conforyon.Constant.Constants;
 using CEEDT = Conforyon.Enum.Enums.DetectType;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
 using CHD = Conforyon.Helper.Detect;
+using CHF = Conforyon.Helper.Format;
 using SCG = System.Collections.Generic;
 using SCGD = System.Collections.Generic.Dictionary<string, string>;
 
@@ -23,25 +24,25 @@ namespace Conforyon.Value
         /// 
         /// </summary>
         /// <param name="Method"></param>
-        /// <param name="Key2"></param>
-        /// <param name="Key3"></param>
+        /// <param name="First"></param>
+        /// <param name="Last"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string GetValue(CEEMT Method = CEEMT.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Error = CCC.ErrorMessage)
+        public static string GetValue(CEEMT Method = CEEMT.DataStorage, string First = "Bit", string Last = "Byte", string Error = CCC.ErrorMessage)
         {
             try
             {
                 if (CAA.UnitValues.ContainsKey(Method))
                 {
-                    if (CAA.UnitValues[Method].ContainsKey(Key2))
+                    if (CAA.UnitValues[Method].ContainsKey(First))
                     {
-                        if (CAA.UnitValues[Method][Key2].ContainsKey(Key3))
+                        if (CAA.UnitValues[Method][First].ContainsKey(Last))
                         {
                             return CHD.Enum switch
                             {
-                                CEEDT.Dot => CAA.UnitValues[Method][Key2][Key3].Replace(",", "."),
-                                CEEDT.Comma => CAA.UnitValues[Method][Key2][Key3].Replace(".", ","),
-                                _ => CAA.UnitValues[Method][Key2][Key3],
+                                CEEDT.Dot => CAA.UnitValues[Method][First][Last].Replace(",", "."),
+                                CEEDT.Comma => CAA.UnitValues[Method][First][Last].Replace(".", ","),
+                                _ => CAA.UnitValues[Method][First][Last],
                             };
                         }
                         else
@@ -69,29 +70,29 @@ namespace Conforyon.Value
         /// 
         /// </summary>
         /// <param name="Method"></param>
-        /// <param name="Key2"></param>
-        /// <param name="Key3"></param>
+        /// <param name="First"></param>
+        /// <param name="Last"></param>
         /// <param name="Value"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string SetValue(CEEMT Method = CEEMT.DataStorage, string Key2 = "Bit", string Key3 = "Byte", string Value = "8", string Error = CCC.ErrorMessage)
+        public static string SetValue(CEEMT Method = CEEMT.DataStorage, string First = "Bit", string Last = "Byte", string Value = "8", string Error = CCC.ErrorMessage)
         {
             try
             {
                 if (CAA.UnitValues.ContainsKey(Method))
                 {
-                    if (CAA.UnitValues[Method].ContainsKey(Key2))
+                    if (CAA.UnitValues[Method].ContainsKey(First))
                     {
-                        if (CAA.UnitValues[Method][Key2].ContainsKey(Key3))
+                        if (CAA.UnitValues[Method][First].ContainsKey(Last))
                         {
-                            CAA.UnitValues[Method][Key2][Key3] = CHD.Enum switch
+                            CAA.UnitValues[Method][First][Last] = CHD.Enum switch
                             {
                                 CEEDT.Dot => Value.Replace(",", "."),
                                 CEEDT.Comma => Value.Replace(".", ","),
                                 _ => Value,
                             };
 
-                            return CAA.UnitValues[Method][Key2][Key3];
+                            return CHF.Formatter(CCC.FormatValue, Method, First, Last, CAA.UnitValues[Method][First][Last]);
                         }
                         else
                         {
@@ -164,6 +165,24 @@ namespace Conforyon.Value
             catch
             {
                 return Error + CCC.ErrorTitle + "VE-VSLVJ1!)";
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static bool ResetValue()
+        {
+            try
+            {
+                CAA.UnitValues = CAA.DefaultValues;
+
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

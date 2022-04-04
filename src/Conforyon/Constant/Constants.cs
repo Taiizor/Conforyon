@@ -36,6 +36,11 @@ namespace Conforyon.Constant
         /// <summary>
         /// 
         /// </summary>
+        public const string FormatValue = "{0}->{1}->{2}->{3}";
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const string IV = "QxQsRoZQws61N46H";
 
         /// <summary>

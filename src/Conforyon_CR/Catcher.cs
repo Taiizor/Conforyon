@@ -146,5 +146,10 @@ namespace Conforyon_CR
         {
             MessageBox.Show(Values.ListValueJson());
         }
+
+        private void Button13_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Values.ResetValue().ToString());
+        }
     }
 }
