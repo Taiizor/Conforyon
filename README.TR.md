@@ -563,6 +563,54 @@ DataConvert("987654321", StorageType.Byte, StorageType.GB, false, true, 5, "Hata
 
 ### Sıcaklık
 
+#### Kelvin -> Celsius
+
+```CS
+/* Celsius(string Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Celsius("12345", true, true, 1, true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>12.071,8 C</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* Celsius(string Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Celsius("12345", false, false, 0, false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>12071</ReturnValue>
+</FunctionResult>
+```
+
+#### Celsius -> Kelvin
+
+```CS
+/* Kelvin(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Kelvin("12345", true, true, 1, true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>12.618,1 K</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* Kelvin(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Kelvin("12345", false, false, 0, false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>12618</ReturnValue>
+</FunctionResult>
+```
+
 #### Celsius -> Fahrenheit
 
 ```CS
@@ -584,6 +632,30 @@ Fahrenheit("12345", false, false, 0, false, "Hata!");
 <FunctionResult>
 	<ReturnType>System.String</ReturnType>
 	<ReturnValue>22253</ReturnValue>
+</FunctionResult>
+```
+
+#### Fahrenheit -> Kelvin
+
+```CS
+/* Kelvin(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Kelvin("12345", true, true, 2, true, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>7.113,70 K</ReturnValue>
+</FunctionResult>
+```
+
+```CS
+/* Kelvin(string Fahrenheit, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = ErrorMessage) */
+Kelvin("12345", false, false, 0, false, "Hata!");
+```
+```XML
+<FunctionResult>
+	<ReturnType>System.String</ReturnType>
+	<ReturnValue>7113</ReturnValue>
 </FunctionResult>
 ```
 

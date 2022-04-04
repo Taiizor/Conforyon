@@ -13,63 +13,63 @@ namespace Conforyon.Temperature
     /// <summary>
     /// 
     /// </summary>
-    public class Celsius
+    public class Kelvin
     {
-        #region Celsius
+        #region Kelvin
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Celsius"></param>
+        /// <param name="Kelvin"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Kelvin(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        public static string Celsius(int Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
-            return Kelvin($"{Celsius}", Decimal, Comma, PostComma, Text, Error);
+            return Celsius($"{Kelvin}", Decimal, Comma, PostComma, Text, Error);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Celsius"></param>
+        /// <param name="Kelvin"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Kelvin(object Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        public static string Celsius(object Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
-            return Kelvin($"{Celsius}", Decimal, Comma, PostComma, Text, Error);
+            return Celsius($"{Kelvin}", Decimal, Comma, PostComma, Text, Error);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Celsius"></param>
+        /// <param name="Kelvin"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Kelvin(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        public static string Celsius(string Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Celsius.Length <= CCC.VariableLength && CC.NumberControl(Celsius) && !Celsius.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Celsius))
+                if (Kelvin.Length <= CCC.VariableLength && CC.NumberControl(Kelvin) && !Kelvin.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Kelvin))
                 {
-                    double Kelvin = SC.ToDouble(Celsius) + SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Celsius", "Kelvin", Error));
+                    double Celsius = SC.ToDouble(Kelvin) - SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Kelvin", "Celsius", Error));
 
-                    string Result = CC.ResultFormat(Kelvin, Decimal, Comma, PostComma, Error);
+                    string Result = CC.ResultFormat(Celsius, Decimal, Comma, PostComma, Error);
 
                     if (Text)
                     {
-                        Result = $"{Result} K";
+                        Result = $"{Result} C";
                     }
 
                     return Result;
@@ -81,57 +81,57 @@ namespace Conforyon.Temperature
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "TE-CK1!)";
+                return Error + CCC.ErrorTitle + "TE-KC1!)";
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Celsius"></param>
+        /// <param name="Kelvin"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Fahrenheit(int Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        public static string Fahrenheit(int Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
-            return Fahrenheit($"{Celsius}", Decimal, Comma, PostComma, Text, Error);
+            return Fahrenheit($"{Kelvin}", Decimal, Comma, PostComma, Text, Error);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Celsius"></param>
+        /// <param name="Kelvin"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Fahrenheit(object Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        public static string Fahrenheit(object Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
-            return Fahrenheit($"{Celsius}", Decimal, Comma, PostComma, Text, Error);
+            return Fahrenheit($"{Kelvin}", Decimal, Comma, PostComma, Text, Error);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Celsius"></param>
+        /// <param name="Kelvin"></param>
         /// <param name="Decimal"></param>
         /// <param name="Comma"></param>
         /// <param name="PostComma"></param>
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
-        public static string Fahrenheit(string Celsius, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        public static string Fahrenheit(string Kelvin, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             try
             {
-                if (Celsius.Length <= CCC.VariableLength && CC.NumberControl(Celsius) && !Celsius.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Celsius))
+                if (Kelvin.Length <= CCC.VariableLength && CC.NumberControl(Kelvin) && !Kelvin.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Kelvin))
                 {
-                    double Fahrenheit = ((SC.ToDouble(Celsius) * SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Multiply", Error))) / SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Divide", Error))) + SC.ToInt32(CVV.GetValue(CEEMT.Temperature, "Celsius", "Add", Error));
+                    double Fahrenheit = (SC.ToDouble(Kelvin) - SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Kelvin", "Fahrenheit", Error))) * SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error)) / SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) + SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error));
 
                     string Result = CC.ResultFormat(Fahrenheit, Decimal, Comma, PostComma, Error);
 
@@ -149,7 +149,7 @@ namespace Conforyon.Temperature
             }
             catch
             {
-                return Error + CCC.ErrorTitle + "TE-CF1!)";
+                return Error + CCC.ErrorTitle + "TE-KF1!)";
             }
         }
 

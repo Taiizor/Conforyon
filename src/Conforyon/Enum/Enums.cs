@@ -322,6 +322,10 @@
             /// <summary>
             /// 
             /// </summary>
+            Kelvin,
+            /// <summary>
+            /// 
+            /// </summary>
             Celsius,
             /// <summary>
             /// 

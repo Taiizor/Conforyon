@@ -36,6 +36,14 @@ namespace Conforyon.Array
         /// <summary>
         /// 
         /// </summary>
+        public static readonly string[] SymbolsDiff = {
+            "E",
+            "B"
+        };
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static SCG.Dictionary<CEEMT, SCG.Dictionary<string, SCGD>> UnitValues = new()
         {
             {
@@ -495,9 +503,27 @@ namespace Conforyon.Array
                 new()
                 {
                     {
+                        "Kelvin",
+                        new()
+                        {
+                            {
+                                "Celsius",
+                                "273,15"
+                            },
+                            {
+                                "Fahrenheit",
+                                "273,15"
+                            }
+                        }
+                    },
+                    {
                         "Celsius",
                         new()
                         {
+                            {
+                                "Kelvin",
+                                "273,15"
+                            },
                             {
                                 "Divide",
                                 "5"
@@ -516,6 +542,10 @@ namespace Conforyon.Array
                         "Fahrenheit",
                         new()
                         {
+                            {
+                                "Kelvin",
+                                "273,15"
+                            },
                             {
                                 "Deduct",
                                 "32"

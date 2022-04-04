@@ -302,7 +302,17 @@ namespace Conforyon
                 {
                     if (SearchResult(Result, CAA.SymbolsCalc, CEEST.Contains))
                     {
-                        return Result;
+                        if (SearchResult(Result, CAA.SymbolsMath, CEEST.Starts) && !SearchResult(Result, CAA.SymbolsDiff, CEEST.Contains))
+                        {
+                            string First = Result.Substring(0, 1);
+                            string Last = Result.Substring(1, Result.Length - 1);
+
+                            return $"{First}{ResultFormat(Last, Decimal, Comma, PostComma, Error)}";
+                        }
+                        else
+                        {
+                            return Result;
+                        }
                     }
                     else
                     {
