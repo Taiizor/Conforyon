@@ -21,8 +21,8 @@ using STRER = System.Text.RegularExpressions.Regex;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
-//     Changed: 05.Apr.2022
-//     Version: 2.0.0.1
+//     Changed: 06.Apr.2022
+//     Version: 2.0.0.2
 //
 // |---------DO-NOT-REMOVE---------|
 
