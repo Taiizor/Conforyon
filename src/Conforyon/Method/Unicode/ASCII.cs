@@ -36,6 +36,18 @@ namespace Conforyon.Unicode
         /// <param name="Bracket"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string CHAR(long ASCII, char Bracket = ',', string Error = CCC.ErrorMessage)
+        {
+            return CHAR($"{ASCII}", Bracket, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ASCII"></param>
+        /// <param name="Bracket"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string CHAR(double ASCII, char Bracket = ',', string Error = CCC.ErrorMessage)
         {
             return CHAR($"{ASCII}", Bracket, Error);

@@ -42,6 +42,21 @@ namespace Conforyon.Speed
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string MPH(long Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
+        {
+            return MPH($"{Kilometers}", Decimal, Comma, PostComma, Text, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Kilometers"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string MPH(object Kilometers, bool Decimal, bool Comma, int PostComma = 0, bool Text = true, string Error = CCC.ErrorMessage)
         {
             return MPH($"{Kilometers}", Decimal, Comma, PostComma, Text, Error);

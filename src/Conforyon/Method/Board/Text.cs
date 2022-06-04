@@ -27,6 +27,15 @@ namespace Conforyon.Board
         /// 
         /// </summary>
         /// <param name="Number"></param>
+        public static void Copy(long Number)
+        {
+            Copy($"{Number}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
         public static void Copy(double Number)
         {
             Copy($"{Number}");

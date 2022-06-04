@@ -44,6 +44,22 @@ namespace Conforyon.Storage
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string AutoDataConvert(long InputVariable, CEEST InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return AutoDataConvert($"{InputVariable}", InputType, TypeText, Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeText"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string AutoDataConvert(object InputVariable, CEEST InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return AutoDataConvert($"{InputVariable}", InputType, TypeText, Decimal, Comma, PostComma, Error);
@@ -134,6 +150,22 @@ namespace Conforyon.Storage
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string DataConvert(int InputVariable, CEEST InputType, CEEST TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return DataConvert($"{InputVariable}", InputType, TypeConvert, Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeConvert"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string DataConvert(long InputVariable, CEEST InputType, CEEST TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return DataConvert($"{InputVariable}", InputType, TypeConvert, Decimal, Comma, PostComma, Error);
         }

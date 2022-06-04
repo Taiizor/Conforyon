@@ -21,7 +21,7 @@ using STRER = System.Text.RegularExpressions.Regex;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
-//     Changed: 06.Apr.2022
+//     Changed: 04.Jun.2022
 //     Version: 2.0.0.2
 //
 // |---------DO-NOT-REMOVE---------|
@@ -44,6 +44,17 @@ namespace Conforyon
         /// <param name="Spaces"></param>
         /// <returns></returns>
         public static bool TextControl(int Text, bool Spaces = false)
+        {
+            return TextControl($"{Text}", Spaces);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Spaces"></param>
+        /// <returns></returns>
+        public static bool TextControl(long Text, bool Spaces = false)
         {
             return TextControl($"{Text}", Spaces);
         }
@@ -128,6 +139,18 @@ namespace Conforyon
         /// <param name="Type"></param>
         /// <returns></returns>
         public static bool NumberControl(int Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
+        {
+            return NumberControl($"{Number}", Pass, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Number"></param>
+        /// <param name="Pass"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool NumberControl(long Number, bool Pass = false, CEEIT Type = CEEIT.Int64)
         {
             return NumberControl($"{Number}", Pass, Type);
         }
@@ -235,6 +258,20 @@ namespace Conforyon
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string ResultFormat(int Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string ResultFormat(long Result, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return ResultFormat($"{Result}", Decimal, Comma, PostComma, Error);
         }
@@ -424,6 +461,16 @@ namespace Conforyon
         /// </summary>
         /// <param name="Result"></param>
         /// <returns></returns>
+        public static string RemoveResult(long Result)
+        {
+            return RemoveResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
         public static string RemoveResult(double Result)
         {
             return RemoveResult($"{Result}");
@@ -469,6 +516,16 @@ namespace Conforyon
         /// <param name="Result"></param>
         /// <returns></returns>
         public static string FormatResult(int Result)
+        {
+            return FormatResult($"{Result}");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Result"></param>
+        /// <returns></returns>
+        public static string FormatResult(long Result)
         {
             return FormatResult($"{Result}");
         }
@@ -542,6 +599,18 @@ namespace Conforyon
         /// <param name="Type"></param>
         /// <returns></returns>
         public static bool SearchResult(int Text, string[] Words, CEEST Type = CEEST.Contains)
+        {
+            return SearchResult($"{Text}", Words, Type);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Words"></param>
+        /// <param name="Type"></param>
+        /// <returns></returns>
+        public static bool SearchResult(long Text, string[] Words, CEEST Type = CEEST.Contains)
         {
             return SearchResult($"{Text}", Words, Type);
         }
@@ -691,6 +760,21 @@ namespace Conforyon
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string VariableFormat(int InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
+        {
+            return VariableFormat($"{InputVariable}", Coefficient, Comma, Mod, Mod2, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="Coefficient"></param>
+        /// <param name="Comma"></param>
+        /// <param name="Mod"></param>
+        /// <param name="Mod2"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string VariableFormat(long InputVariable, string Coefficient, bool Comma, bool Mod = false, bool Mod2 = false, string Error = CCC.ErrorMessage)
         {
             return VariableFormat($"{InputVariable}", Coefficient, Comma, Mod, Mod2, Error);
         }

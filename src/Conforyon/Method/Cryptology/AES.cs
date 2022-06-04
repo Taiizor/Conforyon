@@ -46,6 +46,20 @@ namespace Conforyon.Cryptology
         /// <param name="Mode"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string Encrypt(long Text, string IV = CCC.IV, string Key = CCC.Key, SSCCM Mode = CCC.Mode, string Error = CCC.ErrorMessage)
+        {
+            return Encrypt($"{Text}", IV, Key, Mode, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="IV"></param>
+        /// <param name="Key"></param>
+        /// <param name="Mode"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string Encrypt(double Text, string IV = CCC.IV, string Key = CCC.Key, SSCCM Mode = CCC.Mode, string Error = CCC.ErrorMessage)
         {
             return Encrypt($"{Text}", IV, Key, Mode, Error);

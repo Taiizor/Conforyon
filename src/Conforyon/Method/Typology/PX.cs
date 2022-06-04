@@ -40,6 +40,20 @@ namespace Conforyon.Typology
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string CM(long Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return CM($"{Pixel}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Pixel"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string CM(object Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return CM($"{Pixel}", Decimal, Comma, PostComma, Error);
@@ -85,6 +99,20 @@ namespace Conforyon.Typology
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string INCH(int Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return INCH($"{Pixel}", Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Pixel"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string INCH(long Pixel, bool Decimal, bool Comma, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return INCH($"{Pixel}", Decimal, Comma, PostComma, Error);
         }

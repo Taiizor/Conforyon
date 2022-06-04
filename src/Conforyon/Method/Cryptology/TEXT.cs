@@ -40,6 +40,17 @@ namespace Conforyon.Cryptology
         /// <param name="Text"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string BASE(long Text, string Error = CCC.ErrorMessage)
+        {
+            return BASE($"{Text}", Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string BASE(double Text, string Error = CCC.ErrorMessage)
         {
             return BASE($"{Text}", Error);
@@ -100,6 +111,18 @@ namespace Conforyon.Cryptology
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string MD5(int Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
+        {
+            return MD5($"{Text}", Uppercase, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string MD5(long Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
         {
             return MD5($"{Text}", Uppercase, Error);
         }
@@ -181,6 +204,19 @@ namespace Conforyon.Cryptology
             return SHA1($"{Text}", Uppercase, Error);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string SHA1(long Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
+        {
+            return SHA1($"{Text}", Uppercase, Error);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -254,6 +290,19 @@ namespace Conforyon.Cryptology
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string SHA256(int Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
+        {
+            return SHA256($"{Text}", Uppercase, Error);
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string SHA256(long Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
         {
             return SHA256($"{Text}", Uppercase, Error);
         }
@@ -341,6 +390,18 @@ namespace Conforyon.Cryptology
         /// <param name="Uppercase"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string SHA384(long Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
+        {
+            return SHA384($"{Text}", Uppercase, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string SHA384(double Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
         {
             return SHA384($"{Text}", Uppercase, Error);
@@ -406,6 +467,18 @@ namespace Conforyon.Cryptology
         /// <param name="Error"></param>
         /// <returns></returns>
         public static string SHA512(int Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
+        {
+            return SHA512($"{Text}", Uppercase, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Text"></param>
+        /// <param name="Uppercase"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string SHA512(long Text, bool Uppercase = false, string Error = CCC.ErrorMessage)
         {
             return SHA512($"{Text}", Uppercase, Error);
         }

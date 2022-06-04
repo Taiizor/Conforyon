@@ -44,6 +44,22 @@ namespace Conforyon.Time
         /// <param name="PostComma"></param>
         /// <param name="Error"></param>
         /// <returns></returns>
+        public static string AutoTimeConvert(long InputVariable, CEETT InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return AutoTimeConvert($"{InputVariable}", InputType, TypeText, Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeText"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
         public static string AutoTimeConvert(object InputVariable, CEETT InputType, bool TypeText = false, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
         {
             return AutoTimeConvert($"{InputVariable}", InputType, TypeText, Decimal, Comma, PostComma, Error);
@@ -137,6 +153,39 @@ namespace Conforyon.Time
         {
             return TimeConvert($"{InputVariable}", InputType, TypeConvert, Decimal, Comma, PostComma, Error);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeConvert"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string TimeConvert(long InputVariable, CEETT InputType, CEETT TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return TimeConvert($"{InputVariable}", InputType, TypeConvert, Decimal, Comma, PostComma, Error);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="InputVariable"></param>
+        /// <param name="InputType"></param>
+        /// <param name="TypeConvert"></param>
+        /// <param name="Decimal"></param>
+        /// <param name="Comma"></param>
+        /// <param name="PostComma"></param>
+        /// <param name="Error"></param>
+        /// <returns></returns>
+        public static string TimeConvert(object InputVariable, CEETT InputType, CEETT TypeConvert, bool Decimal = false, bool Comma = false, int PostComma = 0, string Error = CCC.ErrorMessage)
+        {
+            return TimeConvert($"{InputVariable}", InputType, TypeConvert, Decimal, Comma, PostComma, Error);
+        }
+
         /// <summary>
         /// 
         /// </summary>
