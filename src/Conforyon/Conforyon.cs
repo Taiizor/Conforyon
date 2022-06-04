@@ -22,7 +22,7 @@ using STRER = System.Text.RegularExpressions.Regex;
 //     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
 //     Changed: 04.Jun.2022
-//     Version: 2.0.0.2
+//     Version: 2.0.0.3
 //
 // |---------DO-NOT-REMOVE---------|
 
