@@ -13,7 +13,7 @@
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
 # Bienvenido a Conforyon
-Conforion es una biblioteca de Convertidor de Unidades. Permite la conversión de varias conversiones de unidades que ofrece.
+Conforyon es una biblioteca de Convertidor de Unidades. Permite la conversión de varias conversiones de unidades que ofrece.
 
 ## Colaboradores
 
