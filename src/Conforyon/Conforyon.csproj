@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <!--<TargetFramework>net48</TargetFramework>-->
-    <TargetFrameworks>net48;netstandard2.1;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net48;net481;netstandard2.1;netcoreapp3.1;net5.0;net6.0;net7.0</TargetFrameworks>
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
     <Version>2.0.0.3</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
@@ -54,7 +54,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
     <PackageReference Include="System.Drawing.Common">
-      <Version>7.0.0-preview.6.22324.4</Version>
+      <Version>7.0.0-rc.1.22426.10</Version>
     </PackageReference>
   </ItemGroup>
 
