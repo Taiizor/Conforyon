@@ -225,7 +225,9 @@ namespace Conforyon.UX.UC
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
             this.CYB.TabIndex = 9;
-            this.CYB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.CYB.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.CYB.AutoSize = false;
+            this.CYB.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Default;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = false;
@@ -247,7 +249,9 @@ namespace Conforyon.UX.UC
             this.CTB.Size = new System.Drawing.Size(116, 36);
             this.CTB.TabIndex = 8;
             this.CTB.Text = "CONVERT";
-            this.CTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.CTB.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.CTB.AutoSize = false;
+            this.CTB.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Default;
             this.CTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CTB.UseAccentColor = false;
             this.CTB.UseVisualStyleBackColor = true;
@@ -268,7 +272,9 @@ namespace Conforyon.UX.UC
             this.TTB.Name = "TTB";
             this.TTB.Size = new System.Drawing.Size(44, 36);
             this.TTB.TabIndex = 1;
-            this.TTB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.TTB.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.TTB.AutoSize = false;
+            this.TTB.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Default;
             this.TTB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.TTB.UseAccentColor = false;
             this.TTB.UseVisualStyleBackColor = true;

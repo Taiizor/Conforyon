@@ -154,7 +154,9 @@ namespace Conforyon.UX.UC
             this.PEB.Name = "PEB";
             this.PEB.Size = new System.Drawing.Size(44, 36);
             this.PEB.TabIndex = 3;
-            this.PEB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.PEB.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.PEB.AutoSize = false;
+            this.PEB.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Default;
             this.PEB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.PEB.UseAccentColor = false;
             this.PEB.UseVisualStyleBackColor = true;
@@ -175,7 +177,9 @@ namespace Conforyon.UX.UC
             this.CYB.Name = "CYB";
             this.CYB.Size = new System.Drawing.Size(44, 36);
             this.CYB.TabIndex = 1;
-            this.CYB.TextState = ReaLTaiizor.Controls.MaterialButton.TextStateType.Normal;
+            this.CYB.CharacterCasing = ReaLTaiizor.Controls.MaterialButton.CharacterCasingEnum.Normal;
+            this.CYB.AutoSize = false;
+            this.CYB.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Default;
             this.CYB.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             this.CYB.UseAccentColor = false;
             this.CYB.UseVisualStyleBackColor = true;

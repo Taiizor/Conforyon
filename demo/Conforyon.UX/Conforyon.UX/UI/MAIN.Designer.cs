@@ -426,7 +426,7 @@
             this.UOTS.Size = new System.Drawing.Size(189, 62);
             this.UOTS.TabIndex = 0;
             this.UOTS.Text = "materialTabSelector1";
-            this.UOTS.TitleTextState = ReaLTaiizor.Controls.MaterialTabSelector.TextStateType.Normal;
+            this.UOTS.CharacterCasing = ReaLTaiizor.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
             // 
             // CENTERED
             // 

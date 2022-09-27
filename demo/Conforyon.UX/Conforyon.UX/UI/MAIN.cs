@@ -1,6 +1,7 @@
 ﻿using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System;
 using System.Drawing;
@@ -10,7 +11,7 @@ namespace Conforyon.UX.UI
 {
     public partial class MAIN : LostForm
     {
-        private readonly MaterialManager MM;
+        private readonly MaterialSkinManager MM;
         private string AT;
 
         public MAIN()
@@ -18,8 +19,8 @@ namespace Conforyon.UX.UI
             try
             {
                 InitializeComponent();
-                MM = MaterialManager.Instance;
-                MM.Theme = MaterialManager.Themes.DARK;
+                MM = MaterialSkinManager.Instance;
+                MM.Theme = MaterialSkinManager.Themes.DARK;
                 MM.EnforceBackcolorOnAllComponents = true;
                 MM.ColorScheme = new MaterialColorScheme(MaterialPrimary.Grey900, MaterialPrimary.Grey700, MaterialPrimary.Grey500, MaterialAccent.Amber400, MaterialTextShade.WHITE);
 
