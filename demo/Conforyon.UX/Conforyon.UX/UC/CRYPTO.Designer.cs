@@ -31,8 +31,8 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.CVTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.CRTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.CVTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            this.CRTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.HFN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
@@ -109,14 +109,12 @@ namespace Conforyon.UX.UC
             // CVTB
             // 
             this.CVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CVTB.Depth = 0;
             this.CVTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CVTB.Hint = "Crypto Value";
             this.CVTB.Location = new System.Drawing.Point(3, 45);
             this.CVTB.MaxLength = 5000;
             this.CVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.CVTB.Multiline = false;
             this.CVTB.Name = "CVTB";
             this.CVTB.Size = new System.Drawing.Size(300, 50);
             this.CVTB.TabIndex = 3;
@@ -125,14 +123,12 @@ namespace Conforyon.UX.UC
             // CRTB
             // 
             this.CRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CRTB.Depth = 0;
             this.CRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CRTB.Hint = "Crypto Result";
             this.CRTB.Location = new System.Drawing.Point(3, 101);
             this.CRTB.MaxLength = 5000;
             this.CRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.CRTB.Multiline = false;
             this.CRTB.Name = "CRTB";
             this.CRTB.ReadOnly = true;
             this.CRTB.Size = new System.Drawing.Size(249, 50);
@@ -329,8 +325,8 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox CVTB;
-        private ReaLTaiizor.Controls.MaterialTextBox CRTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit CVTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit CRTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification HFN;

@@ -31,8 +31,8 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.UVTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.URTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.UVTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            this.URTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.HFN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
@@ -40,7 +40,7 @@ namespace Conforyon.UX.UC
             this.CYB = new ReaLTaiizor.Controls.MaterialButton();
             this.CTB = new ReaLTaiizor.Controls.MaterialButton();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
-            this.BTTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.BTTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.SuspendLayout();
             // 
             // TACB
@@ -104,14 +104,12 @@ namespace Conforyon.UX.UC
             // UVTB
             // 
             this.UVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.UVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UVTB.Depth = 0;
             this.UVTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.UVTB.Hint = "Unicode Value";
             this.UVTB.Location = new System.Drawing.Point(3, 45);
             this.UVTB.MaxLength = 5000;
             this.UVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.UVTB.Multiline = false;
             this.UVTB.Name = "UVTB";
             this.UVTB.Size = new System.Drawing.Size(300, 50);
             this.UVTB.TabIndex = 3;
@@ -120,14 +118,12 @@ namespace Conforyon.UX.UC
             // URTB
             // 
             this.URTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.URTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.URTB.Depth = 0;
             this.URTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.URTB.Hint = "Unicode Result";
             this.URTB.Location = new System.Drawing.Point(71, 101);
             this.URTB.MaxLength = 5000;
             this.URTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.URTB.Multiline = false;
             this.URTB.Name = "URTB";
             this.URTB.ReadOnly = true;
             this.URTB.Size = new System.Drawing.Size(232, 50);
@@ -274,14 +270,12 @@ namespace Conforyon.UX.UC
             // BTTB
             // 
             this.BTTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BTTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BTTB.Depth = 0;
             this.BTTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BTTB.Hint = "Split";
             this.BTTB.Location = new System.Drawing.Point(3, 101);
             this.BTTB.MaxLength = 1;
             this.BTTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.BTTB.Multiline = false;
             this.BTTB.Name = "BTTB";
             this.BTTB.Size = new System.Drawing.Size(62, 50);
             this.BTTB.TabIndex = 4;
@@ -318,14 +312,14 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox UVTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit UVTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification HFN;
         private ReaLTaiizor.Controls.MaterialDivider HFTD;
         private ReaLTaiizor.Controls.MaterialDivider HFBD;
         private ReaLTaiizor.Controls.MaterialButton CYB;
-        private ReaLTaiizor.Controls.MaterialTextBox BTTB;
-        private ReaLTaiizor.Controls.MaterialTextBox URTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit BTTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit URTB;
     }
 }

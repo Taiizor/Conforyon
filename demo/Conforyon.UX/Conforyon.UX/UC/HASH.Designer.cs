@@ -31,8 +31,8 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.FLTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.FRTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.FLTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            this.FRTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.HFN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
@@ -106,14 +106,12 @@ namespace Conforyon.UX.UC
             // FLTB
             // 
             this.FLTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FLTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FLTB.Depth = 0;
             this.FLTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FLTB.Hint = "File Location";
             this.FLTB.Location = new System.Drawing.Point(3, 45);
             this.FLTB.MaxLength = 5000;
             this.FLTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.FLTB.Multiline = false;
             this.FLTB.Name = "FLTB";
             this.FLTB.Size = new System.Drawing.Size(249, 50);
             this.FLTB.TabIndex = 3;
@@ -122,14 +120,12 @@ namespace Conforyon.UX.UC
             // FRTB
             // 
             this.FRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.FRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FRTB.Depth = 0;
             this.FRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FRTB.Hint = "File Result";
             this.FRTB.Location = new System.Drawing.Point(3, 101);
             this.FRTB.MaxLength = 5000;
             this.FRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.FRTB.Multiline = false;
             this.FRTB.Name = "FRTB";
             this.FRTB.ReadOnly = true;
             this.FRTB.Size = new System.Drawing.Size(249, 50);
@@ -349,8 +345,8 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox FLTB;
-        private ReaLTaiizor.Controls.MaterialTextBox FRTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit FLTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit FRTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialButton OFLB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;

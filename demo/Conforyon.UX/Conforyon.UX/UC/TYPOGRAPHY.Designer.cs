@@ -31,8 +31,8 @@ namespace Conforyon.UX.UC
         {
             this.TACB = new ReaLTaiizor.Controls.MaterialComboBox();
             this.TBCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.TVTB = new ReaLTaiizor.Controls.MaterialTextBox();
-            this.TRTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.TVTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            this.TRTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.CSS = new ReaLTaiizor.Controls.MaterialSwitch();
             this.CFAN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFTD = new ReaLTaiizor.Controls.MaterialDivider();
@@ -40,9 +40,9 @@ namespace Conforyon.UX.UC
             this.CYB = new ReaLTaiizor.Controls.MaterialButton();
             this.CTB = new ReaLTaiizor.Controls.MaterialButton();
             this.TTB = new ReaLTaiizor.Controls.MaterialButton();
-            this.BTTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.BTTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.TDCB = new ReaLTaiizor.Controls.MaterialComboBox();
-            this.CFTB = new ReaLTaiizor.Controls.MaterialTextBox();
+            this.CFTB = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             this.CFBN = new ReaLTaiizor.Controls.FoxNotification();
             this.HFMD = new ReaLTaiizor.Controls.MaterialDivider();
             this.TCCB = new ReaLTaiizor.Controls.MaterialComboBox();
@@ -111,14 +111,12 @@ namespace Conforyon.UX.UC
             // TVTB
             // 
             this.TVTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TVTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TVTB.Depth = 0;
             this.TVTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TVTB.Hint = "Typography Value";
             this.TVTB.Location = new System.Drawing.Point(3, 45);
             this.TVTB.MaxLength = 15;
             this.TVTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.TVTB.Multiline = false;
             this.TVTB.Name = "TVTB";
             this.TVTB.Size = new System.Drawing.Size(172, 50);
             this.TVTB.TabIndex = 3;
@@ -129,14 +127,12 @@ namespace Conforyon.UX.UC
             // TRTB
             // 
             this.TRTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TRTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TRTB.Depth = 0;
             this.TRTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TRTB.Hint = "Typography Result";
             this.TRTB.Location = new System.Drawing.Point(99, 101);
             this.TRTB.MaxLength = 200;
             this.TRTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.TRTB.Multiline = false;
             this.TRTB.Name = "TRTB";
             this.TRTB.ReadOnly = true;
             this.TRTB.Size = new System.Drawing.Size(204, 50);
@@ -283,13 +279,11 @@ namespace Conforyon.UX.UC
             // BTTB
             // 
             this.BTTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BTTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BTTB.Depth = 0;
             this.BTTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BTTB.Location = new System.Drawing.Point(23, 160);
             this.BTTB.MaxLength = 2;
             this.BTTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.BTTB.Multiline = false;
             this.BTTB.Name = "BTTB";
             this.BTTB.Size = new System.Drawing.Size(50, 36);
             this.BTTB.TabIndex = 7;
@@ -330,14 +324,12 @@ namespace Conforyon.UX.UC
             // CFTB
             // 
             this.CFTB.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CFTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CFTB.Depth = 0;
             this.CFTB.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CFTB.Hint = "Core Formula [INCH - CM]";
             this.CFTB.Location = new System.Drawing.Point(16, 268);
             this.CFTB.MaxLength = 25;
             this.CFTB.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.CFTB.Multiline = false;
             this.CFTB.Name = "CFTB";
             this.CFTB.Size = new System.Drawing.Size(286, 50);
             this.CFTB.TabIndex = 13;
@@ -443,17 +435,17 @@ namespace Conforyon.UX.UC
         private ReaLTaiizor.Controls.MaterialComboBox TACB;
         private ReaLTaiizor.Controls.MaterialComboBox TBCB;
         private ReaLTaiizor.Controls.MaterialButton TTB;
-        private ReaLTaiizor.Controls.MaterialTextBox TVTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit TVTB;
         private ReaLTaiizor.Controls.MaterialButton CTB;
         private ReaLTaiizor.Controls.MaterialSwitch CSS;
         private ReaLTaiizor.Controls.FoxNotification CFAN;
         private ReaLTaiizor.Controls.MaterialDivider HFTD;
         private ReaLTaiizor.Controls.MaterialDivider HFBD;
         private ReaLTaiizor.Controls.MaterialButton CYB;
-        private ReaLTaiizor.Controls.MaterialTextBox BTTB;
-        private ReaLTaiizor.Controls.MaterialTextBox TRTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit BTTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit TRTB;
         private ReaLTaiizor.Controls.MaterialComboBox TDCB;
-        private ReaLTaiizor.Controls.MaterialTextBox CFTB;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit CFTB;
         private ReaLTaiizor.Controls.FoxNotification CFBN;
         private ReaLTaiizor.Controls.MaterialDivider HFMD;
         private ReaLTaiizor.Controls.MaterialComboBox TCCB;
