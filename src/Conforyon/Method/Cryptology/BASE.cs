@@ -44,7 +44,7 @@ namespace Conforyon.Cryptology
                     {
                         try
                         {
-                            int Number = SLE.Count(Base, C => (C == '='));
+                            int Number = SLE.Count(Base, C => C == '=');
 
                             string Replace = string.Empty;
 

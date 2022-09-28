@@ -21,7 +21,7 @@ using STRER = System.Text.RegularExpressions.Regex;
 //     Creator: Taiizor
 //     Website: www.Vegalya.com
 //     Created: 04.Jul.2019
-//     Changed: 19.Sep.2022
+//     Changed: 28.Sep.2022
 //     Version: 2.0.0.3
 //
 // |---------DO-NOT-REMOVE---------|

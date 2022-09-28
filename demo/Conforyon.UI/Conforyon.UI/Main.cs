@@ -1,5 +1,4 @@
-﻿using Conforyon.Board;
-using Conforyon.Color;
+﻿using Conforyon.Color;
 using Conforyon.Cryptology;
 using Conforyon.Enum;
 using Conforyon.Hash;

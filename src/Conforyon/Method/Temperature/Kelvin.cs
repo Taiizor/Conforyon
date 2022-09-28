@@ -161,7 +161,7 @@ namespace Conforyon.Temperature
             {
                 if (Kelvin.Length <= CCC.VariableLength && CC.NumberControl(Kelvin) && !Kelvin.StartsWith("0") && PostComma >= CCC.PostCommaMinimum && PostComma <= CCC.PostCommaMaximum && CC.TextControl(Kelvin))
                 {
-                    double Fahrenheit = (SC.ToDouble(Kelvin) - SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Kelvin", "Fahrenheit", Error))) * SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error)) / SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error)) + SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error));
+                    double Fahrenheit = ((SC.ToDouble(Kelvin) - SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Kelvin", "Fahrenheit", Error))) * SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Divide", Error)) / SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Multiply", Error))) + SC.ToDouble(CVV.GetValue(CEEMT.Temperature, "Fahrenheit", "Deduct", Error));
 
                     string Result = CC.ResultFormat(Fahrenheit, Decimal, Comma, PostComma, Error);
 

@@ -1,8 +1,5 @@
 ﻿#region Imports
 
-using Conforyon.Constant;
-using Conforyon.Value;
-using System;
 using CC = Conforyon.Cores;
 using CCC = Conforyon.Constant.Constants;
 using CEEMT = Conforyon.Enum.Enums.MethodType;
