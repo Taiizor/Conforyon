@@ -58,7 +58,6 @@ namespace Conforyon.Board
             {
                 SIOS Stream = new SIOMS(CVC.Audio);
 
-
                 if (Clear)
                 {
                     CVC.Audio = System.Array.Empty<byte>();

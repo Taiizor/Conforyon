@@ -423,12 +423,10 @@
             /// 
             /// </summary>
             Speed,
-#if CONFORYON
             /// <summary>
             /// 
             /// </summary>
             Error,
-#endif
             /// <summary>
             /// 
             /// </summary>
