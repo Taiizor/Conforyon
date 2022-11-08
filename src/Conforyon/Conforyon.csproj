@@ -53,7 +53,7 @@ Changes are detailed at https://github.com/Taiizor/Conforyon/releases</PackageRe
 
   <ItemGroup Condition="$(TargetFramework.StartsWith('netstandard'))">
     <PackageReference Include="System.Drawing.Common">
-      <Version>7.0.0-rc.2.22472.3</Version>
+      <Version>7.0.0</Version>
     </PackageReference>
   </ItemGroup>
 
