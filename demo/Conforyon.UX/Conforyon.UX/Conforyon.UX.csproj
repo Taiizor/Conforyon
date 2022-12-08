@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net48;netcoreapp3.1;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <TargetFrameworks>net48;net481;netcoreapp3.1;net6.0-windows;net7.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
@@ -18,25 +18,5 @@
     <PackageReference Include="ReaLTaiizor" Version="3.7.8.8" />
     <PackageReference Include="Conforyon" Version="2.0.0.3" />
     <PackageReference Include="TextCopy" Version="6.1.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="UC\COLOR.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UC\CLIPBOARD.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UC\TYPOGRAPHY.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UC\UNICODE.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UC\CRYPTO.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="UC\HASH.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
 </Project>
