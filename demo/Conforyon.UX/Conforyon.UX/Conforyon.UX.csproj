@@ -15,7 +15,7 @@
     <ApplicationIcon>Resources\ICO.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ReaLTaiizor" Version="3.7.9" />
+    <PackageReference Include="ReaLTaiizor" Version="3.7.9.1" />
     <PackageReference Include="Conforyon" Version="2.0.0.3" />
     <PackageReference Include="TextCopy" Version="6.2.1" />
   </ItemGroup>
