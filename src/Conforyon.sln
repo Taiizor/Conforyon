@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Conforyon_CR", "Conforyon_C
 		{1A34E8D3-9BAB-485F-9ADA-ABCA4703AC49} = {1A34E8D3-9BAB-485F-9ADA-ABCA4703AC49}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Çözüm Öğeleri", "Çözüm Öğeleri", "{F72F824D-1C84-44DE-96A1-0D786089DEDF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F72F824D-1C84-44DE-96A1-0D786089DEDF}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		global.json = global.json
