@@ -5,10 +5,10 @@
 ![Dot-Net-Core-Version](https://img.shields.io/badge/.NET%20Core-%3E%3D3.1-blue)
 ![Dot-Net-Version](https://img.shields.io/badge/.NET-%3E%3D6.0-blue)
 ![C-Sharp-Version](https://img.shields.io/badge/C%23-Preview-blue.svg)
-![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)
-[![NuGet-Version](https://img.shields.io/nuget/v/Conforyon.svg)](https://www.nuget.org/packages/Conforyon)
-[![FuGet-Version](https://www.fuget.org/packages/Conforyon/badge.svg)](https://www.fuget.org/packages/Conforyon)
-[![NuGet](https://img.shields.io/nuget/dt/Conforyon)](https://www.nuget.org/api/v2/package/Conforyon)
+[![IDE-Version](https://img.shields.io/badge/IDE-VS2022-blue.svg)](https://visualstudio.microsoft.com/downloads)
+[![NuGet-Version](https://img.shields.io/nuget/v/Conforyon.svg?label=NuGet)](https://www.nuget.org/packages/Conforyon)
+[![FuGet-Version](https://www.fuget.org/packages/Conforyon/badge.svg?label=FuGet)](https://www.fuget.org/packages/Conforyon)
+[![NuGet-Download](https://img.shields.io/nuget/dt/Conforyon?label=Download)](https://www.nuget.org/api/v2/package/Conforyon)
 
 [![Discord-Server](https://img.shields.io/discord/932386235538878534?label=Discord)](https://discord.gg/nxG977byXb)
 
