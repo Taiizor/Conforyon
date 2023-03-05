@@ -1,4 +1,4 @@
-# *Conforyon moved to the [Skylark](https://github.com/Taiizor/Skylark) repo*
+# *Conforyon moved to the Skylark repo*
 
 The [sources](https://github.com/Taiizor/Skylark/tree/develop/src/Skylark.Standard) and [issues](https://github.com/Taiizor/Skylark/issues?q=is%3Aopen+is%3Aissue) for Conforyon have moved to the [Skylark repo](https://github.com/Taiizor/Skylark).
 
